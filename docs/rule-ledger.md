@@ -39,7 +39,7 @@ lead diagnoses better on its own than a fixed diagnostic table does.
 | Plan-time SHA + freshness diff | plan template, gigio-execute-plan | Verification | Downstream tasks almost always reference completed work | Keep |
 | Preflight three checks, fail-open | gigio-execute-plan | Verification | A blocking start check strands resumable work | Keep |
 | Explicit single-task invocation shrinks preflight | gigio-execute-plan | Boundary (naming it = approving it) | — | Keep |
-| Completion requires all three: results entry, real change, passing check | gigio-execute-plan, plan template | Verification | Convergent across surveyed systems | Keep |
+| Completion requires all three: results entry, real change at the owned paths, check run with acceptance met | gigio-execute-plan, plan template | Verification | Convergent across surveyed systems; refined 2026-07-26 (acceptance axis, untracked outputs) | Keep |
 | Never retry same model + same prompt; cap at two | gigio-execute-plan | Verification / stop | Convergent across surveyed systems | Keep |
 | Pass the path, never restate the content | gigio-execute-plan, small-model-handoff, orchestrate-subagents | Storage (drift) | Restatement dilutes the original | Keep |
 | Worker preamble, six lines of removed authority | gigio-execute-plan | Boundary + **structural premise** | Premise: workers inherit neither skills nor rules | Revisit if a harness introduces worker inheritance |
@@ -51,6 +51,7 @@ lead diagnoses better on its own than a fixed diagnostic table does.
 | Four-step distrust procedure; five plan-comparison classes; five cause classes | gigio-review-results | Verification | Automated judges scored at or below 0.65 AUROC in the material surveyed | Keep |
 | Fresh-context review, no self-review | gigio-review-results | Verification (anchoring) | Observed judge failures under shared context | Keep |
 | **`CLAUDE.md` → `AGENTS.md` bridge as the compaction-survival path** | gigio-project-setup | **Measured workaround** | Harness docs, confirmed 2026-07-25 | **Re-verify on every harness update** |
+| Direction evidence batches at review; execution records and continues | gigio-execute-plan, gigio-review-results | Boundary | User-set policy 2026-07-26: in creative and research domains the artifact rewriting the intent is the main path, and per-finding stops would turn the approval boundary into a bottleneck | Keep; re-examine at pilot closeout against the proposal count |
 | Pack-internal references are unconditional | all skills | Storage (distribution simplicity) | The pack ships as one unit | Keep |
 
 Two rows are measured workarounds. They are the only rows expected to die.
@@ -116,3 +117,15 @@ installed" fallback line in the plan template — load-bearing for a worker that
 cannot inherit skills and consumes the plan file raw; (4) legacy fixtures
 inside migrated skills — covered by the preserve-original-strengths rule; the
 four newly authored core skills have none.
+
+**2026-07-26 — first-install refinements** (evidence from the two pilot
+installs, before any plan has run). *Fixed:* the setup audit never checked
+whether the intent layer was committed, and one real install passed the audit
+with every file uncommitted — a committed-state check was added and graded
+blocking; completion evidence assumed git-tracked files, failing any task
+whose deliverable is a gitignored artifact (a run's report, generated data) —
+evidence now names the artifact for untracked outputs; review conflated
+"unverifiable" with acceptance that names the owner's judgment as its check —
+the latter is now a separate awaiting-owner-judgment list. All three follow
+from rules already in force (trust-only-committed, acceptance axis); none
+anticipates unmeasured behavior.

@@ -88,7 +88,8 @@ skill is idempotent.
 ## Step 3 — Judge, route failures, close out
 
 A task is done only when all three hold — a worker saying so is none of them:
-its Results entry is filled, its owned files show real changes, and its check
+its Results entry is filled, its owned paths show real change (git log for
+tracked files, the named artifact itself for gitignored outputs), and its check
 ran on fresh output ("should work" is not output) with the task's acceptance
 met. Where acceptance reads "we can state which way it came out", a negative
 result meets it — the repair path below is for a check that could not run, not
@@ -102,6 +103,12 @@ a stronger model — your diagnosis, not a lookup table). A plan defect — wron
 decomposition, an oversized task, a false premise — goes back to
 `gigio-write-plan` or the user, never patched here. Two failures on the same
 task after a repair attempt: stop retrying, report.
+
+Evidence against the intent itself — play that contradicts a pillar, an
+observation that reverses the direction — is not a failure and does not stop
+the run: record it in the Run log and keep executing, unless continuing is
+certain waste. `gigio-review-results` batches these into one top-half
+amendment proposal; mid-run direction stops are reserved for certain waste.
 
 Stage end: map actually-modified files to their authors. Disjoint — costs
 nothing, move on. Overlap — resolve once and warn the next stage's dispatch.

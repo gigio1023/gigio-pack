@@ -84,5 +84,19 @@ symlinks — repository edits are invisible to agents until reinstalled.
 
 - Conventional prefixes (`feat:`, `fix:`, `docs:`), one logical change per
   commit, implementation and its checks together.
+- Every non-trivial commit carries a structured body with four labeled
+  sections, each a short bullet list of concrete facts:
+  - `Context:` — the state that made the change necessary: the incident,
+    measurement, or user decision behind it, not a restatement of the subject.
+  - `Changes:` — what changed, grouped by skill or document, precise enough
+    to navigate the diff.
+  - `Results:` — what is now true that was not before: behavior, guarantees,
+    recorded policy.
+  - `Validation:` — the commands run and what they reported, plus what was
+    deliberately not run and why. `Not run` with a reason beats silence.
+- Small mechanical commits (a typo, a link fix) may drop `Results:`;
+  `Context:` and `Validation:` stay.
+- Bodies state facts, never process narration. If a bullet would survive with
+  "various", "minor", or "improve" as its verb, it is not specific enough.
 - PRs are drafts by default with `## Summary` and `## Validation` sections in
   English (the `draft-pr` skill in this pack is the reference behavior).
