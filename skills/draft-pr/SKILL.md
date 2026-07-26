@@ -18,8 +18,8 @@ needed to trust the handoff.
 
 ## Quick Start
 
-1. Preflight Git state, `gh` authentication, publication remote, base branch,
-   and any existing PR for the current branch.
+1. Preflight Git state, `gh` authentication and authenticated user, publication
+   remote, base branch, and any existing PR for the current branch.
 2. Lock the intended diff. Preserve unrelated worktree changes and meaningful
    existing PR content.
 3. Create a topic branch when on the base branch. Fetch the selected remote and
@@ -27,10 +27,11 @@ needed to trust the handoff.
    synchronization.
 4. Commit the intended scope, run relevant checks, and push safely. Rewrite only
    a clearly user-owned topic branch and use `--force-with-lease`.
-5. Write real Markdown to a temporary file, then create a draft or update the
-   existing PR with `--body-file`.
-6. Verify the remote PR fields and report its URL, state, base/head, evidence,
-   and any remaining caveat.
+5. Write real Markdown to a temporary file, create a draft or update the
+   existing PR with `--body-file`, then assign the authenticated user by
+   default.
+6. Verify the remote PR fields and report its URL, state, base/head, assignees,
+   evidence, and any remaining caveat.
 
 Do not broaden the task into unrelated refactors, full-repository cleanup, or
 rewriting manually maintained PR content. Keep required facts, caveats, links,
@@ -47,6 +48,11 @@ and reviewer actions; trim filler.
   names, commits, PR titles, or PR bodies unless the user explicitly requests it.
 - New PRs are draft by default. Make a PR ready for review only when the user
   asks for that state.
+- Use the login returned by `gh api user` as the default assignee for new and
+  existing PRs, while preserving current assignees. An explicit user choice of
+  another assignee overrides this default. If the work context alone suggests
+  assigning someone else, ask the user before adding them; never infer another
+  person's assignment silently.
 - Write every new or rewritten PR title and body in natural English, regardless
   of the language used in the request or surrounding discussion. Preserve
   non-English text only when it is meaningful existing content, a required
@@ -76,11 +82,14 @@ Check tools and auth:
 ```bash
 gh --version
 gh auth status
+implementer_login="$(gh api user --jq '.login')"
 git rev-parse --show-toplevel
 ```
 
 If `gh` is missing or unauthenticated, stop and tell the user exactly what is
-blocked. Do not switch to a lower-confidence PR creation path silently.
+blocked. Do not switch to a lower-confidence PR creation path silently. If
+`gh api user` cannot resolve a login, leave assignees unchanged and report that
+separately from the PR publication result.
 
 Read the current state:
 ```bash
@@ -100,7 +109,7 @@ git switch -c <short-topic-name>
 Prefer an explicit user-specified base. Otherwise, if a PR exists for the branch,
 use its base:
 ```bash
-gh pr view --json number,url,title,body,baseRefName,isDraft,state
+gh pr view --json number,url,title,body,baseRefName,isDraft,state,assignees
 ```
 
 If no PR exists, use the remote default branch:
@@ -162,7 +171,7 @@ git push --force-with-lease
 Use that rewrite only for a clearly user-owned topic branch. Ask before
 rewriting a shared or ambiguous branch.
 
-### 5. Write The PR Body
+### 5. Write The PR Body And Assign The Implementer
 
 Always write the body to a temporary file first:
 ```bash
@@ -178,17 +187,31 @@ EOF
 
 Use real newlines in the file. Then pass it through `--body-file`:
 ```bash
-gh pr create --draft --base "<base-branch>" --head "$(git branch --show-current)" --title "<concise title>" --body-file "$tmp_pr_body"
+pr_ref="$(gh pr create --draft --base "<base-branch>" --head "$(git branch --show-current)" --title "<concise title>" --body-file "$tmp_pr_body")"
 ```
 
 For an existing PR:
 ```bash
-gh pr edit <number> --body-file "$tmp_pr_body"
+pr_ref="<number>"
+gh pr edit "$pr_ref" --body-file "$tmp_pr_body"
 ```
 
-Clean up after the `gh` command succeeds:
+Clean up after the PR create or update succeeds:
 ```bash
 rm -f "$tmp_pr_body"
+```
+
+After the create or update succeeds, add the authenticated user without
+removing existing assignees:
+```bash
+gh pr edit "$pr_ref" --add-assignee "$implementer_login"
+```
+
+If assignment fails, do not roll back a successfully created or updated PR.
+Report the failed assignment command and leave the verified PR result intact.
+Verify the final assignee list with:
+```bash
+gh pr view "$pr_ref" --json assignees --jq '.assignees[].login'
 ```
 
 ### 6. Body Shape
@@ -246,11 +269,12 @@ Avoid:
 
 ## Output Contract
 
-On success, report the PR URL, draft/ready state, base and head branches, and
-whether the action created or updated the PR. Also report commits/checks used as
-evidence and any meaningful content preserved from an existing PR. On failure,
-report the exact failed command or remote condition and the smallest next
-action; do not imply that a local push created a PR.
+On success, report the PR URL, draft/ready state, base and head branches,
+verified assignees, and whether the action created or updated the PR. Also
+report commits/checks used as evidence and any meaningful content preserved
+from an existing PR. On failure, report the exact failed command or remote
+condition and the smallest next action; do not imply that a local push created
+a PR.
 
 ## Gotchas
 

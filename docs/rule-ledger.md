@@ -52,6 +52,7 @@ lead diagnoses better on its own than a fixed diagnostic table does.
 | Fresh-context review, no self-review | gigio-review-results | Verification (anchoring) | Observed judge failures under shared context | Keep |
 | **`CLAUDE.md` → `AGENTS.md` bridge as the compaction-survival path** | gigio-project-setup | **Measured workaround** | Harness docs, confirmed 2026-07-25 | **Re-verify on every harness update** |
 | Direction evidence batches at review; execution records and continues | gigio-execute-plan, gigio-review-results | Boundary | User-set policy 2026-07-26: in creative and research domains the artifact rewriting the intent is the main path, and per-finding stops would turn the approval boundary into a bottleneck | Keep; re-examine at pilot closeout against the proposal count |
+| Authenticated `gh` user is the default PR assignee; another assignee requires an explicit user choice | draft-pr | Boundary | Assignment determines who owns follow-up work; repository context alone is not authority to assign another person | Keep |
 | Pack-internal references are unconditional | all skills | Storage (distribution simplicity) | The pack ships as one unit | Keep |
 
 Two rows are measured workarounds. They are the only rows expected to die.
