@@ -40,6 +40,8 @@ Planned at: commit `<short SHA>`, <YYYY-MM-DD>
                               "related:" for reference only; "found-during:"
                               for tasks discovered mid-run (no ordering) -->
 - owns-files: src/a.ts, src/b.ts
+                         <!-- run-shaped task (experiment, sweep case, batch):
+                              own the run's output directory instead -->
 - avoid-files: src/legacy-a.ts — deprecated path, v1 clients still pinned
                          <!-- optional; looks related, must not touch, reason required -->
 - delegable: yes         <!-- "no" = needs user input; the lead does it inline -->
@@ -59,7 +61,9 @@ Planned at: commit `<short SHA>`, <YYYY-MM-DD>
 ## Completion judgment (lead)
 A task is done when all three hold — not when a worker says so:
 1. Its Results entry is filled in
-2. Its owned files show real changes (git log)
+2. Its owned paths show real change — git log for tracked files; for
+   gitignored outputs (a run's report, generated data), the named artifact
+   itself
 3. Its check ran on fresh output and its acceptance holds
 
 A check that ran and came back negative — the hypothesis did not hold, the

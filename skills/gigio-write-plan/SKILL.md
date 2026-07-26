@@ -41,6 +41,10 @@ carry the weight:
   works; nothing else is added at run time.
 - **needs is blocking.** Use `related:` for reference-only links and
   `found-during:` for tasks discovered mid-run; neither affects ordering.
+- **Runs are tasks too.** For work whose unit is a run rather than an edit —
+  an experiment, a sweep case, a batch job — ownership is the run's output
+  directory. Same-stage runs need disjoint output paths; configs may differ
+  freely.
 - **avoid-files is optional, its reason is not** — files that look relevant
   but must not be touched, and why.
 - **Interfaces before parallelism.** When two or more tasks reference one

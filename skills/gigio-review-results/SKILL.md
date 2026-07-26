@@ -39,7 +39,10 @@ ask before continuing.
 
 Classify every plan item: done / partial / not done / changed /
 unverifiable. Unverifiable means the diff can neither prove nor refute it —
-confirm those items one by one, never in bulk. For anything short of done,
+confirm those items one by one, never in bulk. An item whose acceptance names
+the owner's own judgment as its check (a played build, a read draft) is not
+unverifiable: list it as **awaiting owner judgment** with its named route, and
+keep it out of every pass/fail verdict until the owner has run that route. For anything short of done,
 name the cause: deliberate scope cut / context exhaustion / misunderstood
 requirement / blocked by an unmet need / simply forgotten. Also flag
 contradictions: any task in progress or done whose needs are not closed.
@@ -57,6 +60,12 @@ Work built exactly as planned whose result still misses the goal belongs to
 none of the three lists — the plan was a wrong bet, not a botched one. Report
 it against the PROJECT.md rule the work was meant to serve and route it to the
 user; filing it as rework sends the same bet back through the loop.
+
+Direction findings batch here. Collect every intent contradiction — this
+review's own findings plus Run log entries the execution recorded — into one
+proposed top-half amendment: the exact diff, each line backed by the play or
+observation behind it. One approval covers the batch; rejected lines stay as
+they were. Do not send direction findings to the user one at a time.
 
 Route by root cause: direction problem → the user (top-half renegotiation);
 plan problem → `gigio-write-plan`; execution problem → rework via

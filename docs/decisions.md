@@ -292,6 +292,25 @@ has been used" rule.*
   the unit of work is a run and sibling runs share an output directory — change
   them from a real run, not from this entry.
 
+## Direction changes batch at the review station
+
+- **Plan:** intent contradiction discovered mid-run stops the work and routes
+  to the user — renegotiation as an exceptional event.
+- **Reality:** the two pilot installs showed that outside ordinary engineering
+  the flow reverses: the artifact rewrites the intent as the main path. One
+  pilot opened with six of its seventeen settled decisions already superseded
+  by play; the other's methodology is literally that observation selects the
+  next study. Per-finding stops would make the human-owned boundary a
+  bottleneck or teach sessions to route around it.
+- **Choice:** user-set policy. Execution records intent contradictions in the
+  Run log and keeps going unless continuing is certain waste; the review
+  station batches all direction findings into one proposed top-half amendment
+  diff, each line backed by the play or observation behind it, settled by a
+  single approval. The boundary keeps its authority; it loses its per-event
+  interruption cost.
+- **Revisit:** pilot closeout — count amendment proposals per review. If the
+  user keeps intervening mid-run anyway, the batching is theater; revisit.
+
 ---
 
 ## Still open
@@ -302,7 +321,9 @@ has been used" rule.*
 | Where to plant intent for non-repository projects | Same convention, project folder | First non-repository application |
 | Information boundary for work-context projects | Undecided | First such application |
 | Deferred concepts (three-state memory transitions, hard notepad budgets, verified-vs-reported markers) | Not adopted | If real usage shows the corresponding problem |
-| Experiment-shaped work: the unit is a run, not a file, and sweeps split by configuration rather than ownership | Plan them as ordinary tasks with a stated acceptance | First real experiment loop |
+| Experiment-shaped work beyond the basics: run manifests, seeds, quota fields, mid-sweep triage | Runs are tasks owning their output directory (adopted 2026-07-26); nothing further | First real experiment loop — one pilot's planned three-model comparator sweep is exactly this shape |
+| Decisions-digest growth in high-reversal domains: one pilot opened with 17 decision rows plus 6 supersessions on day one, and no compression or retirement rule exists | Keep appending, supersede never delete | First time loading the table becomes a burden |
+| Whether batched direction amendments actually hold — or the user keeps intervening mid-run regardless | Policy adopted (see "Direction changes batch at the review station"); count proposals per review | Pilot closeout |
 
 **Not yet piloted.** Nothing in this pack is marked done until two pilot
 projects pass. Pilots measure four things: whether parallel writing actually

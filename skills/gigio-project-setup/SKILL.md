@@ -80,18 +80,22 @@ idempotent. Two touch points:
 
 ## Step 4 — Audit path (existing installation)
 
+- Committed-state: `git status` on PROJECT.md and the wired instruction
+  files. The intent layer exists only once committed — uncommitted, it
+  evaporates outside this checkout.
 - Fossil check: compare "current position" against git log and the files.
 - Coverage: any of the six questions unanswered, or answered as aspiration
   instead of diagnosis.
-- Grade findings three ways: **blocking** (PROJECT.md missing, top half
-  edited without approval) / **degraded** (question coverage missing,
+- Grade findings three ways: **blocking** (PROJECT.md missing or uncommitted,
+  top half edited without approval) / **degraded** (question coverage missing,
   fossilized bottom half) / **advisory** (waste — report it, never block
   on it).
 
 ## Step 5 — Report and stop
 
 Say what was created or changed, and what the user should now edit by hand —
-the top half is theirs. Setup never writes plans. For the first piece of
+the top half is theirs. Ask to commit the new layer (or commit if already
+authorized): until committed it protects nothing. Setup never writes plans. For the first piece of
 sizable work, continue with `find-unknowns` (territory unclear) or
 `gigio-write-plan` (work already chosen).
 
