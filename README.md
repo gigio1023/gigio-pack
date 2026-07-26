@@ -139,8 +139,9 @@ procedure just as faithfully as a good one.
   in [docs/rule-ledger.md](docs/rule-ledger.md).
 - **Not yet piloted.** Nothing is marked done until two pilot projects pass.
   They measure whether parallel writing actually pays off, whether the plan
-  file carries enough for handoff between workers, and which steps the lead
-  demonstrably did not need.
+  file carries enough for handoff between workers, which steps the lead
+  demonstrably did not need, and what the acceptance field gets filled with
+  outside ordinary code work.
 
 ## Local development
 

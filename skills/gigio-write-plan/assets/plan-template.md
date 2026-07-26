@@ -43,9 +43,13 @@ Planned at: commit `<short SHA>`, <YYYY-MM-DD>
 - avoid-files: src/legacy-a.ts — deprecated path, v1 clients still pinned
                          <!-- optional; looks related, must not touch, reason required -->
 - delegable: yes         <!-- "no" = needs user input; the lead does it inline -->
+- acceptance: <what must be true when this is done>
+                         <!-- the axis a command may not reach: a stated
+                              finding, a judged result, a felt quality -->
 - check: pnpm test tests/a
-                         <!-- task-specific only; project-wide done criteria
-                              live in PROJECT.md, stated once -->
+                         <!-- how you verify the acceptance; task-specific only.
+                              project-wide done criteria live in PROJECT.md,
+                              stated once -->
 
 ## Stop conditions
 - Stop and report to the user when any of these holds.
@@ -56,7 +60,12 @@ Planned at: commit `<short SHA>`, <YYYY-MM-DD>
 A task is done when all three hold — not when a worker says so:
 1. Its Results entry is filled in
 2. Its owned files show real changes (git log)
-3. Its check command passes
+3. Its check ran on fresh output and its acceptance holds
+
+A check that ran and came back negative — the hypothesis did not hold, the
+measurement landed under target — satisfies 3 wherever acceptance was written
+as "we can say which way it came out". What fails 3 is a check that could not
+run, or an acceptance that is not met.
 Two consecutive failures on the same task: stop retrying, report to the user.
 
 ## Results
