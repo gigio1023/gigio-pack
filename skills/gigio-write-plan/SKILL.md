@@ -3,8 +3,8 @@ name: gigio-write-plan
 description: >
   Use when sizable work needs a written plan, or an existing plan file needs
   revision: produces one file in .plans/ with staged tasks — needs, owned
-  files, check commands — anchored to PROJECT.md judgment rules. The plan is
-  data: a solo session reads it top to bottom, a lead uses the same file to
+  files, acceptance, checks — anchored to PROJECT.md judgment rules. The plan
+  is data: a solo session reads it top to bottom, a lead uses the same file to
   dispatch parallel workers. Writes the plan, announces it, and stops — it
   never executes. NOT for executing or resuming a plan (gigio-execute-plan),
   reviewing finished work (gigio-review-results), or discovery while the work
@@ -56,8 +56,16 @@ carry the weight:
   diffs the owned files against it.
 - **Write planning sections only.** Results and Run log stay empty at plan
   time; they are filled during execution.
-- `check` holds task-specific commands only; project-wide done criteria live
-  once in PROJECT.md.
+- **`acceptance` and `check` are different axes.** Acceptance is what must be
+  true; check is how you verify it. In ordinary code work they coincide, which
+  is why they are easy to collapse — everywhere else they come apart. An
+  experiment's acceptance is "we can state whether the hypothesis held", and a
+  negative result meets it. Work judged by feel has an acceptance and no
+  command. A brief that came back from `find-unknowns` marked
+  comprehension-checked carries its acceptance in words: write those words
+  down rather than inventing a command to stand in for them. `check` holds
+  task-specific commands only; project-wide done criteria live once in
+  PROJECT.md.
 - `delegable: no` means the task needs user input or lead judgment — the
   lead handles it inline instead of dispatching it.
 
@@ -66,9 +74,9 @@ carry the weight:
 The executor reads nothing outside this file plus PROJECT.md. Anything agreed
 only in conversation and not written into the plan will not be executed.
 Fields the executor consumes: stage, needs, owns-files, avoid-files,
-delegable, check, Planned at, Stop conditions, Completion judgment, Results,
-Run log. The header's "To execute" line is the activation path after this
-session is gone — keep it intact.
+delegable, acceptance, check, Planned at, Stop conditions, Completion
+judgment, Results, Run log. The header's "To execute" line is the activation
+path after this session is gone — keep it intact.
 
 ## Step 4 — Announce and stop
 
@@ -83,7 +91,9 @@ the plan file itself is disposable.
 
 - Never leave two same-stage tasks sharing a file because they "probably
   won't conflict" — recompute the stages instead.
-- A task whose check command you cannot state is not plannable yet; that is
-  discovery (`find-unknowns` / `deep-interview`), not a planning problem.
+- A task whose acceptance you cannot state is not plannable yet; that is
+  discovery (`find-unknowns` / `deep-interview`), not a planning problem. A
+  stated acceptance with no command behind it is not that case — say how it
+  will be judged and by whom.
 - Do not densify the plan with content executors can load themselves — the
   plan carries paths, IDs, and facts, not tutorials.

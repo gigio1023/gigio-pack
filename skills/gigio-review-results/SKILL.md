@@ -53,6 +53,11 @@ inspected and the command output behind it. If that record is empty, the
 review itself failed: never issue a clean pass when the review could not
 fully run.
 
+Work built exactly as planned whose result still misses the goal belongs to
+none of the three lists — the plan was a wrong bet, not a botched one. Report
+it against the PROJECT.md rule the work was meant to serve and route it to the
+user; filing it as rework sends the same bet back through the loop.
+
 Route by root cause: direction problem → the user (top-half renegotiation);
 plan problem → `gigio-write-plan`; execution problem → rework via
 `gigio-execute-plan`. When the work is accepted: close the plan, update

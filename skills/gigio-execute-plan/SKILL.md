@@ -89,7 +89,10 @@ skill is idempotent.
 
 A task is done only when all three hold — a worker saying so is none of them:
 its Results entry is filled, its owned files show real changes, and its check
-passes on fresh output ("should work" is not output). A deviation documented
+ran on fresh output ("should work" is not output) with the task's acceptance
+met. Where acceptance reads "we can state which way it came out", a negative
+result meets it — the repair path below is for a check that could not run, not
+for a measurement that came back unwelcome. A deviation documented
 in Results is judged on content, not blocked reflexively — the prohibition is
 on undocumented divergence.
 

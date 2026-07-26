@@ -263,6 +263,35 @@ has been used" rule.*
 - **Revisit:** if the pack is ever handed to someone else, these four documents
   are what they get; check whether they are enough to make a change safely.
 
+## Acceptance separated from the check command
+
+- **Plan:** every task carries a `check` command, and a task whose check you
+  cannot state is not plannable yet.
+- **Reality:** the loop had quietly taken the shape of repository work. The four
+  core skills carry about thirty lines of test, build, and commit vocabulary and
+  none for research or open-ended work, while `find-unknowns` already classifies
+  a result as executable or comprehension-checked and had nowhere downstream to
+  send that classification. Two domains invert the rule outright. An
+  experiment's check *is* the measurement, so a negative result is the
+  deliverable rather than a defect to repair, and retrying it with a stronger
+  model is the wrong response to a hypothesis that did not hold. Work judged by
+  feel has an acceptance and no command at all. The
+  [principles](principles.md#plans-are-written-for-a-reader-with-no-memory) page
+  had already required acceptance and verification as separate axes; the plan
+  template had collapsed them into one field.
+- **Choice:** add `acceptance` to the task fields and keep `check` as
+  verification only. Treat a check that ran with its acceptance met as done even
+  when the result is negative. Classify work built as planned whose result still
+  misses the goal as a direction finding rather than one of the review's three
+  lists. No new skill — a fourteenth name costs more than the fit it buys while
+  none of this has been measured.
+- **Revisit:** at the pilots, one of which should be non-engineering so the
+  experiment case is measured rather than argued. Deliberately left untouched:
+  completion still requires changed owned files under git, and file ownership is
+  still the only parallel split. Both are wrong for a configuration sweep, where
+  the unit of work is a run and sibling runs share an output directory — change
+  them from a real run, not from this entry.
+
 ---
 
 ## Still open
@@ -273,9 +302,11 @@ has been used" rule.*
 | Where to plant intent for non-repository projects | Same convention, project folder | First non-repository application |
 | Information boundary for work-context projects | Undecided | First such application |
 | Deferred concepts (three-state memory transitions, hard notepad budgets, verified-vs-reported markers) | Not adopted | If real usage shows the corresponding problem |
+| Experiment-shaped work: the unit is a run, not a file, and sweeps split by configuration rather than ownership | Plan them as ordinary tasks with a stated acceptance | First real experiment loop |
 
 **Not yet piloted.** Nothing in this pack is marked done until two pilot
-projects pass. Pilots measure three things: whether parallel writing actually
-pays off, whether the plan file carries enough for handoff between workers, and
-which steps the lead demonstrably did not need — the last being a removal list,
-not a success list.
+projects pass. Pilots measure four things: whether parallel writing actually
+pays off, whether the plan file carries enough for handoff between workers,
+which steps the lead demonstrably did not need — a removal list, not a success
+list — and what the acceptance field actually gets filled with outside ordinary
+code work.
