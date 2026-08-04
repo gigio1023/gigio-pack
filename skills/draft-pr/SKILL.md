@@ -53,203 +53,51 @@ and reviewer actions; trim filler.
   another assignee overrides this default. If the work context alone suggests
   assigning someone else, ask the user before adding them; never infer another
   person's assignment silently.
-- Write every new or rewritten PR title and body in natural English, regardless
-  of the language used in the request or surrounding discussion. Preserve
-  non-English text only when it is meaningful existing content, a required
-  quotation, or a repository-specific identifier.
+- Write every new or rewritten PR title and body in concise, plain English,
+  regardless of the language used in the request or surrounding discussion.
+  Preserve non-English text only when it is meaningful existing content, a
+  required quotation, or a repository-specific identifier.
 - A request to write PR copy does not authorize branch, push, or GitHub
   mutations. Enter this workflow only when publication intent is explicit.
 - Prefer repository conventions over invented ones. If the repo has a PR
-  template, read it and satisfy required sections without copying placeholders.
-- Keep only context that changes how a reviewer understands, verifies, or acts
-  on the PR. Omit process narration, obvious restatements of the diff, generic
-  background, and sections with no useful content.
-- Write the body as natural prose under a small number of descriptive headings.
-  A headerless body is usually too unstructured, while many narrowly scoped
-  sections make a short PR feel mechanical. Use two sections by default and a
-  third only when it gives reviewers distinct, useful context. Do not insert
-  manual line breaks merely to satisfy a line-length convention.
+  template, read it, preserve its required headings and checklists, and remove
+  unfilled placeholders. Do not append the fallback body shape to a repository
+  template.
+- Write for a reviewer encountering the work for the first time. Introduce the
+  problem, affected behavior, and relevant constraints without referring to
+  the current chat, earlier discussion, or private shorthand. Keep only context
+  that changes how the reviewer understands, verifies, or acts on the PR.
+- Keep the PR focused on one outcome. If no specific title can describe the
+  whole diff in one sentence, report the scope mismatch instead of hiding it
+  behind a generic title or long body.
+- Make the body scan-first. Omit process narration, obvious diff restatements,
+  generic background, and empty sections. Do not turn the body into a long
+  narrative or insert manual line breaks for line length.
 - Preserve meaningful existing PR body content such as screenshots, links,
   issue references, release notes, or reviewer context. Do not overwrite an
   existing PR title unless the user asked to rewrite it or it is clearly a
   generated placeholder.
 
-## Detailed Workflow
+## Publication Workflow
 
-### 1. Preflight
+Before any Git or GitHub mutation, read and follow
+[references/publish-workflow.md](references/publish-workflow.md). It contains
+the exact preflight, synchronization, body-file, assignment, and verification
+path. Keep the quick path above as the completion checklist.
 
-Check tools and auth:
-```bash
-gh --version
-gh auth status
-implementer_login="$(gh api user --jq '.login')"
-git rev-parse --show-toplevel
-```
+## Shape And Recheck The Body
 
-If `gh` is missing or unauthenticated, stop and tell the user exactly what is
-blocked. Do not switch to a lower-confidence PR creation path silently. If
-`gh api user` cannot resolve a login, leave assignees unchanged and report that
-separately from the PR publication result.
+Read [references/pr-body-guidance.md](references/pr-body-guidance.md) before
+writing a new body or substantially rewriting one. A repository template wins.
+Without one, default to `## Context` and `## Changes`; add `## Validation` only
+for manual results CI cannot prove or a material CI caveat. Add other sections
+only when their trigger in the reference applies.
 
-Read the current state:
-```bash
-git status -sb
-git branch --show-current
-git remote -v
-```
-
-If on `main`, `master`, or the remote default branch, create a descriptive
-branch without an agent prefix:
-```bash
-git switch -c <short-topic-name>
-```
-
-### 2. Determine Base And Existing PR
-
-Prefer an explicit user-specified base. Otherwise, if a PR exists for the branch,
-use its base:
-```bash
-gh pr view --json number,url,title,body,baseRefName,isDraft,state,assignees
-```
-
-If no PR exists, use the remote default branch:
-```bash
-gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name'
-```
-
-### 3. Fetch and Rebase When Needed
-
-Fetch the selected publication remote before comparing or publishing:
-```bash
-git fetch <remote>
-```
-
-If the branch is behind the base, the PR reports merge conflicts, or the user
-asks to resolve conflicts, prefer:
-```bash
-git rebase <remote>/<base-branch>
-```
-
-Handle conflicts in the rebase. Resolve files intentionally, run focused checks
-where available, then continue:
-```bash
-git status -sb
-git add <resolved-files>
-git rebase --continue
-```
-
-Abort the rebase only if the conflict cannot be resolved safely from local
-context or the resolution would require product judgment the user has not given:
-```bash
-git rebase --abort
-```
-
-Do not use merge commits for branch sync unless the repository clearly requires
-merge-based history or the user explicitly asks for merge.
-
-### 4. Commit And Push
-
-Inspect the diff and commit only the intended scope:
-```bash
-git diff --stat
-git diff
-```
-
-When the worktree contains unrelated changes, stage explicit paths. Use
-`git add -A` only when the entire worktree belongs to the PR.
-
-Push the branch:
-```bash
-git push -u <remote> HEAD
-```
-
-After a rebase of an already-pushed branch:
-```bash
-git push --force-with-lease
-```
-
-Use that rewrite only for a clearly user-owned topic branch. Ask before
-rewriting a shared or ambiguous branch.
-
-### 5. Write The PR Body And Assign The Implementer
-
-Always write the body to a temporary file first:
-```bash
-tmp_pr_body="$(mktemp -t draft-pr-body.XXXXXX.md)"
-cat > "$tmp_pr_body" <<'EOF'
-## Summary
-...
-
-## Validation
-...
-EOF
-```
-
-Use real newlines in the file. Then pass it through `--body-file`:
-```bash
-pr_ref="$(gh pr create --draft --base "<base-branch>" --head "$(git branch --show-current)" --title "<concise title>" --body-file "$tmp_pr_body")"
-```
-
-For an existing PR:
-```bash
-pr_ref="<number>"
-gh pr edit "$pr_ref" --body-file "$tmp_pr_body"
-```
-
-Clean up after the PR create or update succeeds:
-```bash
-rm -f "$tmp_pr_body"
-```
-
-After the create or update succeeds, add the authenticated user without
-removing existing assignees:
-```bash
-gh pr edit "$pr_ref" --add-assignee "$implementer_login"
-```
-
-If assignment fails, do not roll back a successfully created or updated PR.
-Report the failed assignment command and leave the verified PR result intact.
-Verify the final assignee list with:
-```bash
-gh pr view "$pr_ref" --json assignees --jq '.assignees[].login'
-```
-
-### 6. Body Shape
-
-When no repository template exists, use two sections by default:
-
-- `## Summary`: explain the problem or motivation, the approach taken, and the
-  resulting behavior or reviewer-visible impact in one to three natural
-  paragraphs. Give enough context to understand the change without reading the
-  diff, but leave out implementation details the diff already communicates.
-- `## Validation`: report the tests or manual checks that provide meaningful
-  evidence. If nothing was run, state `Not run` and give the short, relevant
-  reason.
-
-Add one optional section such as `## Review Notes`, `## Screenshots`, or
-`## Migration` only when that subject materially helps review. More than three
-sections should come from a repository template or the genuine complexity of
-the change, not a desire to make the body look comprehensive.
-
-For example:
-
-```markdown
-## Summary
-
-The draft PR guidance currently allows bodies with no headings, which can make even useful context difficult to scan. This change establishes a balanced default: a substantive summary and focused validation evidence, with one additional section only when reviewers need separate context such as migration notes or screenshots.
-
-The existing English-only, relevance, and natural-writing rules remain in place. The body should be structured without turning each detail into its own section, and paragraphs should flow naturally without manual line wrapping.
-
-## Validation
-
-- Ran the skill validator successfully.
-- Confirmed the fallback example uses two sections and keeps optional context conditional.
-```
-
-Do not add empty review notes, split closely related ideas across multiple
-headings, repeat the diff as an implementation inventory, or include
-meta-commentary about how the PR was prepared. Structure should make meaningful
-content easier to scan; it should not manufacture content to fill a template.
+Link issues and design records without making them prerequisites for
+understanding the PR. Keep enough context in the body for future readers whose
+access or memory differs from the author's. Immediately before publication,
+compare the title and body with the final diff and update descriptions that no
+longer match the branch.
 
 ## Title Style
 

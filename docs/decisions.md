@@ -311,6 +311,25 @@ has been used" rule.*
 - **Revisit:** pilot closeout — count amendment proposals per review. If the
   user keeps intervening mid-run anyway, the batching is theater; revisit.
 
+## PR bodies optimized for first-time readers
+
+- **Plan:** use a prose-led `Summary` followed by `Validation`, with local
+  checks listed directly in the body.
+- **Reality:** PRs produced from active sessions assumed context that reviewers
+  did not share, grew into long narratives, and repeated command lists or test
+  output already represented by CI. The extra validation text did not help a
+  reviewer decide whether the change was sound.
+- **Choice:** repository templates remain authoritative. Without one, use
+  `Context` and `Changes` as the two-section fallback. Add `Validation` only
+  for manual results CI cannot prove or a material CI caveat; keep live CI
+  status in the checks interface and collapse long supporting details. Add
+  reviewer notes, user impact, migration, rollout, performance, or screenshots
+  only when the change triggers them. The body must stand alone for a reader
+  without the authoring session.
+- **Revisit:** if reviewers repeatedly need another field across unrelated
+  repositories, consider it for the fallback. Keep project policy in repository
+  templates rather than growing the shared default.
+
 ---
 
 ## Still open

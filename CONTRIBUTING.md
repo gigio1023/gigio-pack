@@ -98,5 +98,7 @@ symlinks — repository edits are invisible to agents until reinstalled.
   `Context:` and `Validation:` stay.
 - Bodies state facts, never process narration. If a bullet would survive with
   "various", "minor", or "improve" as its verb, it is not specific enough.
-- PRs are drafts by default with `## Summary` and `## Validation` sections in
-  English (the `draft-pr` skill in this pack is the reference behavior).
+- PRs are drafts by default and use concise English. The repository template
+  wins; without one, use `## Context` and `## Changes`. Add `## Validation`
+  only for results CI cannot prove or a material CI caveat, and collapse long
+  supporting details (the `draft-pr` skill in this pack is the reference).
