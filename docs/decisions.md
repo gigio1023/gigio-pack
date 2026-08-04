@@ -311,6 +311,21 @@ has been used" rule.*
 - **Revisit:** pilot closeout — count amendment proposals per review. If the
   user keeps intervening mid-run anyway, the batching is theater; revisit.
 
+## PR bodies optimized for first-time readers
+
+- **Plan:** use a prose-led `Summary` followed by `Validation`, with local
+  checks listed directly in the body.
+- **Reality:** PRs produced from active sessions assumed context that reviewers
+  did not share, grew into long narratives, and repeated command lists or test
+  output already represented by CI. The extra validation text did not help a
+  reviewer decide whether the change was sound.
+- **Choice:** use `Why`, `What changed`, and `Validation` as the default shape.
+  Require standalone context and concise English, make changes scan-friendly,
+  treat CI as the primary automated test record, and collapse lengthy local
+  details while keeping the outcome visible.
+- **Revisit:** if reviewers repeatedly need reproducible local steps that CI
+  cannot express, add only those steps to the visible validation summary.
+
 ---
 
 ## Still open

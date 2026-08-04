@@ -53,22 +53,22 @@ and reviewer actions; trim filler.
   another assignee overrides this default. If the work context alone suggests
   assigning someone else, ask the user before adding them; never infer another
   person's assignment silently.
-- Write every new or rewritten PR title and body in natural English, regardless
-  of the language used in the request or surrounding discussion. Preserve
-  non-English text only when it is meaningful existing content, a required
-  quotation, or a repository-specific identifier.
+- Write every new or rewritten PR title and body in concise, plain English,
+  regardless of the language used in the request or surrounding discussion.
+  Preserve non-English text only when it is meaningful existing content, a
+  required quotation, or a repository-specific identifier.
 - A request to write PR copy does not authorize branch, push, or GitHub
   mutations. Enter this workflow only when publication intent is explicit.
 - Prefer repository conventions over invented ones. If the repo has a PR
   template, read it and satisfy required sections without copying placeholders.
-- Keep only context that changes how a reviewer understands, verifies, or acts
-  on the PR. Omit process narration, obvious restatements of the diff, generic
-  background, and sections with no useful content.
-- Write the body as natural prose under a small number of descriptive headings.
-  A headerless body is usually too unstructured, while many narrowly scoped
-  sections make a short PR feel mechanical. Use two sections by default and a
-  third only when it gives reviewers distinct, useful context. Do not insert
-  manual line breaks merely to satisfy a line-length convention.
+- Write for a reviewer encountering the work for the first time. Introduce the
+  problem, affected behavior, and relevant constraints without referring to
+  the current chat, earlier discussion, or private shorthand. Keep only context
+  that changes how the reviewer understands, verifies, or acts on the PR.
+- Make the body scan-first: one short context paragraph, grouped change bullets,
+  and a compact validation result. Omit process narration, obvious diff
+  restatements, generic background, and empty sections. Do not turn the body
+  into a long narrative or insert manual line breaks for line length.
 - Preserve meaningful existing PR body content such as screenshots, links,
   issue references, release notes, or reviewer context. Do not overwrite an
   existing PR title unless the user asked to rewrite it or it is clearly a
@@ -177,7 +177,10 @@ Always write the body to a temporary file first:
 ```bash
 tmp_pr_body="$(mktemp -t draft-pr-body.XXXXXX.md)"
 cat > "$tmp_pr_body" <<'EOF'
-## Summary
+## Why
+...
+
+## What changed
 ...
 
 ## Validation
@@ -216,40 +219,58 @@ gh pr view "$pr_ref" --json assignees --jq '.assignees[].login'
 
 ### 6. Body Shape
 
-When no repository template exists, use two sections by default:
+When no repository template exists, use three sections:
 
-- `## Summary`: explain the problem or motivation, the approach taken, and the
-  resulting behavior or reviewer-visible impact in one to three natural
-  paragraphs. Give enough context to understand the change without reading the
-  diff, but leave out implementation details the diff already communicates.
-- `## Validation`: report the tests or manual checks that provide meaningful
-  evidence. If nothing was run, state `Not run` and give the short, relevant
-  reason.
+- `## Why`: one short paragraph that explains the existing problem, who or what
+  it affects, and why the change belongs now. Supply the missing background a
+  first-time reader needs; do not recount the work session.
+- `## What changed`: two to five bullets grouped by reviewer-visible behavior or
+  decisions. State outcomes and important boundaries, not a file-by-file diff.
+- `## Validation`: keep the visible result to one or two lines. Point reviewers
+  to repository CI when it exists instead of copying its job matrix, commands,
+  or status snapshot into the body. Mention focused local or manual checks only
+  when they cover something CI does not. If no CI is configured, say so and
+  summarize the relevant local result. If nothing was run, state `Not run:`
+  followed by the short reason.
 
-Add one optional section such as `## Review Notes`, `## Screenshots`, or
-`## Migration` only when that subject materially helps review. More than three
-sections should come from a repository template or the genuine complexity of
-the change, not a desire to make the body look comprehensive.
+Put command lists, check matrices, or logs in a `<details>` block under the
+visible result. Omit successful command output even there. Include logs only
+when they explain a failure, a flaky result, or a reviewer decision.
+
+Add an optional section such as `## Review notes`, `## Screenshots`, or
+`## Migration` only when that subject materially helps review. Repository
+templates may require a different structure; keep their required sections while
+applying the same reader-first and validation-compression rules.
 
 For example:
 
 ```markdown
-## Summary
+## Why
 
-The draft PR guidance currently allows bodies with no headings, which can make even useful context difficult to scan. This change establishes a balanced default: a substantive summary and focused validation evidence, with one additional section only when reviewers need separate context such as migration notes or screenshots.
+PR descriptions produced from an active work session can assume context that reviewers do not have. They also tend to bury the reason for a change in long prose and repeat automated checks that GitHub already reports.
 
-The existing English-only, relevance, and natural-writing rules remain in place. The body should be structured without turning each detail into its own section, and paragraphs should flow naturally without manual line wrapping.
+## What changed
+
+- Make each PR description understandable without the authoring conversation.
+- Separate motivation from reviewer-visible changes with a compact default structure.
+- Keep CI as the primary automated test record and collapse lengthy local details.
 
 ## Validation
 
-- Ran the skill validator successfully.
-- Confirmed the fallback example uses two sections and keeps optional context conditional.
+Automated checks run in CI; the skill package also passes local discovery.
+
+<details>
+<summary>Local validation details</summary>
+
+- `npx --yes skills add . --list --full-depth`: reported 13 skills.
+
+</details>
 ```
 
-Do not add empty review notes, split closely related ideas across multiple
-headings, repeat the diff as an implementation inventory, or include
-meta-commentary about how the PR was prepared. Structure should make meaningful
-content easier to scan; it should not manufacture content to fill a template.
+Do not add empty review notes, split closely related ideas across many headings,
+repeat the diff as an implementation inventory, or include meta-commentary
+about how the PR was prepared. Structure should expose useful content, not
+manufacture it to fill a template.
 
 ## Title Style
 
