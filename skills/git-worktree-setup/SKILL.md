@@ -20,8 +20,9 @@ worktree that the user or harness already manages.
    the submodule exception below. Reuse it when it is.
 3. If isolation is not already present, create it only when the user has asked
    for a worktree or consents to one.
-4. Prefer the harness's native worktree capability. Fall back to `git worktree`
-   only when no native capability exists.
+4. Honor an explicit creation mechanism or directory policy. Otherwise create
+   a Git worktree under the repository's `.worktrees/` directory. Use native
+   creation when the user asks for harness-managed lifecycle behavior.
 5. Run repository-defined setup and the smallest meaningful baseline check.
 6. Report the path, branch state, creation mechanism, and validation evidence.
 
@@ -46,20 +47,31 @@ that checkout as a normal repository for this decision.
 
 ## Choose the Creation Mechanism
 
-Use an available native worktree capability first. Native creation lets the
-harness track directory placement, branch state, and later cleanup. Once it
-succeeds, continue setup inside the workspace it returns.
+An explicit user or repository choice between harness-native creation and
+`git worktree` wins. Choose native creation when the requested result depends
+on harness-managed placement, handoff, restoration, or cleanup. Continue setup
+inside the workspace it returns and treat that workspace as externally managed.
 
-Use the Git fallback only when the runtime has no native worktree capability:
+Without an explicit mechanism, use `git worktree` and keep its directory inside
+the repository. Git creation does not by itself prevent a named branch from
+being discovered by ordinary Git and PR tooling. It may not gain harness-only
+lifecycle controls.
+
+For Git creation:
 
 1. Choose a base revision and branch name from the user's request and repository
    conventions. Do not invent a remote update, rebase, or branch rewrite.
-2. Prefer an explicit directory policy, then an existing `.worktrees/` or
-   `worktrees/` directory. Otherwise use `.worktrees/` at the repository root.
+2. Prefer an explicit project-local directory policy, then an existing
+   `.worktrees/` or `worktrees/` directory. Otherwise use `.worktrees/` at the
+   repository root. Keep every generated path beneath that directory. Do not
+   choose a sibling, home-directory, or global location unless the user or
+   repository explicitly names it.
 3. Before using a project-local directory, check the exact path with
-   `git check-ignore`. If it is not ignored, use a local exclude rule or another
-   untracked location unless the requested change authorizes editing
-   `.gitignore`. Never create a commit merely to ignore the worktree directory.
+   `git check-ignore`. If it is not ignored, add the exact directory to the
+   repository's local Git exclude file. Do not edit `.gitignore` or relocate
+   the worktree outside the repository merely to keep it untracked. If local
+   exclusion is unavailable, report the blocker instead of choosing a new
+   location. Never create a commit merely to ignore the worktree directory.
 4. Check `git worktree list --porcelain` and branch refs before creation. Reuse
    an existing matching worktree; never force, delete, or overwrite one.
 5. Create a new branch with:
@@ -94,6 +106,8 @@ when proceeding would make attribution unsafe or require broader changes.
   edits, dependency upgrades, or cleanup.
 - Treat a native, detached-HEAD, or otherwise externally created worktree as
   externally managed. Do not remove it during this workflow.
+- Treat a Git worktree created by this workflow as workflow-owned, but do not
+  remove it unless a later request explicitly authorizes cleanup.
 - Preserve unrelated dirty state. If it prevents a safe base selection, report
   the conflict instead of moving or stashing someone else's changes.
 
@@ -114,8 +128,9 @@ success is reported separately and must not be implied when checks were skipped.
 ## Gotchas
 
 - `git_dir != git_common` also occurs in submodules; keep the superproject guard.
-- Manual `git worktree add` can create state invisible to a harness that offers
-  native worktree management.
+- PR discovery depends on the branch, remote, and PR provider, not on who
+  created the worktree. Harness-managed cleanup and handoff can still require
+  native creation.
 - A branch already checked out in another worktree cannot be checked out again.
 - Dependency setup may modify lockfiles or generated files; inspect status after
   setup and report unexpected changes.

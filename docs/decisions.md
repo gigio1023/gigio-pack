@@ -311,6 +311,24 @@ has been used" rule.*
 - **Revisit:** pilot closeout — count amendment proposals per review. If the
   user keeps intervening mid-run anyway, the batching is theater; revisit.
 
+## Git-created worktrees stay inside the repository
+
+- **Plan:** prefer a harness's native worktree feature whenever it exists and
+  send manual Git worktrees to another untracked location when the repository's
+  local directory is not already ignored.
+- **Reality:** the fallback permitted sibling directories such as
+  `<repository>-worktree`, which scattered workspaces across the parent folder.
+  A named branch created with Git remains usable by ordinary GitHub PR discovery;
+  native creation mainly adds harness-owned placement and lifecycle behavior.
+- **Choice:** explicit mechanism and directory preferences win. With no stated
+  preference, create a Git worktree under the repository's `.worktrees/`
+  directory and use the local Git exclude file when needed. Never leave the
+  repository merely to avoid a tracked ignore edit. Choose native creation when
+  the user asks for its handoff, restoration, or cleanup behavior.
+- **Revisit:** if either primary harness makes manually linked worktrees unable
+  to expose ordinary branch and PR state, record the observed version and move
+  only that behavior into a dated harness-specific rule.
+
 ---
 
 ## Still open
