@@ -319,12 +319,16 @@ has been used" rule.*
   did not share, grew into long narratives, and repeated command lists or test
   output already represented by CI. The extra validation text did not help a
   reviewer decide whether the change was sound.
-- **Choice:** use `Why`, `What changed`, and `Validation` as the default shape.
-  Require standalone context and concise English, make changes scan-friendly,
-  treat CI as the primary automated test record, and collapse lengthy local
-  details while keeping the outcome visible.
-- **Revisit:** if reviewers repeatedly need reproducible local steps that CI
-  cannot express, add only those steps to the visible validation summary.
+- **Choice:** repository templates remain authoritative. Without one, use
+  `Context` and `Changes` as the two-section fallback. Add `Validation` only
+  for manual results CI cannot prove or a material CI caveat; keep live CI
+  status in the checks interface and collapse long supporting details. Add
+  reviewer notes, user impact, migration, rollout, performance, or screenshots
+  only when the change triggers them. The body must stand alone for a reader
+  without the authoring session.
+- **Revisit:** if reviewers repeatedly need another field across unrelated
+  repositories, consider it for the fallback. Keep project policy in repository
+  templates rather than growing the shared default.
 
 ---
 
