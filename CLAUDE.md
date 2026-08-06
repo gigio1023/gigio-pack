@@ -43,12 +43,19 @@
 - **커밋은 사용자가 요청할 때만.** PR은 draft로 올리고 간결한 영문으로 쓴다.
   저장소 템플릿이 우선이다. 템플릿이 없으면 `Context`, `Changes` 두 절을 쓴다.
   CI가 증명하지 못한 결과나 CI의 중대한 예외가 있을 때만 `Validation`을 더한다.
-- **description의 트리거는 요청이지 상황이 아니다.** 스킬은 사용자가 이름을
-  부르거나, 스킬이 하는 일을 요청하거나, 이미 시작된 실행 중에 다른 팩 스킬이
-  이름으로 호출할 때만 열린다. 작업 규모·낯선 도메인·스펙 부재·세션 길이·디스크의
-  파일은 트리거가 아니다. 각 description은 `Use only when …`으로 열고, 그 스킬이
-  일으킬 법한 오발동을 한 문장으로 닫는다. 근거는 `docs/principles.md`의
-  "Invocation belongs to the user".
+- **쓰거나 돈이 나가는 스킬은 트리거가 요청이어야 한다.** 판단 기준은 부르지도
+  않았는데 열렸을 때 무엇이 남는가다. 디스크의 파일, 브랜치, 팬아웃, 모델 교체,
+  저장소 재수집이면 게이트를 건다. 해당 스킬 8개(코어 4 + `session-handoff` +
+  `orchestrate-subagents`/`small-model-handoff`/`fable5-model-routing`)의
+  description은 `Use only when …`으로 열고, 요청 형태를 나열하고, 그 스킬이
+  일으킬 법한 오발동을 한 문장으로 닫는다. 작업 규모, 낯선 도메인, 스펙 부재,
+  세션 길이, 디스크의 계획 파일은 트리거가 아니다.
+- **나머지 5개는 상시로 둔다.** `deep-interview`/`commit-and-push`/`draft-pr`/
+  `git-worktree-setup`은 이미 요청을 서술하고 있어 하네스가 매칭하는 것 자체가
+  사용자 요청이다. `find-unknowns`는 의도한 예외이며 상황 트리거가 허용되는
+  유일한 스킬이다. 오발동해도 넘기면 그만인 문단 하나이고, 사용자가 물어볼 줄
+  모를 때 먼저 닿는 것이 존재 이유다. 근거는 `docs/principles.md`의
+  "What may open on its own".
 - 검증: `npx skills add . --list --full-depth` 가 정확히 13개를 보고해야 한다.
 
 ## 팩 구성과 이름 체계

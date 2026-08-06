@@ -359,6 +359,31 @@ has been used" rule.*
   never restore situational triggers, and never add an always-on instruction
   that recreates them from outside the pack.
 
+## Invocation gate narrowed from thirteen skills to eight
+
+- **Plan:** state the gate in all 13 descriptions, on the reasoning that
+  deciding a procedure runs is the user's call in every case.
+- **Reality:** applied to all 13 it was too wide. Five skills cost nothing when
+  they open uninvited. Four of them — `deep-interview`, `commit-and-push`,
+  `draft-pr`, `git-worktree-setup` — already described a request rather than a
+  situation, so a harness matching the description was already the user asking,
+  and the added gate text bought nothing. The fifth, `find-unknowns`, was the
+  real error: gating it removed the one case where an unrequested pass is worth
+  more than it costs, since it exists to fire before the user knows to ask and
+  its worst misfire is a paragraph that can be skipped. The complaint that
+  started this had never been about that skill.
+- **Choice:** restore the five descriptions to their pre-gate text and keep the
+  gate on the eight whose misfire lands on disk or on the bill — the four core
+  skills, `session-handoff`, and the three that change who executes the work
+  (`orchestrate-subagents`, `small-model-handoff`, `fable5-model-routing`). The
+  deciding question is not who owns the decision but what an unwanted opening
+  costs. `find-unknowns` is recorded as an explicit exception, the only skill
+  here allowed a situational trigger.
+- **Revisit:** if `find-unknowns` starts opening on conversations that only
+  wanted an answer, narrow its situations rather than gating it, and check the
+  always-on instruction layer outside this pack first — an `AGENTS.md`
+  paragraph mandating the same behavior outranks any description.
+
 ---
 
 ## Still open
