@@ -39,8 +39,10 @@ this pack is small on purpose — it holds the loop, and nothing else.
 | The work is not code | A design call, a playtest, a research run has no shape the task list accepts | `acceptance` and `check` are separate axes — acceptance can be a judged result or a stated finding, and a task's unit can be a run instead of a file |
 | The session that built it also reviews it | The reviewer defends its own plan | Review runs in fresh context off the disk — diffs, files, re-run checks — not off the executor's report |
 
-Three rules keep the machinery thin:
+Four rules keep the machinery thin:
 
+- **Nothing opens unless you open it.** No skill here activates because the
+  model judged that the work fits it.
 - **Everything is markdown a person can read and correct.** No daemons, hooks,
   watchdogs, or runtime state files.
 - **Numbered steps only where order is part of correctness** — a prerequisite
@@ -64,18 +66,25 @@ flowchart LR
   R -.uses.-> W["git-worktree-setup<br/>orchestrate-subagents<br/>small-model-handoff<br/>fable5-model-routing"]
 ```
 
-Each station hands off by name. Planning writes the file and stops; execution
-records what it learns and keeps going instead of stopping to renegotiate;
-review starts from the disk, in a session that built nothing. The purpose and
-the outcome are in the name — `gigio-write-plan` writes a plan,
+Each station names the next one and stops there — the arrows are what to say
+next, not a chain that advances by itself. Planning writes the file and stops;
+execution records what it learns and keeps going instead of stopping to
+renegotiate; review starts from the disk, in a session that built nothing. The
+one exception to naming-and-stopping is a run already underway:
+`gigio-execute-plan` calls `git-worktree-setup`, `small-model-handoff`, and
+`commit-and-push` itself.
+
+The purpose and the outcome are in the name — `gigio-write-plan` writes a plan,
 `gigio-execute-plan` executes one, `session-handoff` hands a session to the
 next one, `small-model-handoff` hands bounded work to a weaker model.
 
 ## Skill catalog
 
-Four core skills own the durable files and the boundaries between stations. The
-other nine are called by them, or invoked directly when you need only that one
-thing.
+Four core skills own the durable files and the boundaries between stations. Of
+the other nine, three are name-called by a core skill during a run you started;
+every one of the thirteen can also be invoked directly when you need only that
+one thing. None of them open on their own — see
+[Invocation](#nothing-here-starts-on-its-own).
 
 ### Core loop
 
@@ -192,7 +201,8 @@ The pack covers the loop and stops there:
   and the loop is where they get applied.
 - **Also out:** anything that is not a markdown file a person can read. No
   background processes, no generated state, no framework that has to be running
-  for the skills to work.
+  for the skills to work — and no skill that decides for itself that a
+  conversation needs it.
 
 Craft work still happens during a run; it just uses whichever craft skills the
 session has installed, rather than skills this pack ships.
