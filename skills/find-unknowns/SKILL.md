@@ -1,18 +1,17 @@
 ---
 name: find-unknowns
 description: >
-  Use only when the user asks for the pass by name or by product —
-  find-unknowns, an unknowns pass, a blind spot pass, a blindspot brief, an
-  option map, throwaway variants, a mini-interview, a reference request, or a
-  launch brief. Surfaces unknowns with the single cheapest technique,
-  compresses what was learned into a launch brief, and, when the user cannot
-  test the result directly, checks their understanding with an explainer and
-  quiz before the result is adopted. NOT for well-specified or small tasks,
-  multi-round Socratic discovery (use deep-interview), final decision synthesis
-  (use fable5-model-routing), or packaging session state (use
-  session-handoff). Never activate from the shape of the request: a new
-  project, an unfamiliar domain, a research direction, a career or money
-  decision, or a missing spec is not a trigger. Answer those in chat.
+  Use when the user starts substantial work in territory they don't know well —
+  a new project, research direction, investment or money-management strategy,
+  career or life plan, product or game idea, or an unfamiliar part of a
+  codebase — with no spec, plan, or reference yet; or when they ask for an
+  unknowns pass, blind spot pass, option map, throwaway variants, or a launch
+  brief. Surfaces unknowns with the single cheapest technique, compresses what
+  was learned into a launch brief, and, when the user cannot test the result
+  directly, checks their understanding with an explainer and quiz before the
+  result is adopted. NOT for well-specified or small tasks, multi-round
+  Socratic discovery (use deep-interview), final decision synthesis (use
+  fable5-model-routing), or packaging session state (use session-handoff).
 ---
 
 # Find Unknowns

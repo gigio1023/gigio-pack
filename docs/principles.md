@@ -46,7 +46,7 @@ rejected ideas died here, not on quality.
 | C1 | **Harness-agnostic.** Claude Code, Codex, Cursor, and whatever comes next | Anything that binds to one harness's hooks, commands, or session model |
 | C2 | **Model-generation tolerant.** A generational jump should require no rework | Procedure that compensates for a *current* model's weakness — its value goes negative as models improve, because it shackles the stronger model |
 | C3 | **Fill only what native features don't.** No competing with plan mode, goals, or resume | Re-implementing drive. Native owns pulling work forward; this pack owns what remains afterward |
-| C4 | **Explicit invocation plus ambient prose only.** The user opens a skill; no hooks, runtimes, daemons, or services | Background state machines, watchdogs, anything not readable and hand-editable — and descriptions that invite the model to open a skill from the shape of the work |
+| C4 | **Explicit invocation plus ambient prose only.** Anything that writes or spends waits to be asked; no hooks, runtimes, daemons, or services | Background state machines, watchdogs, anything not readable and hand-editable — and situational descriptions on skills whose misfire costs more than a paragraph |
 | C5 | **Restatement-replacement test.** A field earns its place only if its absence forces you to re-explain the same thing in chat | Fields that exist because a template had a slot for them |
 | C6 | **In-flow only. Zero homework.** | Anything requiring maintenance outside the moment it pays off |
 
@@ -59,40 +59,53 @@ unnecessary step grows with every generation. The test:
 
 If it gets in the way, cut it.
 
-## Invocation belongs to the user
+## What may open on its own
 
 C4 was written about mechanism — no hooks, no daemons. The descriptions
 shipped anyway with the other half of the door open. Several read as
 situations rather than requests ("when sizable work needs a written plan",
-"when a large task has independent workstreams", "when the user starts
-substantial work in territory they don't know well"), and a situation is
-something the model can decide it is looking at. In use they fired constantly,
-including in research and other non-engineering conversations that only needed
-an answer. The prior-art survey had already listed *broad auto-triggering
-descriptions* as a disqualifier in other packs; this one had the same defect.
+"when a large task has independent workstreams"), and a situation is something
+the model can decide it is looking at. In use they fired across conversations
+that had asked for none of it. The prior-art survey had already listed *broad
+auto-triggering descriptions* as a disqualifier in other packs; this one had
+the same defect.
 
-So the trigger side of C4 is now stated as narrowly as the mechanism side. A
-skill in this pack opens on exactly three things:
+The deciding question is what a misfire costs. Eight skills are gated, because
+opening one uninvited lands somewhere you have to undo:
 
-1. the user names it,
-2. the user asks for the thing it does, in any language, or
-3. another pack skill name-calls it during a run the user already started —
-   `gigio-execute-plan` reaching for `git-worktree-setup`,
-   `small-model-handoff`, or `commit-and-push`.
+| Gated | Because opening it writes or spends |
+| --- | --- |
+| `gigio-project-setup` | `PROJECT.md`, plus edits to `AGENTS.md` and `CLAUDE.md` |
+| `gigio-write-plan` | a plan file in `.plans/` |
+| `gigio-execute-plan` | the work itself, plus a run log |
+| `gigio-review-results` | a re-collection pass over diffs, files, and checks |
+| `session-handoff` | a handoff prompt file |
+| `orchestrate-subagents` | a fan-out of subagents |
+| `small-model-handoff` | a dispatch to a weaker executor |
+| `fable5-model-routing` | a switch to another model |
 
-Nothing else. Not task size, not an unfamiliar domain, not a missing spec, not
-a long session, not a plan file sitting on disk. Each description says so in
-its own words, because the harness reads descriptions one at a time and a rule
-kept somewhere else would never be in front of it.
+Each of the eight carries the rule in its own description, because the harness
+reads descriptions one at a time and a rule kept somewhere else would never be
+in front of it. They open on three things: the user names the skill, the user
+asks for what it does in any language, or another pack skill name-calls it
+during a run the user already started. Not task size, not an unfamiliar
+domain, not a missing spec, not a long session, not a plan file sitting on
+disk.
 
-The cost is real and accepted: a user who would have benefited from a pass
-they did not know to ask for does not get it. That trade is the point. An
-unrequested pass is charged to every conversation; a missed one is charged to
-the conversation that wanted it, and the user can still ask by name.
+Five skills stay ambient. Four of them —`deep-interview`, `commit-and-push`,
+`draft-pr`, `git-worktree-setup` — already describe a request rather than a
+situation, so a harness matching the description *is* the user asking: you get
+an interview by asking for one, a commit by saying commit, a PR by saying PR,
+a worktree by asking for isolation.
 
-This also keeps the pack honest about C3. A skill that fires on its own is
-competing with the model's own judgment about how to answer, which is the one
-thing the pack promised not to take over.
+`find-unknowns` is the deliberate exception, and the only skill here allowed a
+situational trigger. It exists to fire before you know to ask, and its worst
+misfire is a paragraph you skip. Gating it would remove the one case where an
+unrequested pass is worth more than it costs.
+
+That line is where C3 sits too. A skill that opens on its own is competing
+with the model's own judgment about how to answer; that is tolerable when the
+result is a paragraph, and not when the result is a file, a branch, or a bill.
 
 ## What ages well
 

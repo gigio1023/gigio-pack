@@ -1,16 +1,15 @@
 ---
 name: deep-interview
 description: >
-  Use only when the user names deep-interview or asks to be interviewed
-  deeply, grilled on a vague idea, led through requirements discovery, or
-  questioned until a plan, product, workflow, or decision is clear enough to
-  hand off. Runs an Ouroboros-centered, context-first Socratic interview one
-  question at a time and ends with a user-approved Interview Brief. NOT for
-  job-interview rehearsal, surveys, therapy or clinical intake, a single
-  clarification, requests to summarize existing material without further
-  questions, or light discovery that one technique plus a launch brief would
-  settle (use find-unknowns). Never activate because a request is vague —
-  vagueness is resolved by asking in chat, not by opening an interview.
+  Use when the user explicitly wants to be interviewed deeply, grilled on a
+  vague idea, led through requirements discovery, or questioned until a plan,
+  product, workflow, or decision is clear enough to hand off. Runs an
+  Ouroboros-centered, context-first Socratic interview one question at a time
+  and ends with a user-approved Interview Brief. NOT for job-interview
+  rehearsal, surveys, therapy or clinical intake, a single clarification,
+  requests to summarize existing material without further questions, or light
+  discovery that one technique plus a launch brief would settle (use
+  find-unknowns).
 ---
 
 # Deep Interview

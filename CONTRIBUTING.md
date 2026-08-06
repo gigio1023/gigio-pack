@@ -26,16 +26,18 @@ rationale and history; nothing in `skills/` may depend on it.
 
 - Frontmatter is exactly two fields: `name` (must equal the directory name)
   and `description`.
-- The description carries a `Use only when …` trigger, a `NOT for …` boundary,
-  and one line that separates the skill from its nearest sibling
+- The description carries a `Use when …` trigger, a `NOT for …` boundary, and
+  one line that separates the skill from its nearest sibling
   (`session-handoff` vs `small-model-handoff` is the reference example).
-- **The trigger is a request, never a situation.** A skill opens when the user
-  names it, when the user asks for what it does, or when another pack skill
-  name-calls it inside a run already underway. Describe those forms and close
-  with the misfire this skill would otherwise cause ("Never activate because
-  work looks sizable"). A description that would let the model open the skill
-  from task size, domain unfamiliarity, a missing spec, session length, or a
-  file on disk is a defect — see [docs/principles.md](docs/principles.md#invocation-belongs-to-the-user).
+- **If the skill writes or spends, the trigger is a request, never a
+  situation.** Ask what an uninvited opening costs. A file on disk, a branch, a
+  fan-out, a model switch, or a pass over the repository means the description
+  opens with `Use only when …`, names the qualifying request forms, and closes
+  with the misfire it would otherwise cause ("Never activate because work looks
+  sizable"). Eight skills are on that side today. A skill whose misfire is a
+  paragraph the user can skip does not need the gate — `find-unknowns` is the
+  one place a situational trigger is deliberate. See
+  [docs/principles.md](docs/principles.md#what-may-open-on-its-own).
 - Bodies are English. Aim for decision rules over step transcripts, roughly
   400–2,500 tokens, with an 80% path up front and detail pushed to
   `references/`.
