@@ -1,15 +1,15 @@
 ---
 name: small-model-handoff
 description: >
-  Use when the user explicitly invokes small-model-handoff, or when a pack skill
-  (gigio-execute-plan, orchestrate-subagents) name-calls it while dispatching to a
-  weaker executor, to turn an already researched and approved plan into a
-  bounded prompt for an executor less capable than the planner. Covers scoped changes, test, build,
-  and check runs, reproductions, and read-only evidence collection. Requires
-  exact scope, actions, authority, capability assumptions, evidence, and stop
-  rules. NOT for automatic invocation, model/cost/executor recommendations,
-  peer or high-capability executors, discovery, planning, open-ended work, or
-  general session handoffs.
+  Use only when the user invokes small-model-handoff by name, or when a pack
+  skill (gigio-execute-plan, orchestrate-subagents) name-calls it while
+  dispatching to a weaker executor, to turn an already researched and approved
+  plan into a bounded prompt for an executor less capable than the planner.
+  Covers scoped changes, test, build, and check runs, reproductions, and
+  read-only evidence collection. Requires exact scope, actions, authority,
+  capability assumptions, evidence, and stop rules. NOT for automatic
+  invocation, model/cost/executor recommendations, peer or high-capability
+  executors, discovery, planning, open-ended work, or general session handoffs.
 ---
 
 # Small Model Handoff

@@ -43,6 +43,12 @@
 - **커밋은 사용자가 요청할 때만.** PR은 draft로 올리고 간결한 영문으로 쓴다.
   저장소 템플릿이 우선이다. 템플릿이 없으면 `Context`, `Changes` 두 절을 쓴다.
   CI가 증명하지 못한 결과나 CI의 중대한 예외가 있을 때만 `Validation`을 더한다.
+- **description의 트리거는 요청이지 상황이 아니다.** 스킬은 사용자가 이름을
+  부르거나, 스킬이 하는 일을 요청하거나, 이미 시작된 실행 중에 다른 팩 스킬이
+  이름으로 호출할 때만 열린다. 작업 규모·낯선 도메인·스펙 부재·세션 길이·디스크의
+  파일은 트리거가 아니다. 각 description은 `Use only when …`으로 열고, 그 스킬이
+  일으킬 법한 오발동을 한 문장으로 닫는다. 근거는 `docs/principles.md`의
+  "Invocation belongs to the user".
 - 검증: `npx skills add . --list --full-depth` 가 정확히 13개를 보고해야 한다.
 
 ## 팩 구성과 이름 체계

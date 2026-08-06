@@ -1,12 +1,13 @@
 ---
 name: orchestrate-subagents
 description: >
-  Use when the user asks for parallel subagents, delegated agents, agent teams,
-  competing research tracks, or when a large task has independent workstreams
-  where parallel execution would materially improve speed, coverage, or
-  verification. Orchestrates coding, research, judgment, review, planning, and
-  synthesis across Codex, Claude Code, Cursor, OpenCode, Antigravity, and similar
-  harnesses. NOT for small or tightly sequential tasks.
+  Use only when the user asks for parallel subagents, delegated agents, agent
+  teams, or competing research tracks, or names orchestrate-subagents.
+  Orchestrates coding, research, judgment, review, planning, and synthesis
+  across Codex, Claude Code, Cursor, OpenCode, Antigravity, and similar
+  harnesses. NOT for small or tightly sequential tasks. Never activate because
+  a task happens to have independent workstreams — spawning an agent or two
+  inline needs no skill, and the size of the fan-out is the user's call.
 ---
 
 # Orchestrate Subagents

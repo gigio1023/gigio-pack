@@ -54,6 +54,7 @@ lead diagnoses better on its own than a fixed diagnostic table does.
 | Direction evidence batches at review; execution records and continues | gigio-execute-plan, gigio-review-results | Boundary | User-set policy 2026-07-26: in creative and research domains the artifact rewriting the intent is the main path, and per-finding stops would turn the approval boundary into a bottleneck | Keep; re-examine at pilot closeout against the proposal count |
 | Authenticated `gh` user is the default PR assignee; another assignee requires an explicit user choice | draft-pr | Boundary | Assignment determines who owns follow-up work; repository context alone is not authority to assign another person | Keep |
 | Pack-internal references are unconditional | all skills | Storage (distribution simplicity) | The pack ships as one unit | Keep |
+| **A skill opens only on user naming, a user request for what it does, or a pack skill's name-call** | all 13 descriptions | Boundary | Who decides that a procedure runs is the user's call, not the model's; observed 2026-08-07, the situational descriptions fired across unrelated conversations | **Rises** — a stronger model needs an unrequested procedure less, so the gate costs less and the intrusion costs more |
 
 Two rows are measured workarounds. They are the only rows expected to die.
 

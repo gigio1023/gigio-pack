@@ -1,14 +1,16 @@
 ---
 name: gigio-write-plan
 description: >
-  Use when sizable work needs a written plan, or an existing plan file needs
-  revision: produces one file in .plans/ with staged tasks — needs, owned
-  files, acceptance, checks — anchored to PROJECT.md judgment rules. The plan
-  is data: a solo session reads it top to bottom, a lead uses the same file to
-  dispatch parallel workers. Writes the plan, announces it, and stops — it
-  never executes. NOT for executing or resuming a plan (gigio-execute-plan),
+  Use only when the user asks for a plan file or a revision of one, or names
+  gigio-write-plan: produces one file in .plans/ with staged tasks — needs,
+  owned files, acceptance, checks — anchored to PROJECT.md judgment rules. The
+  plan is data: a solo session reads it top to bottom, a lead uses the same
+  file to dispatch parallel workers. Writes the plan, announces it, and stops —
+  it never executes. NOT for executing or resuming a plan (gigio-execute-plan),
   reviewing finished work (gigio-review-results), or discovery while the work
-  itself is still unclear (find-unknowns, deep-interview).
+  itself is still unclear (find-unknowns, deep-interview). Never activate
+  because work looks sizable; ordinary in-session task tracking is not this
+  skill and needs no plan file.
 ---
 
 # Gigio Write Plan

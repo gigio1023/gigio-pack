@@ -46,7 +46,7 @@ rejected ideas died here, not on quality.
 | C1 | **Harness-agnostic.** Claude Code, Codex, Cursor, and whatever comes next | Anything that binds to one harness's hooks, commands, or session model |
 | C2 | **Model-generation tolerant.** A generational jump should require no rework | Procedure that compensates for a *current* model's weakness — its value goes negative as models improve, because it shackles the stronger model |
 | C3 | **Fill only what native features don't.** No competing with plan mode, goals, or resume | Re-implementing drive. Native owns pulling work forward; this pack owns what remains afterward |
-| C4 | **Explicit invocation plus ambient prose only.** No hooks, runtimes, daemons, or services | Background state machines, watchdogs, anything not readable and hand-editable |
+| C4 | **Explicit invocation plus ambient prose only.** The user opens a skill; no hooks, runtimes, daemons, or services | Background state machines, watchdogs, anything not readable and hand-editable — and descriptions that invite the model to open a skill from the shape of the work |
 | C5 | **Restatement-replacement test.** A field earns its place only if its absence forces you to re-explain the same thing in chat | Fields that exist because a template had a slot for them |
 | C6 | **In-flow only. Zero homework.** | Anything requiring maintenance outside the moment it pays off |
 
@@ -58,6 +58,41 @@ unnecessary step grows with every generation. The test:
 > neutral, or get in the way?
 
 If it gets in the way, cut it.
+
+## Invocation belongs to the user
+
+C4 was written about mechanism — no hooks, no daemons. The descriptions
+shipped anyway with the other half of the door open. Several read as
+situations rather than requests ("when sizable work needs a written plan",
+"when a large task has independent workstreams", "when the user starts
+substantial work in territory they don't know well"), and a situation is
+something the model can decide it is looking at. In use they fired constantly,
+including in research and other non-engineering conversations that only needed
+an answer. The prior-art survey had already listed *broad auto-triggering
+descriptions* as a disqualifier in other packs; this one had the same defect.
+
+So the trigger side of C4 is now stated as narrowly as the mechanism side. A
+skill in this pack opens on exactly three things:
+
+1. the user names it,
+2. the user asks for the thing it does, in any language, or
+3. another pack skill name-calls it during a run the user already started —
+   `gigio-execute-plan` reaching for `git-worktree-setup`,
+   `small-model-handoff`, or `commit-and-push`.
+
+Nothing else. Not task size, not an unfamiliar domain, not a missing spec, not
+a long session, not a plan file sitting on disk. Each description says so in
+its own words, because the harness reads descriptions one at a time and a rule
+kept somewhere else would never be in front of it.
+
+The cost is real and accepted: a user who would have benefited from a pass
+they did not know to ask for does not get it. That trade is the point. An
+unrequested pass is charged to every conversation; a missed one is charged to
+the conversation that wanted it, and the user can still ask by name.
+
+This also keeps the pack honest about C3. A skill that fires on its own is
+competing with the model's own judgment about how to answer, which is the one
+thing the pack promised not to take over.
 
 ## What ages well
 

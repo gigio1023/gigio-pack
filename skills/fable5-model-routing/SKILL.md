@@ -1,13 +1,15 @@
 ---
 name: fable5-model-routing
 description: >
-  Claude Code and Cursor only. Consider when the user wants Fable 5 to lead
-  difficult judgment, long-horizon work, issue review, decision synthesis,
-  overlooked-fact checks, strategic recommendations, or critique. First inspect
+  Claude Code and Cursor only. Use only when the user names
+  fable5-model-routing or asks to put Fable 5 on the judgment — difficult
+  judgment, long-horizon work, issue review, decision synthesis,
+  overlooked-fact checks, strategic recommendations, or critique. Then inspect
   the actual problem and independently confirm that it has a consequential,
-  unresolved judgment core for which Fable 5 has a concrete advantage. Trigger
-  phrases are signals, not sufficient evidence. Do not use in Codex, when Fable
-  5 is unavailable, or for routine bounded work the current agent can finish.
+  unresolved judgment core for which Fable 5 has a concrete advantage; the
+  request itself is not that confirmation. Do not use in Codex, when Fable 5 is
+  unavailable, or for routine bounded work the current agent can finish. Never
+  activate because the task at hand looks hard.
 ---
 
 # Fable 5 Model Routing
