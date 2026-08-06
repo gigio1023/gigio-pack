@@ -1,15 +1,17 @@
 ---
 name: gigio-project-setup
 description: >
-  Use when installing the gigio-pack system into a project or auditing an existing
-  installation: writing PROJECT.md (diagnosis, pillars, non-goals, judgment
-  rules, current risk, current position), wiring shared agent instructions
-  into AGENTS.md with a CLAUDE.md bridge, or checking an installed PROJECT.md
-  for staleness. Trigger when adopting this pack in a repo, or on "set up the
-  project intent file", "PROJECT.md 만들어줘/점검해줘". NOT for writing task
-  plans (gigio-write-plan), executing them (gigio-execute-plan), reviewing
-  finished work (gigio-review-results), or surfacing unknowns before the work
-  itself is chosen (find-unknowns).
+  Use only when the user asks to install the gigio-pack system into a project
+  or audit an existing installation, or names gigio-project-setup: writing
+  PROJECT.md (diagnosis, pillars, non-goals, judgment rules, current risk,
+  current position), wiring shared agent instructions into AGENTS.md with a
+  CLAUDE.md bridge, or checking an installed PROJECT.md for staleness. Triggers
+  on adopting this pack in a repo, "set up the project intent file",
+  "PROJECT.md 만들어줘/점검해줘". NOT for writing task plans (gigio-write-plan),
+  executing them (gigio-execute-plan), reviewing finished work
+  (gigio-review-results), or surfacing unknowns before the work itself is
+  chosen (find-unknowns). Never activate because a repository has no
+  PROJECT.md.
 ---
 
 # Gigio Project Setup
@@ -71,9 +73,11 @@ idempotent. Two touch points:
 
 - `AGENTS.md`: a short block stating that PROJECT.md exists and must be
   consulted for significant judgments and completion claims; top-half edits
-  need user approval; plans live in `.plans/` (gitignored); routing — to plan
-  sizable work invoke `gigio-write-plan`, to execute or resume a plan invoke
-  `gigio-execute-plan`.
+  need user approval; plans live in `.plans/` (gitignored); routing — the user
+  invokes `gigio-write-plan` to get a plan file and `gigio-execute-plan` to run
+  one. Write the routing as where those requests go, never as a standing
+  instruction to start planning or executing on the agent's own judgment; the
+  pack's skills are invoked, not inferred.
 - `CLAUDE.md`: a first-line `@AGENTS.md` import (or symlink). This path is
   what gets re-injected after compaction and inherited by subagents; content
   placed elsewhere silently disappears.

@@ -1,13 +1,15 @@
 ---
 name: commit-and-push
 description: >
-  Use when the user explicitly asks to commit, split commits, stage and commit,
-  push, sync a branch, or commit directly to the default branch. Triggers on
-  "commit", "push", "git push", "커밋", "분할 커밋", "push 해줘",
-  "stage and commit", and "direct commit". Keeps unrelated worktree changes
-  untouched and limits the default result to commits plus branch push. NOT for
-  opening or rewriting a PR (use draft-pr), full CI certification, or
-  issue/PR comments and edits unless the user explicitly includes them.
+  Use only when the user asks to commit, split commits, stage and commit, push,
+  sync a branch, or commit directly to the default branch, or when
+  gigio-execute-plan name-calls it at close-out. Triggers on "commit", "push",
+  "git push", "커밋", "분할 커밋", "push 해줘", "stage and commit", and
+  "direct commit". Keeps unrelated worktree changes untouched and limits the
+  default result to commits plus branch push. NOT for opening or rewriting a PR
+  (use draft-pr), full CI certification, or issue/PR comments and edits unless
+  the user explicitly includes them. Never activate because a change looks
+  finished.
 ---
 
 # Commit and Push

@@ -1,13 +1,14 @@
 ---
 name: draft-pr
 description: >
-  Use when the user wants to publish or update an actual GitHub pull request
-  with the `gh` CLI, including "PR을 GitHub에 올려줘", "draft PR을 열어줘",
-  "open/create a PR", "submit this for review", conflict cleanup, or an
-  existing PR update. Requires explicit create, open, publish, or update intent;
-  creates drafts by default, preserves existing reviewer context, uses body-file
-  based commands, and handles remote divergence safely. NOT for copy-only title
-  or body drafting, issue workflows, or review comments.
+  Use only when the user asks to publish or update an actual GitHub pull
+  request with the `gh` CLI, or names draft-pr — "PR을 GitHub에 올려줘",
+  "draft PR을 열어줘", "open/create a PR", "submit this for review", conflict
+  cleanup, or an existing PR update. Requires explicit create, open, publish,
+  or update intent; creates drafts by default, preserves existing reviewer
+  context, uses body-file based commands, and handles remote divergence safely.
+  NOT for copy-only title or body drafting, issue workflows, or review
+  comments. Never activate because a branch looks ready to publish.
 ---
 
 # Draft PR

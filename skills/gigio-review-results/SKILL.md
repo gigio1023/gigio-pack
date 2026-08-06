@@ -1,14 +1,15 @@
 ---
 name: gigio-review-results
 description: >
-  Use when finished or long-running work needs review against the project's
-  intent in fresh context — before closing a plan, after a long autonomous
-  run, or on request. Re-collects the facts itself (diffs, files, re-run
-  checks) instead of trusting execution reports, audits the plan item by
-  item, and returns three lists: missing, built-but-not-asked, misunderstood.
-  NOT for writing plans (gigio-write-plan), executing or resuming them
-  (gigio-execute-plan), or ordinary code review of a change that has no plan
-  or PROJECT.md to compare against.
+  Use only when the user asks for finished or long-running work to be reviewed
+  against the project's intent in fresh context, or names
+  gigio-review-results — before closing a plan, after a long autonomous run, or
+  on request. Re-collects the facts itself (diffs, files, re-run checks)
+  instead of trusting execution reports, audits the plan item by item, and
+  returns three lists: missing, built-but-not-asked, misunderstood. NOT for
+  writing plans (gigio-write-plan), executing or resuming them
+  (gigio-execute-plan), or ordinary code review of a change that has no plan or
+  PROJECT.md to compare against. Never activate because a run just finished.
 ---
 
 # Gigio Review Results

@@ -330,6 +330,35 @@ has been used" rule.*
   repositories, consider it for the fallback. Keep project policy in repository
   templates rather than growing the shared default.
 
+## Skills gated to explicit invocation
+
+- **Plan:** descriptions would carry a `Use when …` trigger precise enough that
+  the harness would open the right skill at the right moment, and C4 ("explicit
+  invocation plus ambient prose only") would hold because the pack shipped no
+  hooks or daemons.
+- **Reality:** C4 constrained the mechanism and left the trigger alone. Several
+  descriptions named a *situation* rather than a request — "sizable work needs
+  a written plan", "a large task has independent workstreams", "the user starts
+  substantial work in territory they don't know well" — and a situation is
+  something the model decides it is looking at. In daily use the pack activated
+  across conversations that had asked for none of it, research and other
+  non-engineering talk included, where an answer was the whole job. The
+  prior-art survey had already recorded broad auto-triggering descriptions as a
+  disqualifier in other packs, and this pack had shipped the same defect.
+- **Choice:** state the gate in all 13 descriptions. A skill opens when the
+  user names it, when the user asks for what it does, or when another pack
+  skill name-calls it inside a run the user already started — and on nothing
+  else. Each description carries the rule in its own words, since the harness
+  reads them one at a time. Accept the loss: a user who would have benefited
+  from a pass they did not know to ask for will not get it, which is cheaper
+  than charging every conversation for one it did not want. Skill bodies are
+  unchanged apart from `gigio-project-setup`, whose installed `AGENTS.md` block
+  described routing as a standing instruction to plan sizable work.
+- **Revisit:** if a pilot shows the pack going unused where it clearly would
+  have paid off, widen the wording of the specific skill's request forms —
+  never restore situational triggers, and never add an always-on instruction
+  that recreates them from outside the pack.
+
 ---
 
 ## Still open

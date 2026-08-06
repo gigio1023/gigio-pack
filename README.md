@@ -8,7 +8,8 @@ work up where it was left, instead of re-deriving it. 13 skills, all plain
 markdown you can read and hand-edit.
 
 [Why](#why-this-exists) · [Work loop](#the-work-loop) ·
-[Catalog](#skill-catalog) · [Install](#install) ·
+[Catalog](#skill-catalog) · [Invocation](#nothing-here-starts-on-its-own) ·
+[Install](#install) ·
 [Domain skills](#pair-it-with-domain-skills) · [Scope](#scope) ·
 [Why it looks like this](#why-it-looks-like-this) · [Status](#status) ·
 [Contributing](CONTRIBUTING.md)
@@ -112,6 +113,24 @@ thing.
 The two handoff skills are a deliberate pair: `session-handoff` hands work to
 the **next session**, `small-model-handoff` hands bounded work to a **weaker
 model**. The target is in the name.
+
+## Nothing here starts on its own
+
+Every skill in this pack opens on exactly three things: you name it, you ask
+for what it does, or another pack skill name-calls it inside a run you already
+started. Nothing opens because a task looked big, a domain looked unfamiliar,
+a spec was missing, or a session ran long.
+
+That is deliberate. An installed pack that decides for itself when it applies
+taxes every conversation, including the ones that only wanted an answer — and
+the pack fires hardest in exactly the open-ended work where you least want a
+procedure in the way. Asking by name costs one phrase; the reverse default
+costs every session. The rule is written into all 13 descriptions rather than
+kept in one place, because the harness reads them one at a time.
+
+Practically: say `find-unknowns`, or "give me a blindspot brief"; say "plan
+this" to get a plan file; say "commit" to commit. Discussing a project, however
+large, is just discussion.
 
 ## Install
 
