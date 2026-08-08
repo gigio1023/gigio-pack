@@ -116,7 +116,7 @@ one thing. Eight of them never open unless asked — see
 | Skill | What it does |
 | --- | --- |
 | [commit-and-push](skills/commit-and-push/) | Close-out commits and safe pushes, leaving unrelated worktree changes untouched |
-| [draft-pr](skills/draft-pr/) | Publishes or updates a real GitHub PR through `gh`, draft by default |
+| [draft-pr](skills/draft-pr/) | Publishes, updates, or explicitly squash-merges a real GitHub or Forgejo PR through authenticated `gh` or `fj`, draft or work-in-progress by default |
 | [session-handoff](skills/session-handoff/) | Packages live work as one executable prompt file for the next session |
 
 The two handoff skills are a deliberate pair: `session-handoff` hands work to

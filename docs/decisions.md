@@ -383,7 +383,28 @@ has been used" rule.*
   wanted an answer, narrow its situations rather than gating it, and check the
   always-on instruction layer outside this pack first — an `AGENTS.md`
   paragraph mandating the same behavior outranks any description.
+## PR publication made forge-aware
 
+- **Plan:** route Forgejo publication through its REST API or authenticated web
+  UI because the `forgejo` binary is a server administration CLI and Gitea's
+  `tea` does not prove Forgejo compatibility.
+- **Reality:** the Forgejo project now publishes the `fj` user CLI. Version
+  0.6.0 creates, views, edits, assigns, checks, and merges PRs, including an
+  explicit squash method. It uses API authentication separate from Git
+  transport. Its create command has no draft flag, body edit has no body-file
+  option, draft detection recognizes `WIP:`, and merge has no confirmation
+  prompt.
+- **Choice:** resolve the provider plus exact head and target repositories
+  before mutation. Keep commit and push provider-neutral, use `gh` for GitHub,
+  and require authenticated `fj` for Forgejo. Create Forgejo drafts with a
+  verified `WIP:` title, use exact `owner/repo#index` references for management,
+  and allow squash merge only after a separate explicit merge request and
+  remote state gates. On GitHub, preserve `gh`'s native draft, body-file,
+  required-check, head-OID match, and merge-queue behavior. Never install or
+  authenticate a CLI implicitly. Delete a head branch only on explicit request.
+- **Revisit:** simplify the adapter when `fj` exposes a native draft flag,
+  body-file editing, structured output, a bounded check wait, or a merge
+  confirmation mode.
 ---
 
 ## Still open
