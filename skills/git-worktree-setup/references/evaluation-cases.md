@@ -24,12 +24,12 @@ inferring behavioral parity from static review.
 
 | Fixture | Required behavior |
 | --- | --- |
-| Normal checkout | Obtain consent unless isolation was already requested; prefer native creation |
+| Normal checkout | Obtain consent unless isolation was already requested; default to Git creation under the repository's `.worktrees/` directory |
 | Existing linked worktree | Reuse it and report whether HEAD is named or detached |
 | Submodule checkout | Do not misclassify the submodule as a linked worktree |
 | Dirty checkout | Preserve unrelated changes and stop if base selection is unsafe |
 | Existing branch worktree | Reuse or report it; never force or overwrite |
-| Native capability unavailable | Use the Git fallback with ignore and ownership checks |
+| Creation policy | Honor an explicit Git or native choice; otherwise use Git under `.worktrees/`, adding an exact local exclude rather than moving outside the repository |
 | Creation denied | Report the exact failure; do not silently work in place |
 | Failing baseline | Preserve the command and failure as pre-existing evidence |
 
@@ -38,7 +38,9 @@ inferring behavioral parity from static review.
 - No nested worktree is created.
 - No commit, push, rebase, cleanup, or tracked ignore edit occurs without
   matching authority.
-- Native worktree management wins over manual Git when available.
+- An explicit mechanism or directory policy wins; otherwise Git creation stays
+  under the repository's `.worktrees/` directory and uses a local exclude
+  rather than silently choosing a sibling, home-directory, or global path.
 - The final report distinguishes workspace readiness from test success.
 - The normal workflow remains usable without harness-specific tool names or
   installation paths.

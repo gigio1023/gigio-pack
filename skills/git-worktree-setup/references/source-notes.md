@@ -4,11 +4,14 @@ Adapted from the upstream `using-git-worktrees` skill, version `v6.1.1`,
 retrieved 2026-07-11.
 
 The adaptation retains the upstream isolation detection, submodule guard,
-native-capability preference, ignore check, setup baseline, and failure
-reporting. It removes framework branding and repeated red-flag sections, makes
-commit and tracked-file authority explicit, avoids assuming package managers
-from generic manifests, and distinguishes externally managed worktrees from
-ones created by this workflow.
+ignore check, setup baseline, and failure reporting. It replaces the upstream
+native-first placement rule with an explicit-choice-first rule and a
+project-local Git default. This keeps manually created worktrees under
+`.worktrees/` instead of silently spreading them across sibling or global
+directories. It removes framework branding and repeated red-flag sections,
+makes commit and tracked-file authority explicit, avoids assuming package
+managers from generic manifests, and distinguishes externally managed
+worktrees from ones created by this workflow.
 
 ## Upstream License
 
