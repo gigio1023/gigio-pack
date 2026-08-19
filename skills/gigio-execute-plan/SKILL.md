@@ -1,15 +1,17 @@
 ---
 name: gigio-execute-plan
 description: >
-  Use when executing or resuming a plan file from .plans/ — "run the plan",
-  "continue", "이어서 진행해줘", a plan path, a task ID, or a stage name.
-  Verifies the plan against the working tree first, dispatches same-stage
-  tasks to parallel workers in one message, judges completion from files and
-  fresh check output rather than worker reports, and appends a run log.
-  Resuming after an interruption is the same entry point invoked again. NOT
-  for writing or revising plans (gigio-write-plan) or reviewing finished work
-  against intent (gigio-review-results); when the plan itself turns out
-  wrong, stop and route back to gigio-write-plan instead of patching it here.
+  Use only when the user asks to execute or resume a plan file from .plans/ —
+  "run the plan", "continue", "이어서 진행해줘", a plan path, a task ID, a
+  stage name, or the skill name. Verifies the plan against the working tree
+  first, dispatches same-stage tasks to parallel workers in one message, judges
+  completion from files and fresh check output rather than worker reports, and
+  appends a run log. Resuming after an interruption is the same entry point
+  invoked again. NOT for writing or revising plans (gigio-write-plan) or
+  reviewing finished work against intent (gigio-review-results); when the plan
+  itself turns out wrong, stop and route back to gigio-write-plan instead of
+  patching it here. Never activate because a plan file exists — the user starts
+  the run.
 ---
 
 # Gigio Execute Plan

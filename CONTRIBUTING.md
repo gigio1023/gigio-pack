@@ -29,6 +29,15 @@ rationale and history; nothing in `skills/` may depend on it.
 - The description carries a `Use when …` trigger, a `NOT for …` boundary, and
   one line that separates the skill from its nearest sibling
   (`session-handoff` vs `small-model-handoff` is the reference example).
+- **If the skill writes or spends, the trigger is a request, never a
+  situation.** Ask what an uninvited opening costs. A file on disk, a branch, a
+  fan-out, a model switch, or a pass over the repository means the description
+  opens with `Use only when …`, names the qualifying request forms, and closes
+  with the misfire it would otherwise cause ("Never activate because work looks
+  sizable"). Eight skills are on that side today. A skill whose misfire is a
+  paragraph the user can skip does not need the gate — `find-unknowns` is the
+  one place a situational trigger is deliberate. See
+  [docs/principles.md](docs/principles.md#what-may-open-on-its-own).
 - Bodies are English. Aim for decision rules over step transcripts, roughly
   400–2,500 tokens, with an 80% path up front and detail pushed to
   `references/`.
@@ -98,5 +107,7 @@ symlinks — repository edits are invisible to agents until reinstalled.
   `Context:` and `Validation:` stay.
 - Bodies state facts, never process narration. If a bullet would survive with
   "various", "minor", or "improve" as its verb, it is not specific enough.
-- PRs are drafts by default with `## Summary` and `## Validation` sections in
-  English (the `draft-pr` skill in this pack is the reference behavior).
+- PRs are drafts by default and use concise English. The repository template
+  wins; without one, use `## Context` and `## Changes`. Add `## Validation`
+  only for results CI cannot prove or a material CI caveat, and collapse long
+  supporting details (the `draft-pr` skill in this pack is the reference).

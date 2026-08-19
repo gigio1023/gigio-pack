@@ -1,13 +1,15 @@
 ---
 name: session-handoff
 description: >
-  Use when the user wants a successor-ready handoff prompt, continuation prompt,
-  next-agent prompt, session transfer file, or asks to package current work so
-  another agent can continue without rereading the whole conversation. Creates
-  one executable prompt file from intent, decisions, artifacts, live state,
-  evidence, and remaining work. NOT for bounding a weaker executor on an
-  already-approved plan (use small-model-handoff), or for writing or executing
-  plans (gigio-write-plan, gigio-execute-plan).
+  Use only when the user asks for a successor-ready handoff prompt,
+  continuation prompt, next-agent prompt, or session transfer file, asks to
+  package current work so another agent can continue without rereading the
+  whole conversation, or names session-handoff. Creates one executable prompt
+  file from intent, decisions, artifacts, live state, evidence, and remaining
+  work. NOT for bounding a weaker executor on an already-approved plan (use
+  small-model-handoff), or for writing or executing plans (gigio-write-plan,
+  gigio-execute-plan). Never activate because a session has grown long or
+  context is running low.
 ---
 
 # Session Handoff

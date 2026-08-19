@@ -2,6 +2,9 @@
 
 Use these as patterns, not scripts. The lead agent should adapt the number of
 agents, depth, and output contract to the user's budget and the task's stakes.
+The three-lane first waves below are illustrative starting shapes, not caps:
+open as many lanes as there are genuinely independent sources, scopes, or
+hypotheses.
 
 ## Contents
 
@@ -135,6 +138,11 @@ State to preserve between waves:
 - Agents used and what they covered.
 - Next wave purpose.
 
-Follow-up waves should be narrower than the first wave. If they become broader,
-the lead agent probably synthesized too early or framed the original task too
-loosely.
+For convergent work — research or judgment closing in on an answer — follow-up
+waves should be narrower than the first wave. If they become broader, the lead
+agent probably synthesized too early or framed the original task too loosely.
+
+For throughput work — independent tasks outnumbering the lanes — run a
+sustained pool instead of discrete waves: keep a task queue, dispatch the next
+task the moment a worker finishes, keep every lane busy while independent work
+remains, and fold results in as they land instead of waiting for a full wave.

@@ -329,6 +329,102 @@ has been used" rule.*
   to expose ordinary branch and PR state, record the observed version and move
   only that behavior into a dated harness-specific rule.
 
+## PR bodies optimized for first-time readers
+
+- **Plan:** use a prose-led `Summary` followed by `Validation`, with local
+  checks listed directly in the body.
+- **Reality:** PRs produced from active sessions assumed context that reviewers
+  did not share, grew into long narratives, and repeated command lists or test
+  output already represented by CI. The extra validation text did not help a
+  reviewer decide whether the change was sound.
+- **Choice:** repository templates remain authoritative. Without one, use
+  `Context` and `Changes` as the two-section fallback. Add `Validation` only
+  for manual results CI cannot prove or a material CI caveat; keep live CI
+  status in the checks interface and collapse long supporting details. Add
+  reviewer notes, user impact, migration, rollout, performance, or screenshots
+  only when the change triggers them. The body must stand alone for a reader
+  without the authoring session.
+- **Revisit:** if reviewers repeatedly need another field across unrelated
+  repositories, consider it for the fallback. Keep project policy in repository
+  templates rather than growing the shared default.
+
+## Skills gated to explicit invocation
+
+- **Plan:** descriptions would carry a `Use when …` trigger precise enough that
+  the harness would open the right skill at the right moment, and C4 ("explicit
+  invocation plus ambient prose only") would hold because the pack shipped no
+  hooks or daemons.
+- **Reality:** C4 constrained the mechanism and left the trigger alone. Several
+  descriptions named a *situation* rather than a request — "sizable work needs
+  a written plan", "a large task has independent workstreams", "the user starts
+  substantial work in territory they don't know well" — and a situation is
+  something the model decides it is looking at. In daily use the pack activated
+  across conversations that had asked for none of it, research and other
+  non-engineering talk included, where an answer was the whole job. The
+  prior-art survey had already recorded broad auto-triggering descriptions as a
+  disqualifier in other packs, and this pack had shipped the same defect.
+- **Choice:** state the gate in all 13 descriptions. A skill opens when the
+  user names it, when the user asks for what it does, or when another pack
+  skill name-calls it inside a run the user already started — and on nothing
+  else. Each description carries the rule in its own words, since the harness
+  reads them one at a time. Accept the loss: a user who would have benefited
+  from a pass they did not know to ask for will not get it, which is cheaper
+  than charging every conversation for one it did not want. Skill bodies are
+  unchanged apart from `gigio-project-setup`, whose installed `AGENTS.md` block
+  described routing as a standing instruction to plan sizable work.
+- **Revisit:** if a pilot shows the pack going unused where it clearly would
+  have paid off, widen the wording of the specific skill's request forms —
+  never restore situational triggers, and never add an always-on instruction
+  that recreates them from outside the pack.
+
+## Invocation gate narrowed from thirteen skills to eight
+
+- **Plan:** state the gate in all 13 descriptions, on the reasoning that
+  deciding a procedure runs is the user's call in every case.
+- **Reality:** applied to all 13 it was too wide. Five skills cost nothing when
+  they open uninvited. Four of them — `deep-interview`, `commit-and-push`,
+  `draft-pr`, `git-worktree-setup` — already described a request rather than a
+  situation, so a harness matching the description was already the user asking,
+  and the added gate text bought nothing. The fifth, `find-unknowns`, was the
+  real error: gating it removed the one case where an unrequested pass is worth
+  more than it costs, since it exists to fire before the user knows to ask and
+  its worst misfire is a paragraph that can be skipped. The complaint that
+  started this had never been about that skill.
+- **Choice:** restore the five descriptions to their pre-gate text and keep the
+  gate on the eight whose misfire lands on disk or on the bill — the four core
+  skills, `session-handoff`, and the three that change who executes the work
+  (`orchestrate-subagents`, `small-model-handoff`, `fable5-model-routing`). The
+  deciding question is not who owns the decision but what an unwanted opening
+  costs. `find-unknowns` is recorded as an explicit exception, the only skill
+  here allowed a situational trigger.
+- **Revisit:** if `find-unknowns` starts opening on conversations that only
+  wanted an answer, narrow its situations rather than gating it, and check the
+  always-on instruction layer outside this pack first — an `AGENTS.md`
+  paragraph mandating the same behavior outranks any description.
+
+## PR publication made forge-aware
+
+- **Plan:** route Forgejo publication through its REST API or authenticated web
+  UI because the `forgejo` binary is a server administration CLI and Gitea's
+  `tea` does not prove Forgejo compatibility.
+- **Reality:** the Forgejo project now publishes the `fj` user CLI. Version
+  0.6.0 creates, views, edits, assigns, checks, and merges PRs, including an
+  explicit squash method. It uses API authentication separate from Git
+  transport. Its create command has no draft flag, body edit has no body-file
+  option, draft detection recognizes `WIP:`, and merge has no confirmation
+  prompt.
+- **Choice:** resolve the provider plus exact head and target repositories
+  before mutation. Keep commit and push provider-neutral, use `gh` for GitHub,
+  and require authenticated `fj` for Forgejo. Create Forgejo drafts with a
+  verified `WIP:` title, use exact `owner/repo#index` references for management,
+  and allow squash merge only after a separate explicit merge request and
+  remote state gates. On GitHub, preserve `gh`'s native draft, body-file,
+  required-check, head-OID match, and merge-queue behavior. Never install or
+  authenticate a CLI implicitly. Delete a head branch only on explicit request.
+- **Revisit:** simplify the adapter when `fj` exposes a native draft flag,
+  body-file editing, structured output, a bounded check wait, or a merge
+  confirmation mode.
+
 ---
 
 ## Still open

@@ -8,7 +8,8 @@ work up where it was left, instead of re-deriving it. 13 skills, all plain
 markdown you can read and hand-edit.
 
 [Why](#why-this-exists) · [Work loop](#the-work-loop) ·
-[Catalog](#skill-catalog) · [Install](#install) ·
+[Catalog](#skill-catalog) · [Invocation](#nothing-expensive-starts-on-its-own) ·
+[Install](#install) ·
 [Domain skills](#pair-it-with-domain-skills) · [Scope](#scope) ·
 [Why it looks like this](#why-it-looks-like-this) · [Status](#status) ·
 [Contributing](CONTRIBUTING.md)
@@ -38,8 +39,10 @@ this pack is small on purpose — it holds the loop, and nothing else.
 | The work is not code | A design call, a playtest, a research run has no shape the task list accepts | `acceptance` and `check` are separate axes — acceptance can be a judged result or a stated finding, and a task's unit can be a run instead of a file |
 | The session that built it also reviews it | The reviewer defends its own plan | Review runs in fresh context off the disk — diffs, files, re-run checks — not off the executor's report |
 
-Three rules keep the machinery thin:
+Four rules keep the machinery thin:
 
+- **Nothing that writes or spends opens unless you open it.** Eight of the
+  thirteen wait to be asked; the rest cost nothing when they misfire.
 - **Everything is markdown a person can read and correct.** No daemons, hooks,
   watchdogs, or runtime state files.
 - **Numbered steps only where order is part of correctness** — a prerequisite
@@ -63,18 +66,25 @@ flowchart LR
   R -.uses.-> W["git-worktree-setup<br/>orchestrate-subagents<br/>small-model-handoff<br/>fable5-model-routing"]
 ```
 
-Each station hands off by name. Planning writes the file and stops; execution
-records what it learns and keeps going instead of stopping to renegotiate;
-review starts from the disk, in a session that built nothing. The purpose and
-the outcome are in the name — `gigio-write-plan` writes a plan,
+Each station names the next one and stops there — the arrows are what to say
+next, not a chain that advances by itself. Planning writes the file and stops;
+execution records what it learns and keeps going instead of stopping to
+renegotiate; review starts from the disk, in a session that built nothing. The
+one exception to naming-and-stopping is a run already underway:
+`gigio-execute-plan` calls `git-worktree-setup`, `small-model-handoff`, and
+`commit-and-push` itself.
+
+The purpose and the outcome are in the name — `gigio-write-plan` writes a plan,
 `gigio-execute-plan` executes one, `session-handoff` hands a session to the
 next one, `small-model-handoff` hands bounded work to a weaker model.
 
 ## Skill catalog
 
-Four core skills own the durable files and the boundaries between stations. The
-other nine are called by them, or invoked directly when you need only that one
-thing.
+Four core skills own the durable files and the boundaries between stations. Of
+the other nine, three are name-called by a core skill during a run you started;
+every one of the thirteen can also be invoked directly when you need only that
+one thing. Eight of them never open unless asked — see
+[Invocation](#nothing-expensive-starts-on-its-own).
 
 ### Core loop
 
@@ -106,12 +116,37 @@ thing.
 | Skill | What it does |
 | --- | --- |
 | [commit-and-push](skills/commit-and-push/) | Close-out commits and safe pushes, leaving unrelated worktree changes untouched |
-| [draft-pr](skills/draft-pr/) | Publishes or updates a real GitHub PR through `gh`, draft by default |
+| [draft-pr](skills/draft-pr/) | Publishes, updates, or explicitly squash-merges a real GitHub or Forgejo PR through authenticated `gh` or `fj`, draft or work-in-progress by default |
 | [session-handoff](skills/session-handoff/) | Packages live work as one executable prompt file for the next session |
 
 The two handoff skills are a deliberate pair: `session-handoff` hands work to
 the **next session**, `small-model-handoff` hands bounded work to a **weaker
 model**. The target is in the name.
+
+## Nothing expensive starts on its own
+
+Eight of the thirteen wait to be asked. They open on three things: you name the
+skill, you ask for what it does, or another pack skill name-calls it inside a
+run you already started. Not because a task looked big, a domain looked
+unfamiliar, a spec was missing, or a session ran long.
+
+| Waits to be asked | What opening it costs you |
+| --- | --- |
+| the four core skills | `PROJECT.md`, a plan file, a run, a re-collection pass over the repository |
+| `session-handoff` | a handoff prompt file |
+| `orchestrate-subagents`, `small-model-handoff`, `fable5-model-routing` | a fan-out, a weaker executor, a different model |
+
+The other five cost nothing when they open uninvited. `deep-interview`,
+`commit-and-push`, `draft-pr`, and `git-worktree-setup` only fire on something
+you said anyway — ask for an interview, say commit, say PR, ask for isolation.
+
+`find-unknowns` is the deliberate exception, and the only skill here that may
+open from the situation rather than the request. It is supposed to reach you
+before you know to ask, and the worst it can do uninvited is a paragraph you
+skip.
+
+Practically: discussing a project, however large, does not put a file in your
+repository. Say "plan this" to get one.
 
 ## Install
 
@@ -173,7 +208,8 @@ The pack covers the loop and stops there:
   and the loop is where they get applied.
 - **Also out:** anything that is not a markdown file a person can read. No
   background processes, no generated state, no framework that has to be running
-  for the skills to work.
+  for the skills to work — and no skill that writes a file or spends on your
+  behalf because it decided a conversation needed it.
 
 Craft work still happens during a run; it just uses whichever craft skills the
 session has installed, rather than skills this pack ships.
