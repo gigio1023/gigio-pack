@@ -1,16 +1,10 @@
 # Harness Source Notes
 
-Research refreshed on 2026-07-10 from the local checkouts under `~/git/harness`.
-Every repository was updated with a fast-forward-only pull before review. The
-revisions below make the research basis reproducible; they are not runtime
-dependencies of the skill.
+Research refreshed on 2026-07-10 from the local checkouts under `~/git/harness`. Every repository was updated with a fast-forward-only pull before review. The revisions below make the research basis reproducible; they are not runtime dependencies of the skill.
 
 ## Primary Source
 
-[Q00/ouroboros](https://github.com/Q00/ouroboros) at `98d3d66d4123` is the
-primary method source. Reviewed `skills/interview/SKILL.md`, the Socratic agent,
-context-first and interview-hardening RFCs, convergence contracts, and the
-ambiguity/ontology implementation. The portable skill keeps:
+[Q00/ouroboros](https://github.com/Q00/ouroboros) at `98d3d66d4123` is the primary method source. Reviewed `skills/interview/SKILL.md`, the Socratic agent, context-first and interview-hardening RFCs, convergence contracts, and the ambiguity/ontology implementation. The portable skill keeps:
 
 - one focused Socratic question per turn;
 - inverted, context-first intake for rich prior material;
@@ -19,8 +13,7 @@ ambiguity/ontology implementation. The portable skill keeps:
 - ontological, root-cause, lateral, and closure lenses;
 - explicit user confirmation before crystallizing the brief.
 
-The portable skill intentionally drops Ouroboros-specific state files, commands,
-agent names, mandatory subagents, and synthetic numeric convergence thresholds.
+The portable skill intentionally drops Ouroboros-specific state files, commands, agent names, mandatory subagents, and synthetic numeric convergence thresholds.
 
 ## Comparative Harness Review
 
@@ -42,21 +35,10 @@ agent names, mandatory subagents, and synthetic numeric convergence thresholds.
 
 ## Synthesis Decisions
 
-- Ouroboros remains the center; comparative sources sharpen question ergonomics,
-  provenance, evidence, adversarial review, and stop rules.
-- The skill asks one question per turn even though some compared workflows batch
-  questions. Deep interviews benefit from allowing each answer to redirect the
-  next branch.
-- Numeric ambiguity scores were rejected. Topic-independent weights imply a
-  precision the interviewer cannot justify; qualitative materiality gates are
-  observable and portable.
-- Harness-specific question tools, state stores, slash commands, and file paths
-  were rejected. Native structured input is useful when available, but the
-  question contract must also work in plain chat.
-- User autonomy overrides workflows that insist on more questions after the user
-  asks to stop. Early closure preserves open decisions and their impact.
-- Automatic transcript, spec, or code generation was rejected. The default is a
-  chat brief; durable or downstream mutations require explicit user authority.
-- Job-interview coaching was kept out of scope despite useful patterns in
-  career-ops. The subject here is the user's intent, product, plan, workflow, or
-  decision—not their performance as a candidate.
+- Ouroboros remains the center; comparative sources sharpen question ergonomics, provenance, evidence, adversarial review, and stop rules.
+- The skill asks one question per turn even though some compared workflows batch questions. Deep interviews benefit from allowing each answer to redirect the next branch.
+- Numeric ambiguity scores were rejected. Topic-independent weights imply a precision the interviewer cannot justify; qualitative materiality gates are observable and portable.
+- Harness-specific question tools, state stores, slash commands, and file paths were rejected. Native structured input is useful when available, but the question contract must also work in plain chat.
+- User autonomy overrides workflows that insist on more questions after the user asks to stop. Early closure preserves open decisions and their impact.
+- Automatic transcript, spec, or code generation was rejected. The default is a chat brief; durable or downstream mutations require explicit user authority.
+- Job-interview coaching was kept out of scope despite useful patterns in career-ops. The subject here is the user's intent, product, plan, workflow, or decision—not their performance as a candidate.

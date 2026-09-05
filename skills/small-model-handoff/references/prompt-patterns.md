@@ -35,8 +35,7 @@ Accept when: [observable completion criteria]
 Stop if: [contradictions, missing authority, or undefined recovery]
 ```
 
-If the procedure still contains choices such as “A or B,” return it to the
-planner unless the packet gives a mechanical rule for choosing.
+If the procedure still contains choices such as “A or B,” return it to the planner unless the packet gives a mechanical rule for choosing.
 
 ## Compact Executor Preamble
 
@@ -57,9 +56,7 @@ Optimize for the smallest authorized execution that produces the required eviden
 Then add:
 
 ```text
-Execute only the approved task below. Planning and decisions outside your stated
-authority are complete. Verify the packet against current reality, then continue
-without waiting unless a stop condition is met.
+Execute only the approved task below. Planning and decisions outside your stated authority are complete. Verify the packet against current reality, then continue without waiting unless a stop condition is met.
 ```
 
 ## Mode-Specific Scope
@@ -71,8 +68,7 @@ Allowed mutations
 - `src/foo.py`: `parse_foo` only
 - `tests/test_foo.py`: one regression case only
 
-No other file or symbol may change. Stop if the approved edit requires another
-target.
+No other file or symbol may change. Stop if the approved edit requires another target.
 ```
 
 ### Run
@@ -84,8 +80,7 @@ Allowed commands
 - Retry: none
 - Generated artifacts: none may remain
 
-Do not edit files, install dependencies, change configuration, or run additional
-diagnostics. A failing command is evidence to report, not permission to fix it.
+Do not edit files, install dependencies, change configuration, or run additional diagnostics. A failing command is evidence to report, not permission to fix it.
 ```
 
 ### Inspect
@@ -95,12 +90,10 @@ Allowed sources
 - `logs/test-run.txt`
 - `artifacts/results.json`
 
-Answer only: [named questions]. This phase is read-only. Do not modify, regenerate,
-or fetch replacement artifacts.
+Answer only: [named questions]. This phase is read-only. Do not modify, regenerate, or fetch replacement artifacts.
 ```
 
-For mixed work, place phases in order and repeat the authority boundary when it
-changes. Never let a read-only or command-only phase inherit mutation authority.
+For mixed work, place phases in order and repeat the authority boundary when it changes. Never let a read-only or command-only phase inherit mutation authority.
 
 ## Preflight Without a Pause
 
@@ -129,8 +122,7 @@ Require only fields relevant to the mode:
 - Assumptions, deviations, side effects, and remaining unknowns
 ```
 
-Do not require a diff for a read-only run. Do require an explicit changed-file or
-artifact audit so “no mutation” is evidence-backed.
+Do not require a diff for a read-only run. Do require an explicit changed-file or artifact audit so “no mutation” is evidence-backed.
 
 ## Stop Report
 
@@ -174,8 +166,7 @@ Procedure
 3. Add [exact regression case].
 4. Run `[focused test]`, `[type check]`, and `[lint]`.
 
-Stop if the basis is contradicted or another target is required. Report the diff,
-commands and results, changed files, deviations, and unverified items.
+Stop if the basis is contradicted or another target is required. Report the diff, commands and results, changed files, deviations, and unverified items.
 ```
 
 ## Test-Run Example
@@ -195,12 +186,9 @@ Mode and scope
 
 Authority
 - Read repository files required by the test runner.
-- Do not edit files, install packages, change configuration, access new secrets,
-  or retain generated artifacts outside the runner's normal temporary output.
+- Do not edit files, install packages, change configuration, access new secrets, or retain generated artifacts outside the runner's normal temporary output.
 
-Report the command, working directory, exit status, concise relevant output, any
-artifacts, and whether the stated acceptance criterion passed. A failure is the
-final result; do not investigate or fix it.
+Report the command, working directory, exit status, concise relevant output, any artifacts, and whether the stated acceptance criterion passed. A failure is the final result; do not investigate or fix it.
 ```
 
 ## Read-Only Inspection Example
@@ -217,8 +205,7 @@ Mode and scope
 - Read only `artifacts/results.json`.
 - Do not run commands, fetch data, regenerate artifacts, or modify files.
 
-Report each failed check with its exact identifier and recorded message. Mark any
-requested field absent from the artifact as unknown; do not infer it.
+Report each failed check with its exact identifier and recorded message. Mark any requested field absent from the artifact as unknown; do not infer it.
 ```
 
 ## Failure Diagnosis

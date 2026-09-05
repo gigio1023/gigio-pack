@@ -10,19 +10,15 @@ Build the answer from claims and evidence:
 |-------|----------------|---------------|------------|--------|--------|
 | What appears true | Where it came from | Direct / inferred / opinion | High / medium / low | What could break it | Use / verify / reject |
 
-Do not paste each subagent's summary in sequence. That preserves labor, not
-judgment.
+Do not paste each subagent's summary in sequence. That preserves labor, not judgment.
 
 ## Conflict Handling
 
 When agents disagree:
 
-1. Check whether they answered the same question. Apparent conflicts often come
-   from different scopes, dates, versions, or assumptions.
-2. Prefer primary sources, executable evidence, and direct inspection over
-   community repetition.
-3. If both sides have evidence, state the conflict and decide what would resolve
-   it.
+1. Check whether they answered the same question. Apparent conflicts often come from different scopes, dates, versions, or assumptions.
+2. Prefer primary sources, executable evidence, and direct inspection over community repetition.
+3. If both sides have evidence, state the conflict and decide what would resolve it.
 4. Launch a follow-up wave only if the conflict affects the final decision.
 
 ## Gap Scan
@@ -34,8 +30,7 @@ Before finalizing, ask:
 - Did all subagents share the same hidden premise?
 - Is there a missing stakeholder, time horizon, or risk lens?
 - Would a second wave likely change the answer enough to justify cost?
-- Is every reported progress or completion claim backed by a source, artifact,
-  diff, command result, or test from the current run?
+- Is every reported progress or completion claim backed by a source, artifact, diff, command result, or test from the current run?
 
 ## Follow-Up Wave Criteria
 

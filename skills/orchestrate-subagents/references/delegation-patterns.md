@@ -1,10 +1,6 @@
 # Delegation Patterns
 
-Use these as patterns, not scripts. The lead agent should adapt the number of
-agents, depth, and output contract to the user's budget and the task's stakes.
-The three-lane first waves below are illustrative starting shapes, not caps:
-open as many lanes as there are genuinely independent sources, scopes, or
-hypotheses.
+Use these as patterns, not scripts. The lead agent should adapt the number of agents, depth, and output contract to the user's budget and the task's stakes. The three-lane first waves below are illustrative starting shapes, not caps: open as many lanes as there are genuinely independent sources, scopes, or hypotheses.
 
 ## Contents
 
@@ -18,8 +14,7 @@ hypotheses.
 
 ## Pattern A: Breadth Research
 
-Use for web research, tool discovery, market scans, ecosystem mapping, and
-"what exists?" questions.
+Use for web research, tool discovery, market scans, ecosystem mapping, and "what exists?" questions.
 
 First wave:
 
@@ -35,8 +30,7 @@ Lead synthesis:
 
 ## Pattern B: Literature Or Evidence Review
 
-Use for papers, technical reports, policy, medical/legal/financial-adjacent
-background work, or any claim where source quality dominates quantity.
+Use for papers, technical reports, policy, medical/legal/financial-adjacent background work, or any claim where source quality dominates quantity.
 
 First wave:
 
@@ -52,8 +46,7 @@ Lead synthesis:
 
 ## Pattern C: Value Judgment Or Strategy
 
-Use when the user asks "should I?", "is this worth it?", "which path?", or
-needs a recommendation under uncertainty.
+Use when the user asks "should I?", "is this worth it?", "which path?", or needs a recommendation under uncertainty.
 
 First wave:
 
@@ -81,8 +74,7 @@ First wave:
 Lead synthesis:
 
 - Convert findings into an implementation map and disjoint write scopes.
-- Avoid sending multiple explorers through the same files unless they have
-  different questions.
+- Avoid sending multiple explorers through the same files unless they have different questions.
 
 ## Pattern E: Parallel Implementation
 
@@ -99,8 +91,7 @@ Worker packet must include:
 - Owned files or modules.
 - Files/modules not to touch.
 - Required tests or proof.
-- Reminder that other agents may be editing the repo and user changes must not
-  be reverted.
+- Reminder that other agents may be editing the repo and user changes must not be reverted.
 
 Lead synthesis:
 
@@ -138,11 +129,6 @@ State to preserve between waves:
 - Agents used and what they covered.
 - Next wave purpose.
 
-For convergent work — research or judgment closing in on an answer — follow-up
-waves should be narrower than the first wave. If they become broader, the lead
-agent probably synthesized too early or framed the original task too loosely.
+For convergent work — research or judgment closing in on an answer — follow-up waves should be narrower than the first wave. If they become broader, the lead agent probably synthesized too early or framed the original task too loosely.
 
-For throughput work — independent tasks outnumbering the lanes — run a
-sustained pool instead of discrete waves: keep a task queue, dispatch the next
-task the moment a worker finishes, keep every lane busy while independent work
-remains, and fold results in as they land instead of waiting for a full wave.
+For throughput work — independent tasks outnumbering the lanes — run a sustained pool instead of discrete waves: keep a task queue, dispatch the next task the moment a worker finishes, keep every lane busy while independent work remains, and fold results in as they land instead of waiting for a full wave.

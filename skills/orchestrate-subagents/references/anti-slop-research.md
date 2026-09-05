@@ -1,7 +1,6 @@
 # Anti-Slop Research
 
-Use this when subagents search the web, GitHub, papers, blogs, agent-skill
-collections, product docs, or community examples.
+Use this when subagents search the web, GitHub, papers, blogs, agent-skill collections, product docs, or community examples.
 
 ## Source Quality Signals
 
@@ -9,25 +8,20 @@ Strong signals:
 
 - Official documentation, standards, release notes, papers, or source code.
 - Repos with clear maintainers, tests, issues, releases, and real examples.
-- Claims that can be verified by running code, inspecting files, or checking
-  primary artifacts.
+- Claims that can be verified by running code, inspecting files, or checking primary artifacts.
 - Writing that names trade-offs and limitations.
 
 Weak signals:
 
 - Generic "awesome" collections with no curation criteria.
-- High star counts with suspicious recency, thin commits, or marketing-heavy
-  descriptions.
+- High star counts with suspicious recency, thin commits, or marketing-heavy descriptions.
 - Blog posts that repeat product claims without examples.
-- Agent-skill collections that promise hundreds of skills but provide shallow
-  wrappers, duplicated prompts, or no validation path.
-- AI-generated articles with generic phrasing, no source trail, and no concrete
-  operational detail.
+- Agent-skill collections that promise hundreds of skills but provide shallow wrappers, duplicated prompts, or no validation path.
+- AI-generated articles with generic phrasing, no source trail, and no concrete operational detail.
 
 ## Popularity Is Not Proof
 
-Use stars, forks, package downloads, citations, and social traction as adoption
-signals only. They do not prove correctness, maintainability, or fit.
+Use stars, forks, package downloads, citations, and social traction as adoption signals only. They do not prove correctness, maintainability, or fit.
 
 For tools and skills, inspect:
 
@@ -42,8 +36,7 @@ For tools and skills, inspect:
 
 For high-noise topics, dedicate one subagent to skepticism:
 
-- Find source inflation, copied text, fake curation, outdated claims, and
-  unsupported hype.
+- Find source inflation, copied text, fake curation, outdated claims, and unsupported hype.
 - Compare public claims against actual files.
 - Identify which artifacts are worth ignoring.
 

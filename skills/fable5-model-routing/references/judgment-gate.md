@@ -12,11 +12,8 @@ Use this before finalizing a Fable 5-led answer.
 
 ## Evidence Check
 
-- Did Fable 5 own the judgment-dependent discovery needed to stabilize the
-  frame, or explicitly define coverage and source-selection rules before bulk
-  collection began?
-- Was each delegated lane justified by independence, context isolation, fresh
-  verification, tool fit, or a measured cost/latency advantage?
+- Did Fable 5 own the judgment-dependent discovery needed to stabilize the frame, or explicitly define coverage and source-selection rules before bulk collection began?
+- Was each delegated lane justified by independence, context isolation, fresh verification, tool fit, or a measured cost/latency advantage?
 - Did workers inspect primary or source-of-truth material for decisive claims?
 - Are current facts dated and sourced?
 - Are local code/file claims tied to paths and line references?
@@ -24,17 +21,12 @@ Use this before finalizing a Fable 5-led answer.
 
 ## Execution Check
 
-- Could each worker execute from a stable packet without inventing a missing
-  premise or decision rule?
-- When evidence broke a premise or exposed a new consequential choice, was that
-  judgment returned to Fable 5 before execution continued?
-- Is every progress or completion claim backed by a tool result, inspected
-  source, test, or named artifact from this run?
-- Did a consequential long run receive an independent specification check when
-  anchoring or drift was a material risk?
+- Could each worker execute from a stable packet without inventing a missing premise or decision rule?
+- When evidence broke a premise or exposed a new consequential choice, was that judgment returned to Fable 5 before execution continued?
+- Is every progress or completion claim backed by a tool result, inspected source, test, or named artifact from this run?
+- Did a consequential long run receive an independent specification check when anchoring or drift was a material risk?
 - Did the lead avoid unnecessary delegation and idle waiting?
-- Were evidence and concise rationale requested instead of private reasoning or
-  a chain-of-thought transcript?
+- Were evidence and concise rationale requested instead of private reasoning or a chain-of-thought transcript?
 
 ## Synthesis Check
 

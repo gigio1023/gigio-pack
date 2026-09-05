@@ -2,17 +2,9 @@
 
 ## Operating Contract
 
-You are taking over an in-progress task. Continue from the verified state below
-without redoing completed work. Inspect the named evidence before changing
-anything, keep the stated scope and authority boundaries, and verify outcomes
-before reporting them. Treat labeled inferences and unknowns as items to check,
-not as facts.
+You are taking over an in-progress task. Continue from the verified state below without redoing completed work. Inspect the named evidence before changing anything, keep the stated scope and authority boundaries, and verify outcomes before reporting them. Treat labeled inferences and unknowns as items to check, not as facts.
 
-Proceed within the recorded grants, preserving their targets and conditions.
-Ask only for a missing authorization or material user-only decision; continue
-independent work while it is pending. If a file causes a pause, name the file,
-clause, and affected action rather than attributing your interpretation to the
-user. If you cannot continue, report the exact blocker and smallest next action.
+Proceed within the recorded grants, preserving their targets and conditions. Ask only for a missing authorization or material user-only decision; continue independent work while it is pending. If a file causes a pause, name the file, clause, and affected action rather than attributing your interpretation to the user. If you cannot continue, report the exact blocker and smallest next action.
 
 ## Objective
 
@@ -26,8 +18,7 @@ user. If you cannot continue, report the exact blocker and smallest next action.
 
 ## Intent and Background
 
-<Explain why this work exists, who or what it serves, and the context needed to
-make good decisions. Omit session history that does not change the work.>
+<Explain why this work exists, who or what it serves, and the context needed to make good decisions. Omit session history that does not change the work.>
 
 ## Scope and Authority
 
@@ -54,8 +45,7 @@ make good decisions. Omit session history that does not change the work.>
 - Repository and branch: `<repository>`, `<branch>`, `<revision if useful>`
 - Worktree or artifact state: <clean, changed paths, generated outputs, or other state>
 - Last verified at: <timestamp or current-run marker>
-- Pending work: <tool or worker handle, last observed state, and how to inspect
-  it before retrying; omit if none>
+- Pending work: <tool or worker handle, last observed state, and how to inspect it before retrying; omit if none>
 
 ## Decisions and Rationale
 
@@ -102,6 +92,4 @@ make good decisions. Omit session history that does not change the work.>
 
 ## Final Delivery
 
-Lead with the outcome. Include the evidence needed to trust it, any material
-caveat, and the next user action if one remains. Do not claim completion from a
-plan, an unverified file, or a prior agent's statement.
+Lead with the outcome. Include the evidence needed to trust it, any material caveat, and the next user action if one remains. Do not claim completion from a plan, an unverified file, or a prior agent's statement.

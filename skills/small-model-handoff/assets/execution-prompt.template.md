@@ -1,6 +1,4 @@
-Do not optimize for completing the request as broadly as possible.
-<For change: Optimize for the smallest correct and verifiable change.>
-<For run/inspect: Optimize for the smallest authorized execution that produces the required evidence.>
+Do not optimize for completing the request as broadly as possible. <For change: Optimize for the smallest correct and verifiable change.> <For run/inspect: Optimize for the smallest authorized execution that produces the required evidence.>
 
 Remove every placeholder and section that does not apply before handing off.
 
@@ -48,8 +46,7 @@ No other file, command, source, credential, or side effect is authorized.
 4. Confirm the required evidence can be captured.
 5. If all checks pass, continue without waiting for approval.
 
-Stop before the affected action if current reality contradicts the packet, an
-unlisted target or effect is required, or an unexpected result needs judgment.
+Stop before the affected action if current reality contradicts the packet, an unlisted target or effect is required, or an unexpected result needs judgment.
 
 # Execute and Collect Evidence
 
@@ -60,8 +57,7 @@ unlisted target or effect is required, or an unexpected result needs judgment.
 # Acceptance Criteria
 
 - <Expected output, exit state, artifact, diff, or observation>.
-- A failed command or unmet criterion is a reportable result, not permission to
-  investigate, edit, or broaden scope.
+- A failed command or unmet criterion is a reportable result, not permission to investigate, edit, or broaden scope.
 
 # Final Report
 

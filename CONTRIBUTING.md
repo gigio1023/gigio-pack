@@ -1,9 +1,6 @@
 # Contributing
 
-A personal pack, but it holds itself to the same conventions as
-[gigio1023/agent-skills](https://github.com/gigio1023/agent-skills). Rules for
-agents working in this repository live in `CLAUDE.md`; this file is the
-human-facing summary of the same contract.
+A personal pack, but it holds itself to the same conventions as [gigio1023/agent-skills](https://github.com/gigio1023/agent-skills). Rules for agents working in this repository live in `CLAUDE.md`; this file is the human-facing summary of the same contract.
 
 ## Layout
 
@@ -19,99 +16,48 @@ docs/                           design record — NOT skill payload
   prior-art.md                  what was surveyed, taken, and left
 ```
 
-Everything a skill needs stays colocated under its own directory. `docs/` is
-rationale and history; nothing in `skills/` may depend on it.
+Everything a skill needs stays colocated under its own directory. `docs/` is rationale and history; nothing in `skills/` may depend on it.
 
 ## Skill contract
 
-- Frontmatter is exactly two fields: `name` (must equal the directory name)
-  and `description`.
-- The description carries a `Use when …` trigger, a `NOT for …` boundary, and
-  one line that separates the skill from its nearest sibling
-  (`session-handoff` vs `small-model-handoff` is the reference example).
-- **If the skill writes or spends, the trigger is a request, never a
-  situation.** Ask what an uninvited opening costs. A file on disk, a branch, a
-  fan-out, a model switch, or a pass over the repository means the description
-  opens with `Use only when …`, names the qualifying request forms, and closes
-  with the misfire it would otherwise cause ("Never activate because work looks
-  sizable"). Eight skills are on that side today. A skill whose misfire is a
-  paragraph the user can skip does not need the gate — `find-unknowns` is the
-  one place a situational trigger is deliberate. See
-  [docs/principles.md](docs/principles.md#what-may-open-on-its-own).
-- Bodies are English. Aim for decision rules over step transcripts, roughly
-  400–2,500 tokens, with an 80% path up front and detail pushed to
-  `references/`.
-- **Contract steps, not cognition steps.** Numbered steps only where order or
-  completeness is part of correctness: prerequisite retrieval, approval
-  boundaries, required artifact stages, validation, auditable pipelines.
-  Otherwise state the outcome, invariants, and stop conditions, and let the
-  model choose the route. If removing a step keeps accuracy, safety, and
-  auditability intact, remove it.
-- Sibling references are unconditional. "If installed" hedging is reserved for
-  harness capabilities, never for pack skills.
-- Names state purpose and outcome (`gigio-write-plan` writes a plan). Renaming
-  anything means: directory + frontmatter + every cross-reference + README +
-  `CLAUDE.md` + a re-install.
-- No evaluation scaffolding, benchmarks, or scoring artifacts inside
-  `skills/`. Migrated skills that carry legacy maintenance fixtures keep them
-  (preserve-original-strengths rule), but do not add new ones.
-- Migrated skills are edited minimally — one to four focused edits per pass.
-  Full rewrites are for broken structure only.
-- Preserve grants already established in the active request. Finishing one
-  station does not require another approval for an explicitly requested next
-  station. Keep read-only, ownership, publication, and cleanup boundaries.
+- Keep each natural Markdown prose paragraph on one source line, including paragraphs in list items and Markdown templates. Do not manually wrap at a fixed column count (such as 80 or 100) or at sentence boundaries; use editor soft wrapping for display. Preserve paragraph boundaries, list structure, tables, fenced code, HTML, intentional hard breaks, frontmatter semantics, and literal examples. This applies to Markdown only; code and docstring line-length constraints stay unchanged.
+- Frontmatter is exactly two fields: `name` (must equal the directory name) and `description`.
+- The description carries a `Use when …` trigger, a `NOT for …` boundary, and one line that separates the skill from its nearest sibling (`session-handoff` vs `small-model-handoff` is the reference example).
+- **If the skill writes or spends, the trigger is a request, never a situation.** Ask what an uninvited opening costs. A file on disk, a branch, a fan-out, a model switch, or a pass over the repository means the description opens with `Use only when …`, names the qualifying request forms, and closes with the misfire it would otherwise cause ("Never activate because work looks sizable"). Eight skills are on that side today. A skill whose misfire is a paragraph the user can skip does not need the gate — `find-unknowns` is the one place a situational trigger is deliberate. See [docs/principles.md](docs/principles.md#what-may-open-on-its-own).
+- Bodies are English. Aim for decision rules over step transcripts, roughly 400–2,500 tokens, with an 80% path up front and detail pushed to `references/`.
+- **Contract steps, not cognition steps.** Numbered steps only where order or completeness is part of correctness: prerequisite retrieval, approval boundaries, required artifact stages, validation, auditable pipelines. Otherwise state the outcome, invariants, and stop conditions, and let the model choose the route. If removing a step keeps accuracy, safety, and auditability intact, remove it.
+- Sibling references are unconditional. "If installed" hedging is reserved for harness capabilities, never for pack skills.
+- Names state purpose and outcome (`gigio-write-plan` writes a plan). Renaming anything means: directory + frontmatter + every cross-reference + README + `CLAUDE.md` + a re-install.
+- No evaluation scaffolding, benchmarks, or scoring artifacts inside `skills/`. Migrated skills that carry legacy maintenance fixtures keep them (preserve-original-strengths rule), but do not add new ones.
+- Migrated skills are edited minimally — one to four focused edits per pass. Full rewrites are for broken structure only.
+- Preserve grants already established in the active request. Finishing one station does not require another approval for an explicitly requested next station. Keep read-only, ownership, publication, and cleanup boundaries.
 
 ## Before finishing any change
 
-1. `npx --yes skills add . --list --full-depth` reports **exactly 13**
-   skills.
+1. `npx --yes skills add . --list --full-depth` reports **exactly 13** skills.
 2. Every relative path referenced from a changed `SKILL.md` exists on disk.
 3. Frontmatter `name` still equals the directory name for anything touched.
-4. Re-read the changed skill and `README.md` together — packaging claims and
-   docs must not drift apart.
-5. A load-bearing rule (dispatch, preflight, ownership, verification) may not
-   be changed before checking its justification type in
-   [docs/rule-ledger.md](docs/rule-ledger.md). Deletions and
-   reviewed-and-kept verdicts are recorded there.
+4. Re-read the changed skill and `README.md` together — packaging claims and docs must not drift apart.
+5. A load-bearing rule (dispatch, preflight, ownership, verification) may not be changed before checking its justification type in [docs/rule-ledger.md](docs/rule-ledger.md). Deletions and reviewed-and-kept verdicts are recorded there.
 
 ## After merging
 
-When installation is requested, re-run the install command in the README.
-Installs are **copies**, not symlinks — repository edits are invisible to
-agents until reinstalled. Publishing a PR alone does not refresh global skills.
+When installation is requested, re-run the install command in the README. Installs are **copies**, not symlinks — repository edits are invisible to agents until reinstalled. Publishing a PR alone does not refresh global skills.
 
 ## Design record
 
-- Direction changes append an entry to [docs/decisions.md](docs/decisions.md)
-  using the same four fields the pack asks of every deviation: what the plan
-  said → what reality revealed → the conservative choice taken → when to
-  revisit. Keep the reversals; they are the expensive part.
-- A new model generation is an audit event
-  ([docs/rule-ledger.md](docs/rule-ledger.md#generation-audit)): re-verify
-  measured-workaround rules, collect removal candidates.
-- A principle belongs in [docs/principles.md](docs/principles.md) only if some
-  rule in `skills/` actually traces back to it. A rule that traces to nothing
-  is a removal candidate, not a reason to invent a principle.
+- Direction changes append an entry to [docs/decisions.md](docs/decisions.md) using the same four fields the pack asks of every deviation: what the plan said → what reality revealed → the conservative choice taken → when to revisit. Keep the reversals; they are the expensive part.
+- A new model generation is an audit event ([docs/rule-ledger.md](docs/rule-ledger.md#generation-audit)): re-verify measured-workaround rules, collect removal candidates.
+- A principle belongs in [docs/principles.md](docs/principles.md) only if some rule in `skills/` actually traces back to it. A rule that traces to nothing is a removal candidate, not a reason to invent a principle.
 
 ## Commits and PRs
 
-- Conventional prefixes (`feat:`, `fix:`, `docs:`), one logical change per
-  commit, implementation and its checks together.
-- Every non-trivial commit carries a structured body with four labeled
-  sections, each a short bullet list of concrete facts:
-  - `Context:` — the state that made the change necessary: the incident,
-    measurement, or user decision behind it, not a restatement of the subject.
-  - `Changes:` — what changed, grouped by skill or document, precise enough
-    to navigate the diff.
-  - `Results:` — what is now true that was not before: behavior, guarantees,
-    recorded policy.
-  - `Validation:` — the commands run and what they reported, plus what was
-    deliberately not run and why. `Not run` with a reason beats silence.
-- Small mechanical commits (a typo, a link fix) may drop `Results:`;
-  `Context:` and `Validation:` stay.
-- Bodies state facts, never process narration. If a bullet would survive with
-  "various", "minor", or "improve" as its verb, it is not specific enough.
-- PRs are drafts by default and use concise English. The repository template
-  wins; without one, use `## Context` and `## Changes`. Add `## Validation`
-  only for results CI cannot prove or a material CI caveat, and collapse long
-  supporting details (the `draft-pr` skill in this pack is the reference).
+- Conventional prefixes (`feat:`, `fix:`, `docs:`), one logical change per commit, implementation and its checks together.
+- Every non-trivial commit carries a structured body with four labeled sections, each a short bullet list of concrete facts:
+  - `Context:` — the state that made the change necessary: the incident, measurement, or user decision behind it, not a restatement of the subject.
+  - `Changes:` — what changed, grouped by skill or document, precise enough to navigate the diff.
+  - `Results:` — what is now true that was not before: behavior, guarantees, recorded policy.
+  - `Validation:` — the commands run and what they reported, plus what was deliberately not run and why. `Not run` with a reason beats silence.
+- Small mechanical commits (a typo, a link fix) may drop `Results:`; `Context:` and `Validation:` stay.
+- Bodies state facts, never process narration. If a bullet would survive with "various", "minor", or "improve" as its verb, it is not specific enough.
+- PRs are drafts by default and use concise English. The repository template wins; without one, use `## Context` and `## Changes`. Add `## Validation` only for results CI cannot prove or a material CI caveat, and collapse long supporting details (the `draft-pr` skill in this pack is the reference).

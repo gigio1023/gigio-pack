@@ -14,36 +14,24 @@ description: >
 
 # Session Handoff
 
-Create one self-contained prompt file that a successor agent can execute. The
-default output is `handoff.md` in the active project root. Write the
-file; do not stop at showing a draft in chat.
+Create one self-contained prompt file that a successor agent can execute. The default output is `handoff.md` in the active project root. Write the file; do not stop at showing a draft in chat.
 
 ## Quick Start
 
-1. Confirm the handoff scope from the current request. Use the user-specified
-   output path, or default to `handoff.md`. For a multi-repo task, place
-   it at the nearest common workspace root and label every repository.
+1. Confirm the handoff scope from the current request. Use the user-specified output path, or default to `handoff.md`. For a multi-repo task, place it at the nearest common workspace root and label every repository.
 2. Gather the smallest authoritative evidence set:
    - current user objective, intent, constraints, and explicit decisions;
    - relevant plans, progress notes, results, specifications, and logs;
    - live repository state, changed files, branch and revision, and diffs;
    - test, build, render, or command results that support completion claims;
    - unresolved questions, blockers, risks, and remaining work.
-3. Reconcile conflicts. Current explicit user direction controls intent and
-   scope. Live files, version-control state, and fresh tool output control
-   implementation status. Treat older notes and conversation claims as context,
-   not proof, when they disagree with inspectable state.
-4. Fill `assets/handoff.template.md`. Replace every placeholder, remove
-   empty optional rows, and keep the result addressed directly to the successor.
-5. Point to exact files, commands, commits, and evidence instead of pasting long
-   source material or a transcript.
-6. Remove secrets, tokens, credentials, personal data, and irrelevant
-   history. Preserve material caveats and authority boundaries.
-7. Re-read the file cold. Verify that its first actions are executable and that
-   every completed claim has inspectable evidence.
+3. Reconcile conflicts. Current explicit user direction controls intent and scope. Live files, version-control state, and fresh tool output control implementation status. Treat older notes and conversation claims as context, not proof, when they disagree with inspectable state.
+4. Fill `assets/handoff.template.md`. Replace every placeholder, remove empty optional rows, and keep the result addressed directly to the successor.
+5. Point to exact files, commands, commits, and evidence instead of pasting long source material or a transcript.
+6. Remove secrets, tokens, credentials, personal data, and irrelevant history. Preserve material caveats and authority boundaries.
+7. Re-read the file cold. Verify that its first actions are executable and that every completed claim has inspectable evidence.
 
-Read `references/source-notes.md` only when maintaining the handoff contract or
-adapting it to a new agent runtime.
+Read `references/source-notes.md` only when maintaining the handoff contract or adapting it to a new agent runtime.
 
 ## Prompt Contract
 
@@ -61,14 +49,9 @@ The generated file must contain:
 - the first one to three executable actions;
 - verification requirements and final delivery expectations.
 
-When the successor continues work that already has a plan file in `.plans/` or
-a PROJECT.md, reference them by path instead of restating what they contain. If
-a plan file exists, name `gigio-execute-plan` on that path as the successor's
-entry point.
+When the successor continues work that already has a plan file in `.plans/` or a PROJECT.md, reference them by path instead of restating what they contain. If a plan file exists, name `gigio-execute-plan` on that path as the successor's entry point.
 
-Use `verified`, `inferred`, and `unknown` labels only where ambiguity matters.
-Do not burden obvious facts with labels. A successor should know which claims it
-can trust and which it must check.
+Use `verified`, `inferred`, and `unknown` labels only where ambiguity matters. Do not burden obvious facts with labels. A successor should know which claims it can trust and which it must check.
 
 ## Evidence and Source Priority
 
@@ -79,45 +62,32 @@ Use this order for conflicts:
 3. Accepted specifications and maintained project artifacts.
 4. Plans, progress notes, prior summaries, and conversation memory.
 
-Do not infer intent from a diff when the user stated it directly. Do not claim
-that work is complete because a plan says so or a file exists. State what was
-not checked.
+Do not infer intent from a diff when the user stated it directly. Do not claim that work is complete because a plan says so or a file exists. State what was not checked.
 
 ## Continuation Behavior
 
-Write the handoff as an instruction to continue, not as a retrospective report.
-The successor should be told to:
+Write the handoff as an instruction to continue, not as a retrospective report. The successor should be told to:
 
 - re-ground on the named evidence before editing;
 - preserve verified work and avoid repeating completed investigation;
 - continue in scope without asking for routine reversible actions;
-- preserve explicit grants with their target and conditions; ask only when an
-  action lacks the required grant or a material user-only decision remains;
+- preserve explicit grants with their target and conditions; ask only when an action lacks the required grant or a material user-only decision remains;
 - validate outcomes before reporting them;
 - update or replace stale handoff information if another transfer is needed.
 
-Include pending tool or worker handles and their last observed state when work
-is still running. Tell the successor what to inspect or wait for before retrying
-so a transfer does not duplicate an external action or an in-progress edit.
+Include pending tool or worker handles and their last observed state when work is still running. Tell the successor what to inspect or wait for before retrying so a transfer does not duplicate an external action or an in-progress edit.
 
-If an existing handoff prompt is present, read it first. Preserve still-valid
-context and user decisions, but replace stale status and evidence rather than
-appending another conflicting summary.
+If an existing handoff prompt is present, read it first. Preserve still-valid context and user decisions, but replace stale status and evidence rather than appending another conflicting summary.
 
 ## Output Contract
 
-Return the path to the generated prompt, its overall continuation status, and
-the first action encoded in it. Mention evidence gaps only when they affect the
-successor's ability to proceed. The file itself is the deliverable.
+Return the path to the generated prompt, its overall continuation status, and the first action encoded in it. Mention evidence gaps only when they affect the successor's ability to proceed. The file itself is the deliverable.
 
 ## Gotchas
 
 - Do not dump the conversation. Preserve decisions and consequences, not turns.
-- Do not include hidden or private reasoning. Record concise rationale and
-  evidence that another agent can inspect.
+- Do not include hidden or private reasoning. Record concise rationale and evidence that another agent can inspect.
 - Do not bury the next action after background. Make the start path explicit.
-- Do not copy secrets from environment files, logs, authentication output, or
-  tool results into the prompt.
+- Do not copy secrets from environment files, logs, authentication output, or tool results into the prompt.
 - Do not silently combine unrelated repositories or tasks into one handoff.
-- Keep one prompt as the source of truth. Do not create mirrored handoff files
-  unless the user explicitly requests additional output formats.
+- Keep one prompt as the source of truth. Do not create mirrored handoff files unless the user explicitly requests additional output formats.

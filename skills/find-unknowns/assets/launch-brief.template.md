@@ -34,13 +34,8 @@ Ordered with the most likely-to-change or hardest-to-reverse decisions first.
 
 ## During Execution
 
-Keep [`implementation-notes.md` | `decision-log.md`]. When reality forces a
-deviation, log: what the plan said → what reality revealed → the conservative
-choice taken → when to revisit. Then keep going.
+Keep [`implementation-notes.md` | `decision-log.md`]. When reality forces a deviation, log: what the plan said → what reality revealed → the conservative choice taken → when to revisit. Then keep going.
 
 ## Acceptance Criteria
 
-[Executable work: the tests, builds, or renders that prove the result]
-[Comprehension-checked work: the consequences and open decisions to explain;
-optional scenario questions when useful or requested. Record any authorization
-still needed for <commit money / send / adopt / merge>; a quiz is not approval.]
+[Executable work: the tests, builds, or renders that prove the result] [Comprehension-checked work: the consequences and open decisions to explain; optional scenario questions when useful or requested. Record any authorization still needed for <commit money / send / adopt / merge>; a quiz is not approval.]
