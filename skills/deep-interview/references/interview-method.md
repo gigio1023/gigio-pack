@@ -163,7 +163,8 @@ At a milestone transition, briefly inspect from a lateral perspective:
 
 At closure, use closer, skeptic, and gap-hunter lenses internally. Ask another
 question only if it would materially change the brief. Then offer the
-one-sentence goal for confirmation. A correction reopens only the affected
+one-sentence goal for confirmation unless the user already accepted the same
+material meaning. A correction reopens only the affected
 ledger tracks, not the whole interview.
 
 ## 7. Worked Turn Shapes

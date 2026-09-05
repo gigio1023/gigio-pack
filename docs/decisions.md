@@ -427,6 +427,22 @@ has been used" rule.*
 
 ---
 
+## Preserve authorization across requested stages (2026-09-05)
+
+- **Plan:** keep a hard stop between stations and treat a preflight mismatch
+  as a new user decision.
+- **Reality:** static review found clauses that also stop combined requests,
+  unrelated dirty files, and work with settled permissions. The handoff
+  template could turn an existing grant back into a confirmation requirement.
+- **Choice:** retain the separate skills and their outputs, reuse established
+  authorization, inspect discrepancies before asking, and carry grants plus
+  pending operations into handoffs. Keep consequential unknowns, overlapping
+  ownership, and unapproved external effects as boundaries. Remove the required
+  comprehension quiz and automatic worktree cleanup.
+- **Revisit:** use real execution feedback to assess unnecessary pauses and
+  missed boundaries. This is an instruction audit, not a successful runtime
+  pilot or a measured performance claim.
+
 ## Still open
 
 | Item | Default | Decide when |

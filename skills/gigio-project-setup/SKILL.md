@@ -23,12 +23,15 @@ instruction wiring that makes every later session actually read it.
 
 Read what exists: PROJECT.md (audit path, Step 4), README, docs, git log,
 AGENTS.md and CLAUDE.md. Never ask the user for a fact the repository already
-answers. If an equivalent intent document exists under another name, do not
-create a rival: ask migrate / keep / rewrite — "keep" means change nothing.
+answers. If an equivalent intent document exists under another name, follow
+any migration choice already given. Otherwise inspect the difference and ask
+only before replacing or creating a rival source of intent; an audit can
+report the existing document without waiting for that choice.
 
 ## Step 2 — PROJECT.md: six questions, two speeds
 
-Interview for the gaps only, one question at a time.
+Interview for material gaps only, one question at a time. Carry forward explicit
+user decisions from the session without asking for their confirmation again.
 
 **Top half — human-owned.** Mark the boundary in the file (for example
 `<!-- human-owned: renegotiate with the user before editing -->`). Model
@@ -67,9 +70,10 @@ requirement.
 
 ## Step 3 — Wire the instructions
 
-Edit existing files; do not invent new ones (if neither exists, ask which to
-create). Keep the block between marker comments so later updates are
-idempotent. Two touch points:
+Edit existing files. For an installation request with neither file present,
+create `AGENTS.md` and a `CLAUDE.md` bridge as the documented default; an audit
+only reports the missing wiring. Keep the block between marker comments so
+later updates are idempotent. Two touch points:
 
 - `AGENTS.md`: a short block stating that PROJECT.md exists and must be
   consulted for significant judgments and completion claims; top-half edits

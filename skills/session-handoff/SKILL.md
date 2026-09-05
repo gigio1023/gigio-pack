@@ -91,10 +91,14 @@ The successor should be told to:
 - re-ground on the named evidence before editing;
 - preserve verified work and avoid repeating completed investigation;
 - continue in scope without asking for routine reversible actions;
-- pause only for destructive or irreversible actions, material scope changes,
-  or information only the user can supply;
+- preserve explicit grants with their target and conditions; ask only when an
+  action lacks the required grant or a material user-only decision remains;
 - validate outcomes before reporting them;
 - update or replace stale handoff information if another transfer is needed.
+
+Include pending tool or worker handles and their last observed state when work
+is still running. Tell the successor what to inspect or wait for before retrying
+so a transfer does not duplicate an external action or an in-progress edit.
 
 If an existing handoff prompt is present, read it first. Preserve still-valid
 context and user decisions, but replace stale status and evidence rather than

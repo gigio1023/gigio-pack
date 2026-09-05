@@ -66,8 +66,9 @@ flowchart LR
   R -.uses.-> W["git-worktree-setup<br/>orchestrate-subagents<br/>small-model-handoff<br/>fable5-model-routing"]
 ```
 
-Each station names the next one and stops there — the arrows are what to say
-next, not a chain that advances by itself. Planning writes the file and stops;
+Each station names the next one; the arrows do not grant permission to start
+it. A planning-only request ends at the saved plan. A request that already
+includes execution continues through `gigio-execute-plan` after planning;
 execution records what it learns and keeps going instead of stopping to
 renegotiate; review starts from the disk, in a session that built nothing. The
 one exception to naming-and-stopping is a run already underway:
@@ -91,7 +92,7 @@ one thing. Eight of them never open unless asked — see
 | Skill | What it does |
 | --- | --- |
 | [gigio-project-setup](skills/gigio-project-setup/) | Writes or audits `PROJECT.md` — why the project exists, its pillars and non-goals, the numbered judgment rules, the current risk and position — and wires `AGENTS.md` plus a `CLAUDE.md` bridge so later sessions actually read it |
-| [gigio-write-plan](skills/gigio-write-plan/) | Turns chosen work into one plan file in `.plans/`: staged tasks carrying needs, owned files, acceptance, and checks, anchored to a judgment rule. Announces the path and stops — it never executes |
+| [gigio-write-plan](skills/gigio-write-plan/) | Turns chosen work into one plan file in `.plans/`: staged tasks carrying needs, owned files, acceptance, and checks, anchored to a judgment rule. Announces the path; execution uses `gigio-execute-plan` only when requested |
 | [gigio-execute-plan](skills/gigio-execute-plan/) | Executes or resumes a plan: preflight against the planning commit, parallel workers on disjoint files, a run log that survives compaction, and a completion judgment the lead makes rather than the worker |
 | [gigio-review-results](skills/gigio-review-results/) | Reviews finished or long-running work in fresh context, re-collecting the facts itself, and returns three lists — missing, built but not asked, misunderstood — each routed by cause |
 

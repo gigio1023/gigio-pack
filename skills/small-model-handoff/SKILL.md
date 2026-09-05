@@ -30,15 +30,18 @@ transfers.
 
 ## Quick Path
 
-1. Require the planner to supply every Handoff Gate field (table below).
-2. If a field is missing or contradictory, return a short missing-information
-   list. Do not guess, broaden scope, or delegate unfinished investigation.
+1. Resolve every Handoff Gate field from the approved plan, named artifacts,
+   and session grants before requesting more input from the planner.
+2. If a consequential field remains missing or contradictory, return the
+   specific unresolved list and finish the settled parts of the prompt.
+   Do not dispatch an incomplete packet or invent authority to fill a field.
 3. Select `change`, `run`, `inspect`, or an explicitly ordered `mixed` mode.
 4. Write one prompt from `assets/execution-prompt.template.md`; remove sections
    that do not apply instead of leaving empty placeholders.
 5. Resolve every choice the executor cannot handle reliably.
-6. If preflight matches, continue without a routine approval pause (the
-   execution loop below owns the phases).
+6. Tell the executor to continue when preflight matches; the execution loop
+   below belongs in the generated prompt and does not authorize this authoring
+   invocation to run the task.
 7. Return the copy-ready prompt plus only the assumptions the planner must
    resolve before use.
 
@@ -167,4 +170,3 @@ add alternative plans, or create a synthetic evaluation.
 - Do not turn a failing test run into an unauthorized bug-fix task.
 - Do not treat command completion as success when exit status, evidence, or
   expected artifacts are missing.
-- Do not let the executor expand its own scope to make recovery easier.

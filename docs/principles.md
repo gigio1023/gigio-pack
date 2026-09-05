@@ -141,6 +141,11 @@ The four-station split (setup → plan → execute → review) survives this tes
 precisely because the station boundaries *are* approval and verification
 points — an auditable fixed pipeline is the one shape the rule endorses.
 
+Check those boundaries against the whole active request. If the user already
+asked for several stations, complete each artifact and enter the next requested
+skill without demanding the same grant again. A missing permission blocks the
+affected action, not independent work whose authority and prerequisites hold.
+
 Rules are not judged on whether they are good rules, but on whether their
 value rises or falls as models improve. The five justification types a rule
 may claim, and the audit procedure for each model generation, live in

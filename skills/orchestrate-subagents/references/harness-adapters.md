@@ -60,10 +60,11 @@ General policy:
   or each result changes the next judgment. Delegate it when the lane is truly
   bounded and a compact evidence packet preserves what the decision needs.
 
-If a named model, plugin, or reasoning level is unavailable in the current
-harness, inspect the available capabilities and use the nearest configured
-equivalent. State the substitution in the final synthesis when it affects cost,
-latency, confidence, or reproducibility.
+If an explicitly required model, plugin, or reasoning level is unavailable,
+report the affected lane and continue independent authorized work. Use an
+equivalent only when the user's routing policy permits it; do not treat the
+absence of a capability as permission to replace an exact requirement. For an
+unspecified lane, choose from configured capabilities and report material limits.
 
 ## Codex
 

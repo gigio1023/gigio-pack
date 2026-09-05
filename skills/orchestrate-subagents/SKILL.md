@@ -51,7 +51,9 @@ parallel execution happened.
    conflicts, and remaining gaps.
 9. If gaps remain and the user goal still needs it, launch a targeted follow-up
    wave. Otherwise finish with a decision, implementation, or research answer.
-10. Close or retire subagents/threads/worktrees that are no longer needed.
+10. Close completed workflow-owned subagents when their results are integrated.
+    Preserve user tasks and worktrees unless their cleanup was explicitly
+    authorized; ending worker execution does not authorize deleting its files.
 
 ## Operating Philosophy
 
@@ -66,8 +68,9 @@ tasks as workers finish. Set the intensity from how much genuinely independent
 work exists, the task's stakes, and the user's budget — then revise it mid-run
 as results reveal more or less independence than expected.
 
-Subagent count follows the plan, not a quota. There is no fixed limit: spawn
-exactly as many as the decomposition needs. More is not better — surplus agents
+Subagent count follows independent ownership, the user's budget, and the
+available concurrency limit. Queue excess work and reuse finished workers;
+do not treat a clear decomposition as unlimited spending authority. Surplus agents
 duplicate effort and add noise. Fewer is not safer — starved lanes serialize
 independent work. The right number changes with the kind of work, so decide it
 by planning the split, not by defaulting to a familiar count.
@@ -134,6 +137,9 @@ without need, or when coordination overhead would exceed the benefit.
   workers that other agents may be editing nearby files.
 - Close the loop. A parallel run is not done until results are synthesized,
   contradictions are handled, and the user gets a clear answer or artifact.
+- When the user corrects the task, update affected packets and inspect active
+  worker state before redispatching. A sent correction is not proof that a
+  worker received it or stopped an already-started action.
 
 ## Gotchas
 

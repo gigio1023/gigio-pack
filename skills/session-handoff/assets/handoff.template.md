@@ -8,10 +8,11 @@ anything, keep the stated scope and authority boundaries, and verify outcomes
 before reporting them. Treat labeled inferences and unknowns as items to check,
 not as facts.
 
-Proceed with reversible, in-scope work. Pause only for a destructive or
-irreversible action, a material scope change, or information only the user can
-provide. If you cannot continue, report the exact blocker and the smallest
-action that would unblock it.
+Proceed within the recorded grants, preserving their targets and conditions.
+Ask only for a missing authorization or material user-only decision; continue
+independent work while it is pending. If a file causes a pause, name the file,
+clause, and affected action rather than attributing your interpretation to the
+user. If you cannot continue, report the exact blocker and smallest next action.
 
 ## Objective
 
@@ -38,9 +39,13 @@ make good decisions. Omit session history that does not change the work.>
 
 - <Excluded work>
 
-### Require Confirmation
+### Existing Grants
 
-- <Destructive, irreversible, external, costly, or scope-expanding action>
+- <Authorized action, exact target, conditions, and source of the grant>
+
+### Still Require Confirmation
+
+- <Action whose needed authorization has not been granted>
 
 ## Current State
 
@@ -49,6 +54,8 @@ make good decisions. Omit session history that does not change the work.>
 - Repository and branch: `<repository>`, `<branch>`, `<revision if useful>`
 - Worktree or artifact state: <clean, changed paths, generated outputs, or other state>
 - Last verified at: <timestamp or current-run marker>
+- Pending work: <tool or worker handle, last observed state, and how to inspect
+  it before retrying; omit if none>
 
 ## Decisions and Rationale
 
