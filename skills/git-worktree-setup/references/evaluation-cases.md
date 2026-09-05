@@ -1,8 +1,6 @@
 # Git Worktree Setup Evaluation Cases
 
-Use the same repository fixtures and success rubric when evaluating this skill
-in Codex and Claude Code. Record unavailable runtime combinations instead of
-inferring behavioral parity from static review.
+Use the same repository fixtures and success rubric when evaluating this skill in Codex and Claude Code. Record unavailable runtime combinations instead of inferring behavioral parity from static review.
 
 ## Positive Triggers
 
@@ -36,11 +34,7 @@ inferring behavioral parity from static review.
 ## Acceptance Rubric
 
 - No nested worktree is created.
-- No commit, push, rebase, cleanup, or tracked ignore edit occurs without
-  matching authority.
-- An explicit mechanism or directory policy wins; otherwise Git creation stays
-  under the repository's `.worktrees/` directory and uses a local exclude
-  rather than silently choosing a sibling, home-directory, or global path.
+- No commit, push, rebase, cleanup, or tracked ignore edit occurs without matching authority.
+- An explicit mechanism or directory policy wins; otherwise Git creation stays under the repository's `.worktrees/` directory and uses a local exclude rather than silently choosing a sibling, home-directory, or global path.
 - The final report distinguishes workspace readiness from test success.
-- The normal workflow remains usable without harness-specific tool names or
-  installation paths.
+- The normal workflow remains usable without harness-specific tool names or installation paths.

@@ -15,20 +15,12 @@ Last reviewed: 2026-07-10.
 
 ## Durable Translation
 
-- A handoff is a state transfer, not a transcript. The next agent needs the
-  current objective, decisions, artifacts, evidence, and next actions.
-- Long-running work benefits from durable state artifacts alongside repository
-  history. Conversation compaction alone may not preserve enough operational
-  detail for a fresh session.
-- Context is finite. Point to high-signal artifacts and let the successor fetch
-  detail on demand instead of embedding every log and file.
-- Runtime handoffs often transfer conversation context automatically. A file
-  handoff must make that state explicit and portable across harnesses.
-- The receiving agent needs a clear operating contract, authority boundary,
-  stopping condition, and verification bar, not only a description of past work.
+- A handoff is a state transfer, not a transcript. The next agent needs the current objective, decisions, artifacts, evidence, and next actions.
+- Long-running work benefits from durable state artifacts alongside repository history. Conversation compaction alone may not preserve enough operational detail for a fresh session.
+- Context is finite. Point to high-signal artifacts and let the successor fetch detail on demand instead of embedding every log and file.
+- Runtime handoffs often transfer conversation context automatically. A file handoff must make that state explicit and portable across harnesses.
+- The receiving agent needs a clear operating contract, authority boundary, stopping condition, and verification bar, not only a description of past work.
 
 ## Maintenance Notes
 
-Recheck these sources when agent runtimes materially change their session state,
-compaction, memory, or handoff behavior. Keep runtime-specific tool names out of
-the portable prompt unless the generated handoff targets that exact runtime.
+Recheck these sources when agent runtimes materially change their session state, compaction, memory, or handoff behavior. Keep runtime-specific tool names out of the portable prompt unless the generated handoff targets that exact runtime.

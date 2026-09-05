@@ -1,7 +1,6 @@
 # Lane Routing
 
-Use this reference before assigning work to Fable 5, GPT-5.6 Sol, another
-worker, or a deterministic tool path.
+Use this reference before assigning work to Fable 5, GPT-5.6 Sol, another worker, or a deterministic tool path.
 
 ## Contents
 
@@ -25,28 +24,18 @@ worker, or a deterministic tool path.
 | Structured reduction | Deterministic code or programmatic tool path | Filtering, joining, ranking, deduplication, aggregation, or repeated validation needs no fresh judgment between calls | Small schema with evidence fields |
 | Direct tool call | Lead model | One result is small, sequential, approval-sensitive, citation-bearing, or changes the next decision | Native result preserved for judgment |
 
-These are defaults, not entitlements. Inspect the current harness and configured
-models. Use a suitable equivalent only for an unspecified support lane or when
-the user's routing policy permits substitution. If an exact requested model is
-unavailable, report that lane as blocked; preserve the Fable lead requirement.
+These are defaults, not entitlements. Inspect the current harness and configured models. Use a suitable equivalent only for an unspecified support lane or when the user's routing policy permits substitution. If an exact requested model is unavailable, report that lane as blocked; preserve the Fable lead requirement.
 
 ## Routing Test
 
 Ask in order:
 
-1. Can the lead finish this coherently without delaying other useful work? If
-   yes, keep it direct.
-2. Is the work independent enough to justify coordination overhead? If no, keep
-   it sequential.
-3. Could a competent worker know what counts as success from the packet without
-   inventing a premise, value judgment, source-quality rule, or next question?
-   If no, Fable 5 must investigate or specify further first.
-4. Does the bounded work still need semantic judgment between results? If yes,
-   use a capable model lane; if no, a deterministic reduction may be better.
-5. Would a fresh context materially reduce anchoring or catch specification
-   drift? If yes, add a verifier.
-6. Will a cheaper or specialized lane still meet the evidence and quality bar?
-   If yes, use it; otherwise keep the stronger lane.
+1. Can the lead finish this coherently without delaying other useful work? If yes, keep it direct.
+2. Is the work independent enough to justify coordination overhead? If no, keep it sequential.
+3. Could a competent worker know what counts as success from the packet without inventing a premise, value judgment, source-quality rule, or next question? If no, Fable 5 must investigate or specify further first.
+4. Does the bounded work still need semantic judgment between results? If yes, use a capable model lane; if no, a deterministic reduction may be better.
+5. Would a fresh context materially reduce anchoring or catch specification drift? If yes, add a verifier.
+6. Will a cheaper or specialized lane still meet the evidence and quality bar? If yes, use it; otherwise keep the stronger lane.
 
 ## Phase Boundary
 
@@ -58,16 +47,9 @@ Fable 5 owns discovery until the handoff packet states:
 - source, coverage, and verification bars; and
 - conditions that require escalation instead of local improvisation.
 
-After that boundary, prefer GPT-5.6 Sol or the strongest suitable execution lane
-for large follow-on research, repository work, implementation, and tool-heavy
-action. A lower-cost lane may handle high-volume collection or straightforward
-web search when the coverage and source-selection rules are already explicit.
-Fable 5 should inspect decisive evidence, not every routine result.
+After that boundary, prefer GPT-5.6 Sol or the strongest suitable execution lane for large follow-on research, repository work, implementation, and tool-heavy action. A lower-cost lane may handle high-volume collection or straightforward web search when the coverage and source-selection rules are already explicit. Fable 5 should inspect decisive evidence, not every routine result.
 
-If a worker finds a new option, conflicting primary evidence, an invalid premise,
-or a consequential choice absent from the packet, stop that branch and return
-the reopened judgment to Fable 5. Once resolved, issue a revised packet and
-resume execution.
+If a worker finds a new option, conflicting primary evidence, an invalid premise, or a consequential choice absent from the packet, stop that branch and return the reopened judgment to Fable 5. Once resolved, issue a revised packet and resume execution.
 
 ## Evidence Packet
 
@@ -76,11 +58,9 @@ Objective: Answer this bounded question: <question>.
 
 Scope: Inspect <sources/files/repos>. Exclude <what another lane owns>.
 
-Decision boundary: Apply <fixed rules>. Do not resolve <reserved judgments>.
-Escalate if <premise breaks, new option appears, or evidence conflicts>.
+Decision boundary: Apply <fixed rules>. Do not resolve <reserved judgments>. Escalate if <premise breaks, new option appears, or evidence conflicts>.
 
-Evidence: Prefer primary sources and direct inspection. Record dates and URLs
-for current facts; record paths and relevant locations for local claims.
+Evidence: Prefer primary sources and direct inspection. Record dates and URLs for current facts; record paths and relevant locations for local claims.
 
 Output:
 - Short answer or completed artifact
@@ -89,8 +69,7 @@ Output:
 - Weak, conflicting, or missing evidence
 - Confidence and caveats
 
-Stop when: The assigned question is answered to the stated evidence bar, or a
-specific blocker makes further work non-productive.
+Stop when: The assigned question is answered to the stated evidence bar, or a specific blocker makes further work non-productive.
 ```
 
 ## Long-Context Packet
@@ -98,8 +77,7 @@ specific blocker makes further work non-productive.
 ```text
 Objective: Read this large context and extract decision-relevant findings.
 
-Focus: <questions the lead needs answered>. Preserve contradictions and source
-locations. Do not make the final recommendation.
+Focus: <questions the lead needs answered>. Preserve contradictions and source locations. Do not make the final recommendation.
 
 Output:
 - Key findings
@@ -111,13 +89,9 @@ Output:
 
 ## Bad Routing
 
-- Delegating because the lead model is expensive when the handoff loses crucial
-  context or judgment quality.
-- Delegating broad discovery before the lead has defined what is material, then
-  treating the worker's framing as neutral evidence.
-- Asking several workers the same broad question without distinct sources,
-  lenses, or ownership.
-- Using programmatic tool calling for approval-sensitive actions, citations,
-  native artifacts, or adaptive semantic judgment.
+- Delegating because the lead model is expensive when the handoff loses crucial context or judgment quality.
+- Delegating broad discovery before the lead has defined what is material, then treating the worker's framing as neutral evidence.
+- Asking several workers the same broad question without distinct sources, lenses, or ownership.
+- Using programmatic tool calling for approval-sensitive actions, citations, native artifacts, or adaptive semantic judgment.
 - Waiting idly for a worker when the lead has non-overlapping work to do.
 - Launching another wave when the missing fact would not change the decision.

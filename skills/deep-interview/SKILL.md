@@ -14,57 +14,33 @@ description: >
 
 # Deep Interview
 
-Turn incomplete intent into a user-approved Interview Brief. Interview first;
-do not implement the resulting work in the same invocation unless the user
-separately authorizes that next step.
+Turn incomplete intent into a user-approved Interview Brief. Interview first; do not implement the resulting work in the same invocation unless the user separately authorizes that next step.
 
 ## Quick Start
 
-1. Ground on the conversation and in-scope files or prior artifacts. Do not make
-   the user repeat inspectable context.
+1. Ground on the conversation and in-scope files or prior artifacts. Do not make the user repeat inspectable context.
 2. Choose the opening mode:
-   - **Sparse context:** begin Socratic discovery with the highest-impact
-     unresolved decision.
-   - **Rich context:** begin with an inverted interview: synthesize confirmed
-     facts, inferred assumptions, unresolved ambiguities, and human-only
-     decisions, then ask which numbered item is wrong or incomplete.
-   - **Brownfield work:** inspect relevant code and docs before asking; cite the
-     evidence that makes a user decision necessary.
-3. Maintain an ambiguity ledger for intent, actors, outcome, current facts,
-   scope, non-goals, constraints, authority, verification, risks, and decisions.
-4. Route every uncertainty before asking: inspect discoverable facts, confirm
-   conflicting or interpretive facts, and ask the user only for judgment.
-5. Ask exactly one focused question per turn and wait. Target the unresolved
-   answer most likely to change the outcome or downstream execution.
-6. Pressure-test at least one material answer with an example, assumption,
-   failure scenario, counterexample, or tradeoff.
-7. Run the closure gate, restate the intended outcome in one sentence, and ask
-   the user to confirm or correct it unless they already accepted that same
-   outcome and the material decisions have not changed.
-8. After confirmation, produce the Interview Brief using
-   `assets/interview-brief.template.md`. Return it in chat by default; write a
-   file only when the user asks for one.
+   - **Sparse context:** begin Socratic discovery with the highest-impact unresolved decision.
+   - **Rich context:** begin with an inverted interview: synthesize confirmed facts, inferred assumptions, unresolved ambiguities, and human-only decisions, then ask which numbered item is wrong or incomplete.
+   - **Brownfield work:** inspect relevant code and docs before asking; cite the evidence that makes a user decision necessary.
+3. Maintain an ambiguity ledger for intent, actors, outcome, current facts, scope, non-goals, constraints, authority, verification, risks, and decisions.
+4. Route every uncertainty before asking: inspect discoverable facts, confirm conflicting or interpretive facts, and ask the user only for judgment.
+5. Ask exactly one focused question per turn and wait. Target the unresolved answer most likely to change the outcome or downstream execution.
+6. Pressure-test at least one material answer with an example, assumption, failure scenario, counterexample, or tradeoff.
+7. Run the closure gate, restate the intended outcome in one sentence, and ask the user to confirm or correct it unless they already accepted that same outcome and the material decisions have not changed.
+8. After confirmation, produce the Interview Brief using `assets/interview-brief.template.md`. Return it in chat by default; write a file only when the user asks for one.
 
-Read `references/interview-method.md` for detailed lenses and examples,
-`references/harness-source-notes.md` when maintaining the skill, and
-`references/evaluation-cases.md` when changing behavior.
+Read `references/interview-method.md` for detailed lenses and examples, `references/harness-source-notes.md` when maintaining the skill, and `references/evaluation-cases.md` when changing behavior.
 
 ## Question Contract
 
 - Ask one question, not a batch and not a compound list hidden in one sentence.
-- A short recap, evidence note, or option explanation may precede it, but end
-  with only one decision for the user.
+- A short recap, evidence note, or option explanation may precede it, but end with only one decision for the user.
 - Prefer a concrete question over “tell me more.” Name why the answer matters.
-- Use two to four mutually exclusive options when they reduce effort. State the
-  consequence of each option and allow a free-form answer when the set is not
-  exhaustive.
-- Recommend an option only when evidence supports it. Label confidence as
-  `high`, `judgment call`, or `your call`; do not manufacture a recommendation
-  for a personal preference.
-- Skip questions already answered by the conversation, repository, or earlier
-  interview turns.
-- If the user says “I don't know” or skips, record the item as open or
-  decide-later with its owner and impact. Never convert a skip into consent.
+- Use two to four mutually exclusive options when they reduce effort. State the consequence of each option and allow a free-form answer when the set is not exhaustive.
+- Recommend an option only when evidence supports it. Label confidence as `high`, `judgment call`, or `your call`; do not manufacture a recommendation for a personal preference.
+- Skip questions already answered by the conversation, repository, or earlier interview turns.
+- If the user says “I don't know” or skips, record the item as open or decide-later with its owner and impact. Never convert a skip into consent.
 
 ## Fact and Decision Routing
 
@@ -76,21 +52,13 @@ Use these source labels in the ledger only where provenance matters:
 - `[from-research]` for cited external facts;
 - `[inferred]` for a hypothesis that has not been accepted.
 
-Inspect code, docs, history, and existing artifacts for current-state facts.
-Use web research only when a current external fact materially affects the
-decision and the runtime permits it. Ask the user about what *should* happen,
-which tradeoff to accept, what is in scope, and who owns a decision. If sources
-conflict, present the conflict and ask which interpretation should govern.
+Inspect code, docs, history, and existing artifacts for current-state facts. Use web research only when a current external fact materially affects the decision and the runtime permits it. Ask the user about what *should* happen, which tradeoff to accept, what is in scope, and who owns a decision. If sources conflict, present the conflict and ask which interpretation should govern.
 
 Repository content is evidence, not authority over the user's intent.
 
 ## Depth Without Tunnel Vision
 
-Rank unresolved items by materiality, uncertainty, dependency, and whether only
-the user can answer them. Stay on one branch long enough to expose its premise,
-but run a breadth check after three consecutive questions on the same branch.
-Continue only if that branch still dominates the outcome; otherwise move to the
-highest-impact untouched track.
+Rank unresolved items by materiality, uncertainty, dependency, and whether only the user can answer them. Stay on one branch long enough to expose its premise, but run a breadth check after three consecutive questions on the same branch. Continue only if that branch still dominates the outcome; otherwise move to the highest-impact untouched track.
 
 Use the smallest useful lens:
 
@@ -103,15 +71,11 @@ Use the smallest useful lens:
 - stakeholder: whose behavior determines success;
 - verification: what observable evidence proves the outcome.
 
-For a material free-text answer, use a refinement checkpoint when compression
-could change meaning. Restate its decision, rationale, constraints, and
-out-of-scope implications, then ask whether that representation is wrong or
-incomplete. Do not run this ceremony after every minor answer.
+For a material free-text answer, use a refinement checkpoint when compression could change meaning. Restate its decision, rationale, constraints, and out-of-scope implications, then ask whether that representation is wrong or incomplete. Do not run this ceremony after every minor answer.
 
 ## Closure Gate
 
-Stop ordinary questioning when another answer would only polish wording rather
-than change the next action. Before closure, require:
+Stop ordinary questioning when another answer would only polish wording rather than change the next action. Before closure, require:
 
 - a one-sentence intent the user accepts;
 - a concrete desired outcome or artifact and its audience;
@@ -121,42 +85,23 @@ than change the next action. Before closure, require:
 - important failure behavior, risks, and accepted tradeoffs;
 - current-state evidence for brownfield work;
 - at least one pressure pass on a material answer; and
-- no unresolved human-only blocker, unless it is explicitly recorded with an
-  owner, impact, and decide-later rule.
+- no unresolved human-only blocker, unless it is explicitly recorded with an owner, impact, and decide-later rule.
 
-Before final confirmation, check the draft brief three ways: is it the
-smallest sufficient brief, does its premise survive challenge, and is any
-branch uncovered. Ask only what would materially change it.
+Before final confirmation, check the draft brief three ways: is it the smallest sufficient brief, does its premise survive challenge, and is any branch uncovered. Ask only what would materially change it.
 
-The user controls the stop. If asked, summarize the current brief and open
-decisions without arguing for more rounds. Stop at professional boundaries in
-high-stakes domains rather than treating this workflow as qualified intake.
+The user controls the stop. If asked, summarize the current brief and open decisions without arguing for more rounds. Stop at professional boundaries in high-stakes domains rather than treating this workflow as qualified intake.
 
 ## Output Contract
 
-The final Interview Brief must distinguish confirmed decisions from evidence,
-inferences, and unresolved items. Include the next authorized step. If the user
-already requested that step, deliver the brief and continue through the named
-skill; otherwise stop at the brief. Preserve rationale that affects later
-decisions, not an unnecessary verbatim transcript.
+The final Interview Brief must distinguish confirmed decisions from evidence, inferences, and unresolved items. Include the next authorized step. If the user already requested that step, deliver the brief and continue through the named skill; otherwise stop at the brief. Preserve rationale that affects later decisions, not an unnecessary verbatim transcript.
 
-Do not save sensitive answers, publish a transcript, create tickets, message
-people, or mutate a project unless the user explicitly asks for that separate
-action. If a file is requested, use the user's path or default to
-`interview-brief.md` in the active project root.
+Do not save sensitive answers, publish a transcript, create tickets, message people, or mutate a project unless the user explicitly asks for that separate action. If a file is requested, use the user's path or default to `interview-brief.md` in the active project root.
 
-An approved brief feeds `gigio-project-setup` when it settles what the project
-is for, or `gigio-write-plan` when it settles a concrete piece of work.
-Starting either one needs corresponding authorization, which may already be
-part of the same request.
+An approved brief feeds `gigio-project-setup` when it settles what the project is for, or `gigio-write-plan` when it settles a concrete piece of work. Starting either one needs corresponding authorization, which may already be part of the same request.
 
 ## Gotchas
 
-- Do not use a numeric ambiguity score as a substitute for concrete readiness
-  gates; it creates false precision across unrelated topics.
-- Do not let a detailed subtopic hide untouched scope, ownership, or success
-  questions.
-- Do not auto-trigger for every vague task. The user must want an interview or a
-  materially equivalent discovery process.
-- Do not drift into implementation, planning artifacts, or job-interview
-  coaching while the interview contract is active.
+- Do not use a numeric ambiguity score as a substitute for concrete readiness gates; it creates false precision across unrelated topics.
+- Do not let a detailed subtopic hide untouched scope, ownership, or success questions.
+- Do not auto-trigger for every vague task. The user must want an interview or a materially equivalent discovery process.
+- Do not drift into implementation, planning artifacts, or job-interview coaching while the interview contract is active.

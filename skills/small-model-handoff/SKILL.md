@@ -14,44 +14,27 @@ description: >
 
 # Small Model Handoff
 
-Turn a finished plan into a narrow execution contract for a model that is less
-reliable than the planner at task execution, recovery, context handling, or scope
-control. Reduce its judgment surface; keep unresolved decisions with the planner.
+Turn a finished plan into a narrow execution contract for a model that is less reliable than the planner at task execution, recovery, context handling, or scope control. Reduce its judgment surface; keep unresolved decisions with the planner.
 
 ## Invocation Policy
 
-Use this skill when the user explicitly invokes it to build the bounded prompt,
-or when `gigio-execute-plan` or `orchestrate-subagents` name-calls it while
-dispatching work to a weaker executor. Model names, cost preferences, executor
-recommendations, and discussion or edits to this skill do not invoke it. Do not auto-apply it to a handoff. Do
-not use it for a peer or high-capability executor that can safely
-inherit open judgment. Use `session-handoff` for successor-ready session
-transfers.
+Use this skill when the user explicitly invokes it to build the bounded prompt, or when `gigio-execute-plan` or `orchestrate-subagents` name-calls it while dispatching work to a weaker executor. Model names, cost preferences, executor recommendations, and discussion or edits to this skill do not invoke it. Do not auto-apply it to a handoff. Do not use it for a peer or high-capability executor that can safely inherit open judgment. Use `session-handoff` for successor-ready session transfers.
 
 ## Quick Path
 
-1. Resolve every Handoff Gate field from the approved plan, named artifacts,
-   and session grants before requesting more input from the planner.
-2. If a consequential field remains missing or contradictory, return the
-   specific unresolved list and finish the settled parts of the prompt.
-   Do not dispatch an incomplete packet or invent authority to fill a field.
+1. Resolve every Handoff Gate field from the approved plan, named artifacts, and session grants before requesting more input from the planner.
+2. If a consequential field remains missing or contradictory, return the specific unresolved list and finish the settled parts of the prompt. Do not dispatch an incomplete packet or invent authority to fill a field.
 3. Select `change`, `run`, `inspect`, or an explicitly ordered `mixed` mode.
-4. Write one prompt from `assets/execution-prompt.template.md`; remove sections
-   that do not apply instead of leaving empty placeholders.
+4. Write one prompt from `assets/execution-prompt.template.md`; remove sections that do not apply instead of leaving empty placeholders.
 5. Resolve every choice the executor cannot handle reliably.
-6. Tell the executor to continue when preflight matches; the execution loop
-   below belongs in the generated prompt and does not authorize this authoring
-   invocation to run the task.
-7. Return the copy-ready prompt plus only the assumptions the planner must
-   resolve before use.
+6. Tell the executor to continue when preflight matches; the execution loop below belongs in the generated prompt and does not authorize this authoring invocation to run the task.
+7. Return the copy-ready prompt plus only the assumptions the planner must resolve before use.
 
-Read `references/prompt-patterns.md` for mode-specific scope patterns, stop
-reports, and examples.
+Read `references/prompt-patterns.md` for mode-specific scope patterns, stop reports, and examples.
 
 ## Handoff Gate
 
-A valid packet answers these without new product, architecture, or recovery
-judgment:
+A valid packet answers these without new product, architecture, or recovery judgment:
 
 | Field | Required content |
 | --- | --- |
@@ -66,13 +49,9 @@ judgment:
 | Evidence | Expected outputs, exit states, artifacts, diffs, or cited observations |
 | Stop conditions | Mismatches that must return to the planner |
 
-A field may be satisfied by pointing at a durable plan document — the plan file
-path plus the task ID — instead of restating what it already says. Never
-paraphrase content that lives in the plan file; the executor reads it at the
-named path.
+A field may be satisfied by pointing at a durable plan document — the plan file path plus the task ID — instead of restating what it already says. Never paraphrase content that lives in the plan file; the executor reads it at the named path.
 
-“Investigate and handle it” is not a packet. If the executor must discover the
-procedure, choose the fix, or decide how to recover, planning is unfinished.
+“Investigate and handle it” is not a packet. If the executor must discover the procedure, choose the fix, or decide how to recover, planning is unfinished.
 
 ## Task Modes
 
@@ -83,8 +62,7 @@ procedure, choose the fix, or decide how to recover, planning is unfinished.
 | `inspect` | Named sources and questions, read-only boundary, evidence format | Cited observations and explicit unknowns |
 | `mixed` | Ordered modes with a separate authority boundary for each phase | Evidence from every phase and cumulative side effects |
 
-For `run`, a failed test or check is a result, not permission to diagnose or edit.
-For `inspect`, no mutation is allowed unless a later phase grants it explicitly.
+For `run`, a failed test or check is a result, not permission to diagnose or edit. For `inspect`, no mutation is allowed unless a later phase grants it explicitly.
 
 ## Prompt Rules
 
@@ -108,21 +86,15 @@ Then state one outcome. Do not repeat it later.
 ### Make Scope and Authority Mechanical
 
 - For `change`, provide exclusive file and symbol allowlists.
-- For `run`, provide exact commands, working directory, allowed retries, and
-  whether generated artifacts may remain.
+- For `run`, provide exact commands, working directory, allowed retries, and whether generated artifacts may remain.
 - For `inspect`, name allowed sources, questions, and the read-only boundary.
 - For `mixed`, state where each phase begins and whether its authority changes.
 
-Write operational limits, not model stereotypes. Prohibit only relevant failure
-modes: unplanned edits, extra commands, dependency or configuration changes,
-test weakening, destructive actions, secret access, or external writes.
+Write operational limits, not model stereotypes. Prohibit only relevant failure modes: unplanned edits, extra commands, dependency or configuration changes, test weakening, destructive actions, secret access, or external writes.
 
 ### Treat the Plan as Fixed Input
 
-Require a preflight consistency check against named evidence and prerequisites.
-If it matches, continue. Do not ask the executor to redesign, investigate adjacent
-issues, choose alternatives, or improvise recovery. Unexpected results belong in
-the report unless a supplied branch or bounded retry covers them.
+Require a preflight consistency check against named evidence and prerequisites. If it matches, continue. Do not ask the executor to redesign, investigate adjacent issues, choose alternatives, or improvise recovery. Unexpected results belong in the report unless a supplied branch or bounded retry covers them.
 
 ### Use One Short Execution Loop
 
@@ -131,30 +103,23 @@ the report unless a supplied branch or bounded retry covers them.
 3. Collect evidence: capture the required outputs, artifacts, diffs, or findings.
 4. Report: show results, side effects, assumptions, deviations, and unknowns.
 
-If a required tool or check is unavailable, report it. Do not install packages,
-change configuration, access new credentials, or invent infrastructure unless the
-packet explicitly authorizes that action.
+If a required tool or check is unavailable, report it. Do not install packages, change configuration, access new credentials, or invent infrastructure unless the packet explicitly authorizes that action.
 
 ### Stop on Authority or Plan Mismatches
 
 Stop before the affected action when:
 
 - a prerequisite or approved basis contradicts current reality;
-- completion requires a file, command, source, credential, or side effect outside
-  the stated scope;
+- completion requires a file, command, source, credential, or side effect outside the stated scope;
 - a destructive or external action lacks explicit authority;
 - an unexpected mutation or overlapping user change cannot be preserved;
 - the supplied procedure has no defined branch for a result requiring judgment.
 
-Name the mismatch, evidence, work already performed, and smallest missing
-decision or authority expansion.
+Name the mismatch, evidence, work already performed, and smallest missing decision or authority expansion.
 
 ## Output Contract
 
-Return one copy-ready execution prompt containing the outcome, mode, approved
-basis and procedure, scope, authority, preservation rules, preflight, evidence,
-stop conditions, and final report fields. Do not execute the task, rank models,
-add alternative plans, or create a synthetic evaluation.
+Return one copy-ready execution prompt containing the outcome, mode, approved basis and procedure, scope, authority, preservation rules, preflight, evidence, stop conditions, and final report fields. Do not execute the task, rank models, add alternative plans, or create a synthetic evaluation.
 
 ## Reference Files
 
@@ -168,5 +133,4 @@ add alternative plans, or create a synthetic evaluation.
 - Do not call the executor “stupid” or “weak”; state task-relevant limits.
 - Do not infer lower capability from model size, speed, or price alone.
 - Do not turn a failing test run into an unauthorized bug-fix task.
-- Do not treat command completion as success when exit status, evidence, or
-  expected artifacts are missing.
+- Do not treat command completion as success when exit status, evidence, or expected artifacts are missing.

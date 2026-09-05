@@ -16,102 +16,55 @@ description: >
 
 # Gigio Project Setup
 
-Install or audit the durable intent layer of a project: `PROJECT.md` plus the
-instruction wiring that makes every later session actually read it.
+Install or audit the durable intent layer of a project: `PROJECT.md` plus the instruction wiring that makes every later session actually read it.
 
 ## Step 1 — Inspect before asking
 
-Read what exists: PROJECT.md (audit path, Step 4), README, docs, git log,
-AGENTS.md and CLAUDE.md. Never ask the user for a fact the repository already
-answers. If an equivalent intent document exists under another name, follow
-any migration choice already given. Otherwise inspect the difference and ask
-only before replacing or creating a rival source of intent; an audit can
-report the existing document without waiting for that choice.
+Read what exists: PROJECT.md (audit path, Step 4), README, docs, git log, AGENTS.md and CLAUDE.md. Never ask the user for a fact the repository already answers. If an equivalent intent document exists under another name, follow any migration choice already given. Otherwise inspect the difference and ask only before replacing or creating a rival source of intent; an audit can report the existing document without waiting for that choice.
 
 ## Step 2 — PROJECT.md: six questions, two speeds
 
-Interview for material gaps only, one question at a time. Carry forward explicit
-user decisions from the session without asking for their confirmation again.
+Interview for material gaps only, one question at a time. Carry forward explicit user decisions from the session without asking for their confirmation again.
 
-**Top half — human-owned.** Mark the boundary in the file (for example
-`<!-- human-owned: renegotiate with the user before editing -->`). Model
-inference is not a decision until the user confirms it.
+**Top half — human-owned.** Mark the boundary in the file (for example `<!-- human-owned: renegotiate with the user before editing -->`). Model inference is not a decision until the user confirms it.
 
-1. **Why this exists** — a diagnosis, not an aspiration: one concrete
-   incident showing why the current state fails.
-2. **Pillars** — 3–5 sentences carrying the intended experience or goal,
-   each paired with "this does not mean X".
-3. **Non-goals** — reasonable options deliberately excluded, with reasons;
-   deferred items carry a re-evaluation condition.
-4. **Judgment rules** — numbered, falsifiable imperatives ("when A conflicts
-   with B, choose A"), each anchored to the real decision or incident that
-   created it.
+1. **Why this exists** — a diagnosis, not an aspiration: one concrete incident showing why the current state fails.
+2. **Pillars** — 3–5 sentences carrying the intended experience or goal, each paired with "this does not mean X".
+3. **Non-goals** — reasonable options deliberately excluded, with reasons; deferred items carry a re-evaluation condition.
+4. **Judgment rules** — numbered, falsifiable imperatives ("when A conflicts with B, choose A"), each anchored to the real decision or incident that created it.
 
 **Bottom half — model-updated digest, not an archive.**
 
-5. **The most important question right now** — phrased as a risk: what, if
-   wrong, sinks everything, and a reasonable way to attack it.
-6. **Current position** — ordered by confidence (now / next / under review),
-   stated as problems rather than features, plus one line: "what I currently
-   measure success by".
+5. **The most important question right now** — phrased as a risk: what, if wrong, sinks everything, and a reasonable way to attack it.
+6. **Current position** — ordered by confidence (now / next / under review), stated as problems rather than features, plus one line: "what I currently measure success by".
 
 Also in the bottom half:
 
-- **Decisions** — settled calls every executor must read before working.
-  Supersede rather than delete; record whether each came from user
-  confirmation, model inference, or an adopted default. Settled decisions are
-  never silently relitigated.
-- **Project-wide done criteria** — test/lint expectations stated once here,
-  so plans do not repeat them per task.
+- **Decisions** — settled calls every executor must read before working. Supersede rather than delete; record whether each came from user confirmation, model inference, or an adopted default. Settled decisions are never silently relitigated.
+- **Project-wide done criteria** — test/lint expectations stated once here, so plans do not repeat them per task.
 
-Writing rules: complete sentences; only vocabulary practitioners of the
-domain actually use; explaining a reference never silently turns it into a
-requirement.
+Writing rules: complete sentences; only vocabulary practitioners of the domain actually use; explaining a reference never silently turns it into a requirement.
 
 ## Step 3 — Wire the instructions
 
-Edit existing files. For an installation request with neither file present,
-create `AGENTS.md` and a `CLAUDE.md` bridge as the documented default; an audit
-only reports the missing wiring. Keep the block between marker comments so
-later updates are idempotent. Two touch points:
+Edit existing files. For an installation request with neither file present, create `AGENTS.md` and a `CLAUDE.md` bridge as the documented default; an audit only reports the missing wiring. Keep the block between marker comments so later updates are idempotent. Two touch points:
 
-- `AGENTS.md`: a short block stating that PROJECT.md exists and must be
-  consulted for significant judgments and completion claims; top-half edits
-  need user approval; plans live in `.plans/` (gitignored); routing — the user
-  invokes `gigio-write-plan` to get a plan file and `gigio-execute-plan` to run
-  one. Write the routing as where those requests go, never as a standing
-  instruction to start planning or executing on the agent's own judgment; the
-  pack's skills are invoked, not inferred.
-- `CLAUDE.md`: a first-line `@AGENTS.md` import (or symlink). This path is
-  what gets re-injected after compaction and inherited by subagents; content
-  placed elsewhere silently disappears.
+- `AGENTS.md`: a short block stating that PROJECT.md exists and must be consulted for significant judgments and completion claims; top-half edits need user approval; plans live in `.plans/` (gitignored); routing — the user invokes `gigio-write-plan` to get a plan file and `gigio-execute-plan` to run one. Write the routing as where those requests go, never as a standing instruction to start planning or executing on the agent's own judgment; the pack's skills are invoked, not inferred.
+- `CLAUDE.md`: a first-line `@AGENTS.md` import (or symlink). This path is what gets re-injected after compaction and inherited by subagents; content placed elsewhere silently disappears.
 
 ## Step 4 — Audit path (existing installation)
 
-- Committed-state: `git status` on PROJECT.md and the wired instruction
-  files. The intent layer exists only once committed — uncommitted, it
-  evaporates outside this checkout.
+- Committed-state: `git status` on PROJECT.md and the wired instruction files. The intent layer exists only once committed — uncommitted, it evaporates outside this checkout.
 - Fossil check: compare "current position" against git log and the files.
-- Coverage: any of the six questions unanswered, or answered as aspiration
-  instead of diagnosis.
-- Grade findings three ways: **blocking** (PROJECT.md missing or uncommitted,
-  top half edited without approval) / **degraded** (question coverage missing,
-  fossilized bottom half) / **advisory** (waste — report it, never block
-  on it).
+- Coverage: any of the six questions unanswered, or answered as aspiration instead of diagnosis.
+- Grade findings three ways: **blocking** (PROJECT.md missing or uncommitted, top half edited without approval) / **degraded** (question coverage missing, fossilized bottom half) / **advisory** (waste — report it, never block on it).
 
 ## Step 5 — Report and stop
 
-Say what was created or changed, and what the user should now edit by hand —
-the top half is theirs. Ask to commit the new layer (or commit if already
-authorized): until committed it protects nothing. Setup never writes plans. For the first piece of
-sizable work, continue with `find-unknowns` (territory unclear) or
-`gigio-write-plan` (work already chosen).
+Say what was created or changed, and what the user should now edit by hand — the top half is theirs. Ask to commit the new layer (or commit if already authorized): until committed it protects nothing. Setup never writes plans. For the first piece of sizable work, continue with `find-unknowns` (territory unclear) or `gigio-write-plan` (work already chosen).
 
 ## Gotchas
 
-- An aspirational "why" ("make X great") is a non-answer — re-ask for the
-  incident that shows the current state failing.
-- Do not summarize PROJECT.md into the AGENTS.md block. The block carries
-  paths and rules; inlined content goes stale the moment the file is edited.
-- Do not skip the CLAUDE.md bridge because AGENTS.md "should be enough" —
-  Claude Code does not read AGENTS.md on its own.
+- An aspirational "why" ("make X great") is a non-answer — re-ask for the incident that shows the current state failing.
+- Do not summarize PROJECT.md into the AGENTS.md block. The block carries paths and rules; inlined content goes stale the moment the file is edited.
+- Do not skip the CLAUDE.md bridge because AGENTS.md "should be enough" — Claude Code does not read AGENTS.md on its own.

@@ -2,9 +2,7 @@
 
 Use these packet shapes when delegating. Adapt wording to the harness and task.
 
-When the task definition already lives in a durable file, the packet carries its
-path plus the scalar config values the worker needs. Do not paraphrase the
-file's content into the packet.
+When the task definition already lives in a durable file, the packet carries its path plus the scalar config values the worker needs. Do not paraphrase the file's content into the packet.
 
 ## Contents
 
@@ -19,11 +17,9 @@ file's content into the packet.
 ```text
 Objective: Answer this specific question: <question>.
 
-Scope: Inspect <source types / domains / repos / files>. Do not cover <excluded
-scope> because another lane owns it.
+Scope: Inspect <source types / domains / repos / files>. Do not cover <excluded scope> because another lane owns it.
 
-Method: Prefer primary sources and direct inspection. Treat popularity as a weak
-signal. Flag AI-slop, stale, or unsupported sources.
+Method: Prefer primary sources and direct inspection. Treat popularity as a weak signal. Flag AI-slop, stale, or unsupported sources.
 
 Output:
 - Short answer
@@ -33,20 +29,17 @@ Output:
 - Confidence and caveats
 - Follow-up questions that would materially change the answer
 
-Stop when: You have inspected the assigned scope deeply enough to support or
-reject the relevant claims.
+Stop when: You have inspected the assigned scope deeply enough to support or reject the relevant claims.
 ```
 
 ## Value Judgment Packet
 
 ```text
-Objective: Argue from the <advocate/skeptic/operator/outsider> lens for this
-decision: <decision>.
+Objective: Argue from the <advocate/skeptic/operator/outsider> lens for this decision: <decision>.
 
 Context: <facts, constraints, user preferences, time horizon>.
 
-Scope: Focus on <lens-specific issues>. Do not attempt a final recommendation;
-the lead agent will synthesize.
+Scope: Focus on <lens-specific issues>. Do not attempt a final recommendation; the lead agent will synthesize.
 
 Output:
 - Strongest argument from this lens
@@ -55,8 +48,7 @@ Output:
 - What would change your view
 - Confidence
 
-Stop when: The assigned lens has a defensible argument, its decisive assumptions
-are explicit, and further work is unlikely to change that argument materially.
+Stop when: The assigned lens has a defensible argument, its decisive assumptions are explicit, and further work is unlikely to change that argument materially.
 ```
 
 ## Code Exploration Packet
@@ -73,8 +65,7 @@ Output:
 - Risks or hidden contracts
 - Suggested implementation boundary
 
-Stop when: The codebase question is answered with direct file evidence, or a
-specific missing dependency prevents a reliable answer.
+Stop when: The codebase question is answered with direct file evidence, or a specific missing dependency prevents a reliable answer.
 ```
 
 ## Code Worker Packet
@@ -82,14 +73,11 @@ specific missing dependency prevents a reliable answer.
 ```text
 Objective: Implement <bounded change>.
 
-Ownership: You own <files/modules>. Avoid touching <files/modules> unless
-strictly necessary and report it.
+Ownership: You own <files/modules>. Avoid touching <files/modules> unless strictly necessary and report it.
 
-Coordination: Other agents or the user may be editing the repo. Do not revert
-changes you did not make. Keep changes minimal and compatible.
+Coordination: Other agents or the user may be editing the repo. Do not revert changes you did not make. Keep changes minimal and compatible.
 
-Limits: Do not spawn subagents.
-Never mark a failed task as done — report the failure.
+Limits: Do not spawn subagents. Never mark a failed task as done — report the failure.
 
 Verification: Run <tests/checks> if available. If not run, explain why.
 
@@ -99,8 +87,7 @@ Output:
 - Verification performed
 - Remaining risk
 
-Stop when: The bounded change and required verification are complete, or a
-concrete blocker requires authority or information outside this packet.
+Stop when: The bounded change and required verification are complete, or a concrete blocker requires authority or information outside this packet.
 ```
 
 ## Review Packet
@@ -108,8 +95,7 @@ concrete blocker requires authority or information outside this packet.
 ```text
 Objective: Review <artifact/diff/plan/research synthesis> for <risk class>.
 
-Scope: Focus on material issues. Avoid generic style comments unless they affect
-behavior, correctness, trust, or maintainability.
+Scope: Focus on material issues. Avoid generic style comments unless they affect behavior, correctness, trust, or maintainability.
 
 Output:
 - Findings ordered by severity
@@ -117,6 +103,5 @@ Output:
 - Suggested fix or follow-up
 - Anything you intentionally did not review
 
-Stop when: The assigned risk class has been covered deeply enough to identify
-material findings.
+Stop when: The assigned risk class has been covered deeply enough to identify material findings.
 ```

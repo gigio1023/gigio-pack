@@ -1,16 +1,10 @@
 # Rule Ledger
 
-Every load-bearing rule in this pack is registered here with the reason it is
-allowed to exist. Before changing a dispatch, preflight, ownership, or
-verification rule, look it up here first.
+Every load-bearing rule in this pack is registered here with the reason it is allowed to exist. Before changing a dispatch, preflight, ownership, or verification rule, look it up here first.
 
-The premise, from [principles.md](principles.md): a strong model follows a
-badly designed procedure just as faithfully as a good one. So a rule is not
-judged on whether it is a good rule, but on **whether its value rises or falls
-as models improve.**
+The premise, from [principles.md](principles.md): a strong model follows a badly designed procedure just as faithfully as a good one. So a rule is not judged on whether it is a good rule, but on **whether its value rises or falls as models improve.**
 
-Deciding line: **if removing the step leaves accuracy, safety, and
-auditability intact, remove it.**
+Deciding line: **if removing the step leaves accuracy, safety, and auditability intact, remove it.**
 
 ## The five justification types
 
@@ -22,9 +16,7 @@ auditability intact, remove it.**
 | Concurrency | Prevents parallel-write conflicts | Holds — concurrency is not an intelligence problem | Keep |
 | Measured workaround | Works around a specific harness or model habit | **Expires** | Record the measurement date; re-verify every generation |
 
-There is a sixth type — **cognitive map**, meaning any rule that prescribes a
-thinking path. It is deleted on sight and never entered in the ledger. The
-lead diagnoses better on its own than a fixed diagnostic table does.
+There is a sixth type — **cognitive map**, meaning any rule that prescribes a thinking path. It is deleted on sight and never entered in the ledger. The lead diagnoses better on its own than a fixed diagnostic table does.
 
 ## The ledger
 
@@ -65,90 +57,29 @@ Two rows are measured workarounds. They are the only rows expected to die.
 
 ## Generation audit
 
-Adopting a new model generation, or a major harness overhaul, is an **audit
-event**, not a routine upgrade. Run this and append the result to the deletion
-record below:
+Adopting a new model generation, or a major harness overhaul, is an **audit event**, not a routine upgrade. Run this and append the result to the deletion record below:
 
-1. **Review every measured-workaround row** above against current documentation
-   and available traces. Re-measure only when execution is requested. Record
-   missing runtime verification rather than generalizing an old measurement.
-2. **Collect removal candidates** — steps the lead demonstrably did not need
-   during real use. Delete generic scaffolding the target model succeeds
-   without.
-3. **Check knowledge-shaped skills for depreciation.** Skills that carry
-   domain knowledge lose value as models absorb it. Refresh or retire.
-4. **Confirm no growth** — skill bodies stay within 400–2,500 tokens, and
-   always-loaded routing stays at two lines.
+1. **Review every measured-workaround row** above against current documentation and available traces. Re-measure only when execution is requested. Record missing runtime verification rather than generalizing an old measurement.
+2. **Collect removal candidates** — steps the lead demonstrably did not need during real use. Delete generic scaffolding the target model succeeds without.
+3. **Check knowledge-shaped skills for depreciation.** Skills that carry domain knowledge lose value as models absorb it. Refresh or retire.
+4. **Confirm no growth** — skill bodies stay within 400–2,500 tokens, and always-loaded routing stays at two lines.
 
 ## Deletion and compression record
 
-**2026-09-05 — Astra instruction audit (static).** Reviewed all 13 skills using
-[OpenAI's Astra prompting guidance](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra).
-Removed repeated approval requirements for already-requested next stations,
-the mandatory comprehension quiz, automatic worktree cleanup, and the universal
-single-message dispatch claim. Preflight now inspects discrepancies before
-asking, preserves unrelated changes, and keeps prerequisite failures distinct
-from missing checker output. Review reuses one fresh result for identical
-checks and does not run unapproved external effects.
+**2026-09-05 — Astra instruction audit (static).** Reviewed all 13 skills using [OpenAI's Astra prompting guidance](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra). Removed repeated approval requirements for already-requested next stations, the mandatory comprehension quiz, automatic worktree cleanup, and the universal single-message dispatch claim. Preflight now inspects discrepancies before asking, preserves unrelated changes, and keeps prerequisite failures distinct from missing checker output. Review reuses one fresh result for identical checks and does not run unapproved external effects.
 
-*Reviewed and kept:* explicit invocation, human-owned intent, disjoint worker
-ownership, capped repair attempts, fresh review, exact PR targeting, required
-checks, and separate cleanup authority. Templates carry existing grants and
-pending work so a successor can avoid duplicate actions. No model comparison
-or new pilot was run; the earlier pilot status is unchanged.
+*Reviewed and kept:* explicit invocation, human-owned intent, disjoint worker ownership, capped repair attempts, fresh review, exact PR targeting, required checks, and separate cleanup authority. Templates carry existing grants and pending work so a successor can avoid duplicate actions. No model comparison or new pilot was run; the earlier pilot status is unchanged.
 
-**2026-07-26 — failure-routing table compressed.** The execution skill's
-five-class failure table was reduced to its contract core (no same-prompt
-retry, cap of two, plan defects go back to the human). The three diagnostic
-rows prescribing a remedy per cause were judged cognitive map and deleted.
+**2026-07-26 — failure-routing table compressed.** The execution skill's five-class failure table was reduced to its contract core (no same-prompt retry, cap of two, plan defects go back to the human). The three diagnostic rows prescribing a remedy per cause were judged cognitive map and deleted.
 
-**2026-07-26 — repetition removed from the core four.** Seven instances where
-a Gotcha restated the body were cut, keeping the statement only where the
-reasoning lives. Replacement Gotchas carry non-repeating failure shapes only:
-dispatch honesty, found-during scope, self-review anchoring, check-coverage
-gaps.
+**2026-07-26 — repetition removed from the core four.** Seven instances where a Gotcha restated the body were cut, keeping the statement only where the reasoning lives. Replacement Gotchas carry non-repeating failure shapes only: dispatch honesty, found-during scope, self-review anchoring, check-coverage gaps.
 
-**2026-07-26 — upstream and execution scan.** Removed: a three-lens persona
-device in `deep-interview`, replaced with three outcome checks; duplicate
-approval-boundary statements in `find-unknowns` (3→1) and its single-technique
-rule (3→2); a field list in `small-model-handoff` replaced by a gate table,
-with its plan-fixing rule 3→1 and peer-executor prohibition 3→2; the Common
-Scenarios section in `orchestrate-subagents` (a third enumeration of the same
-ground); a negated restatement plus three repeated Gotchas in
-`fable5-model-routing`; five pure restatements across `session-handoff`,
-`git-worktree-setup`, and `draft-pr`.
+**2026-07-26 — upstream and execution scan.** Removed: a three-lens persona device in `deep-interview`, replaced with three outcome checks; duplicate approval-boundary statements in `find-unknowns` (3→1) and its single-technique rule (3→2); a field list in `small-model-handoff` replaced by a gate table, with its plan-fixing rule 3→1 and peer-executor prohibition 3→2; the Common Scenarios section in `orchestrate-subagents` (a third enumeration of the same ground); a negated restatement plus three repeated Gotchas in `fable5-model-routing`; five pure restatements across `session-handoff`, `git-worktree-setup`, and `draft-pr`.
 
-*Reviewed and kept:* the Quick Start ↔ detail two-tier structure throughout
-(progressive disclosure — an 80% path plus detail, not the same rule twice);
-`commit-and-push`'s repeated "preserve unrelated changes" (each pipeline stage
-applies it at a different point); body+Gotcha pairs where each half carries
-something the other does not.
+*Reviewed and kept:* the Quick Start ↔ detail two-tier structure throughout (progressive disclosure — an 80% path plus detail, not the same rule twice); `commit-and-push`'s repeated "preserve unrelated changes" (each pipeline stage applies it at a different point); body+Gotcha pairs where each half carries something the other does not.
 
-**2026-07-26 — dual review** (two independent reviewers, different model
-families). *Fixed:* the plan template had workers recording their own results
-entries, contradicting the worker preamble's "no writes outside owned files"
-and the no-overlap principle — recording moved to the lead alone;
-`session-handoff` gained a NOT-for boundary so sibling discrimination runs
-both ways.
+**2026-07-26 — dual review** (two independent reviewers, different model families). *Fixed:* the plan template had workers recording their own results entries, contradicting the worker preamble's "no writes outside owned files" and the no-overlap principle — recording moved to the lead alone; `session-handoff` gained a NOT-for boundary so sibling discrimination runs both ways.
 
-*Reviewed and kept:* (1) generalizing single-message dispatch and worker
-non-inheritance across harnesses — both are harmless no-ops where unmeasured,
-so adding a harness gate costs more than it returns; (2) the unconditional
-reference from `find-unknowns` to `fable5-model-routing` — the target skill's
-own entry gate excludes harnesses where it doesn't apply; (3) the "not
-installed" fallback line in the plan template — load-bearing for a worker that
-cannot inherit skills and consumes the plan file raw; (4) legacy fixtures
-inside migrated skills — covered by the preserve-original-strengths rule; the
-four newly authored core skills have none.
+*Reviewed and kept:* (1) generalizing single-message dispatch and worker non-inheritance across harnesses — both are harmless no-ops where unmeasured, so adding a harness gate costs more than it returns; (2) the unconditional reference from `find-unknowns` to `fable5-model-routing` — the target skill's own entry gate excludes harnesses where it doesn't apply; (3) the "not installed" fallback line in the plan template — load-bearing for a worker that cannot inherit skills and consumes the plan file raw; (4) legacy fixtures inside migrated skills — covered by the preserve-original-strengths rule; the four newly authored core skills have none.
 
-**2026-07-26 — first-install refinements** (evidence from the two pilot
-installs, before any plan has run). *Fixed:* the setup audit never checked
-whether the intent layer was committed, and one real install passed the audit
-with every file uncommitted — a committed-state check was added and graded
-blocking; completion evidence assumed git-tracked files, failing any task
-whose deliverable is a gitignored artifact (a run's report, generated data) —
-evidence now names the artifact for untracked outputs; review conflated
-"unverifiable" with acceptance that names the owner's judgment as its check —
-the latter is now a separate awaiting-owner-judgment list. All three follow
-from rules already in force (trust-only-committed, acceptance axis); none
-anticipates unmeasured behavior.
+**2026-07-26 — first-install refinements** (evidence from the two pilot installs, before any plan has run). *Fixed:* the setup audit never checked whether the intent layer was committed, and one real install passed the audit with every file uncommitted — a committed-state check was added and graded blocking; completion evidence assumed git-tracked files, failing any task whose deliverable is a gitignored artifact (a run's report, generated data) — evidence now names the artifact for untracked outputs; review conflated "unverifiable" with acceptance that names the owner's judgment as its check — the latter is now a separate awaiting-owner-judgment list. All three follow from rules already in force (trust-only-committed, acceptance axis); none anticipates unmeasured behavior.
