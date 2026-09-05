@@ -18,8 +18,9 @@ worktree that the user or harness already manages.
 1. Read repository instructions and inspect Git state before changing anything.
 2. Detect whether the current checkout is already a linked worktree, including
    the submodule exception below. Reuse it when it is.
-3. If isolation is not already present, create it only when the user has asked
-   for a worktree or consents to one.
+3. If isolation is not already present, create it when the user has asked for
+   a worktree or the active mission already grants isolation. Do not ask again
+   for the same scope; an inspection-only request still does not grant creation.
 4. Honor an explicit creation mechanism or directory policy. Otherwise create
    a Git worktree under the repository's `.worktrees/` directory. Use native
    creation when the user asks for harness-managed lifecycle behavior.
@@ -94,7 +95,9 @@ repository's package manager and documented command; do not infer `npm`, Poetry,
 or another tool from a generic manifest alone.
 
 Run the smallest project-appropriate check that establishes a baseline before
-implementation. Record the exact command and result. If the baseline fails,
+implementation. Reuse an existing baseline only when its revision, relevant
+files, and environment match this workspace. Record the exact command and
+result. If the baseline fails,
 separate the pre-existing failure from later work and ask for direction only
 when proceeding would make attribution unsafe or require broader changes.
 

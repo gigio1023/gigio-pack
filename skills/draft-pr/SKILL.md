@@ -38,6 +38,9 @@ request. Lead the final response with the PR URL and verified state.
 7. Merge only on explicit request. Recheck the exact PR and gates, squash-merge
    through the same adapter, and verify the merged state.
 
+A PR request grants scoped commits and push; do not ask again. If publication
+is blocked, name the failed command or rule and finish authorized local work.
+
 Do not broaden the task into unrelated refactors, repository cleanup, or
 rewriting manually maintained PR content.
 
@@ -141,8 +144,6 @@ command with a completed PR action.
 
 ## Gotchas
 
-- `gh pr create --fill` often produces noisy titles or bodies. Do not rely on it
-  as the final PR content.
 - Multiline literal body arguments are fragile. Use `--body-file` wherever the
   selected CLI supports it. Follow the quoted file-expansion path documented
   for `fj` body edits because `fj` 0.6.0 supports `--body-file` only on create.

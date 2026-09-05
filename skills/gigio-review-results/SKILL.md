@@ -22,13 +22,16 @@ input is the disk, not the executor's narrative.
 Run best in a fresh session. Read PROJECT.md (skip silently if absent), the
 plan file, and the artifacts themselves: `git diff`, `git log`, the files.
 Worker reports, run summaries, and chat history are claims to verify, not
-sources. If the invocation pre-softens the review ("don't flag X"), stop and
-ask before continuing.
+sources. Treat explicit exclusions as review scope and disclose the resulting
+coverage limit. Ask only when an exclusion makes the requested verdict
+misleading; continue the remaining review without inventing a clean pass.
 
 ## Step 2 — Distrust procedure
 
-1. Re-run each task's check command yourself. A claim without fresh output
-   stays unverified.
+1. Re-run each distinct applicable task check on the reviewed state. One fresh
+   result may cover several tasks with the same command and inputs. Inspect
+   side effects first; a review request does not authorize live writes or paid
+   runs. A check that cannot run within authority stays unverified.
 2. `git diff --stat` against each task's owned files. One changed file
    outside every task's ownership is a finding, not noise.
 3. Read the full diff against "why this exists" — does the change serve the
@@ -40,7 +43,9 @@ ask before continuing.
 
 Classify every plan item: done / partial / not done / changed /
 unverifiable. Unverifiable means the diff can neither prove nor refute it —
-confirm those items one by one, never in bulk. An item whose acceptance names
+identify each missing fact without requiring a separate user turn per item.
+Group related user questions after inspecting the available sources. An item
+whose acceptance names
 the owner's own judgment as its check (a played build, a read draft) is not
 unverifiable: list it as **awaiting owner judgment** with its named route, and
 keep it out of every pass/fail verdict until the owner has run that route. For anything short of done,
@@ -70,10 +75,11 @@ they were. Do not send direction findings to the user one at a time.
 
 Route by root cause: direction problem → the user (top-half renegotiation);
 plan problem → `gigio-write-plan`; execution problem → rework via
-`gigio-execute-plan`. When the work is accepted: close the plan, update
-PROJECT.md's bottom half (current position, decisions worth keeping), then
-hand off — `commit-and-push` / `draft-pr` to ship, or `session-handoff`
-when another session continues the work.
+`gigio-execute-plan`. When the work is accepted, propose closing the plan and
+updating PROJECT.md's bottom half (current position, decisions worth keeping).
+Apply those edits when closure or updates are part of the request; review alone
+does not authorize them. Name the next station: `commit-and-push` / `draft-pr`
+to ship, or `session-handoff` when another session continues the work.
 
 ## Gotchas
 

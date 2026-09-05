@@ -35,12 +35,14 @@ evidence, and any remaining worktree state.
 3. Lock scope from the request and diff. Preserve unrelated tracked,
    untracked, staged, and unstaged changes. Stage explicit paths; use
    `git add -A` only when the whole worktree clearly belongs to the request.
-4. Run focused, relevant checks before committing. Keep required evidence and
+4. Run focused, relevant checks before committing. Reuse results already run
+   against the unchanged intended diff; rerun after a relevant edit, conflict
+   resolution, failed check, or repository requirement. Keep required results and
    failures; do not expand into an unrelated full-CI campaign unless requested
    or repository policy requires it.
 5. Split changes into independently revertible units. Keep implementation and
    its tests together; order prerequisite commits before dependents.
-6. Commit each unit, then inspect what actually landed:
+6. When committing is requested, commit each unit and inspect what landed:
 
    ```bash
    git diff --cached --stat
@@ -49,7 +51,7 @@ evidence, and any remaining worktree state.
    git show --stat --oneline HEAD
    ```
 
-7. Fetch and reconcile the selected upstream remote before push (often
+7. When pushing is requested, fetch and reconcile the selected upstream (often
    `origin`, but do not assume the name):
 
    ```bash
@@ -62,7 +64,7 @@ evidence, and any remaining worktree state.
    in an automatic stash. Resolve conflicts only when repository intent is
    clear, rerun affected checks, and abort with `git rebase --abort` if safe
    resolution needs user or product judgment.
-8. Push the current branch. Use tracking when needed:
+8. Push the requested branch only when pushing is authorized. Use tracking when needed:
 
    ```bash
    git push -u <remote> HEAD
@@ -106,8 +108,10 @@ a ceremonial report or file-by-file inventory.
 
 ## Side-Effect Boundary
 
-The default authorization from a commit/push request covers the scoped Git
-commits and their branch push. It does not cover issue comments, issue/PR body
+Honor the requested Git actions: commit-only stops after commits, push-only
+pushes existing commits, and commit-and-push does both. An established session
+request for both needs no additional approval between them. None covers issue
+comments, issue/PR body
 or title edits, releases, tags, or other remote mutations. Perform those only
 when the same request explicitly includes them, and use the corresponding
 specialized skill. Publishing the branch as a pull request belongs to
@@ -115,7 +119,7 @@ specialized skill. Publishing the branch as a pull request belongs to
 
 ## Output Contract
 
-Lead with whether commit and push succeeded. Include:
+Lead with whether the requested Git actions succeeded. Include applicable items:
 
 - each new commit hash and subject;
 - the remote and branch pushed, including whether tracking or

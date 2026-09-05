@@ -32,6 +32,11 @@ Before applying this skill:
 4. A long task, a matching phrase, or an opportunity to use multiple agents is
    not enough by itself.
 
+The fit decision is the lead's inspection, not another user confirmation.
+If the request already names the decision and grants its scope, resolve the
+eligible route and proceed. Ask only when a missing user-owned trade-off
+changes the recommendation; continue collecting independent facts meanwhile.
+
 This gate controls the harness that leads the workflow. It does not prevent an
 eligible Claude Code or Cursor run from assigning bounded support work to a
 configured Codex or GPT-5.6 Sol lane after the judgment boundary is stable.

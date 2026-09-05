@@ -57,6 +57,9 @@ rationale and history; nothing in `skills/` may depend on it.
   (preserve-original-strengths rule), but do not add new ones.
 - Migrated skills are edited minimally — one to four focused edits per pass.
   Full rewrites are for broken structure only.
+- Preserve grants already established in the active request. Finishing one
+  station does not require another approval for an explicitly requested next
+  station. Keep read-only, ownership, publication, and cleanup boundaries.
 
 ## Before finishing any change
 
@@ -73,8 +76,9 @@ rationale and history; nothing in `skills/` may depend on it.
 
 ## After merging
 
-Re-run the install command in the README. Installs are **copies**, not
-symlinks — repository edits are invisible to agents until reinstalled.
+When installation is requested, re-run the install command in the README.
+Installs are **copies**, not symlinks — repository edits are invisible to
+agents until reinstalled. Publishing a PR alone does not refresh global skills.
 
 ## Design record
 

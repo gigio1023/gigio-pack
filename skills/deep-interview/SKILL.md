@@ -39,7 +39,8 @@ separately authorizes that next step.
 6. Pressure-test at least one material answer with an example, assumption,
    failure scenario, counterexample, or tradeoff.
 7. Run the closure gate, restate the intended outcome in one sentence, and ask
-   the user to confirm or correct it.
+   the user to confirm or correct it unless they already accepted that same
+   outcome and the material decisions have not changed.
 8. After confirmation, produce the Interview Brief using
    `assets/interview-brief.template.md`. Return it in chat by default; write a
    file only when the user asks for one.
@@ -134,9 +135,10 @@ high-stakes domains rather than treating this workflow as qualified intake.
 ## Output Contract
 
 The final Interview Brief must distinguish confirmed decisions from evidence,
-inferences, and unresolved items. Include the next authorized step, but do not
-perform it. Preserve rationale that affects later decisions, not an unnecessary
-verbatim transcript.
+inferences, and unresolved items. Include the next authorized step. If the user
+already requested that step, deliver the brief and continue through the named
+skill; otherwise stop at the brief. Preserve rationale that affects later
+decisions, not an unnecessary verbatim transcript.
 
 Do not save sensitive answers, publish a transcript, create tickets, message
 people, or mutate a project unless the user explicitly asks for that separate
@@ -145,7 +147,8 @@ action. If a file is requested, use the user's path or default to
 
 An approved brief feeds `gigio-project-setup` when it settles what the project
 is for, or `gigio-write-plan` when it settles a concrete piece of work.
-Starting either one is the separately authorized next step.
+Starting either one needs corresponding authorization, which may already be
+part of the same request.
 
 ## Gotchas
 
@@ -153,8 +156,6 @@ Starting either one is the separately authorized next step.
   gates; it creates false precision across unrelated topics.
 - Do not let a detailed subtopic hide untouched scope, ownership, or success
   questions.
-- Do not silently turn your recommendation, an inferred assumption, or a skipped
-  question into a user decision.
 - Do not auto-trigger for every vague task. The user must want an interview or a
   materially equivalent discovery process.
 - Do not drift into implementation, planning artifacts, or job-interview

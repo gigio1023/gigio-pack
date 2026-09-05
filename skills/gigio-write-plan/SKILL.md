@@ -6,7 +6,7 @@ description: >
   owned files, acceptance, checks — anchored to PROJECT.md judgment rules. The
   plan is data: a solo session reads it top to bottom, a lead uses the same
   file to dispatch parallel workers. Writes the plan, announces it, and stops —
-  it never executes. NOT for executing or resuming a plan (gigio-execute-plan),
+  it never implements tasks itself. NOT for executing or resuming a plan (gigio-execute-plan),
   reviewing finished work (gigio-review-results), or discovery while the work
   itself is still unclear (find-unknowns, deep-interview). Never activate
   because work looks sizable; ordinary in-session task tracking is not this
@@ -86,9 +86,10 @@ path after this session is gone — keep it intact.
 
 ## Step 4 — Announce and stop
 
-Report the saved path and say: invoke `gigio-execute-plan` on it. Do not
-start executing — not even "just the first task": planning asks and stops,
-execution must not stop, and one run holding both stances averages them.
+Report the saved path and name `gigio-execute-plan` as the execution entry.
+Planning alone ends here. If the user already requested both planning and
+execution, finish the plan first, then enter that execution skill under the
+existing grant. Do not require the user to repeat the second half of the request.
 When a finished plan holds
 lessons worth keeping, promote them deliberately to PROJECT.md's bottom half;
 the plan file itself is disposable.

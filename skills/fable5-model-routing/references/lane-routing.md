@@ -26,7 +26,9 @@ worker, or a deterministic tool path.
 | Direct tool call | Lead model | One result is small, sequential, approval-sensitive, citation-bearing, or changes the next decision | Native result preserved for judgment |
 
 These are defaults, not entitlements. Inspect the current harness and configured
-models. If a named lane is unavailable, use the strongest suitable equivalent.
+models. Use a suitable equivalent only for an unspecified support lane or when
+the user's routing policy permits substitution. If an exact requested model is
+unavailable, report that lane as blocked; preserve the Fable lead requirement.
 
 ## Routing Test
 

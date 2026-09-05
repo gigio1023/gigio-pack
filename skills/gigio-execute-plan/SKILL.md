@@ -4,7 +4,7 @@ description: >
   Use only when the user asks to execute or resume a plan file from .plans/ —
   "run the plan", "continue", "이어서 진행해줘", a plan path, a task ID, a
   stage name, or the skill name. Verifies the plan against the working tree
-  first, dispatches same-stage tasks to parallel workers in one message, judges
+  first, dispatches independent same-stage tasks through available workers, judges
   completion from files and fresh check output rather than worker reports, and
   appends a run log. Resuming after an interruption is the same entry point
   invoked again. NOT for writing or revising plans (gigio-write-plan) or
@@ -38,18 +38,22 @@ Before trusting the plan, compare it to the disk:
 
 1. Freshness: `git diff --stat <Planned-at SHA>..HEAD -- <owned files>`.
    If in-scope files changed since planning, read their current state before
-   proceeding; on contradiction with the plan, stop.
+   proceeding; pause the affected task on a material contradiction with the plan.
 2. A dirty working tree beyond the plan's scope.
 3. Tasks marked done whose owned files show no changes.
 4. Changed owned files whose Results entry is empty.
 
-On mismatch, offer three options and wait: close out the records / redo the
-task / note the discrepancy and proceed. Preflight is fail-open: when a check
-cannot run at all, record it as unverified and continue — never block
-execution on a broken checker.
+For unrelated dirty files, preserve them and continue. For a mismatch in owned
+files or completion records, inspect the diff and existing results first;
+repair an unambiguous record discrepancy within the requested run and log it.
+Ask only when the resolution would redo user work, choose new intent, or cross
+authority. Identify the affected task and continue independent eligible work
+when the plan's ordering allows it. An unavailable checker remains unverified;
+continue only where its absence does not hide a prerequisite or ownership risk.
 
-A user-named single task skips the full preflight — naming it is approval;
-the full set applies to whole-plan and automatic runs. Resume is not special:
+A user-named single task narrows preflight to that task and its prerequisites;
+it does not waive ownership or current-state checks. The full set applies to
+whole-plan runs. Resume is not special:
 the first stage with unfinished tasks is the entry point, so re-invoking this
 skill is idempotent.
 
@@ -65,14 +69,15 @@ skill is idempotent.
   teams, never CLI child processes. Check actual tool availability, not the
   runtime's name; with no delegation available, run the tasks inline,
   sequentially, under the same rules.
-- Dispatch all same-stage tasks in ONE message — measured behavior: split
-  across messages, harnesses serialize the work regardless of what the prompt
-  says about parallelism. A dispatch prompt is paths and IDs — plan path +
+- Submit eligible independent tasks before waiting for their results, using
+  the harness's actual concurrent dispatch mechanism. Single-message dispatch
+  is a dated workaround, not proof of parallel execution on every harness.
+  A dispatch prompt is paths and IDs — plan path +
   task ID + PROJECT.md path + scalar config values. Do not paraphrase the
   plan into the prompt: restated content drifts the moment the file changes;
   workers load their own context from the file.
-- Copy this preamble verbatim into every dispatch (workers inherit neither
-  skills nor session rules):
+- Include these worker limits in every dispatch; do not assume inherited
+  skills or session rules enforce them:
   1. Do not spawn subagents.
   2. Do not invoke other skills — especially open-ended research skills.
   3. Write only within your owned files; if a needed change falls outside

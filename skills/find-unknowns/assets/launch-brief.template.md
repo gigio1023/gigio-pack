@@ -41,5 +41,6 @@ choice taken → when to revisit. Then keep going.
 ## Acceptance Criteria
 
 [Executable work: the tests, builds, or renders that prove the result]
-[Comprehension-checked work: the explainer plus scenario-based quiz the user
-must pass before the irreversible step: <commit money / send / adopt / merge>]
+[Comprehension-checked work: the consequences and open decisions to explain;
+optional scenario questions when useful or requested. Record any authorization
+still needed for <commit money / send / adopt / merge>; a quiz is not approval.]

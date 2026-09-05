@@ -8,8 +8,8 @@ description: >
   unknowns pass, blind spot pass, option map, throwaway variants, or a launch
   brief. Surfaces unknowns with the single cheapest technique, compresses what
   was learned into a launch brief, and, when the user cannot test the result
-  directly, checks their understanding with an explainer and quiz before the
-  result is adopted. NOT for well-specified or small tasks, multi-round
+  directly, explains consequential decisions and offers a comprehension check.
+  NOT for well-specified or small tasks, multi-round
   Socratic discovery (use deep-interview), final decision synthesis (use
   fable5-model-routing), or packaging session state (use session-handoff).
 ---
@@ -25,8 +25,9 @@ plan needs separate authorization.
 
 1. Establish the starting point. Inspect whatever is inspectable — files,
    repository, prior artifacts — before asking anything. If the user's
-   familiarity with the domain is unclear, ask once; a novice in the domain
-   changes what every technique must cover.
+   familiarity with the domain is unclear, make the brief self-contained and
+   state that assumption. Ask only when familiarity changes a material decision
+   or the useful discovery technique.
 2. Classify the dominant unknown and pick exactly one technique:
 
    | Dominant unknown | Signal | Technique |
@@ -98,9 +99,10 @@ the user cannot test directly. The user's own understanding is what accepts
 the result. Order the plan by how hard each decision is to undo, hardest
 first. During execution keep `decision-log.md`. Before the irreversible step —
 committing money, sending the application, adopting the plan, merging —
-deliver a short explainer plus a quiz the user must pass. Quiz questions are
-scenario-based ("what happens to X if Y"), not recall, and must cover every
-logged deviation and every decision the user did not make personally.
+deliver a short explainer of the consequences and unresolved decisions. Offer
+a scenario-based comprehension check when it would help or the user requests
+one. Do not require a quiz to honor an already-authorized action; comprehension
+does not substitute for permission or professional review.
 
 Deviation entries in either notes file use four fields: what the plan said →
 what reality revealed → the conservative choice taken → when to revisit.
@@ -123,7 +125,7 @@ execute without rereading this conversation: starting point, confirmed
 decisions with rationale, resolved unknowns with evidence, open items with
 decide-later rules, the ordered plan, the notes-file instruction, and the
 acceptance criteria. Return it in chat by default; write a file when the user
-asks or when it will seed a new session.
+asks. Preparing for a possible new session alone does not authorize a file.
 
 For software work inside a repository, hand the accepted brief to
 `gigio-write-plan` rather than seeding a separate plan document of your own: it

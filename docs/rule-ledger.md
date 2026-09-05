@@ -34,17 +34,17 @@ lead diagnoses better on its own than a fixed diagnostic table does.
 | Recorded decisions are not re-litigated | gigio-project-setup | Boundary | ADR practice | Keep |
 | Plan fields are data, not instructions; three stage-calculation rules | gigio-write-plan | Concurrency + storage | Survives solo and parallel execution alike | Keep |
 | No file overlap within a stage (ownership split at planning time) | gigio-write-plan | Concurrency | Demonstrated in surveyed systems; locking alternatives were dead code | Keep |
-| Write and stop — planning never executes | gigio-write-plan | Boundary | The two postures are incompatible; merged, they average out | Keep |
+| Planning produces a complete file; execution uses its own skill and existing authorization | gigio-write-plan | Boundary | Planning-only requests stop; a combined request already grants the next station | Keep |
 | No implementation code, signatures only | gigio-write-plan | Storage (drift) | Plan code drifts from repo code | Keep |
 | Plan-time SHA + freshness diff | plan template, gigio-execute-plan | Verification | Downstream tasks almost always reference completed work | Keep |
-| Preflight three checks, fail-open | gigio-execute-plan | Verification | A blocking start check strands resumable work | Keep |
-| Explicit single-task invocation shrinks preflight | gigio-execute-plan | Boundary (naming it = approving it) | — | Keep |
+| Inspect preflight discrepancies before asking; unavailable checks remain unverified | gigio-execute-plan | Verification + boundary | Unrelated changes must not strand resumable work; missing prerequisites or uncertain ownership still block dependent work | Keep |
+| Explicit single-task invocation scopes preflight to that task and its prerequisites | gigio-execute-plan | Boundary + verification | Naming the task grants its execution, not a waiver of ownership or current-state checks | Keep |
 | Completion requires all three: results entry, real change at the owned paths, check run with acceptance met | gigio-execute-plan, plan template | Verification | Convergent across surveyed systems; refined 2026-07-26 (acceptance axis, untracked outputs) | Keep |
 | Never retry same model + same prompt; cap at two | gigio-execute-plan | Verification / stop | Convergent across surveyed systems | Keep |
 | Pass the path, never restate the content | gigio-execute-plan, small-model-handoff, orchestrate-subagents | Storage (drift) | Restatement dilutes the original | Keep |
 | Worker preamble, six lines of removed authority | gigio-execute-plan | Boundary + **structural premise** | Premise: workers inherit neither skills nor rules | Revisit if a harness introduces worker inheritance |
 | Workers use built-in delegation only, no CLI subprocesses | gigio-execute-plan | Structural premise | A dispatch that isn't real makes progress reports fiction | Revisit on harness capability change |
-| **Single-message dispatch** | gigio-execute-plan, orchestrate-subagents | **Measured workaround** | Measured 2026-07-25: instruction alone produced no multi-dispatch | **Re-verify per generation and per harness; delete when invalidated** |
+| Submit independent tasks before waiting using the available concurrency mechanism | gigio-execute-plan, orchestrate-subagents | Concurrency | The 2026-07-25 single-message observation is historical, not a universal harness guarantee | Inspect current capabilities; do not claim unmeasured parallel behavior |
 | Natural fan-out ceiling (number of non-overlapping ownership sets) | gigio-execute-plan | Concurrency | No magic number | Keep |
 | Five judgment values, with "could not verify" distinct | gigio-execute-plan, plan template | Verification | Convergent across surveyed systems | Keep |
 | "Ran and found zero" ≠ "did not run" | gigio-execute-plan, gigio-review-results | Verification | — | Keep |
@@ -69,8 +69,9 @@ Adopting a new model generation, or a major harness overhaul, is an **audit
 event**, not a routine upgrade. Run this and append the result to the deletion
 record below:
 
-1. **Re-measure every measured-workaround row** above. If invalidated, delete
-   the rule from the skill and record it.
+1. **Review every measured-workaround row** above against current documentation
+   and available traces. Re-measure only when execution is requested. Record
+   missing runtime verification rather than generalizing an old measurement.
 2. **Collect removal candidates** — steps the lead demonstrably did not need
    during real use. Delete generic scaffolding the target model succeeds
    without.
@@ -80,6 +81,21 @@ record below:
    always-loaded routing stays at two lines.
 
 ## Deletion and compression record
+
+**2026-09-05 — Astra instruction audit (static).** Reviewed all 13 skills using
+[OpenAI's Astra prompting guidance](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra).
+Removed repeated approval requirements for already-requested next stations,
+the mandatory comprehension quiz, automatic worktree cleanup, and the universal
+single-message dispatch claim. Preflight now inspects discrepancies before
+asking, preserves unrelated changes, and keeps prerequisite failures distinct
+from missing checker output. Review reuses one fresh result for identical
+checks and does not run unapproved external effects.
+
+*Reviewed and kept:* explicit invocation, human-owned intent, disjoint worker
+ownership, capped repair attempts, fresh review, exact PR targeting, required
+checks, and separate cleanup authority. Templates carry existing grants and
+pending work so a successor can avoid duplicate actions. No model comparison
+or new pilot was run; the earlier pilot status is unchanged.
 
 **2026-07-26 — failure-routing table compressed.** The execution skill's
 five-class failure table was reduced to its contract core (no same-prompt
