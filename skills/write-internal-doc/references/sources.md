@@ -21,6 +21,7 @@ The skill was distilled on 2026-09-09 from the author's agent sessions between 2
 | Notion through MCP only; Markdown canon, HTML generated | 2026-09-04 | 4 | Partial write of 100 of 192 items observed |
 | Terminology from the field, not from internal tickets or AI coinages | 2026-09-04 | 5 or more | Company's own text named as slop wording |
 | Plan before a large rebuild | 2026-09-04 | 3 | Work halted twice |
+| Format: structure over prose, empty sentences deleted, written for the skim path, logical flow over an inventory of facts | 2026-09-03 | 6 or more; restated as a standing rule 2026-09-10 | "사실 열거한다고 사내 문서가 아니다" |
 | Proposals executable alone; other teams asked for nothing | 2026-09-07 | 4 | |
 
 ## External skills consulted

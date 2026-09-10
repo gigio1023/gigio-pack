@@ -79,6 +79,47 @@ Place it after the glossary and before findings, in the document's own words. Th
 
 Counts that were taken directly from files and commits are facts and need no such rule; the rule applies to judgments about discussion, agreement, ownership, and response.
 
+## Format devices by medium
+
+| Medium | Devices to reach for |
+| --- | --- |
+| Markdown (GitHub, repository) | Nested bullets, tables, blockquote callouts, `<details>` for long detail, horizontal rules only between major parts, fenced code for copyable input |
+| Notion | Toggles, callouts in the five template colors, tables at full text width, two-column layout for a figure beside its reading, dividers, colored headings for scanning |
+| HTML report | Sticky table of contents, collapsible sections, chart beside its interpretation, tables in a scrolling wrapper, inline SVG with a `<title>` per element |
+
+Prose still appears: to carry an argument across two or three linked claims, to explain why an option lost, to introduce a table whose reading is not obvious. It does not appear as the default texture of a section.
+
+## Sentences that go
+
+Delete a sentence when the document loses nothing without it. The recurring kinds:
+
+- Scope disclaimers that answer a question nobody asked: "X는 이 리포트의 범위가 아니다", "Y는 여기서 고려하고 있지 않다". Keep a limit only when it changes what the reader may conclude or do, and then put it where the reader meets the affected claim.
+- Narration of the author's own steps: "A 디렉터리에 있는 B 파일을 확인했다", "세 소스를 교차 확인했다". Sources belong in links and the sources section, not in the body as activity.
+- Headings restated as sentences: "이 절에서는 평가 결과를 설명한다".
+- Filler modifiers and intensifiers that carry no measurement: 매우, 상당히, 다양한, 여러, 관련된.
+- Meta narration about the document's own production or earlier drafts: "이전 집계의 오류를 정정했다".
+- Conclusion echoes that restate the body under "정리하면".
+
+Removing these never removes a number, a source, a condition, an exception, or a statement of uncertainty.
+
+## The skim path
+
+Assume the reader opens the document, reads the first section, looks at every figure and table with its caption, reads the last section, and stops. Each stop must carry the finding on its own:
+
+- First section: the conclusions, in the order of their weight.
+- Figures and tables: an action caption ("그림 2. 정책 수가 늘수록 차단 지연이 선형으로 늘어난다") and one sentence of takeaway beside it, so the figure reads without the body.
+- Last section: what to do, who decides, what remains open.
+
+A point that appears only inside a paragraph in the middle of the body will not be read; either promote it to one of the stops or accept that it is background.
+
+## Flow tests
+
+- Read the headings alone, in order. They should tell the story without the body.
+- For each section, name the question the previous section left open; the section answers it. A section that answers no open question is an inventory item and moves to an appendix or goes.
+- Each paragraph opens with its point. The first sentence of a paragraph, read alone, should be a claim the rest supports.
+- Adjacent claims connect with the reason (because, so, which means, however). A connector that states a relation the sources do not establish is a false claim, not a transition.
+- A run of bullets that a reader could reorder without loss is a list, and belongs in a table or an appendix; findings that depend on each other are prose or a numbered sequence.
+
 ## Existing material
 
 Reuse rather than restart: existing research files and reports are valid sources whose terminology, structure, and prose are usually poor. Take the information, not the wording, and record terminology corrections in the project's terminology file instead of rewriting every old document. A finished document that already meets the bar is not polished further; editing intensity follows the document's state, not a uniform pass.

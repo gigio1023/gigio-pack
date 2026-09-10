@@ -40,11 +40,23 @@ Every shared document still carries these parts, in this order, because a cold r
 2. The summary, stating conclusions rather than topics: a bold paragraph after the date and provenance line in a short document, its own first section in a long one. Headings state the finding, not the subject.
 3. Terms: every abbreviation expanded at first mention, plus a glossary table for product names, tiers, status words, and metrics.
 4. A reading rule when findings rest on records: one paragraph saying that an absent Slack, Notion, GitHub, or Linear record means the reader cannot confirm the work from the record, not that nobody did it, and that the two states call for different actions. Said once, here and inside label definitions, never as a qualifier on each sentence.
-5. The body. Nested bullets, tables, callouts, and collapsed detail carry volume; paragraphs carry reasoning. Cutting removes repetition, sentence-shaped labels, history, and narration about how the document was produced, never numbers, sources, conditions, exceptions, or uncertainty. A paragraph chopped at sentence boundaries is not structure. The alternatives a decision weighed stay visible.
+5. The body, shaped by the format rules below. The alternatives a decision weighed stay visible.
 6. Sources and versions: what was consulted, what this supersedes, what remains open, what could not be verified.
 7. About this document: how it was produced, update history, which systems its links need, its limits.
 
 Patterns for each part, the memo spine for short task documents, and the research-directory header: [references/reader-and-structure.md](references/reader-and-structure.md). New documents without a house template start from [assets/standalone-spine.template.md](assets/standalone-spine.template.md).
+
+## Format
+
+The reader knows nothing of the session that produced the document and will not read it linearly. Most readers see the first section, the figures and tables with their captions, and the last section, then stop. Write for that path.
+
+- Structure carries the content. Use nested bullets, tables, callouts, toggles, columns, and whatever else the target medium renders; a paragraph appears where reasoning needs connecting words, not as the default texture. Nested bullets express real hierarchy (a claim, then its condition); a paragraph chopped at sentence boundaries is not structure. Cells stay short; code-level detail collapses.
+- Every sentence earns its place. Delete what the reader loses nothing by losing: scope disclaimers that answer a question nobody asked ("X는 이 리포트의 범위가 아니다", "Y는 여기서 고려하지 않는다"), narration of the author's own steps ("A 디렉터리의 B 파일을 확인했다"), filler modifiers, headings restated as sentences, history that does not change the reading. A stated limit stays only when it changes what the reader may conclude or do. Cutting never removes numbers, sources, conditions, exceptions, or uncertainty.
+- Every skim stop carries the finding. The summary states conclusions; headings and captions state findings, not subjects; the closing section states what to do or what remains. A point that exists only inside a mid-body paragraph is invisible.
+- Flow, not inventory. A list of facts is not an internal document. Each section answers the question the previous one raised, and each paragraph opens with its point and links to the next with the reason. Stacking self-coined phrases and calling the reading the reader's job is the recorded definition of irresponsible writing.
+- Short and easy is the measure, not the author's completeness. Depth shows through architecture (a folded matrix, a sources appendix, a dense figure), never through longer paragraphs.
+
+Devices per medium, the sentences that go, and the flow tests: [references/reader-and-structure.md](references/reader-and-structure.md).
 
 ## Claims and their support
 
@@ -60,7 +72,7 @@ Vocabularies, the maturity scale for decision-relevant claims, and the link poli
 
 The document is dry: no strong words, no "확인 완료" badges, no imperatives to the reader, no bold for emphasis, no emoji, no em dashes, no arrows in prose. Reducing risk means removing evaluative framing while keeping facts and numbers; stacking qualifiers is the wrong repair and is itself a recorded correction.
 
-Korean follows the fluent-Korean floor: complete sentence components, particles and endings kept, sentences ending in a predicate, table cells as complete sentences. Terminology comes from papers and practitioner usage, not from internal tickets or AI-flavored coinages; the author has named this company's own GitHub, Notion, and Linear text as a source of facts but not of wording. Titles and figure labels are noun phrases; "A가 아니라 B" appears only for a genuine redefinition. Prose quality and slop diagnosis belong to `slop-aware-writing` and Korean completeness to `korean-clarity`; load both when the session has them, and hold the floor yourself otherwise.
+Korean follows the fluent-Korean floor: complete sentence components, particles and endings kept, sentences ending in a predicate, table cells as complete sentences. Accepted project terms come from the records `use-terminology` applies, and gaps found while writing go to `curate-terminology`; beyond those records, terminology comes from papers and practitioner usage, not from internal tickets or AI-flavored coinages; the author has named this company's own GitHub, Notion, and Linear text as a source of facts but not of wording. Titles and figure labels are noun phrases; "A가 아니라 B" appears only for a genuine redefinition. Prose quality and slop diagnosis belong to `slop-aware-writing` and Korean completeness to `korean-clarity`; load both when the session has them, and hold the floor yourself otherwise.
 
 ## Figures
 
