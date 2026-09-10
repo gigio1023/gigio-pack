@@ -2,6 +2,21 @@
 
 Load this when deciding how a document opens, how it is sectioned, or how much to cut. Every pattern here came from a correction the author made on a real document; the dates are in [sources.md](sources.md).
 
+## Contents
+
+- Readers seen so far
+- Summary placement
+- Memo spine for short internal task documents
+- Long report spine
+- Research directory header
+- Structure over prose, without losing depth
+- The reading rule paragraph
+- Format devices by medium
+- Sentences that go
+- The skim path
+- Flow tests
+- Existing material
+
 ## Readers seen so far
 
 | Reader | What they need first | Shape that worked |

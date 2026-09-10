@@ -1,12 +1,12 @@
 ---
-name: write-internal-doc
+name: share-internal-doc
 description: >
   Use only when the user asks for a document that colleagues will read without
   this session's context: a shared report, handbook, onboarding page, research
   write-up, decision or status memo, a Notion page, a shareable HTML file, or a
   shared copy of an existing document (사내 공유 문서, 리포트, 핸드북, 온보딩
   문서, 조사 보고서, 결정 메모, 공유본, 노션에 올릴 문서), or names
-  write-internal-doc. Shapes the document around one reader, keeps every claim
+  share-internal-doc. Shapes the document around one reader, keeps every claim
   traceable to a source a colleague can open, states what the records cannot
   show, runs a sharing pass before anything leaves the machine, and hands
   prose, Korean, figures, and Notion styling to the skills that own them. NOT
@@ -16,7 +16,7 @@ description: >
   produced findings worth sharing or because an answer ran long.
 ---
 
-# Write Internal Doc
+# Share Internal Doc
 
 Produce a document that leaves this session and works for a colleague who has none of its context. Code leaves a session as a pull request; research, analysis, and decisions leave it as a document, and this skill owns that exit. The author's bar: a document that needs the conversation, another document, or in-house abbreviations to be understood is garbage. Accurate and candid content, low reading effort, and visual finish hold at once; trading one for another is the failure this skill exists to catch.
 
@@ -76,7 +76,7 @@ Korean follows the fluent-Korean floor: complete sentence components, particles 
 
 ## Figures
 
-Insightful figures are mandatory, and a conversion that strips them has failed. Each figure answers one question, carries a numbered caption ("그림 N."), and has its takeaway stated beside it. Comparisons always include the reader's own organization. ELI5 lives inside figure blocks (one familiar analogy plus the literal mapping), never as the register of the whole document. Nothing enters a figure because space was left over; the standard is the restrained diagrams on the OpenAI and Anthropic engineering blogs. Replacing a figure keeps its question while re-verifying its data. SVG, never ASCII art; a figure that reads small in a narrow column is fixed in the SVG, not by widening the page. Where the session has them, `technical-diagram` or `mermaid-diagrams` draw diagrams, `data-chart` plots measured data, and `drawio-diagram` produces native files on request.
+Insightful figures are mandatory, and a conversion that strips them has failed. Each figure answers one question, carries a numbered caption ("그림 N."), and has its takeaway stated beside it. Comparisons always include the reader's own organization. ELI5 lives inside figure blocks (one familiar analogy plus the literal mapping), never as the register of the whole document. Nothing enters a figure because space was left over; the standard is the restrained diagrams on the OpenAI and Anthropic engineering blogs. Replacing a figure keeps its question while re-verifying its data. SVG, never ASCII art; a figure that reads small in a narrow column is fixed in the SVG, not by widening the page. Figures share the document's color scheme, dark unless the user asked for light: a dark canvas of their own, light ink, one accent lightened for the dark surface, so the same file reads the same on a light Notion page, in a repository, and in the dark HTML. Where the session has them, `technical-diagram` or `mermaid-diagrams` draw diagrams, `data-chart` plots measured data, and `drawio-diagram` produces native files on request; their own defaults are light, so the request to them names the scheme and the tokens, and an output that comes back light is recolored before it enters the document. Without them, write the SVG directly with the document's tokens.
 
 ## Medium
 
@@ -86,10 +86,12 @@ Markdown is the canon; HTML is a generated reading layer rebuilt by script, neve
 | --- | --- |
 | Handoff material another agent or session consumes | A directory of per-topic Markdown files |
 | Desktop research or analysis report | Single-file HTML, wide layout (about 1180 to 1700 px, sticky table of contents, chart beside text) |
-| Document-shaped page for the company | Single-file HTML on the `notion-doc` canon where installed (720 px, template classes only, lint clean), or a Notion page written through the Notion MCP with native blocks |
+| Document-shaped page for the company | A Notion page written through the Notion MCP with native blocks, or single-file HTML at reading width (about 720 px) in the dark scheme; the `notion-doc` canon (a light template, template classes only, lint clean) when the user asks for it |
 | Working notes, dashboards, knowledge bases | Markdown in the repository; a knowledge base is a linked graph, not a numbered report |
 
-Shared HTML opens offline on Windows: fonts embedded, no external scripts or stylesheets, figures inline. Notion pages are edited only through the MCP or plugin, never browser automation, and re-fetched after large replacements because partial writes have happened. Claude Artifacts are a design reference, not the destination. Layout numbers and Notion rules: [references/medium-and-figures.md](references/medium-and-figures.md).
+Shared HTML opens offline on Windows: fonts embedded, no external scripts or stylesheets, figures inline. Notion pages are edited only through the MCP or plugin, never browser automation, and re-fetched after large replacements because partial writes have happened. Claude Artifacts are a design reference, not the destination.
+
+The color scheme is dark by default for the page and everything in it: dark canvas, light text, grey plus one accent, figures drawn on the same canvas. Light is a separate render made only when the user asks for it or names print, and the page does not follow the reader's operating-system theme unless the user asked for an adaptive page. Notion sets its own theme, which is why figures placed there carry their own dark canvas. Layout numbers, color tokens, and Notion rules: [references/medium-and-figures.md](references/medium-and-figures.md).
 
 ## Sharing pass
 
@@ -116,7 +118,7 @@ Internal-only sharing keeps internal key and system names; the pass then concent
 | --- | --- |
 | `slop-aware-writing`, `korean-clarity` | Prose, slop diagnosis, voice, Korean completeness (outside the pack; named when installed) |
 | `notion-doc` | Notion block vocabulary and the 720 px HTML template (outside the pack) |
-| `technical-diagram`, `mermaid-diagrams`, `data-chart`, `drawio-diagram` | Producing the figures (outside the pack) |
+| `technical-diagram`, `mermaid-diagrams`, `data-chart`, `drawio-diagram` | Producing the figures (outside the pack; their defaults are light, so each request names the dark scheme) |
 | `session-handoff`, `small-model-handoff` | A prompt for the next session or a weaker model; this skill hands work to colleagues |
 | `gigio-write-plan` | Plan files under `.plans/` |
 
@@ -125,3 +127,4 @@ Internal-only sharing keeps internal key and system names; the pass then concent
 - After the absence-of-record rule, the tempting repair is a qualifier on every sentence. The recorded correction was "just keep it dry": one reading rule up front, conditions inside label definitions, nothing else.
 - Cutting prose has repeatedly been misread as cutting depth. A concise document that hides its research reads as "not much was investigated"; the fix is architecture (collapse, nesting, tables), not more paragraphs.
 - ELI5 over the whole document was rejected three times; a section template imposed on every document was rejected the day after the author dictated it; a Notion conversion that dropped a report's figures read as personal notes.
+- Delegated figures arrive light unless the request names the scheme, and the first documents were rejected as too bright for exactly this reason. Name the scheme and the tokens in every figure request, and check each render on the canvas it will sit on.
