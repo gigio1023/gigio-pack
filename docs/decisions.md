@@ -187,7 +187,7 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 
 - **Plan:** the initial terminology pair would activate on request or a separately requested standing instruction.
 - **Reality:** the user requires both on every task and wants curation to study expressions beyond nouns, with stronger source selection that filters generated derivative writing.
-- **Choice:** supersede the initial opt-in terminology policy. Make both skills default to every task and wire them during project setup. Curate relevant changes in context; preserve explicit read-only restrictions and avoid artificial writes. Prefer established project documentation and maintainer blogs, influential papers including recognized preprints, and their author explanations. Use available paper tools actively. Exclude the user-named projects as wording authorities and record positive verbs, collocations, and project explanation patterns with their conditions.
+- **Choice:** supersede the initial opt-in terminology policy. Make both skills default to every task and wire them during project setup. Curate relevant changes in context; preserve explicit read-only restrictions and avoid artificial writes. Prefer established project documentation and maintainer blogs, influential papers including recognized preprints, and their author explanations. Use available paper tools actively. Record positive verbs, collocations, and project explanation patterns with their conditions. The initial treatment of the user-named projects as exclusions is superseded by the source-scrutiny clarification below.
 - **Revisit:** use real tasks to check missed application, unnecessary research, source quality, and semantic transfer. Static checks cannot prove runtime loading or authorship.
 
 ## Confirm local company usage separately (2026-09-10)
@@ -196,6 +196,13 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 - **Reality:** a small set of company proper names and familiar terms with local meanings is legitimate, and external documents cannot establish what the company intends by them.
 - **Choice:** check existing records, ask the user concise questions about unresolved local cases, and record meaning, scope, audience, and dated confirmation. Preserve confirmed local usage and clarify it for other audiences. Keep intended meaning distinct from implementation claims; source filtering does not erase company conventions.
 - **Revisit:** when a recorded answer conflicts with new information or the audience or product context changes. Do not repeat settled questions on every task.
+
+## Treat AI-project examples as a source-quality warning (2026-09-10)
+
+- **Plan:** interpret the named projects as a fixed source exclusion list.
+- **Reality:** the user clarified that those names illustrate a broader concern about AI slop in AI-related project documentation.
+- **Choice:** retain the examples and replace name-based exclusion with heightened scrutiny of provenance, primary-source support, definitions, and correspondence with implementation. Filter unsupported wording across comparable projects without treating the examples as exhaustive or judging authorship from style alone.
+- **Revisit:** when actual source passages and implementation checks support changing their eligibility as terminology references. Keep local naming conventions separate from claims of general industry usage.
 
 ## Still open
 
