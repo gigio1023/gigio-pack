@@ -2,7 +2,7 @@
 
 A work loop for one person running a project too big to hold in one session.
 
-It keeps the intent, the plan, and the record of what actually happened in files — so the next session, the next model, and the next harness pick the work up where it was left, instead of re-deriving it. 15 skills, all plain markdown you can read and hand-edit.
+It keeps the intent, the plan, and the record of what actually happened in files — so the next session, the next model, and the next harness pick the work up where it was left, instead of re-deriving it. 16 skills, all plain markdown you can read and hand-edit.
 
 [Why](#why-this-exists) · [Work loop](#the-work-loop) · [Catalog](#skill-catalog) · [Invocation](#nothing-expensive-starts-on-its-own) · [Install](#install) · [Domain skills](#pair-it-with-domain-skills) · [Scope](#scope) · [Why it looks like this](#why-it-looks-like-this) · [Status](#status) · [Contributing](CONTRIBUTING.md)
 
@@ -35,7 +35,7 @@ flowchart LR
   S --> P["plan<br/>gigio-write-plan"]
   P --> R["run<br/>gigio-execute-plan"]
   R --> V["review<br/>gigio-review-results"]
-  V --> SH["ship<br/>commit-and-push · draft-pr"]
+  V --> SH["ship<br/>commit-and-push · draft-pr · write-internal-doc"]
   SH --> H["session-handoff<br/>next session"]
   R -.uses.-> W["git-worktree-setup<br/>orchestrate-subagents<br/>small-model-handoff<br/>fable5-model-routing"]
 ```
@@ -46,7 +46,7 @@ The purpose and the outcome are in the name — `gigio-write-plan` writes a plan
 
 ## Skill catalog
 
-Four core skills own the durable files and the boundaries between stations. Of the other eleven, three are name-called by a core skill during a run you started; every one of the fifteen can also be invoked directly when you need only that one thing. Eight require explicit requests; both terminology skills apply on every task — see [Invocation](#nothing-expensive-starts-on-its-own).
+Four core skills own the durable files and the boundaries between stations. Of the other twelve, three are name-called by a core skill during a run you started; every one of the sixteen can also be invoked directly when you need only that one thing. Nine require explicit requests; both terminology skills apply on every task — see [Invocation](#nothing-expensive-starts-on-its-own).
 
 ### Core loop
 
@@ -89,17 +89,19 @@ Both terminology skills apply on every task, including tasks that do not mention
 | [commit-and-push](skills/commit-and-push/) | Close-out commits and safe pushes, leaving unrelated worktree changes untouched |
 | [draft-pr](skills/draft-pr/) | Publishes, updates, or explicitly squash-merges a real GitHub or Forgejo PR through authenticated `gh` or `fj`, draft or work-in-progress by default |
 | [session-handoff](skills/session-handoff/) | Packages live work as one executable prompt file for the next session |
+| [write-internal-doc](skills/write-internal-doc/) | Shapes research, analysis, and decisions into a document a colleague can read without the session: one reader, claims traceable to sources a colleague can open, a reading rule for what records cannot show, and a sharing pass before it leaves the machine; prose, Korean, figures, and Notion styling delegated to the skills that own them |
 
-The two handoff skills are a deliberate pair: `session-handoff` hands work to the **next session**, `small-model-handoff` hands bounded work to a **weaker model**. The target is in the name.
+The two handoff skills are a deliberate pair: `session-handoff` hands work to the **next session**, `small-model-handoff` hands bounded work to a **weaker model**. The target is in the name. `write-internal-doc` is the third exit: code leaves a session as a PR, findings leave it as a document.
 
 ## Nothing expensive starts on its own
 
-Eight of the fifteen have explicit request triggers. They open when you name the skill, ask for what it does, or another pack skill name-calls it inside a run you already started. Not because a task looked big, a domain looked unfamiliar, a spec was missing, or a session ran long.
+Nine of the sixteen have explicit request triggers. They open when you name the skill, ask for what it does, or another pack skill name-calls it inside a run you already started. Not because a task looked big, a domain looked unfamiliar, a spec was missing, or a session ran long.
 
 | Waits to be asked | What opening it costs you |
 | --- | --- |
 | the four core skills | `PROJECT.md`, a plan file, a run, a re-collection pass over the repository |
 | `session-handoff` | a handoff prompt file |
+| `write-internal-doc` | a document file and a sharing pass over its contents |
 | `orchestrate-subagents`, `small-model-handoff`, `fable5-model-routing` | a fan-out, a weaker executor, a different model |
 
 The other five retain their existing trigger policy. `deep-interview`, `commit-and-push`, `draft-pr`, and `git-worktree-setup` only fire on something you said anyway — ask for an interview, say commit, say PR, ask for isolation.
@@ -139,19 +141,19 @@ This pack knows how work moves, not how your domain works. It gets noticeably be
 
 The seam is clean: a game's pillars and judgment rules are what a creative brief settles, a milestone becomes the goal of a plan file, a playable build is what that plan's acceptance names, and an engine-layer check is what verifies it.
 
-Other skills I keep for my own work live in [gigio1023/agent-skills](https://github.com/gigio1023/agent-skills) — delegation to other CLIs (`codex-delegate` for bounded `codex exec` runs with durable run artifacts and explicit resume, `cursor-cli-delegation` for a closed mission through Cursor Agent CLI), craft skills for docs, diagrams, docstrings, and prompt review, and the skill-authoring tooling. None of the 15 skills here require those external packages, so the two sets install independently.
+Other skills I keep for my own work live in [gigio1023/agent-skills](https://github.com/gigio1023/agent-skills) — delegation to other CLIs (`codex-delegate` for bounded `codex exec` runs with durable run artifacts and explicit resume, `cursor-cli-delegation` for a closed mission through Cursor Agent CLI), craft skills for docs, diagrams, docstrings, and prompt review, and the skill-authoring tooling. None of the 16 skills here require those external packages; `write-internal-doc` names `slop-aware-writing`, `korean-clarity`, `notion-doc`, and the gigio-figures skills only where they are installed, so the two sets install independently.
 
 ## Scope
 
 The pack covers the loop and stops there:
 
-- **In:** durable project intent, plans as files, execution with a run log, fresh-context review, the handoffs out of a session, and durable project terminology and expression decisions.
-- **Out:** a supplied domain glossary and general craft. Writing style, diagram conventions, engine specifics, design taste — those belong to skills that own the domain, and the loop is where they get applied.
+- **In:** durable project intent, plans as files, execution with a run log, fresh-context review, durable project terminology and expression decisions, and the exits from a session: a handoff to the next session, bounded work to a weaker model, code as a PR, and findings as a document colleagues can read without the session.
+- **Out:** a supplied domain glossary and general craft. Prose style, diagram conventions, engine specifics, design taste — those belong to skills that own the domain, and the loop is where they get applied. Shaping a document for a reader who lacks the session (its reader, spine, format, claim status, sharing pass, medium) is loop work, not craft; `write-internal-doc` owns it and delegates the prose, Korean, figures, and Notion styling.
 - **Also out:** anything that is not a markdown file a person can read. No background processes, no generated state, no framework that has to be running for the skills to work — and no unrelated work started merely because a conversation looks substantial. The terminology pair's in-task maintenance is an explicit standing policy.
 
 Terminology records preserve decisions and their sources across sessions; they do not supply universal domain definitions or replace a writing-style skill.
 
-Craft work still happens during a run; it just uses whichever craft skills the session has installed, rather than skills this pack ships.
+Craft work still happens during a run; it just uses whichever craft skills the session has installed, rather than skills this pack ships. Why the document exit counts as loop work is in [docs/decisions.md](docs/decisions.md).
 
 ## Why it looks like this
 
@@ -171,6 +173,7 @@ The shortest version: put intent and record format in the durable layer, never c
 - Terminology curation and application skills added 2026-09-10 from a completed project workflow; package validation is separate from runtime behavior testing.
 - Core-loop skills authored 2026-07-26 to the `skill-builder` contract kept in agent-skills; migrated skills keep their original bodies plus a minimal interlock pass (sibling references, next-station pointers, plan-file awareness).
 - Dual-reviewed 2026-07-26 by two independent reviewers from different model families; all confirmed findings fixed, reviewed-and-kept verdicts recorded in [docs/rule-ledger.md](docs/rule-ledger.md).
+- `write-internal-doc` authored 2026-09-09 from a harvest of the author's own document corrections across four harnesses and a survey of about thirty public documentation skills; not yet piloted.
 - **Not yet piloted.** Nothing is marked done until two pilot projects pass. They measure whether parallel writing actually pays off, whether the plan file carries enough for handoff between workers, which steps the lead demonstrably did not need, and what the acceptance field gets filled with outside ordinary code work.
 
 ## Local development
@@ -178,5 +181,5 @@ The shortest version: put intent and record format in the durable layer, never c
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the skill contract, the verification checklist, and the design-record rules. Quick check after any edit:
 
 ```bash
-npx --yes skills add . --list --full-depth   # must report exactly 15
+npx --yes skills add . --list --full-depth   # must report exactly 16
 ```

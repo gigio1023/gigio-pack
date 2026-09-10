@@ -5,7 +5,7 @@ A personal pack, but it holds itself to the same conventions as [gigio1023/agent
 ## Layout
 
 ```
-skills/<skill-name>/            one flat directory per skill (15 total)
+skills/<skill-name>/            one flat directory per skill (16 total)
   SKILL.md                      the skill — frontmatter + body
   references/                   detail the body links to (optional)
   assets/                       templates the skill fills in (optional)
@@ -35,7 +35,7 @@ Everything a skill needs stays colocated under its own directory. `docs/` is rat
 
 ## Before finishing any change
 
-1. `npx --yes skills add . --list --full-depth` reports **exactly 15** skills.
+1. `npx --yes skills add . --list --full-depth` reports **exactly 16** skills.
 2. Every relative path referenced from a changed `SKILL.md` exists on disk.
 3. Frontmatter `name` still equals the directory name for anything touched.
 4. Re-read the changed skill and `README.md` together — packaging claims and docs must not drift apart.
