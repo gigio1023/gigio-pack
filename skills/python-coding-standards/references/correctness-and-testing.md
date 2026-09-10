@@ -1,6 +1,16 @@
 # Correctness and Testing
 
-Read this for changes to errors, resources, async behavior, or the checks that establish a Python change. Use the repository's existing test style and commands.
+Read this for changes to source explanations, errors, resources, async behavior, or the checks that establish a Python change. Use the repository's existing test and documentation conventions.
+
+## Keep explanations with their implementation
+
+Code is the source of truth for implementation, but it cannot always explain the intent or external constraint behind a decision. Add the missing explanation where a maintainer will encounter the decision: a module docstring for a file's responsibility and non-obvious context; a class or model docstring for its role and invariants; a function docstring for non-obvious inputs, results, side effects, errors, or lifecycle; and a block-local comment for a reason, ordering constraint, workaround, or rejected alternative. Include background only when it explains the current choice. Do not invent history, intent, or guarantees.
+
+Follow the existing docstring style. Describe semantics that annotations do not carry, such as units, ownership, unknown-value handling, partial success, or cancellation. Do not repeat parameter types, obvious names, or each statement in prose. A model field description can supply non-obvious meaning to callers or generated schemas without maintaining a separate field catalog.
+
+Policy may live outside code. Put other material under `docs/` only when source-local explanations cannot convey it or a reader needs a view assembled across multiple files, such as a cross-component lifecycle or an external operational constraint. Maintain one useful explanation, link to authoritative symbols, and avoid copying code, signatures, schemas, or per-file walkthroughs. Do not create a Markdown implementation report for each task. When the change invalidates an existing explanation, update or remove that explanation in scope rather than leaving stale claims or adding a second account.
+
+Check explanations against code, tests, call sites, and the stated requirement. For documentation-only Python edits, preserve executable behavior and tool directives, parse the changed files, and run applicable documentation checks; add behavioral tests only when a claim needs them. Source explanations should reduce the need to reconcile documents with code, not create another maintenance routine.
 
 ## Errors and resource ownership
 
@@ -33,7 +43,7 @@ Tests and type checks answer different questions. An annotation does not validat
 
 ## Use configured checks
 
-Discover commands from project instructions, CI, and tool configuration. Keep one configured formatter and the repository's selected type-checking strategy; do not migrate tools or impose a new strict-mode baseline as a side effect. New public code should have precise types, and broader typing improvements can be introduced incrementally when requested.
+Discover commands from project instructions, CI, and tool configuration. Use `uv run` with the appropriate declared groups in uv-managed projects. Keep one configured formatter and the repository's selected type-checking strategy; do not migrate checkers or impose a new strict-mode configuration as a side effect. New and changed declarations require explicit types, including locals and SDK objects; inferred-type acceptance by a checker is insufficient. Broader changes to untouched code remain scoped to the request.
 
 Run the smallest set that covers the changed surface, including repository-required checks. Broaden when a shared API or dependency warrants it. Report a missing prerequisite or a pre-existing failure distinctly from a passing result. Do not apply unsafe lint fixes automatically, weaken a check to obtain a pass, or repeat unchanged successful checks without a new reason.
 

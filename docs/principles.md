@@ -44,7 +44,7 @@ If it gets in the way, cut it.
 
 C4 was written about mechanism — no hooks, no daemons. The descriptions shipped anyway with the other half of the door open. Several read as situations rather than requests ("when sizable work needs a written plan", "when a large task has independent workstreams"), and a situation is something the model can decide it is looking at. In use they fired across conversations that had asked for none of it. The prior-art survey had already listed *broad auto-triggering descriptions* as a disqualifier in other packs; this one had the same defect.
 
-The deciding question is what a misfire costs. Eight procedural skills have explicit request triggers, because opening them uninvited starts a procedure beyond an ordinary answer:
+The deciding question is what a misfire costs. Nine procedural skills have explicit request triggers, because opening them uninvited starts a procedure beyond an ordinary answer:
 
 | Explicit request trigger | Work it starts |
 | --- | --- |
@@ -53,11 +53,12 @@ The deciding question is what a misfire costs. Eight procedural skills have expl
 | `gigio-execute-plan` | the work itself, plus a run log |
 | `gigio-review-results` | a re-collection pass over diffs, files, and checks |
 | `session-handoff` | a handoff prompt file |
+| `write-internal-doc` | a standalone document and a sharing pass |
 | `orchestrate-subagents` | a fan-out of subagents |
 | `small-model-handoff` | a dispatch to a weaker executor |
 | `fable5-model-routing` | a switch to another model |
 
-Each of the eight carries the rule in its own description, because the harness reads descriptions one at a time and a rule kept somewhere else would never be in front of it. Their ordinary entry points are: the user names the skill, the user asks for what it does in any language, or another pack skill name-calls it during a run the user already started. Not task size, not an unfamiliar domain, not a missing spec, not a long session, not a plan file sitting on disk.
+Each of the nine carries the rule in its own description, because the harness reads descriptions one at a time and a rule kept somewhere else would never be in front of it. Their ordinary entry points are: the user names the skill, the user asks for what it does in any language, or another pack skill name-calls it during a run the user already started. Not task size, not an unfamiliar domain, not a missing spec, not a long session, not a plan file sitting on disk.
 
 The terminology pair is a deliberate standing exception requested on 2026-09-10: use both skills on every task, apply the accepted reference, and maintain relevant definitions and expressions when gaps or errors are encountered. A separate wording request is unnecessary. No relevant change means no forced write or new survey. Explicit read-only tasks still restrict writes. Project setup installs the standing instruction; automatic skill selection alone is not a runtime guarantee.
 
@@ -67,7 +68,7 @@ Five skills retain their existing triggers. Four of them —`deep-interview`, `c
 
 That line is where C3 sits too. Unrequested procedural work competes with the model's judgment about how to answer. The standing terminology policy requests a specific kind of in-task maintenance; it does not authorize unrelated files, branches, or paid runs.
 
-`python-coding-standards` applies within a requested Python implementation, refactor, or review. It preserves that request's authority: reviewing code does not authorize editing it, and an oversized file does not start a separate refactoring project. The skill carries coding choices into the work already underway rather than opening another station.
+`python-coding-standards` applies within a requested Python implementation, refactor, review, or project setup. It preserves that request's authority: reviewing code does not authorize editing it, and an oversized file does not start a separate refactoring project. The skill carries coding choices into the work already underway rather than opening another station.
 
 ## What ages well
 
@@ -166,6 +167,8 @@ Keep curation separate from application because their outputs and authority diff
 
 ## Python preferences within implementation
 
-The owner explicitly added Python coding standards on 2026-09-10. This is a scope extension beyond the original loop-only pack. It follows C5 by carrying recurring choices about types, stable enum values, validation boundaries, and module responsibilities, and C6 by applying them during the requested code task. Repository configuration and existing external behavior take precedence over fallback style choices.
+The owner explicitly added Python coding standards on 2026-09-10. This is a scope extension beyond the original loop-only pack. It follows C5 by carrying recurring choices about Pydantic-first models, explicit types, stable enum values, module responsibilities, and uv project management, and C6 by applying them during requested work. The objective is organized, understandable code rather than elaborate architecture. Current user instructions take precedence; existing compatibility requirements need an explicit exception or scoped migration.
+
+Code remains authoritative for implementation. Docstrings and nearby comments supply intent and background that code cannot show; policies and explanations spanning several files may belong in `docs/`. Parallel implementation narratives fail C6 when they create an ongoing code/document synchronization task. The detailed decisions live in the skill, not a second copy in the design record.
 
 The core and references are portable Markdown (C1), with no model-specific procedure (C2), replacement runtime (C3), or unsolicited audit (C4). Pydantic-specific modeling stays in the official external skill. The pack's integration reference identifies the upstream revision and gives a retrieval fallback, so reading guidance does not imply installing packages or creating a competing copy.

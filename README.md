@@ -22,7 +22,7 @@ The part that actually hurt was elsewhere. Working solo on something large enoug
 
 Four rules keep the machinery thin:
 
-- **Eight procedural skills wait to be asked.** The terminology pair applies on every task by default, maintaining relevant records as material is encountered.
+- **Nine procedural skills wait to be asked.** The terminology pair applies on every task by default, maintaining relevant records as material is encountered.
 - **Everything is markdown a person can read and correct.** No daemons, hooks, watchdogs, or runtime state files.
 - **Numbered steps only where order is part of correctness** — a prerequisite read, an approval boundary, a required output, a check. Elsewhere the skill states the destination and the stopping condition and leaves the route to the model.
 - **The durable layer holds intent and record format, never compensating procedure.** A step that can be dropped without losing correctness, safety, or the ability to audit the run gets dropped.
@@ -72,7 +72,7 @@ Four core skills own the durable files and the boundaries between stations. Of t
 | [git-worktree-setup](skills/git-worktree-setup/) | Gives a worker an isolated workspace, reusing existing isolation and otherwise keeping Git-created worktrees under the repository's `.worktrees/` directory |
 | [small-model-handoff](skills/small-model-handoff/) | Turns already-approved work into a bounded prompt for an executor weaker than the planner |
 | [fable5-model-routing](skills/fable5-model-routing/) | Decides which model role owns the judgment and which lane gets the bounded follow-on work; self-excludes outside Claude Code and Cursor |
-| [python-coding-standards](skills/python-coding-standards/) | Guides Python implementation and review: repository-compatible typing, stable `StrEnum` values, validation boundaries, cohesive modules, and focused checks; delegates Pydantic-specific modeling to the official external `pydantic` skill |
+| [python-coding-standards](skills/python-coding-standards/) | Keeps Python code straightforward: Pydantic-first models, explicit Python 3.12+ types including locals and SDK objects, uv-managed dependencies, stable `StrEnum` values, cohesive modules, and explanations close to code; uses the official external `pydantic` skill for library guidance |
 
 ### Shared terminology across the loop
 
@@ -109,7 +109,7 @@ The other five retain their existing trigger policy. `deep-interview`, `commit-a
 
 The terminology pair is a standing exception: use both on every task and update relevant records when needed. No change means no artificial write or new survey. Explicit read-only restrictions still apply.
 
-`python-coding-standards` applies while writing, refactoring, or reviewing Python code already requested by the user. It does not start a plan, a repository-wide audit, or a refactor merely because a Python file is large. Review and diagnosis remain read-only.
+`python-coding-standards` applies while writing, refactoring, or reviewing Python code, or setting up a Python project, already requested by the user. It does not start a plan, a repository-wide audit, or a refactor merely because a Python file is large. Review and diagnosis remain read-only.
 
 `find-unknowns` is the separate discovery exception that may open from the situation rather than the request. It is supposed to reach you before you know to ask, and the worst it can do uninvited is a paragraph you skip.
 
@@ -151,6 +151,8 @@ This is a separate, optional installation; installing gigio-pack does not instal
 
 The work loop benefits from domain knowledge installed next to it, because it then has something specific to plan against and to judge acceptance by. The included Python skill supplies the owner's coding preferences; framework and application-domain knowledge remain separate.
 
+The Python preference is organized code, not clever architecture. Application-owned records use Pydantic unless another representation is concretely necessary; declarations include explicit local and SDK types. Python 3.12+ and uv project management are the setup defaults, with runtime and development dependencies recorded separately. Implementation explanations belong in docstrings and comments; policy and information that cannot be explained locally may live in `docs/`. Existing compatibility constraints require an explicit exception or scoped migration, not an accidental break.
+
 | Alongside | Repository | What it brings that this pack cannot |
 | --- | --- | --- |
 | Pydantic models | [pydantic/skills](https://github.com/pydantic/skills) | Official `pydantic` guidance for constraints, validators, coercion, and model hierarchies; see the [companion setup](#official-pydantic-companion) |
@@ -165,7 +167,7 @@ Other skills I keep for my own work live in [gigio1023/agent-skills](https://git
 
 The pack covers the work loop and the explicitly selected Python coding standard:
 
-- **In:** durable project intent, plans as files, execution with a run log, fresh-context review, durable project terminology and expression decisions, and the exits from a session: a handoff to the next session, bounded work to a weaker model, code as a PR, and findings as a document colleagues can read without the session. Python typing, enum, boundary, module-design, and verification preferences also apply during requested code work.
+- **In:** durable project intent, plans as files, execution with a run log, fresh-context review, durable project terminology and expression decisions, and the exits from a session: a handoff to the next session, bounded work to a weaker model, code as a PR, and findings as a document colleagues can read without the session. Python modeling, typing, enum, module, environment, source-explanation, and verification preferences also apply during requested work.
 - **Out:** a supplied domain glossary and other general craft. Prose style, diagram conventions, engine specifics, design taste — those belong to skills that own the domain, and the loop is where they get applied. Shaping a document for a reader who lacks the session (its reader, spine, format, claim status, sharing pass, medium) is loop work, not craft; `write-internal-doc` owns it and delegates the prose, Korean, figures, and Notion styling. Pydantic library guidance stays with its official external skill; no third-party Python or modularity pack is bundled.
 - **Also out:** anything that is not a markdown file a person can read. No background processes, no generated state, no framework that has to be running for the skills to work — and no unrelated work started merely because a conversation looks substantial. The terminology pair's in-task maintenance is an explicit standing policy.
 
@@ -188,7 +190,7 @@ The shortest version: put intent and record format in the durable layer, never c
 
 ## Status
 
-- Python coding standards authored 2026-09-10 with an official Pydantic companion and locally written typing, enum, module, and testing guidance. Package validation does not establish model behavior or complete the work-loop pilots.
+- Python coding standards authored 2026-09-10 and refined to the owner's Pydantic-first, explicit-typing, uv, and source-local documentation preferences. The official Pydantic companion remains external. Package validation does not establish model behavior or complete the work-loop pilots.
 - Terminology curation and application skills added 2026-09-10 from a completed project workflow; package validation is separate from runtime behavior testing.
 - Core-loop skills authored 2026-07-26 to the `skill-builder` contract kept in agent-skills; migrated skills keep their original bodies plus a minimal interlock pass (sibling references, next-station pointers, plan-file awareness).
 - Dual-reviewed 2026-07-26 by two independent reviewers from different model families; all confirmed findings fixed, reviewed-and-kept verdicts recorded in [docs/rule-ledger.md](docs/rule-ledger.md).
