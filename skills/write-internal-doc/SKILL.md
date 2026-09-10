@@ -34,17 +34,17 @@ Settle these from the request and the material; ask only when an answer would ch
 
 Structure follows the document's purpose. The design system (type, color, citation style, figure idiom) stays constant across a set; section names and order do not. One template applied to every document is a recorded failure.
 
-Every shared document still carries these parts, in this order, because a cold reader needs each to exist:
+A cold reader must be able to find seven things. They are questions the document answers, not headings it reproduces: a short memo answers several of them in one line (date, decider, sources) and expands abbreviations inline, while a long report gives each its own section. Name them for the document at hand; two documents in a set should not share a table of contents.
 
-1. What this document is: the question it answers, why it exists, its sources, who wrote it, who it is for, the reading order, and the organization when the reader may not know it.
+1. What this document is: the question it answers, why it exists, its sources, who wrote it, who it is for, and the reading order. Two sentences in a memo, an opening section in a report, plus an introduction of the organization only when the reader may not know it.
 2. The summary, stating conclusions rather than topics: a bold paragraph after the date and provenance line in a short document, its own first section in a long one. Headings state the finding, not the subject.
-3. Terms: every abbreviation expanded at first mention, plus a glossary table for product names, tiers, status words, and metrics.
-4. A reading rule when findings rest on records: one paragraph saying that an absent Slack, Notion, GitHub, or Linear record means the reader cannot confirm the work from the record, not that nobody did it, and that the two states call for different actions. Said once, here and inside label definitions, never as a qualifier on each sentence.
+3. Terms: every abbreviation expanded at first mention. A glossary table only when the document leans on more than a handful of names, tiers, status words, or metrics a colleague would not already know.
+4. A reading rule, only when findings rest on records: one paragraph saying that an absent Slack, Notion, GitHub, or Linear record means the reader cannot confirm the work from the record, not that nobody did it, and that the two states call for different actions. Said once, here and inside label definitions, never as a qualifier on each sentence.
 5. The body, shaped by the format rules below. The alternatives a decision weighed stay visible.
 6. Sources and versions: what was consulted, what this supersedes, what remains open, what could not be verified.
-7. About this document: how it was produced, update history, which systems its links need, its limits.
+7. About this document: how it was produced, update history, which systems its links need, its limits. A footer line in a memo; a closing section in a report.
 
-Patterns for each part, the memo spine for short task documents, and the research-directory header: [references/reader-and-structure.md](references/reader-and-structure.md). New documents without a house template start from [assets/standalone-spine.template.md](assets/standalone-spine.template.md).
+Patterns for each part, the memo spine for short task documents, and the research-directory header: [references/reader-and-structure.md](references/reader-and-structure.md). [assets/standalone-spine.template.md](assets/standalone-spine.template.md) lists what must be findable; merge, rename, or drop its headings to fit the document rather than filling it as a form.
 
 ## Format
 

@@ -1,3 +1,5 @@
+<!-- A checklist, not a skeleton. Each item below must be findable in the finished document, not present as a heading. Merge, rename, or drop headings to fit the document; a short memo covers section 0, the terms, and the closing note in one or two lines. Two documents in a set should not share this table of contents. -->
+
 # <Title that states the finding, not the subject>
 
 <Date> · <Author or team> · <What was checked, at which revision or date, and what was not re-run>

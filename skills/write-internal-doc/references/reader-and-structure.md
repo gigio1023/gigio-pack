@@ -49,7 +49,7 @@ Plans must be executable by the author alone. A step that waits for someone's ap
 3. 부록: 방법·한계, and where relevant the reconstructed timeline.
 4. 이 문서에 대해: generation method, update history, link conditions, limits.
 
-Chapters that classify findings by the kind of record behind them (for example "티켓 없음" versus "죽은 티켓") make the reading rule concrete instead of abstract.
+The names above are one report's; a second report in the same set names and orders its sections for its own question. Chapters that classify findings by the kind of record behind them (for example "티켓 없음" versus "죽은 티켓") make the reading rule concrete instead of abstract.
 
 ## Research directory header
 
