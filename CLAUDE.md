@@ -27,7 +27,7 @@
 - **커밋은 사용자가 요청할 때만.** PR은 draft로 올리고 간결한 영문으로 쓴다. 저장소 템플릿이 우선이다. 템플릿이 없으면 `Context`, `Changes` 두 절을 쓴다. CI가 증명하지 못한 결과나 CI의 중대한 예외가 있을 때만 `Validation`을 더한다.
 - 한 요청에 여러 정거장의 작업이 포함되어 있으면 이미 받은 권한을 유지한다. 각 산출물을 완성한 뒤 요청된 다음 스킬로 진행하며 같은 승인을 다시 묻지 않는다. 검토·수정·게시·정리의 범위는 구분한다. PR 게시만으로 전역 스킬을 재설치하지 않는다.
 - **절차를 시작하는 스킬 8개는 명시적 요청을 요구한다.** 코어 4 + `session-handoff` + `orchestrate-subagents`/`small-model-handoff`/`fable5-model-routing`의 description은 `Use only when …`으로 연다. 작업 규모, 낯선 도메인, 세션 길이 자체는 실행 요청이 아니다.
-- **용어 스킬 2개는 매 작업에 항상 적용한다.** [curate-terminology](skills/curate-terminology/SKILL.md)와 [use-terminology](skills/use-terminology/SKILL.md)를 함께 사용한다. 기존 정의와 표현을 적용하고, 작업 중 만나는 관련 오류·새 용어·동사·표현은 조사하고 기록한다. 변화가 없으면 불필요한 조사나 파일 수정을 만들지 않는다. 명시적 read-only 요청과 원문·식별자 보존 범위는 유지한다. 프로젝트 설정 시 이 상시 지침을 연결한다.
+- **용어 스킬 2개는 매 작업에 항상 적용한다.** [curate-terminology](skills/curate-terminology/SKILL.md)와 [use-terminology](skills/use-terminology/SKILL.md)를 함께 사용한다. 기존 정의와 표현을 적용하고, 작업 중 만나는 관련 오류·새 용어·동사·표현은 조사하고 기록한다. 변화가 없으면 불필요한 조사나 파일 수정을 만들지 않는다. 명시적 read-only 요청과 원문·식별자 보존 범위는 유지한다. 프로젝트 설정 시 이 상시 지침을 연결한다. 새 용어집의 기본 구조는 루트 `terminology.md`의 대표 정의·index, `docs/terminology/`의 상세 문서, 출처만 기록하는 `docs/terminology/references.md`다. 새로 추가하거나 고친 항목은 반드시 출처 기록을 연결한다.
 - **나머지 5개는 기존 트리거를 유지한다.** `deep-interview`/`commit-and-push`/`draft-pr`/`git-worktree-setup`은 사용자의 요청에 대응한다. `find-unknowns`는 별도의 상황 기반 발굴 예외다. 근거는 `docs/principles.md`의 "What may open on its own".
 - 검증: `npx skills add . --list --full-depth` 가 정확히 15개를 보고해야 한다.
 

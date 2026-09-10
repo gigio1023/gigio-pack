@@ -1,6 +1,6 @@
 # Research Expressions in Context
 
-Read this when researching how practitioners describe a concept, operation, or project. Source eligibility is defined in [source verification](source-verification.md); this reference defines what to extract from eligible material. Capture useful affirmative language as well as anti-patterns.
+Read this when researching how practitioners describe a concept, operation, or project. Source eligibility is defined in [source verification](source-verification.md); this reference defines what to extract from eligible material. Capture useful affirmative language as well as anti-patterns. Store the expression entries in the relevant documents under the consuming project's `docs/terminology/`; register and cite each supporting source in `docs/terminology/references.md`.
 
 ## Extract more than names
 
