@@ -1,6 +1,6 @@
 # Source Verification
 
-Use this reference when a definition, expression, or source record changes. The question is what the source supports in this context, not whether the source contains the same words.
+Use this reference when a definition, expression, or source record changes. The question is what the source supports in this context, not whether the source contains the same words. Always register sources used for new or changed entries in the consuming project's `docs/terminology/references.md`, then link the supported entries to those records. See [records and layout](records-and-layout.md) for record fields and citation paths. Verification instructions remain here; the project reference document contains source records only.
 
 ## Match the source to the claim
 
@@ -41,6 +41,6 @@ Check the project's literature index before downloading. Save newly discovered r
 
 For each acquired paper, record the title, authors, year, canonical URL or DOI, version, retrieval date, local file, content hash, and the terms it supports. Verify the response is the expected document rather than an error page. Keep a searchable text extraction and record its method and status. Inspect the relevant passage in the original when extraction loses formulas, tables, or qualifiers. Use an available extractor; if the preferred tool is missing, choose an installed alternative or record the limitation instead of claiming extraction succeeded.
 
-Link the original, extracted text, and metadata from the literature index and any existing field-level source record. Avoid an orphan metadata file whose paper is listed but whose provenance cannot be reached. A metadata-only record is acceptable when the document is inaccessible; label it clearly and do not cite an unread passage as verified. Do not download unrelated papers to meet a count.
+Link the original, extracted text, and metadata from the literature index and the corresponding record in `docs/terminology/references.md`; preserve any existing field-level source pointers. Avoid an orphan metadata file whose paper is listed but whose provenance cannot be reached. A metadata-only record is acceptable when the document is inaccessible; label it clearly and do not cite an unread passage as verified. Do not download unrelated papers to meet a count.
 
 Run the project's existing catalog rebuild and verification after adding literature or changing navigation. Keep mutable source collections in the project, outside the replaceable installed skill. This skill provides the curation method, not a preapproved library of domain definitions.

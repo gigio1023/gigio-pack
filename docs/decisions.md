@@ -204,6 +204,13 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 - **Choice:** retain the examples and replace name-based exclusion with heightened scrutiny of provenance, primary-source support, definitions, and correspondence with implementation. Filter unsupported wording across comparable projects without treating the examples as exhaustive or judging authorship from style alone.
 - **Revisit:** when actual source passages and implementation checks support changing their eligibility as terminology references. Keep local naming conventions separate from claims of general industry usage.
 
+## Standardize terminology storage and reference records (2026-09-10)
+
+- **Plan:** a short root reference and optional topic files would follow each project's existing paths, with source and maintenance records grouped as needed.
+- **Reality:** the user wants a predictable structure that scales beyond one file while keeping representative terms visible at the project root, and requires a separate document for references.
+- **Choice:** use root `terminology.md` for representative definitions and the index; store detailed Markdown documents under `docs/terminology/`; keep `docs/terminology/references.md` for source records only. Link new or changed entries to stable reference IDs, including dated local decisions. Keep source records separate from definitions and maintenance history. Preserve working links and source IDs during authorized migration, and honor an explicitly mandated legacy layout until it is migrated.
+- **Revisit:** when the root summaries or topic files become difficult to navigate. Split detail by reader need while preserving the entry point and source traceability.
+
 ## Still open
 
 | Item | Default | Decide when |

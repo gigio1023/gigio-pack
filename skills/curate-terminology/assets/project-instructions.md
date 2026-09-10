@@ -1,11 +1,12 @@
 # Example: Standing Terminology Instructions
 
-Adapt this example to the project's paths before adding it to the actual instruction entry point. Both application and in-scope maintenance are the default standing policy. Relative paths below are examples to replace and verify, not files supplied by this skill.
+Adapt this example to the project's paths before adding it to the actual instruction entry point. Both application and in-scope maintenance are the default standing policy. Paths below use the default project layout; verify that they resolve after setup or migration. The skill supplies instructions and templates, not a populated project glossary.
 
 ```markdown
 ## Terminology and expressions
 
-- Use both `curate-terminology` and `use-terminology` on every task. At task start, read `terminology.md` and the relevant topic, expression, and anti-pattern entries. Apply `use-terminology` to apply them throughout responses, research, writing, reviews, and code explanations, even when the task does not mention wording.
+- Use both `curate-terminology` and `use-terminology` on every task. At task start, read root `terminology.md`, including its representative definitions, and follow its index to the relevant topic, expression, and anti-pattern entries under `docs/terminology/`. Use `use-terminology` to apply them throughout responses, research, writing, reviews, and code explanations, even when the task does not mention wording.
+- Keep root `terminology.md` concise: representative definitions, shared rules, and an index. Store detailed content in multiple topic documents under `docs/terminology/`. Always record sources for new or changed entries in `docs/terminology/references.md`, a reference-only document, and link each supported entry to its source record. Reuse existing records for unchanged usage.
 - Use established English research and developer terms, verbs, collocations, and explanatory patterns; explain their contextual meaning in the project's working language. Distinguish general usage, source-specific definitions, internal names, and editorial preferences. Preserve the definition's conditions and level of claim.
 - Preserve confirmed company names and local meanings. Check existing records first; ask the user about the few unresolved terms, then record their meaning, scope, audience, and dated confirmation. Do not rewrite a legitimate local convention merely because industry usage differs.
 - Correct confirmed terminology misuse, unsupported coined names, and overstated claims in directly managed documents encountered or edited during the task. This is standing authorization for those local corrections and the related definition and expression records through `curate-terminology`; do not wait for another correction request. An explicit read-only task limits the result to findings and proposed corrections.

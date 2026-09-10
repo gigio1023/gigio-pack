@@ -23,7 +23,7 @@ This is clarification of meaning, not an approval request. Continue independent 
 
 ## Record and apply the answer
 
-In the project's existing internal-name map, record the exact name and useful aliases, kind of usage, local meaning or referent, organizational or product scope, contrast with the general meaning when relevant, internal/external wording, and the dated user confirmation or owning source. Distinguish user-confirmed intended meaning from implementation verified in code. A user's naming decision establishes the convention; it does not prove capability, compliance, accuracy, or deployment.
+In the project's internal-name document under `docs/terminology/`, record the exact name and useful aliases, kind of usage, local meaning or referent, organizational or product scope, contrast with the general meaning when relevant, internal/external wording, and the dated user confirmation or owning source. Register the dated user confirmation or owning source in `docs/terminology/references.md` and cite it from the local entry. Keep private details within the existing sharing boundary; no public URL is required for a private decision. Distinguish user-confirmed intended meaning from implementation verified in code. A user's naming decision establishes the convention; it does not prove capability, compliance, accuracy, or deployment.
 
 For internal readers, use the confirmed local name naturally. For external or mixed readers, preserve a public proper name and briefly explain an ambiguous local term at first use; use the confirmed external wording when the company has one. Do not expose a private alias or its explanation outside the existing sharing scope. Correct misleading claims around a legitimate name rather than renaming the name itself.
 

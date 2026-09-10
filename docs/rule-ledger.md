@@ -60,6 +60,7 @@ There is a sixth type — **cognitive map**, meaning any rule that prescribes a 
 | Prefer established projects and influential papers, inspect author/maintainer blogs, and exclude AI-generated derivative wording, and scrutinize AI-project language | curate-terminology | Verification + boundary | User source-selection policy, 2026-09-10; popularity is a selection signal, not proof of a claim or authorship | Keep; recheck source provenance and applicable versions |
 | Record verbs, collocations, sentence patterns, and project explanations with actor, object, and conditions | terminology pair | Storage + verification | User requested expression research beyond vocabulary, 2026-09-10 | Keep; require semantic fit when applying patterns |
 | Distinguish company proper names, local meanings, and industry usage; ask the user only about unresolved local cases and reuse recorded answers | terminology pair | Storage + verification | User clarification, 2026-09-10: a few company conventions legitimately differ from external terminology | Keep; revisit only for contradictory or changed context |
+| Root terminology index plus representative definitions, detailed topic files, and a dedicated reference-only document with entry links | terminology pair, gigio-project-setup | Storage + verification | User-selected layout, 2026-09-10: terminology can outgrow one file and references must remain traceable | Keep; preserve source IDs and existing links during migration |
 
 Two rows are measured workarounds. They are the only rows expected to die.
 

@@ -104,7 +104,7 @@ A project's identity (why, what) changes slowly; its state (how far) changes fas
 
 - `PROJECT.md` holds identity, with a human-owned section at the top. Decisions recorded there are not re-litigated by later sessions.
 - Plan files under `.plans/` are short-lived and disposable.
-- Project terminology records preserve accepted English names, contextual meanings, expression decisions, source provenance, and superseded findings. `curate-terminology` maintains those records; `use-terminology` applies them. The pack ships the workflow, not a competing domain glossary.
+- Project terminology records preserve accepted English names, contextual meanings, expression decisions, source provenance, and superseded findings. `curate-terminology` maintains those records; `use-terminology` applies them. Root `terminology.md` carries representative definitions and an index, detailed documents live under `docs/terminology/`, and `docs/terminology/references.md` holds source records only. Entries link to their sources rather than relying on an unconnected bibliography. The pack ships the workflow, not a competing domain glossary.
 - Handoff notes are one-shot: consumed, then discarded. Records are permanent. Don't mix the two natures.
 - Trust only files that get committed. An earlier assembly kept official state where it was never committed, and the state evaporated.
 - Records are self-reported and therefore biased — review runs in a fresh context, never as self-review.
