@@ -218,6 +218,13 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 - **Choice:** redraw Scope instead of carving an exception. The exits from a session are In: next session, weaker model, code as a PR, findings as a document. Prose style and figure craft stay Out. `write-internal-doc` is the fourth exit skill, with an explicit request trigger like the other procedural skills; it owns reader, shape, format, claim status, sharing, and medium, and delegates prose to `slop-aware-writing`, Korean to `korean-clarity`, styling to `notion-doc`, and figures to the gigio-figures skills, naming them conditionally because they live outside the pack. Rules were harvested from the author's own corrections (Korean record in `docs/design/internal-doc-skill/`, gitignored) and checked against a survey of about thirty public documentation skills ([prior-art.md](prior-art.md#documentation-skills-2026-09-10)).
 - **Revisit:** after the first five shared documents produced with it. If its rules read as generic writing advice by then, move it to agent-skills; if the sharing pass, the reading rule, and the house vocabularies are what earned the place, keep those and cut the rest.
 
+## Local Python standards with an official Pydantic companion (2026-09-10)
+
+- **Plan:** keep language craft outside the pack and consider composing existing Python, Pydantic, and modularity skills.
+- **Reality:** source review found useful official Pydantic guidance and several overlapping community skills, but the owner selected only Pydantic for external reuse and explicitly requested locally authored Python rules in gigio-pack.
+- **Choice:** add `python-coding-standards`, bringing the pack to 17 skills alongside the document exit. Keep one reusable Python task entry with colocated references for types and enums, module boundaries, Pydantic integration, and correctness/testing. Preserve repository decisions and public behavior. Use the official external `pydantic` skill for its library guidance, with a pinned source and version-matched fallback; do not vendor other Python skills or install global packages as part of publication. Existing loop skills and their invocation policy remain intact.
+- **Revisit:** after actual Python implementation and review tasks reveal missing decisions, duplicated guidance, or over-broad activation. Package checks and discovery do not establish model behavior or complete the two work-loop pilots.
+
 ## Still open
 
 | Item | Default | Decide when |

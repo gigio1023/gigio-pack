@@ -98,7 +98,6 @@ Excluded from the reusable method: the original task's model selection, parallel
 
 The user's 2026-09-10 revision supersedes the initial activation choice: both terminology skills apply on every task. It also makes representative source selection explicit: widely adopted projects, influential papers and recognized preprints, maintainer and author blogs, active paper discovery/read tools, and rejection of AI-generated derivative prose as a wording authority. The named projects are user-provided cautionary examples, not a fixed exclusion list or independently established authorship findings. Their role is to motivate heightened scrutiny across AI-related project documentation. Expression research now includes verbs, collocations, sentence patterns, and how a system's purpose and components are explained. Kubernetes and Helm documentation provide small linked examples; no domain corpus or model trial was added.
 
-
 ## Documentation skills (2026-09-10)
 
 Surveyed before writing `write-internal-doc`: about thirty public skills in twenty-five repositories, cloned and read at source level, plus the author's own retired documentation skills recovered from agent-skills history. Verdicts per skill are in the local Korean record (`docs/design/internal-doc-skill/`).
@@ -110,3 +109,11 @@ Surveyed before writing `write-internal-doc`: about thirty public skills in twen
 **Left.** Harness-thick skills whose bodies are mostly telemetry and prompt protocol (the exact shape the principles reject); mass-produced skill farms; generic API-documentation templates the author's own retired skills already exceeded; Diátaxis quadrant purity, which fits product documentation sets rather than research reports and memos; scoring rubrics inside skill bodies; rules about em dashes and horizontal rules, which are a linter's concern.
 
 **Covered by no public skill.** Reading records without treating absence as fact; a two-axis sharing pass (company risk and the poster's own risk) with "facts keep names, evaluations lose them"; bilingual figures translated against a glossary and numerically re-checked; moving session narration into a methods appendix; a standalone spine with an opening block and an about-this-document close. These are what the new skill adds; everything else it delegates.
+
+## Python standards source selection (2026-09-10)
+
+The owner selected the official [pydantic skill at 9e9390ee24d44b32cf5379c58acaebd7563f5f86](https://github.com/pydantic/skills/blob/9e9390ee24d44b32cf5379c58acaebd7563f5f86/skills/pydantic/SKILL.md) as an external companion and requested local authorship for the other Python rules. The upstream repository is MIT-licensed; its general Pydantic skill is distinct from Pydantic AI and Logfire skills. No upstream payload is copied into this repository.
+
+The survey also inspected [Sylla coding standards](https://github.com/Sylla-BV/sylla-skills/blob/768c89cde09dae68a30ed6264b411c4f0e98980d/python/coding-standards/SKILL.md), [reviewing-code-modularity-skill](https://github.com/tyshkovskii/reviewing-code-modularity-skill/blob/018b4d66d5e879e447654076cab7dadf935fee87/SKILL.md), and [AGNTCY schema generation](https://github.com/agntcy/coffeeAgntcy/blob/ab8430eec963c39ebcd77924fff8ee3588d6f395/.agents/skills/jsonschema-to-pydantic-lungo/SKILL.md). They establish that related public skills exist; none is adopted, forked, or required by this pack. The local skill is written from the owner's selected preferences and primary Python, Pydantic, and tool documentation, linked in its own references.
+
+Retained decisions: repository precedence, explicit enum values, deliberate validation/serialization boundaries, semantic module responsibilities, behavior-preserving extraction, and proportional checks. The 500/1,000-line reminders are local review preferences, not source-backed universal limits. No external Python pack installer, mandatory tool migration, or model trial is included.

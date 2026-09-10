@@ -5,7 +5,7 @@ A personal pack, but it holds itself to the same conventions as [gigio1023/agent
 ## Layout
 
 ```
-skills/<skill-name>/            one flat directory per skill (16 total)
+skills/<skill-name>/            one flat directory per skill (17 total)
   SKILL.md                      the skill — frontmatter + body
   references/                   detail the body links to (optional)
   assets/                       templates the skill fills in (optional)
@@ -32,10 +32,11 @@ Everything a skill needs stays colocated under its own directory. `docs/` is rat
 - No evaluation scaffolding, benchmarks, or scoring artifacts inside `skills/`. Migrated skills that carry legacy maintenance fixtures keep them (preserve-original-strengths rule), but do not add new ones.
 - Migrated skills are edited minimally — one to four focused edits per pass. Full rewrites are for broken structure only.
 - Preserve grants already established in the active request. Finishing one station does not require another approval for an explicitly requested next station. Keep read-only, ownership, publication, and cleanup boundaries.
+- `python-coding-standards` applies within requested Python implementation, refactoring, or review. Its Python rules are locally authored; use the official external `pydantic` skill for library-specific modeling. Keep the upstream revision and fallback in the colocated integration reference, and installation instructions in the README. Do not vendor unrelated Python or modularity skills.
 
 ## Before finishing any change
 
-1. `npx --yes skills add . --list --full-depth` reports **exactly 16** skills.
+1. `npx --yes skills add . --list --full-depth` reports **exactly 17** skills.
 2. Every relative path referenced from a changed `SKILL.md` exists on disk.
 3. Frontmatter `name` still equals the directory name for anything touched.
 4. Re-read the changed skill and `README.md` together — packaging claims and docs must not drift apart.

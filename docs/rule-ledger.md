@@ -69,6 +69,15 @@ There is a sixth type — **cognitive map**, meaning any rule that prescribes a 
 
 Two rows are measured workarounds. They are the only rows expected to die.
 
+### Python coding rules added 2026-09-10
+
+| Rule | Where | Type | Basis | On generation change |
+| --- | --- | --- | --- | --- |
+| Apply Python rules inside the requested implementation or review; preserve runtime support, repository tooling, and external behavior | python-coding-standards | Boundary + verification | A coding preference does not authorize an unrelated migration, dependency change, or refactor | Keep |
+| Explicit values for persisted or transmitted enums, with focused input/output compatibility checks | python-coding-standards | Storage + verification | Public data outlives Python member names; standard-library and third-party StrEnum have different auto-value behavior | Keep; recheck affected runtime APIs |
+| Review large in-scope modules at 500 lines; split or explain retention at 1,000, using semantic responsibilities and repository limits | python-coding-standards | Storage + verification | Local fallback reminders for the owner's preference to review oversized modules, not measured architectural thresholds or a forced decomposition path | Revisit from actual code-review results |
+| Use the official external pydantic skill for library-specific modeling; retain a version-aware retrieval fallback | python-coding-standards | Storage + boundary | Owner chose one external Python companion and local authorship for other rules; absent installation must not silently become setup authority | Recheck upstream and dependency compatibility when the integration changes |
+
 ## Generation audit
 
 Adopting a new model generation, or a major harness overhaul, is an **audit event**, not a routine upgrade. Run this and append the result to the deletion record below:
@@ -79,6 +88,8 @@ Adopting a new model generation, or a major harness overhaul, is an **audit even
 4. **Confirm no growth** — skill bodies stay within 400–2,500 tokens, and always-loaded routing stays at two lines.
 
 ## Deletion and compression record
+
+**2026-09-10 — Python coding standards authored.** Added a scoped implementation/review skill with locally written type, enum, module, error, and testing rules. Kept Pydantic library guidance external and documented retrieval without implicit installation. Retained repository precedence, behavior-preserving extraction, and proportional verification. Excluded external modularity packs, forced tool migrations, universal Pydantic use, automatic file splitting, and model-evaluation payloads. These are authored rules with package checks; no model trial or completed pilot is claimed.
 
 **2026-09-10 — terminology policy revised.** Supersedes the initial opt-in terminology design below: both skills now apply on every task. Research favors established projects, influential papers, author/maintainer blogs, and actively used paper tools; generated derivative prose is excluded as a wording authority. The initial interpretation of the named examples as a denylist was subsequently corrected to heightened scrutiny across AI-related projects. Expression records include verbs and explanation structure. Unrelated procedural skills retain explicit invocation.
 

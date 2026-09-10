@@ -67,6 +67,8 @@ Five skills retain their existing triggers. Four of them —`deep-interview`, `c
 
 That line is where C3 sits too. Unrequested procedural work competes with the model's judgment about how to answer. The standing terminology policy requests a specific kind of in-task maintenance; it does not authorize unrelated files, branches, or paid runs.
 
+`python-coding-standards` applies within a requested Python implementation, refactor, or review. It preserves that request's authority: reviewing code does not authorize editing it, and an oversized file does not start a separate refactoring project. The skill carries coding choices into the work already underway rather than opening another station.
+
 ## What ages well
 
 Surveying a couple of dozen agent workflow systems produced a consistent lifespan ordering:
@@ -161,3 +163,9 @@ If not, cut it. This single question removed more from the design than any other
 The terminology pair follows the same six constraints: portable Markdown and existing instruction entry points (C1); field meanings and preservation rules without a model-specific procedure (C2); project records rather than another runtime (C3); the user-requested standing terminology policy (C4); definitions, source scope, and editorial decisions that otherwise have to be repeated in chat (C5); and correction during the authorized task instead of a separate upkeep pass (C6).
 
 Keep curation separate from application because their outputs and authority differ. A definition change needs source verification and a durable record; an ordinary lookup needs only the relevant entry. Both apply continuously under the pack's stated policy, while research and edits remain proportional to the material encountered. The authoritative details live in the project and in each skill's colocated references, not in these design documents.
+
+## Python preferences within implementation
+
+The owner explicitly added Python coding standards on 2026-09-10. This is a scope extension beyond the original loop-only pack. It follows C5 by carrying recurring choices about types, stable enum values, validation boundaries, and module responsibilities, and C6 by applying them during the requested code task. Repository configuration and existing external behavior take precedence over fallback style choices.
+
+The core and references are portable Markdown (C1), with no model-specific procedure (C2), replacement runtime (C3), or unsolicited audit (C4). Pydantic-specific modeling stays in the official external skill. The pack's integration reference identifies the upstream revision and gives a retrieval fallback, so reading guidance does not imply installing packages or creating a competing copy.
