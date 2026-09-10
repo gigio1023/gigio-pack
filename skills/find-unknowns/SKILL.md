@@ -68,7 +68,7 @@ Deviation entries in either notes file use four fields: what the plan said → w
 
 Fill `assets/launch-brief.template.md`. The brief must let a fresh session execute without rereading this conversation: starting point, confirmed decisions with rationale, resolved unknowns with evidence, open items with decide-later rules, the ordered plan, the notes-file instruction, and the acceptance criteria. Return it in chat by default; write a file when the user asks. Preparing for a possible new session alone does not authorize a file.
 
-For software work inside a repository, hand the accepted brief to `gigio-write-plan` rather than seeding a separate plan document of your own: it turns the brief into a plan file under `.plans/`, and goals, ordered tasks, ownership, and checks live there from then on. Intent the project should keep long-term belongs in PROJECT.md via `gigio-project-setup`.
+When the accepted brief is to be planned — code, research, or personal work alike — hand it to `gigio-write-plan` rather than seeding a separate plan document of your own: it turns the brief into a plan file under `.plans/`, with the user's goal and limits in the user's words at the top, and ordered tasks, ownership, and checks live there from then on. Intent the project should keep long-term belongs in PROJECT.md via `gigio-project-setup`.
 
 Name the next station when the brief is accepted: `gigio-project-setup` if the project has no PROJECT.md yet, then `gigio-write-plan` for the work itself.
 

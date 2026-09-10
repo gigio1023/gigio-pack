@@ -49,7 +49,7 @@ The generated file must contain:
 - the first one to three executable actions;
 - verification requirements and final delivery expectations.
 
-When the successor continues work that already has a plan file in `.plans/` or a PROJECT.md, reference them by path instead of restating what they contain. If a plan file exists, name `gigio-execute-plan` on that path as the successor's entry point.
+When the successor continues work that already has a plan file in `.plans/` or a PROJECT.md, reference them by path instead of restating what they contain. If a plan file exists, name `gigio-execute-plan` on that path as the successor's entry point, and let the handoff carry only what the plan cannot: live state, pending handles, uncommitted changes, and grants given since the plan was written.
 
 Use `verified`, `inferred`, and `unknown` labels only where ambiguity matters. Do not burden obvious facts with labels. A successor should know which claims it can trust and which it must check.
 
