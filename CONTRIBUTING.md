@@ -5,7 +5,7 @@ A personal pack, but it holds itself to the same conventions as [gigio1023/agent
 ## Layout
 
 ```
-skills/<skill-name>/            one flat directory per skill (13 total)
+skills/<skill-name>/            one flat directory per skill (15 total)
   SKILL.md                      the skill — frontmatter + body
   references/                   detail the body links to (optional)
   assets/                       templates the skill fills in (optional)
@@ -23,7 +23,7 @@ Everything a skill needs stays colocated under its own directory. `docs/` is rat
 - Keep each natural Markdown prose paragraph on one source line, including paragraphs in list items and Markdown templates. Do not manually wrap at a fixed column count (such as 80 or 100) or at sentence boundaries; use editor soft wrapping for display. Preserve paragraph boundaries, list structure, tables, fenced code, HTML, intentional hard breaks, frontmatter semantics, and literal examples. This applies to Markdown only; code and docstring line-length constraints stay unchanged.
 - Frontmatter is exactly two fields: `name` (must equal the directory name) and `description`.
 - The description carries a `Use when …` trigger, a `NOT for …` boundary, and one line that separates the skill from its nearest sibling (`session-handoff` vs `small-model-handoff` is the reference example).
-- **If the skill writes or spends, the trigger is a request, never a situation.** Ask what an uninvited opening costs. A file on disk, a branch, a fan-out, a model switch, or a pass over the repository means the description opens with `Use only when …`, names the qualifying request forms, and closes with the misfire it would otherwise cause ("Never activate because work looks sizable"). Eight skills are on that side today. A skill whose misfire is a paragraph the user can skip does not need the gate — `find-unknowns` is the one place a situational trigger is deliberate. See [docs/principles.md](docs/principles.md#what-may-open-on-its-own).
+- **If the skill writes or spends, the trigger is a request, never a situation.** Ask what an uninvited opening costs. A file on disk, a branch, a fan-out, a model switch, or a pass over the repository means the description opens with `Use only when …`, names the qualifying request forms, and closes with the misfire it would otherwise cause ("Never activate because work looks sizable"). Ten skills use that explicit trigger today, including the terminology pair; their descriptions also accept explicit standing project instructions for scoped use and maintenance. A skill whose misfire is a paragraph the user can skip does not need the gate — `find-unknowns` is the one place a situational trigger is deliberate. See [docs/principles.md](docs/principles.md#what-may-open-on-its-own).
 - Bodies are English. Aim for decision rules over step transcripts, roughly 400–2,500 tokens, with an 80% path up front and detail pushed to `references/`.
 - **Contract steps, not cognition steps.** Numbered steps only where order or completeness is part of correctness: prerequisite retrieval, approval boundaries, required artifact stages, validation, auditable pipelines. Otherwise state the outcome, invariants, and stop conditions, and let the model choose the route. If removing a step keeps accuracy, safety, and auditability intact, remove it.
 - Sibling references are unconditional. "If installed" hedging is reserved for harness capabilities, never for pack skills.
@@ -34,7 +34,7 @@ Everything a skill needs stays colocated under its own directory. `docs/` is rat
 
 ## Before finishing any change
 
-1. `npx --yes skills add . --list --full-depth` reports **exactly 13** skills.
+1. `npx --yes skills add . --list --full-depth` reports **exactly 15** skills.
 2. Every relative path referenced from a changed `SKILL.md` exists on disk.
 3. Frontmatter `name` still equals the directory name for anything touched.
 4. Re-read the changed skill and `README.md` together — packaging claims and docs must not drift apart.

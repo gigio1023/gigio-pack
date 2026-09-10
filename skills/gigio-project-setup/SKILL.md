@@ -47,7 +47,7 @@ Writing rules: complete sentences; only vocabulary practitioners of the domain a
 
 ## Step 3 — Wire the instructions
 
-Edit existing files. For an installation request with neither file present, create `AGENTS.md` and a `CLAUDE.md` bridge as the documented default; an audit only reports the missing wiring. Keep the block between marker comments so later updates are idempotent. Two touch points:
+Edit existing files. For an installation request with neither file present, create `AGENTS.md` and a `CLAUDE.md` bridge as the documented default; an audit only reports the missing wiring. Keep the block between marker comments so later updates are idempotent. Preserve existing terminology pointers and standing policies. If the request includes creating or revising them, use `curate-terminology`; `use-terminology` applies an existing policy during setup. Installing the pack alone does not request a new terminology policy. Two touch points:
 
 - `AGENTS.md`: a short block stating that PROJECT.md exists and must be consulted for significant judgments and completion claims; top-half edits need user approval; plans live in `.plans/` (gitignored); routing — the user invokes `gigio-write-plan` to get a plan file and `gigio-execute-plan` to run one. Write the routing as where those requests go, never as a standing instruction to start planning or executing on the agent's own judgment; the pack's skills are invoked, not inferred.
 - `CLAUDE.md`: a first-line `@AGENTS.md` import (or symlink). This path is what gets re-injected after compaction and inherited by subagents; content placed elsewhere silently disappears.

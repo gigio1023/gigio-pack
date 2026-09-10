@@ -176,6 +176,13 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 - **Choice:** retain the separate skills and their outputs, reuse established authorization, inspect discrepancies before asking, and carry grants plus pending operations into handoffs. Keep consequential unknowns, overlapping ownership, and unapproved external effects as boundaries. Remove the required comprehension quiz and automatic worktree cleanup.
 - **Revisit:** use real execution feedback to assess unnecessary pauses and missed boundaries. This is an instruction audit, not a successful runtime pilot or a measured performance claim.
 
+## Separate terminology curation from application (2026-09-10)
+
+- **Plan:** keep domain craft outside the pack and preserve project decisions through the existing work-loop records.
+- **Reality:** a completed terminology workflow needed a durable reference for definitions, accepted expressions, sources, and historical corrections. The user explicitly requested separate skills for defining/updating/recording and looking up/using that reference. Applying an existing decision should not start another research pass.
+- **Choice:** add `curate-terminology` and `use-terminology`, bringing the pack to 15 skills. Ship the portable workflow and an adaptable standing-instruction example; keep domain definitions and mutable literature in each project. English terms remain primary, source scope remains explicit, and local editorial restrictions remain local decisions. Honor explicitly requested ongoing compliance without making installation an always-on policy. Preserve originals and identifiers while correcting authorized managed prose during the task.
+- **Revisit:** if real use shows duplicate retrieval, unclear authority, or records that require maintenance outside current work. Static package validation does not establish a successful runtime pilot.
+
 ## Still open
 
 | Item | Default | Decide when |

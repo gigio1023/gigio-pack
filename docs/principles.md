@@ -44,9 +44,9 @@ If it gets in the way, cut it.
 
 C4 was written about mechanism — no hooks, no daemons. The descriptions shipped anyway with the other half of the door open. Several read as situations rather than requests ("when sizable work needs a written plan", "when a large task has independent workstreams"), and a situation is something the model can decide it is looking at. In use they fired across conversations that had asked for none of it. The prior-art survey had already listed *broad auto-triggering descriptions* as a disqualifier in other packs; this one had the same defect.
 
-The deciding question is what a misfire costs. Eight skills are gated, because opening one uninvited lands somewhere you have to undo:
+The deciding question is what a misfire costs. Ten skills have explicit request triggers, because opening them uninvited starts a procedure beyond an ordinary answer:
 
-| Gated | Because opening it writes or spends |
+| Explicit request trigger | Work it starts |
 | --- | --- |
 | `gigio-project-setup` | `PROJECT.md`, plus edits to `AGENTS.md` and `CLAUDE.md` |
 | `gigio-write-plan` | a plan file in `.plans/` |
@@ -56,10 +56,14 @@ The deciding question is what a misfire costs. Eight skills are gated, because o
 | `orchestrate-subagents` | a fan-out of subagents |
 | `small-model-handoff` | a dispatch to a weaker executor |
 | `fable5-model-routing` | a switch to another model |
+| `curate-terminology` | definition, expression, source, and project instruction records |
+| `use-terminology` | project reference lookup and application, including authorized corrections |
 
-Each of the eight carries the rule in its own description, because the harness reads descriptions one at a time and a rule kept somewhere else would never be in front of it. They open on three things: the user names the skill, the user asks for what it does in any language, or another pack skill name-calls it during a run the user already started. Not task size, not an unfamiliar domain, not a missing spec, not a long session, not a plan file sitting on disk.
+Each of the ten carries the rule in its own description, because the harness reads descriptions one at a time and a rule kept somewhere else would never be in front of it. Their ordinary entry points are: the user names the skill, the user asks for what it does in any language, or another pack skill name-calls it during a run the user already started. Not task size, not an unfamiliar domain, not a missing spec, not a long session, not a plan file sitting on disk.
 
-Five skills stay ambient. Four of them —`deep-interview`, `commit-and-push`, `draft-pr`, `git-worktree-setup` — already describe a request rather than a situation, so a harness matching the description *is* the user asking: you get an interview by asking for one, a commit by saying commit, a PR by saying PR, a worktree by asking for isolation.
+An explicit standing project instruction may request terminology use and in-scope maintenance on every task. That is continuing user authorization, not a situational trigger inferred from technical prose. Skill installation creates no such instruction. Lookup alone grants no edits, and a read-only task still constrains a standing maintenance rule.
+
+Five skills retain their existing triggers. Four of them —`deep-interview`, `commit-and-push`, `draft-pr`, `git-worktree-setup` — already describe a request rather than a situation, so a harness matching the description *is* the user asking: you get an interview by asking for one, a commit by saying commit, a PR by saying PR, a worktree by asking for isolation.
 
 `find-unknowns` is the deliberate exception, and the only skill here allowed a situational trigger. It exists to fire before you know to ask, and its worst misfire is a paragraph you skip. Gating it would remove the one case where an unrequested pass is worth more than it costs.
 
@@ -102,6 +106,7 @@ A project's identity (why, what) changes slowly; its state (how far) changes fas
 
 - `PROJECT.md` holds identity, with a human-owned section at the top. Decisions recorded there are not re-litigated by later sessions.
 - Plan files under `.plans/` are short-lived and disposable.
+- Project terminology records preserve accepted English names, contextual meanings, expression decisions, source provenance, and superseded findings. `curate-terminology` maintains those records; `use-terminology` applies them. The pack ships the workflow, not a competing domain glossary.
 - Handoff notes are one-shot: consumed, then discarded. Records are permanent. Don't mix the two natures.
 - Trust only files that get committed. An earlier assembly kept official state where it was never committed, and the state evaporated.
 - Records are self-reported and therefore biased — review runs in a fresh context, never as self-review.
@@ -152,3 +157,9 @@ For any proposed field or artifact, ask:
 > Without this, would the user have to re-explain the same thing in chat?
 
 If not, cut it. This single question removed more from the design than any other rule.
+
+## Terminology as durable project decisions
+
+The terminology pair follows the same six constraints: portable Markdown and existing instruction entry points (C1); field meanings and preservation rules without a model-specific procedure (C2); project records rather than another runtime (C3); explicit requests or explicit standing instructions (C4); definitions, source scope, and editorial decisions that otherwise have to be repeated in chat (C5); and correction during the authorized task instead of a separate upkeep pass (C6).
+
+Keep curation separate from application because their outputs and authority differ. A definition change needs source verification and a durable record; an ordinary lookup needs only the relevant entry. A project may require both continuously, but installing the skills must not silently create that requirement. The authoritative details live in the project and in each skill's colocated references, not in these design documents.

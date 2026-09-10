@@ -26,18 +26,18 @@
 - **Contract steps, not cognition steps**: 번호 붙은 단계는 순서·완전성이 정확성에 속하는 곳에만 — 선행 조회, 승인 경계, 필수 산출 단계, 검증, 감사 가능한 파이프라인. 그 외에는 결과·불변조건·중단 조건만 쓰고 경로는 모델에 맡긴다. 어떤 단계를 빼도 정확성·안전성·감사 가능성이 그대로면 뺀다. 스킬 4개 정거장 분할 자체가 "감사 가능한 고정 파이프라인" 사례(정거장 경계 = 승인·검증 지점)라 유지. 규칙별 수명은 `docs/rule-ledger.md`가 정본 — **새 모델 세대 도입 = 감사 이벤트.**
 - **커밋은 사용자가 요청할 때만.** PR은 draft로 올리고 간결한 영문으로 쓴다. 저장소 템플릿이 우선이다. 템플릿이 없으면 `Context`, `Changes` 두 절을 쓴다. CI가 증명하지 못한 결과나 CI의 중대한 예외가 있을 때만 `Validation`을 더한다.
 - 한 요청에 여러 정거장의 작업이 포함되어 있으면 이미 받은 권한을 유지한다. 각 산출물을 완성한 뒤 요청된 다음 스킬로 진행하며 같은 승인을 다시 묻지 않는다. 검토·수정·게시·정리의 범위는 구분한다. PR 게시만으로 전역 스킬을 재설치하지 않는다.
-- **쓰거나 돈이 나가는 스킬은 트리거가 요청이어야 한다.** 판단 기준은 부르지도 않았는데 열렸을 때 무엇이 남는가다. 디스크의 파일, 브랜치, 팬아웃, 모델 교체, 저장소 재수집이면 게이트를 건다. 해당 스킬 8개(코어 4 + `session-handoff` + `orchestrate-subagents`/`small-model-handoff`/`fable5-model-routing`)의 description은 `Use only when …`으로 열고, 요청 형태를 나열하고, 그 스킬이 일으킬 법한 오발동을 한 문장으로 닫는다. 작업 규모, 낯선 도메인, 스펙 부재, 세션 길이, 디스크의 계획 파일은 트리거가 아니다.
+- **쓰거나 돈이 나가는 스킬은 트리거가 요청이어야 한다.** 판단 기준은 부르지도 않았는데 열렸을 때 무엇이 남는가다. 디스크의 파일, 브랜치, 팬아웃, 모델 교체, 저장소 재수집이 남으면 명시적 요청을 요구한다. 해당 스킬 10개(코어 4 + `session-handoff` + `orchestrate-subagents`/`small-model-handoff`/`fable5-model-routing` + `curate-terminology`/`use-terminology`)의 description은 `Use only when …`으로 열고, 요청 형태를 나열하고, 그 스킬이 일으킬 법한 오발동을 한 문장으로 닫는다. 용어 스킬 2개는 사용자가 명시한 상시 프로젝트 지침의 범위 안에서도 실행한다. 설치만으로 상시 실행을 약속하지 않는다. 작업 규모, 낯선 도메인, 스펙 부재, 세션 길이, 디스크의 계획 파일은 트리거가 아니다.
 - **나머지 5개는 상시로 둔다.** `deep-interview`/`commit-and-push`/`draft-pr`/ `git-worktree-setup`은 이미 요청을 서술하고 있어 하네스가 매칭하는 것 자체가 사용자 요청이다. `find-unknowns`는 의도한 예외이며 상황 트리거가 허용되는 유일한 스킬이다. 오발동해도 넘기면 그만인 문단 하나이고, 사용자가 물어볼 줄 모를 때 먼저 닿는 것이 존재 이유다. 근거는 `docs/principles.md`의 "What may open on its own".
-- 검증: `npx skills add . --list --full-depth` 가 정확히 13개를 보고해야 한다.
+- 검증: `npx skills add . --list --full-depth` 가 정확히 15개를 보고해야 한다.
 
 ## 팩 구성과 이름 체계
 
-- **13개**: 코어 4 `gigio-project-setup`/`gigio-write-plan`/`gigio-execute-plan`/ `gigio-review-results` + 발굴 2 `find-unknowns`/`deep-interview` + 실행 지원 4 `orchestrate-subagents`/`small-model-handoff`/`git-worktree-setup`/ `fable5-model-routing` + 내보내기 3 `commit-and-push`/`draft-pr`/`session-handoff`.
+- **15개**: 코어 4 `gigio-project-setup`/`gigio-write-plan`/`gigio-execute-plan`/ `gigio-review-results` + 발굴 2 `find-unknowns`/`deep-interview` + 실행 지원 4 `orchestrate-subagents`/`small-model-handoff`/`git-worktree-setup`/ `fable5-model-routing` + 내보내기 3 `commit-and-push`/`draft-pr`/`session-handoff` + 용어 기록·사용 2 `curate-terminology`/`use-terminology`.
 - **작명 원칙**: 이름에 목적과 결과가 드러나야 한다. 기준은 agent-skills의 `skills/development/skill-builder/references/skill-naming.md`. 코어 4개만 팩 접두(`gigio-`), 지원 스킬은 평이한 실명. 한국어 오독 필터 적용.
 - **개명 계보** (agent-skills 원본명 기준): `unknowns-pass`→`find-unknowns`, `handoff-prompt`→`session-handoff`, `lower-capability-executor-prompt`→ `small-model-handoff`(worker-brief 경유 — "worker"가 하네스 내부 서브에이전트로 오독돼 재개명), `fable5-judgment`→`fable5-model-routing`, `parallel-subagents`→`orchestrate-subagents`(무동사→동사-목적어). 유지 4개(deep-interview, git-worktree-setup, commit-and-push, draft-pr)는 원명이 이미 목적을 담고 있음. 두 인계 스킬은 의도적 대구: `session-handoff`(다음 세션에게) ↔ `small-model-handoff`(더 약한 모델에게).
 - **상호 인지 규칙 (전 스킬 적용됨)**: ① 팩 내부 참조는 **무조건부** — "설치돼 있으면" 가정은 하네스 기능에만 쓴다 ② description에 이웃 구분 1줄 ③ 각 스킬이 끝날 때 다음 정거장 스킬을 지목 ④ gigio-execute-plan은 워커 격리에 git-worktree-setup, 마무리에 commit-and-push, 약한 실행자에 small-model-handoff를 이름으로 호출. 팩 밖 크래프트 스킬(agent-skills의 engineering-docs 등)은 워커가 스킬을 상속 못 하므로 리드·단독 경로에서만, 그것도 설치돼 있을 때만 발동한다 — 팩 문서는 이들을 전제하지 않는다.
 - **개별 강점 보존 원칙**: 이관 스킬은 본문을 다시 쓰지 않는다 — skill-builder의 "기존 스킬 개선" 규율(스킬당 1–4개 최소 편집)로 상호 연결만 더한다.
-- **범위**: 크래프트 6종·메타 5종은 agent-skills 소유다(2026-07-26 축소, 24→13). 남은 13개 중 어느 것도 원복 11개를 참조하지 않는다.
+- **범위**: 크래프트 6종·메타 5종은 agent-skills 소유다(2026-07-26 축소, 24→13). 당시 남은 13개 중 어느 것도 원복 11개를 참조하지 않았다. 2026-09-10 추가한 용어 스킬 2개는 프로젝트의 정의·표현 결정과 출처 기록을 유지·적용하는 범위이며, 분야별 용어집이나 일반 문체 교정 도구를 제공하지 않는다.
 
 ## 현재 상태와 다음 작업
 
