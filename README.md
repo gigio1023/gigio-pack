@@ -22,7 +22,7 @@ The part that actually hurt was elsewhere. Working solo on something large enoug
 
 Four rules keep the machinery thin:
 
-- **Nothing that writes or spends opens unless you open it.** Ten of the fifteen have explicit request triggers; a project can also explicitly require ongoing terminology use and maintenance.
+- **Eight procedural skills wait to be asked.** The terminology pair applies on every task by default, maintaining relevant records as material is encountered.
 - **Everything is markdown a person can read and correct.** No daemons, hooks, watchdogs, or runtime state files.
 - **Numbered steps only where order is part of correctness** — a prerequisite read, an approval boundary, a required output, a check. Elsewhere the skill states the destination and the stopping condition and leaves the route to the model.
 - **The durable layer holds intent and record format, never compensating procedure.** A step that can be dropped without losing correctness, safety, or the ability to audit the run gets dropped.
@@ -46,7 +46,7 @@ The purpose and the outcome are in the name — `gigio-write-plan` writes a plan
 
 ## Skill catalog
 
-Four core skills own the durable files and the boundaries between stations. Of the other eleven, three are name-called by a core skill during a run you started; every one of the fifteen can also be invoked directly when you need only that one thing. Ten of them require an explicit request or an applicable standing instruction — see [Invocation](#nothing-expensive-starts-on-its-own).
+Four core skills own the durable files and the boundaries between stations. Of the other eleven, three are name-called by a core skill during a run you started; every one of the fifteen can also be invoked directly when you need only that one thing. Eight require explicit requests; both terminology skills apply on every task — see [Invocation](#nothing-expensive-starts-on-its-own).
 
 ### Core loop
 
@@ -77,10 +77,10 @@ Four core skills own the durable files and the boundaries between stations. Of t
 
 | Skill | What it does |
 | --- | --- |
-| [curate-terminology](skills/curate-terminology/) | Defines, researches, updates, and records project terminology and expressions, with primary sources, literature provenance, anti-patterns, and optional standing project instructions |
+| [curate-terminology](skills/curate-terminology/) | Defines, researches, updates, and records project terminology and expressions, with primary sources, literature provenance, anti-patterns, and standing project instructions |
 | [use-terminology](skills/use-terminology/) | Looks up and applies accepted terminology and expressions, preserving contextual meaning and correcting authorized artifacts while the original task continues |
 
-Use `curate-terminology` to establish or change the reference, then `use-terminology` to apply it. To require them on every task, explicitly request a standing project instruction. Installation alone does not enable that policy. The pack supplies the maintenance and application workflow; definitions and editorial decisions remain in the project.
+Both terminology skills apply on every task, including tasks that do not mention wording. `curate-terminology` maintains relevant definitions and expressions as they are encountered; `use-terminology` applies them. Curation studies established projects, influential papers, and accountable author or maintainer explanations, including verbs, collocations, and how a project is described. AI-generated derivative writing and explicitly excluded projects are not wording authorities. Project setup writes the standing instruction; downloading skill files alone cannot guarantee host loading. Definitions and source records remain in the project.
 
 ### Out of the loop
 
@@ -94,18 +94,19 @@ The two handoff skills are a deliberate pair: `session-handoff` hands work to th
 
 ## Nothing expensive starts on its own
 
-Ten of the fifteen have explicit request triggers. They open when you name the skill, ask for what it does, or another pack skill name-calls it inside a run you already started. The terminology pair also follows explicit standing project instructions within their granted scope. Not because a task looked big, a domain looked unfamiliar, a spec was missing, or a session ran long.
+Eight of the fifteen have explicit request triggers. They open when you name the skill, ask for what it does, or another pack skill name-calls it inside a run you already started. Not because a task looked big, a domain looked unfamiliar, a spec was missing, or a session ran long.
 
 | Waits to be asked | What opening it costs you |
 | --- | --- |
 | the four core skills | `PROJECT.md`, a plan file, a run, a re-collection pass over the repository |
 | `session-handoff` | a handoff prompt file |
-| `curate-terminology`, `use-terminology` | a terminology reference and its source records, or application and authorized corrections during another task |
 | `orchestrate-subagents`, `small-model-handoff`, `fable5-model-routing` | a fan-out, a weaker executor, a different model |
 
 The other five retain their existing trigger policy. `deep-interview`, `commit-and-push`, `draft-pr`, and `git-worktree-setup` only fire on something you said anyway — ask for an interview, say commit, say PR, ask for isolation.
 
-`find-unknowns` is the deliberate exception, and the only skill here that may open from the situation rather than the request. It is supposed to reach you before you know to ask, and the worst it can do uninvited is a paragraph you skip.
+The terminology pair is a standing exception: use both on every task and update relevant records when needed. No change means no artificial write or new survey. Explicit read-only restrictions still apply.
+
+`find-unknowns` is the separate discovery exception that may open from the situation rather than the request. It is supposed to reach you before you know to ask, and the worst it can do uninvited is a paragraph you skip.
 
 Practically: discussing a project, however large, does not put a file in your repository. Say "plan this" to get one.
 
@@ -146,7 +147,7 @@ The pack covers the loop and stops there:
 
 - **In:** durable project intent, plans as files, execution with a run log, fresh-context review, the handoffs out of a session, and durable project terminology and expression decisions.
 - **Out:** a supplied domain glossary and general craft. Writing style, diagram conventions, engine specifics, design taste — those belong to skills that own the domain, and the loop is where they get applied.
-- **Also out:** anything that is not a markdown file a person can read. No background processes, no generated state, no framework that has to be running for the skills to work — and no skill that writes a file or spends on your behalf because it decided a conversation needed it.
+- **Also out:** anything that is not a markdown file a person can read. No background processes, no generated state, no framework that has to be running for the skills to work — and no unrelated work started merely because a conversation looks substantial. The terminology pair's in-task maintenance is an explicit standing policy.
 
 Terminology records preserve decisions and their sources across sessions; they do not supply universal domain definitions or replace a writing-style skill.
 

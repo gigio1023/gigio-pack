@@ -183,6 +183,13 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 - **Choice:** add `curate-terminology` and `use-terminology`, bringing the pack to 15 skills. Ship the portable workflow and an adaptable standing-instruction example; keep domain definitions and mutable literature in each project. English terms remain primary, source scope remains explicit, and local editorial restrictions remain local decisions. Honor explicitly requested ongoing compliance without making installation an always-on policy. Preserve originals and identifiers while correcting authorized managed prose during the task.
 - **Revisit:** if real use shows duplicate retrieval, unclear authority, or records that require maintenance outside current work. Static package validation does not establish a successful runtime pilot.
 
+## Both terminology skills become standing policy (2026-09-10)
+
+- **Plan:** the initial terminology pair would activate on request or a separately requested standing instruction.
+- **Reality:** the user requires both on every task and wants curation to study expressions beyond nouns, with stronger source selection that filters generated derivative writing.
+- **Choice:** supersede the initial opt-in terminology policy. Make both skills default to every task and wire them during project setup. Curate relevant changes in context; preserve explicit read-only restrictions and avoid artificial writes. Prefer established project documentation and maintainer blogs, influential papers including recognized preprints, and their author explanations. Use available paper tools actively. Exclude the user-named projects as wording authorities and record positive verbs, collocations, and project explanation patterns with their conditions.
+- **Revisit:** use real tasks to check missed application, unnecessary research, source quality, and semantic transfer. Static checks cannot prove runtime loading or authorship.
+
 ## Still open
 
 | Item | Default | Decide when |

@@ -26,8 +26,9 @@
 - **Contract steps, not cognition steps**: 번호 붙은 단계는 순서·완전성이 정확성에 속하는 곳에만 — 선행 조회, 승인 경계, 필수 산출 단계, 검증, 감사 가능한 파이프라인. 그 외에는 결과·불변조건·중단 조건만 쓰고 경로는 모델에 맡긴다. 어떤 단계를 빼도 정확성·안전성·감사 가능성이 그대로면 뺀다. 스킬 4개 정거장 분할 자체가 "감사 가능한 고정 파이프라인" 사례(정거장 경계 = 승인·검증 지점)라 유지. 규칙별 수명은 `docs/rule-ledger.md`가 정본 — **새 모델 세대 도입 = 감사 이벤트.**
 - **커밋은 사용자가 요청할 때만.** PR은 draft로 올리고 간결한 영문으로 쓴다. 저장소 템플릿이 우선이다. 템플릿이 없으면 `Context`, `Changes` 두 절을 쓴다. CI가 증명하지 못한 결과나 CI의 중대한 예외가 있을 때만 `Validation`을 더한다.
 - 한 요청에 여러 정거장의 작업이 포함되어 있으면 이미 받은 권한을 유지한다. 각 산출물을 완성한 뒤 요청된 다음 스킬로 진행하며 같은 승인을 다시 묻지 않는다. 검토·수정·게시·정리의 범위는 구분한다. PR 게시만으로 전역 스킬을 재설치하지 않는다.
-- **쓰거나 돈이 나가는 스킬은 트리거가 요청이어야 한다.** 판단 기준은 부르지도 않았는데 열렸을 때 무엇이 남는가다. 디스크의 파일, 브랜치, 팬아웃, 모델 교체, 저장소 재수집이 남으면 명시적 요청을 요구한다. 해당 스킬 10개(코어 4 + `session-handoff` + `orchestrate-subagents`/`small-model-handoff`/`fable5-model-routing` + `curate-terminology`/`use-terminology`)의 description은 `Use only when …`으로 열고, 요청 형태를 나열하고, 그 스킬이 일으킬 법한 오발동을 한 문장으로 닫는다. 용어 스킬 2개는 사용자가 명시한 상시 프로젝트 지침의 범위 안에서도 실행한다. 설치만으로 상시 실행을 약속하지 않는다. 작업 규모, 낯선 도메인, 스펙 부재, 세션 길이, 디스크의 계획 파일은 트리거가 아니다.
-- **나머지 5개는 상시로 둔다.** `deep-interview`/`commit-and-push`/`draft-pr`/ `git-worktree-setup`은 이미 요청을 서술하고 있어 하네스가 매칭하는 것 자체가 사용자 요청이다. `find-unknowns`는 의도한 예외이며 상황 트리거가 허용되는 유일한 스킬이다. 오발동해도 넘기면 그만인 문단 하나이고, 사용자가 물어볼 줄 모를 때 먼저 닿는 것이 존재 이유다. 근거는 `docs/principles.md`의 "What may open on its own".
+- **절차를 시작하는 스킬 8개는 명시적 요청을 요구한다.** 코어 4 + `session-handoff` + `orchestrate-subagents`/`small-model-handoff`/`fable5-model-routing`의 description은 `Use only when …`으로 연다. 작업 규모, 낯선 도메인, 세션 길이 자체는 실행 요청이 아니다.
+- **용어 스킬 2개는 매 작업에 항상 적용한다.** [curate-terminology](skills/curate-terminology/SKILL.md)와 [use-terminology](skills/use-terminology/SKILL.md)를 함께 사용한다. 기존 정의와 표현을 적용하고, 작업 중 만나는 관련 오류·새 용어·동사·표현은 조사하고 기록한다. 변화가 없으면 불필요한 조사나 파일 수정을 만들지 않는다. 명시적 read-only 요청과 원문·식별자 보존 범위는 유지한다. 프로젝트 설정 시 이 상시 지침을 연결한다.
+- **나머지 5개는 기존 트리거를 유지한다.** `deep-interview`/`commit-and-push`/`draft-pr`/`git-worktree-setup`은 사용자의 요청에 대응한다. `find-unknowns`는 별도의 상황 기반 발굴 예외다. 근거는 `docs/principles.md`의 "What may open on its own".
 - 검증: `npx skills add . --list --full-depth` 가 정확히 15개를 보고해야 한다.
 
 ## 팩 구성과 이름 체계
