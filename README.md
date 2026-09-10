@@ -15,9 +15,9 @@ The part that actually hurt was elsewhere. Working solo on something large enoug
 | What breaks on a long solo project | Without a durable layer | With this pack |
 | --- | --- | --- |
 | A new session does not know why the project exists | The goal gets re-derived from the code, and settled calls get quietly re-opened | `PROJECT.md` carries the diagnosis, pillars, non-goals, and judgment rules; its top half is yours and needs your approval to change |
-| The plan lives in the conversation | Compaction or a fresh session loses it, and another model cannot pick it up | The plan is a file: staged tasks with needs, owned files, acceptance, and checks. A solo session reads it top to bottom; a lead dispatches workers from the same file |
+| The plan lives in the conversation | Compaction or a fresh session loses it, and another model cannot pick it up | The plan is a file whose top half is your goal and limits in your own words, and whose staged tasks carry needs, owned paths or resources, acceptance, and checks. A solo session reads it top to bottom; a lead dispatches workers from the same file; another harness runs it from its header |
 | "Done" arrives as a summary | A confident narrative passes for a finished result | A task closes only with its results entry filled, real change in its owned paths, and a check that ran on fresh output |
-| The work is not code | A design call, a playtest, a research run has no shape the task list accepts | `acceptance` and `check` are separate axes — acceptance can be a judged result or a stated finding, and a task's unit can be a run instead of a file |
+| The work is not code | A design call, a playtest, a research run has no shape the task list accepts | `acceptance` and `check` are separate axes — acceptance can be a judged result or a stated finding; a task's unit can be a run or an external resource instead of a file; the plan is anchored to a commit, a snapshot, or a revision; and `.plans/` sits under whatever root you work from, repository or not |
 | The session that built it also reviews it | The reviewer defends its own plan | Review runs in fresh context off the disk — diffs, files, re-run checks — not off the executor's report |
 
 Four rules keep the machinery thin:
@@ -35,14 +35,14 @@ flowchart LR
   S --> P["plan<br/>gigio-write-plan"]
   P --> R["run<br/>gigio-execute-plan"]
   R --> V["review<br/>gigio-review-results"]
-  V --> SH["ship<br/>commit-and-push · draft-pr · write-internal-doc"]
+  V --> SH["ship<br/>commit-and-push · draft-pr · share-internal-doc"]
   SH --> H["session-handoff<br/>next session"]
   R -.uses.-> W["git-worktree-setup<br/>orchestrate-subagents<br/>small-model-handoff<br/>fable5-model-routing"]
 ```
 
 Each station names the next one; the arrows do not grant permission to start it. A planning-only request ends at the saved plan. A request that already includes execution continues through `gigio-execute-plan` after planning; execution records what it learns and keeps going instead of stopping to renegotiate; review starts from the disk, in a session that built nothing. The one exception to naming-and-stopping is a run already underway: `gigio-execute-plan` calls `git-worktree-setup`, `small-model-handoff`, and `commit-and-push` itself.
 
-The purpose and the outcome are in the name — `gigio-write-plan` writes a plan, `gigio-execute-plan` executes one, `session-handoff` hands a session to the next one, `small-model-handoff` hands bounded work to a weaker model.
+The purpose and the outcome are in the name — `gigio-write-plan` writes a plan, `gigio-execute-plan` executes one, `session-handoff` hands a session to the next one, `small-model-handoff` hands bounded work to a weaker model, `share-internal-doc` shapes findings into a document to share with colleagues.
 
 ## Skill catalog
 
@@ -53,9 +53,9 @@ Four core skills own the durable files and the boundaries between stations. Of t
 | Skill | What it does |
 | --- | --- |
 | [gigio-project-setup](skills/gigio-project-setup/) | Writes or audits `PROJECT.md` — why the project exists, its pillars and non-goals, the numbered judgment rules, the current risk and position — and wires `AGENTS.md` plus a `CLAUDE.md` bridge so later sessions actually read it |
-| [gigio-write-plan](skills/gigio-write-plan/) | Turns chosen work into one plan file in `.plans/`: staged tasks carrying needs, owned files, acceptance, and checks, anchored to a judgment rule. Announces the path; execution uses `gigio-execute-plan` only when requested |
-| [gigio-execute-plan](skills/gigio-execute-plan/) | Executes or resumes a plan: preflight against the planning commit, parallel workers on disjoint files, a run log that survives compaction, and a completion judgment the lead makes rather than the worker |
-| [gigio-review-results](skills/gigio-review-results/) | Reviews finished or long-running work in fresh context, re-collecting the facts itself, and returns three lists — missing, built but not asked, misunderstood — each routed by cause |
+| [gigio-write-plan](skills/gigio-write-plan/) | Turns chosen work into one plan file in `.plans/`: your goal and limits at the top in your own words, then staged tasks carrying needs, owned paths or resources, acceptance, and checks, anchored to PROJECT.md or whatever intent document the project has. Announces the path and the lines it proposed; execution uses `gigio-execute-plan` only when requested |
+| [gigio-execute-plan](skills/gigio-execute-plan/) | Executes or resumes a plan: preflight against what the plan was planned against, parallel workers on disjoint paths or resources, a run log that survives compaction, and a completion judgment the lead makes rather than the worker |
+| [gigio-review-results](skills/gigio-review-results/) | Reviews finished or long-running work in fresh context against your own words at the top of the plan, re-collecting the facts itself — files, run outputs, external resources, re-run checks — and returns three lists — missing, built but not asked, misunderstood — each routed by cause, plus the work that rests on lines you never confirmed |
 
 ### Before the loop
 
@@ -90,9 +90,9 @@ Both terminology skills apply on every task, including tasks that do not mention
 | [commit-and-push](skills/commit-and-push/) | Close-out commits and safe pushes, leaving unrelated worktree changes untouched |
 | [draft-pr](skills/draft-pr/) | Publishes, updates, or explicitly squash-merges a real GitHub or Forgejo PR through authenticated `gh` or `fj`, draft or work-in-progress by default |
 | [session-handoff](skills/session-handoff/) | Packages live work as one executable prompt file for the next session |
-| [write-internal-doc](skills/write-internal-doc/) | Shapes research, analysis, and decisions into a document a colleague can read without the session: one reader, claims traceable to sources a colleague can open, a reading rule for what records cannot show, and a sharing pass before it leaves the machine; prose, Korean, figures, and Notion styling delegated to the skills that own them |
+| [share-internal-doc](skills/share-internal-doc/) | Shapes research, analysis, and decisions into a document a colleague can read without the session: one reader, claims traceable to sources a colleague can open, a reading rule for what records cannot show, a dark color scheme unless light is asked for, and a sharing pass before it leaves the machine; prose, Korean, figures, and Notion styling delegated to the skills that own them |
 
-The two handoff skills are a deliberate pair: `session-handoff` hands work to the **next session**, `small-model-handoff` hands bounded work to a **weaker model**. The target is in the name. `write-internal-doc` is the third exit: code leaves a session as a PR, findings leave it as a document.
+The two handoff skills are a deliberate pair: `session-handoff` hands work to the **next session**, `small-model-handoff` hands bounded work to a **weaker model**. The target is in the name. `share-internal-doc` is the third exit: code leaves a session as a PR, findings leave it as a document.
 
 ## Nothing expensive starts on its own
 
@@ -102,7 +102,7 @@ Nine of the seventeen have explicit request triggers. They open when you name th
 | --- | --- |
 | the four core skills | `PROJECT.md`, a plan file, a run, a re-collection pass over the repository |
 | `session-handoff` | a handoff prompt file |
-| `write-internal-doc` | a document file and a sharing pass over its contents |
+| `share-internal-doc` | a document file and a sharing pass over its contents |
 | `orchestrate-subagents`, `small-model-handoff`, `fable5-model-routing` | a fan-out, a weaker executor, a different model |
 
 The other five retain their existing trigger policy. `deep-interview`, `commit-and-push`, `draft-pr`, and `git-worktree-setup` only fire on something you said anyway — ask for an interview, say commit, say PR, ask for isolation.
@@ -161,14 +161,14 @@ The Python preference is organized code, not clever architecture. Application-ow
 
 The seam is clean: a game's pillars and judgment rules are what a creative brief settles, a milestone becomes the goal of a plan file, a playable build is what that plan's acceptance names, and an engine-layer check is what verifies it.
 
-Other skills I keep for my own work live in [gigio1023/agent-skills](https://github.com/gigio1023/agent-skills) — delegation to other CLIs (`codex-delegate` for bounded `codex exec` runs with durable run artifacts and explicit resume, `cursor-cli-delegation` for a closed mission through Cursor Agent CLI), craft skills for docs, diagrams, docstrings, and prompt review, and the skill-authoring tooling. None of the 17 skills here require those external packages; `write-internal-doc` names `slop-aware-writing`, `korean-clarity`, `notion-doc`, and the gigio-figures skills only where they are installed, so the two sets install independently.
+Other skills I keep for my own work live in [gigio1023/agent-skills](https://github.com/gigio1023/agent-skills) — delegation to other CLIs (`codex-delegate` for bounded `codex exec` runs with durable run artifacts and explicit resume, `cursor-cli-delegation` for a closed mission through Cursor Agent CLI), craft skills for docs, diagrams, docstrings, and prompt review, and the skill-authoring tooling. None of the 17 skills here require those external packages; `share-internal-doc` names `slop-aware-writing`, `korean-clarity`, `notion-doc`, and the gigio-figures skills only where they are installed, so the two sets install independently.
 
 ## Scope
 
 The pack covers the work loop and the explicitly selected Python coding standard:
 
 - **In:** durable project intent, plans as files, execution with a run log, fresh-context review, durable project terminology and expression decisions, and the exits from a session: a handoff to the next session, bounded work to a weaker model, code as a PR, and findings as a document colleagues can read without the session. Python modeling, typing, enum, module, environment, source-explanation, and verification preferences also apply during requested work.
-- **Out:** a supplied domain glossary and other general craft. Prose style, diagram conventions, engine specifics, design taste — those belong to skills that own the domain, and the loop is where they get applied. Shaping a document for a reader who lacks the session (its reader, spine, format, claim status, sharing pass, medium) is loop work, not craft; `write-internal-doc` owns it and delegates the prose, Korean, figures, and Notion styling. Pydantic library guidance stays with its official external skill; no third-party Python or modularity pack is bundled.
+- **Out:** a supplied domain glossary and other general craft. Prose style, diagram conventions, engine specifics, design taste — those belong to skills that own the domain, and the loop is where they get applied. Shaping a document for a reader who lacks the session (its reader, spine, format, claim status, sharing pass, medium) is loop work, not craft; `share-internal-doc` owns it and delegates the prose, Korean, figures, and Notion styling. Pydantic library guidance stays with its official external skill; no third-party Python or modularity pack is bundled.
 - **Also out:** anything that is not a markdown file a person can read. No background processes, no generated state, no framework that has to be running for the skills to work — and no unrelated work started merely because a conversation looks substantial. The terminology pair's in-task maintenance is an explicit standing policy.
 
 Terminology records preserve decisions and their sources across sessions; they do not supply universal domain definitions or replace a writing-style skill.
@@ -190,11 +190,12 @@ The shortest version: put intent and record format in the durable layer, never c
 
 ## Status
 
+- Plan file generalized 2026-09-11 from three real plans, two of them outside ordinary code work: a user-owned top half in the user's words, `owns` covering paths, run directories, and external resources, `Planned against` anchors in place of a single commit, and `Judged against` for projects without a PROJECT.md; the review station reads your half first and flags work built on lines you never confirmed. Based on where the format broke, not on measured user correction — the entry in [docs/decisions.md](docs/decisions.md) says what is withheld until that measurement.
 - Python coding standards authored 2026-09-10 and refined to the owner's Pydantic-first, explicit-typing, uv, and source-local documentation preferences. The official Pydantic companion remains external. Package validation does not establish model behavior or complete the work-loop pilots.
 - Terminology curation and application skills added 2026-09-10 from a completed project workflow; package validation is separate from runtime behavior testing.
 - Core-loop skills authored 2026-07-26 to the `skill-builder` contract kept in agent-skills; migrated skills keep their original bodies plus a minimal interlock pass (sibling references, next-station pointers, plan-file awareness).
 - Dual-reviewed 2026-07-26 by two independent reviewers from different model families; all confirmed findings fixed, reviewed-and-kept verdicts recorded in [docs/rule-ledger.md](docs/rule-ledger.md).
-- `write-internal-doc` authored 2026-09-09 from a harvest of the author's own document corrections across four harnesses and a survey of about thirty public documentation skills; not yet piloted.
+- `share-internal-doc` authored 2026-09-09 as `write-internal-doc` from a harvest of the author's own document corrections across four harnesses and a survey of about thirty public documentation skills; renamed 2026-09-10, the day dark became its default color scheme; not yet piloted.
 - **Not yet piloted.** Nothing is marked done until two pilot projects pass. They measure whether parallel writing actually pays off, whether the plan file carries enough for handoff between workers, which steps the lead demonstrably did not need, and what the acceptance field gets filled with outside ordinary code work.
 
 ## Local development

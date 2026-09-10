@@ -23,6 +23,7 @@ The skill was distilled on 2026-09-09 from the author's agent sessions between 2
 | Plan before a large rebuild | 2026-09-04 | 3 | Work halted twice |
 | Format: structure over prose, empty sentences deleted, written for the skim path, logical flow over an inventory of facts | 2026-09-03 | 6 or more; restated as a standing rule 2026-09-10 | "사실 열거한다고 사내 문서가 아니다" |
 | Proposals executable alone; other teams asked for nothing | 2026-09-07 | 4 | |
+| Dark color scheme for pages and figures; light only when asked for or for print | 2026-09-10 | Direct instruction, this session | Reversed the harvested "light unless asked" line; the figure skills delegated to default to light, so requests to them carry the scheme |
 
 ## External skills consulted
 
@@ -48,3 +49,4 @@ About thirty public skills were cloned and read on 2026-09-09. Nothing was adopt
 - `slop-aware-writing` (the author's own) absorbed the earlier `engineering-docs`, `dev-doc-style`, `dev-tech-spec-docs`, and `terminology-review` skills in 2026-07. Its `authoring.md` reader-job table and `source-grounding.md` claim map are the generic layer this skill builds on; this skill adds the house vocabularies, the reading rule, the sharing pass, and the medium routing that are specific to internal sharing.
 - `korean-clarity` was split out of `slop-aware-writing` on 2026-09-04 at the author's request; both are named where the body is written.
 - The pack's `docs/decisions.md` records why a craft skill was admitted into a loop pack.
+- Renamed from `write-internal-doc` to `share-internal-doc` on 2026-09-10. Searching by the verb "write" did not bring the skill to mind; sharing a document with colleagues is its purpose, and the name now says so.

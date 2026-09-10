@@ -100,7 +100,7 @@ The user's 2026-09-10 revision supersedes the initial activation choice: both te
 
 ## Documentation skills (2026-09-10)
 
-Surveyed before writing `write-internal-doc`: about thirty public skills in twenty-five repositories, cloned and read at source level, plus the author's own retired documentation skills recovered from agent-skills history. Verdicts per skill are in the local Korean record (`docs/design/internal-doc-skill/`).
+Surveyed before writing `share-internal-doc` (then named `write-internal-doc`): about thirty public skills in twenty-five repositories, cloned and read at source level, plus the author's own retired documentation skills recovered from agent-skills history. Verdicts per skill are in the local Korean record (`docs/design/internal-doc-skill/`).
 
 **Where the ecosystem converges.** Conclusion first, with the same two exceptions everywhere (chronology as content, a hostile reader). One primary reader chosen before drafting, with familiarity setting the level of detail. A cold read by a reader with no context. Confidence that decides the wording, with locators a reviewer can reopen. Never invent a number. Decide, then mark for review, instead of an open-questions section. Figures that answer one question and carry a caption. HTML for human attention, Markdown for line review.
 

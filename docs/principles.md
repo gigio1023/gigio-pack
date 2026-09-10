@@ -53,7 +53,7 @@ The deciding question is what a misfire costs. Nine procedural skills have expli
 | `gigio-execute-plan` | the work itself, plus a run log |
 | `gigio-review-results` | a re-collection pass over diffs, files, and checks |
 | `session-handoff` | a handoff prompt file |
-| `write-internal-doc` | a standalone document and a sharing pass |
+| `share-internal-doc` | a standalone document and a sharing pass |
 | `orchestrate-subagents` | a fan-out of subagents |
 | `small-model-handoff` | a dispatch to a weaker executor |
 | `fable5-model-routing` | a switch to another model |
@@ -106,7 +106,7 @@ Rules are not judged on whether they are good rules, but on whether their value 
 A project's identity (why, what) changes slowly; its state (how far) changes fast. Mixed into one file, both rot.
 
 - `PROJECT.md` holds identity, with a human-owned section at the top. Decisions recorded there are not re-litigated by later sessions.
-- Plan files under `.plans/` are short-lived and disposable.
+- Plan files under `.plans/` are short-lived and disposable. Where no PROJECT.md exists — a multi-repository workspace, a vault — a plan names the intent documents it answers to under Judged against instead.
 - Project terminology records preserve accepted English names, contextual meanings, expression decisions, source provenance, and superseded findings. `curate-terminology` maintains those records; `use-terminology` applies them. Root `terminology.md` carries representative definitions and an index, detailed documents live under `docs/terminology/`, and `docs/terminology/references.md` holds source records only. Entries link to their sources rather than relying on an unconnected bibliography. The pack ships the workflow, not a competing domain glossary.
 - Handoff notes are one-shot: consumed, then discarded. Records are permanent. Don't mix the two natures.
 - Trust only files that get committed. An earlier assembly kept official state where it was never committed, and the state evaporated.
@@ -117,11 +117,13 @@ Deviations are recorded in four fields: **what the plan said → what reality re
 ## Plans are written for a reader with no memory
 
 - Stable append-only IDs. Never renumber; everything else references them.
-- Per task, separate `files` / `action` / `acceptance` / `verification`. Acceptance (what must be true) and verification (how you check) are different axes.
+- Per task, separate `owns` / `action` / `acceptance` / `verification`. Acceptance (what must be true) and verification (how you check) are different axes. Ownership covers paths, a run's output directory, or an external resource by URL or ID; the root holding `.plans/` need not be a Git repository.
 - Parallelism comes from the plan file's data structure — stage, prerequisite, owned files — not from prompt wording asking for parallelism. Measured: instruction alone produced no multi-dispatch.
 - Conflict prevention is ownership partitioning at planning time, not locking at execution time. Lock machinery observed in the wild was dead code.
 - Plan fields are **facts, not instructions**, so the same file survives both solo execution and parallel dispatch.
 - No implementation code in a plan — signatures only. Code in a plan drifts away from the code in the repo.
+- The top of the plan — goal, exclusions, what it is judged against — is the user's, in the user's words. The planner proposes where the user said nothing and names those lines in the file until the user confirms or edits them; it never paraphrases what the user did say. Review reads that half first and reports work resting on lines the user never confirmed. A rewrite the user does not recognize draws no correction, and the correction is what the top half exists for.
+- A plan names what it was planned against — a commit, a snapshot hash, a dataset or document revision, a named model or tool — and execution re-verifies each line before trusting the plan. An absent named input blocks its tasks; a similar input is not a substitute.
 
 ## One source, two resolutions
 
