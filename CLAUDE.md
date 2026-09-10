@@ -29,16 +29,18 @@
 - **절차를 시작하는 스킬 9개는 명시적 요청을 요구한다.** 코어 4 + `session-handoff` + `write-internal-doc` + `orchestrate-subagents`/`small-model-handoff`/`fable5-model-routing`의 description은 `Use only when …`으로 연다. 작업 규모, 낯선 도메인, 세션 길이 자체는 실행 요청이 아니다.
 - **용어 스킬 2개는 매 작업에 항상 적용한다.** [curate-terminology](skills/curate-terminology/SKILL.md)와 [use-terminology](skills/use-terminology/SKILL.md)를 함께 사용한다. 기존 정의와 표현을 적용하고, 작업 중 만나는 관련 오류·새 용어·동사·표현은 조사하고 기록한다. 변화가 없으면 불필요한 조사나 파일 수정을 만들지 않는다. 명시적 read-only 요청과 원문·식별자 보존 범위는 유지한다. 프로젝트 설정 시 이 상시 지침을 연결한다. 새 용어집의 기본 구조는 루트 `terminology.md`의 대표 정의·index, `docs/terminology/`의 상세 문서, 출처만 기록하는 `docs/terminology/references.md`다. 새로 추가하거나 고친 항목은 반드시 출처 기록을 연결한다.
 - **나머지 5개는 기존 트리거를 유지한다.** `deep-interview`/`commit-and-push`/`draft-pr`/`git-worktree-setup`은 사용자의 요청에 대응한다. `find-unknowns`는 별도의 상황 기반 발굴 예외다. 근거는 `docs/principles.md`의 "What may open on its own".
-- 검증: `npx skills add . --list --full-depth` 가 정확히 16개를 보고해야 한다.
+- `python-coding-standards`는 요청된 Python 구현·리팩터링·검토·프로젝트 설정 안에서 적용한다. 목표는 기교가 아닌 정리된 코드다. Pydantic 모델, 지역 변수와 SDK 객체까지 명시한 Python 3.12+ 타입, uv 프로젝트 관리, 코드 가까이에 두는 설명을 기본으로 한다. 상세 규칙과 필요한 예외는 스킬 본문이 소유한다. Python 파일의 존재나 크기만으로 새 작업을 시작하지 않는다. Pydantic 라이브러리 가이드는 공식 외부 `pydantic` 스킬을 사용하고, 나머지 Python 규칙은 이 팩에서 직접 작성한다.
+- 검증: `npx skills add . --list --full-depth` 가 정확히 17개를 보고해야 한다.
 
 ## 팩 구성과 이름 체계
 
-- **16개**: 코어 4 `gigio-project-setup`/`gigio-write-plan`/`gigio-execute-plan`/ `gigio-review-results` + 발굴 2 `find-unknowns`/`deep-interview` + 실행 지원 4 `orchestrate-subagents`/`small-model-handoff`/`git-worktree-setup`/ `fable5-model-routing` + 내보내기 4 `commit-and-push`/`draft-pr`/`session-handoff`/`write-internal-doc` + 용어 기록·사용 2 `curate-terminology`/`use-terminology`.
+- **17개**: 코어 4 `gigio-project-setup`/`gigio-write-plan`/`gigio-execute-plan`/ `gigio-review-results` + 발굴 2 `find-unknowns`/`deep-interview` + 실행 지원 5 `orchestrate-subagents`/`small-model-handoff`/`git-worktree-setup`/ `fable5-model-routing`/`python-coding-standards` + 내보내기 4 `commit-and-push`/`draft-pr`/`session-handoff`/`write-internal-doc` + 용어 기록·사용 2 `curate-terminology`/`use-terminology`.
 - **작명 원칙**: 이름에 목적과 결과가 드러나야 한다. 기준은 agent-skills의 `skills/development/skill-builder/references/skill-naming.md`. 코어 4개만 팩 접두(`gigio-`), 지원 스킬은 평이한 실명. 한국어 오독 필터 적용.
 - **개명 계보** (agent-skills 원본명 기준): `unknowns-pass`→`find-unknowns`, `handoff-prompt`→`session-handoff`, `lower-capability-executor-prompt`→ `small-model-handoff`(worker-brief 경유 — "worker"가 하네스 내부 서브에이전트로 오독돼 재개명), `fable5-judgment`→`fable5-model-routing`, `parallel-subagents`→`orchestrate-subagents`(무동사→동사-목적어). 유지 4개(deep-interview, git-worktree-setup, commit-and-push, draft-pr)는 원명이 이미 목적을 담고 있음. 두 인계 스킬은 의도적 대구: `session-handoff`(다음 세션에게) ↔ `small-model-handoff`(더 약한 모델에게).
 - **상호 인지 규칙 (전 스킬 적용됨)**: ① 팩 내부 참조는 **무조건부** — "설치돼 있으면" 가정은 하네스 기능에만 쓴다 ② description에 이웃 구분 1줄 ③ 각 스킬이 끝날 때 다음 정거장 스킬을 지목 ④ gigio-execute-plan은 워커 격리에 git-worktree-setup, 마무리에 commit-and-push, 약한 실행자에 small-model-handoff를 이름으로 호출. 팩 밖 크래프트 스킬(agent-skills의 engineering-docs 등)은 워커가 스킬을 상속 못 하므로 리드·단독 경로에서만, 그것도 설치돼 있을 때만 발동한다 — 팩 문서는 이들을 전제하지 않는다.
 - **개별 강점 보존 원칙**: 이관 스킬은 본문을 다시 쓰지 않는다 — skill-builder의 "기존 스킬 개선" 규율(스킬당 1–4개 최소 편집)로 상호 연결만 더한다.
 - **범위**: 크래프트 6종·메타 5종은 agent-skills 소유다(2026-07-26 축소, 24→13). 당시 남은 13개 중 어느 것도 원복 11개를 참조하지 않았다. 2026-09-10 추가한 용어 스킬 2개는 프로젝트의 정의·표현 결정과 출처 기록을 유지·적용하는 범위이며, 분야별 용어집이나 일반 문체 교정 도구를 제공하지 않는다. 2026-09-09 추가한 `write-internal-doc`는 크래프트가 아니라 출구로 분류한다. README Scope를 그렇게 고쳤다: 독자·척추·양식·주장 상태·살균·매체는 루프의 일(In), 문장·한국어·그림·Notion 외형은 팩 밖 스킬의 일(Out). 이 스킬이 부르는 팩 밖 스킬(slop-aware-writing, korean-clarity, notion-doc, gigio-figures 3종)은 설치돼 있을 때만 발동한다는 조건부 표현을 유지한다. 근거는 `docs/decisions.md`. 규칙의 한국어 원본(수집 보고서 8건, 통합, 스킬 조사)은 `docs/design/internal-doc-skill/`에 있다.
+- **Python 범위**: 2026-09-10 사용자가 Python 구현 규칙을 이 팩에 직접 작성하도록 범위를 확장했다. `python-coding-standards`는 모델·타입·enum·모듈·환경·주석·검증 규칙을 소유하고 Pydantic 라이브러리 가이드는 공식 외부 스킬에 연결한다. 외부 설치는 선택 사항이며, 없으면 검토한 upstream 파일을 읽고 문서로 대체할 수 있다. 전역 설치는 PR 게시 범위에 포함되지 않는다.
 
 ## 현재 상태와 다음 작업
 

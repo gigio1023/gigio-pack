@@ -5,7 +5,7 @@ A personal pack, but it holds itself to the same conventions as [gigio1023/agent
 ## Layout
 
 ```
-skills/<skill-name>/            one flat directory per skill (16 total)
+skills/<skill-name>/            one flat directory per skill (17 total)
   SKILL.md                      the skill — frontmatter + body
   references/                   detail the body links to (optional)
   assets/                       templates the skill fills in (optional)
@@ -23,7 +23,7 @@ Everything a skill needs stays colocated under its own directory. `docs/` is rat
 - Keep each natural Markdown prose paragraph on one source line, including paragraphs in list items and Markdown templates. Do not manually wrap at a fixed column count (such as 80 or 100) or at sentence boundaries; use editor soft wrapping for display. Preserve paragraph boundaries, list structure, tables, fenced code, HTML, intentional hard breaks, frontmatter semantics, and literal examples. This applies to Markdown only; code and docstring line-length constraints stay unchanged.
 - Frontmatter is exactly two fields: `name` (must equal the directory name) and `description`.
 - The description carries a `Use when …` trigger, a `NOT for …` boundary, and one line that separates the skill from its nearest sibling (`session-handoff` vs `small-model-handoff` is the reference example).
-- **Procedural work waits for a request; terminology has a standing exception.** The eight procedural skills use `Use only when …` descriptions. `curate-terminology` and `use-terminology` instead say `Use on every task …`: both apply without a separate wording request, with maintenance limited to relevant encountered material and explicit read-only restrictions preserved. `find-unknowns` remains the separate situational discovery exception. See [docs/principles.md](docs/principles.md#what-may-open-on-its-own).
+- **Procedural work waits for a request; terminology has a standing exception.** The nine procedural skills use `Use only when …` descriptions. `curate-terminology` and `use-terminology` instead say `Use on every task …`: both apply without a separate wording request, with maintenance limited to relevant encountered material and explicit read-only restrictions preserved. `find-unknowns` remains the separate situational discovery exception. See [docs/principles.md](docs/principles.md#what-may-open-on-its-own).
 - Terminology output in a consuming project uses root `terminology.md` for representative definitions and navigation, topic documents under `docs/terminology/`, and a reference-only `docs/terminology/references.md`. Changed entries link to their source records; the installed skill holds no mutable project glossary.
 - Bodies are English. Aim for decision rules over step transcripts, roughly 400–2,500 tokens, with an 80% path up front and detail pushed to `references/`.
 - **Contract steps, not cognition steps.** Numbered steps only where order or completeness is part of correctness: prerequisite retrieval, approval boundaries, required artifact stages, validation, auditable pipelines. Otherwise state the outcome, invariants, and stop conditions, and let the model choose the route. If removing a step keeps accuracy, safety, and auditability intact, remove it.
@@ -32,10 +32,11 @@ Everything a skill needs stays colocated under its own directory. `docs/` is rat
 - No evaluation scaffolding, benchmarks, or scoring artifacts inside `skills/`. Migrated skills that carry legacy maintenance fixtures keep them (preserve-original-strengths rule), but do not add new ones.
 - Migrated skills are edited minimally — one to four focused edits per pass. Full rewrites are for broken structure only.
 - Preserve grants already established in the active request. Finishing one station does not require another approval for an explicitly requested next station. Keep read-only, ownership, publication, and cleanup boundaries.
+- `python-coding-standards` applies within requested Python implementation, refactoring, review, or project setup. It owns the Pydantic-first, explicit-typing, uv, and source-local explanation preferences; keep their detailed rules and exceptions in the skill rather than duplicating them here. Its Python rules are locally authored; use the official external `pydantic` skill for library-specific modeling. Keep the upstream revision and fallback in the colocated integration reference, and installation instructions in the README. Do not vendor unrelated Python or modularity skills.
 
 ## Before finishing any change
 
-1. `npx --yes skills add . --list --full-depth` reports **exactly 16** skills.
+1. `npx --yes skills add . --list --full-depth` reports **exactly 17** skills.
 2. Every relative path referenced from a changed `SKILL.md` exists on disk.
 3. Frontmatter `name` still equals the directory name for anything touched.
 4. Re-read the changed skill and `README.md` together — packaging claims and docs must not drift apart.
