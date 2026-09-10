@@ -176,6 +176,34 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 - **Choice:** retain the separate skills and their outputs, reuse established authorization, inspect discrepancies before asking, and carry grants plus pending operations into handoffs. Keep consequential unknowns, overlapping ownership, and unapproved external effects as boundaries. Remove the required comprehension quiz and automatic worktree cleanup.
 - **Revisit:** use real execution feedback to assess unnecessary pauses and missed boundaries. This is an instruction audit, not a successful runtime pilot or a measured performance claim.
 
+## Separate terminology curation from application (2026-09-10)
+
+- **Plan:** keep domain craft outside the pack and preserve project decisions through the existing work-loop records.
+- **Reality:** a completed terminology workflow needed a durable reference for definitions, accepted expressions, sources, and historical corrections. The user explicitly requested separate skills for defining/updating/recording and looking up/using that reference. Applying an existing decision should not start another research pass.
+- **Choice:** add `curate-terminology` and `use-terminology`, bringing the pack to 15 skills. Ship the portable workflow and an adaptable standing-instruction example; keep domain definitions and mutable literature in each project. English terms remain primary, source scope remains explicit, and local editorial restrictions remain local decisions. Honor explicitly requested ongoing compliance without making installation an always-on policy. Preserve originals and identifiers while correcting authorized managed prose during the task.
+- **Revisit:** if real use shows duplicate retrieval, unclear authority, or records that require maintenance outside current work. Static package validation does not establish a successful runtime pilot.
+
+## Both terminology skills become standing policy (2026-09-10)
+
+- **Plan:** the initial terminology pair would activate on request or a separately requested standing instruction.
+- **Reality:** the user requires both on every task and wants curation to study expressions beyond nouns, with stronger source selection that filters generated derivative writing.
+- **Choice:** supersede the initial opt-in terminology policy. Make both skills default to every task and wire them during project setup. Curate relevant changes in context; preserve explicit read-only restrictions and avoid artificial writes. Prefer established project documentation and maintainer blogs, influential papers including recognized preprints, and their author explanations. Use available paper tools actively. Record positive verbs, collocations, and project explanation patterns with their conditions. The initial treatment of the user-named projects as exclusions is superseded by the source-scrutiny clarification below.
+- **Revisit:** use real tasks to check missed application, unnecessary research, source quality, and semantic transfer. Static checks cannot prove runtime loading or authorship.
+
+## Confirm local company usage separately (2026-09-10)
+
+- **Plan:** prefer established external sources and distinguish internal labels in terminology records.
+- **Reality:** a small set of company proper names and familiar terms with local meanings is legitimate, and external documents cannot establish what the company intends by them.
+- **Choice:** check existing records, ask the user concise questions about unresolved local cases, and record meaning, scope, audience, and dated confirmation. Preserve confirmed local usage and clarify it for other audiences. Keep intended meaning distinct from implementation claims; source filtering does not erase company conventions.
+- **Revisit:** when a recorded answer conflicts with new information or the audience or product context changes. Do not repeat settled questions on every task.
+
+## Treat AI-project examples as a source-quality warning (2026-09-10)
+
+- **Plan:** interpret the named projects as a fixed source exclusion list.
+- **Reality:** the user clarified that those names illustrate a broader concern about AI slop in AI-related project documentation.
+- **Choice:** retain the examples and replace name-based exclusion with heightened scrutiny of provenance, primary-source support, definitions, and correspondence with implementation. Filter unsupported wording across comparable projects without treating the examples as exhaustive or judging authorship from style alone.
+- **Revisit:** when actual source passages and implementation checks support changing their eligibility as terminology references. Keep local naming conventions separate from claims of general industry usage.
+
 ## Still open
 
 | Item | Default | Decide when |

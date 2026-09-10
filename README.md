@@ -2,7 +2,7 @@
 
 A work loop for one person running a project too big to hold in one session.
 
-It keeps the intent, the plan, and the record of what actually happened in files — so the next session, the next model, and the next harness pick the work up where it was left, instead of re-deriving it. 13 skills, all plain markdown you can read and hand-edit.
+It keeps the intent, the plan, and the record of what actually happened in files — so the next session, the next model, and the next harness pick the work up where it was left, instead of re-deriving it. 15 skills, all plain markdown you can read and hand-edit.
 
 [Why](#why-this-exists) · [Work loop](#the-work-loop) · [Catalog](#skill-catalog) · [Invocation](#nothing-expensive-starts-on-its-own) · [Install](#install) · [Domain skills](#pair-it-with-domain-skills) · [Scope](#scope) · [Why it looks like this](#why-it-looks-like-this) · [Status](#status) · [Contributing](CONTRIBUTING.md)
 
@@ -22,7 +22,7 @@ The part that actually hurt was elsewhere. Working solo on something large enoug
 
 Four rules keep the machinery thin:
 
-- **Nothing that writes or spends opens unless you open it.** Eight of the thirteen wait to be asked; the rest cost nothing when they misfire.
+- **Eight procedural skills wait to be asked.** The terminology pair applies on every task by default, maintaining relevant records as material is encountered.
 - **Everything is markdown a person can read and correct.** No daemons, hooks, watchdogs, or runtime state files.
 - **Numbered steps only where order is part of correctness** — a prerequisite read, an approval boundary, a required output, a check. Elsewhere the skill states the destination and the stopping condition and leaves the route to the model.
 - **The durable layer holds intent and record format, never compensating procedure.** A step that can be dropped without losing correctness, safety, or the ability to audit the run gets dropped.
@@ -46,7 +46,7 @@ The purpose and the outcome are in the name — `gigio-write-plan` writes a plan
 
 ## Skill catalog
 
-Four core skills own the durable files and the boundaries between stations. Of the other nine, three are name-called by a core skill during a run you started; every one of the thirteen can also be invoked directly when you need only that one thing. Eight of them never open unless asked — see [Invocation](#nothing-expensive-starts-on-its-own).
+Four core skills own the durable files and the boundaries between stations. Of the other eleven, three are name-called by a core skill during a run you started; every one of the fifteen can also be invoked directly when you need only that one thing. Eight require explicit requests; both terminology skills apply on every task — see [Invocation](#nothing-expensive-starts-on-its-own).
 
 ### Core loop
 
@@ -73,6 +73,15 @@ Four core skills own the durable files and the boundaries between stations. Of t
 | [small-model-handoff](skills/small-model-handoff/) | Turns already-approved work into a bounded prompt for an executor weaker than the planner |
 | [fable5-model-routing](skills/fable5-model-routing/) | Decides which model role owns the judgment and which lane gets the bounded follow-on work; self-excludes outside Claude Code and Cursor |
 
+### Shared terminology across the loop
+
+| Skill | What it does |
+| --- | --- |
+| [curate-terminology](skills/curate-terminology/) | Defines, researches, updates, and records project terminology and expressions, with primary sources, literature provenance, anti-patterns, and standing project instructions |
+| [use-terminology](skills/use-terminology/) | Looks up and applies accepted terminology and expressions, preserving contextual meaning and correcting authorized artifacts while the original task continues |
+
+Both terminology skills apply on every task, including tasks that do not mention wording. `curate-terminology` maintains relevant definitions and expressions as they are encountered; `use-terminology` applies them. Curation studies established projects, influential papers, and accountable author or maintainer explanations, including verbs, collocations, and how a project is described. AI-generated derivative writing is not a wording authority. AI-related project documentation receives heightened scrutiny for unsupported labels and claims; the named examples are cautionary cases, not a fixed denylist. Project setup writes the standing instruction; downloading skill files alone cannot guarantee host loading. Company proper names and local meanings are recorded separately from industry usage; ask the user about the few unresolved cases and reuse the confirmed answers. Definitions and source records remain in the project.
+
 ### Out of the loop
 
 | Skill | What it does |
@@ -85,7 +94,7 @@ The two handoff skills are a deliberate pair: `session-handoff` hands work to th
 
 ## Nothing expensive starts on its own
 
-Eight of the thirteen wait to be asked. They open on three things: you name the skill, you ask for what it does, or another pack skill name-calls it inside a run you already started. Not because a task looked big, a domain looked unfamiliar, a spec was missing, or a session ran long.
+Eight of the fifteen have explicit request triggers. They open when you name the skill, ask for what it does, or another pack skill name-calls it inside a run you already started. Not because a task looked big, a domain looked unfamiliar, a spec was missing, or a session ran long.
 
 | Waits to be asked | What opening it costs you |
 | --- | --- |
@@ -93,9 +102,11 @@ Eight of the thirteen wait to be asked. They open on three things: you name the 
 | `session-handoff` | a handoff prompt file |
 | `orchestrate-subagents`, `small-model-handoff`, `fable5-model-routing` | a fan-out, a weaker executor, a different model |
 
-The other five cost nothing when they open uninvited. `deep-interview`, `commit-and-push`, `draft-pr`, and `git-worktree-setup` only fire on something you said anyway — ask for an interview, say commit, say PR, ask for isolation.
+The other five retain their existing trigger policy. `deep-interview`, `commit-and-push`, `draft-pr`, and `git-worktree-setup` only fire on something you said anyway — ask for an interview, say commit, say PR, ask for isolation.
 
-`find-unknowns` is the deliberate exception, and the only skill here that may open from the situation rather than the request. It is supposed to reach you before you know to ask, and the worst it can do uninvited is a paragraph you skip.
+The terminology pair is a standing exception: use both on every task and update relevant records when needed. No change means no artificial write or new survey. Explicit read-only restrictions still apply.
+
+`find-unknowns` is the separate discovery exception that may open from the situation rather than the request. It is supposed to reach you before you know to ask, and the worst it can do uninvited is a paragraph you skip.
 
 Practically: discussing a project, however large, does not put a file in your repository. Say "plan this" to get one.
 
@@ -128,15 +139,17 @@ This pack knows how work moves, not how your domain works. It gets noticeably be
 
 The seam is clean: a game's pillars and judgment rules are what a creative brief settles, a milestone becomes the goal of a plan file, a playable build is what that plan's acceptance names, and an engine-layer check is what verifies it.
 
-Other skills I keep for my own work live in [gigio1023/agent-skills](https://github.com/gigio1023/agent-skills) — delegation to other CLIs (`codex-delegate` for bounded `codex exec` runs with durable run artifacts and explicit resume, `cursor-cli-delegation` for a closed mission through Cursor Agent CLI), craft skills for docs, diagrams, docstrings, terminology, and prompt review, and the skill-authoring tooling. None of the 13 skills here reference any of them, so the two sets install independently.
+Other skills I keep for my own work live in [gigio1023/agent-skills](https://github.com/gigio1023/agent-skills) — delegation to other CLIs (`codex-delegate` for bounded `codex exec` runs with durable run artifacts and explicit resume, `cursor-cli-delegation` for a closed mission through Cursor Agent CLI), craft skills for docs, diagrams, docstrings, and prompt review, and the skill-authoring tooling. None of the 15 skills here require those external packages, so the two sets install independently.
 
 ## Scope
 
 The pack covers the loop and stops there:
 
-- **In:** durable project intent, plans as files, execution with a run log, fresh-context review, and the handoffs out of a session.
-- **Out:** domain knowledge and craft. Writing style, diagram conventions, engine specifics, design taste — those belong to skills that own the domain, and the loop is where they get applied.
-- **Also out:** anything that is not a markdown file a person can read. No background processes, no generated state, no framework that has to be running for the skills to work — and no skill that writes a file or spends on your behalf because it decided a conversation needed it.
+- **In:** durable project intent, plans as files, execution with a run log, fresh-context review, the handoffs out of a session, and durable project terminology and expression decisions.
+- **Out:** a supplied domain glossary and general craft. Writing style, diagram conventions, engine specifics, design taste — those belong to skills that own the domain, and the loop is where they get applied.
+- **Also out:** anything that is not a markdown file a person can read. No background processes, no generated state, no framework that has to be running for the skills to work — and no unrelated work started merely because a conversation looks substantial. The terminology pair's in-task maintenance is an explicit standing policy.
+
+Terminology records preserve decisions and their sources across sessions; they do not supply universal domain definitions or replace a writing-style skill.
 
 Craft work still happens during a run; it just uses whichever craft skills the session has installed, rather than skills this pack ships.
 
@@ -155,6 +168,7 @@ The shortest version: put intent and record format in the durable layer, never c
 
 ## Status
 
+- Terminology curation and application skills added 2026-09-10 from a completed project workflow; package validation is separate from runtime behavior testing.
 - Core-loop skills authored 2026-07-26 to the `skill-builder` contract kept in agent-skills; migrated skills keep their original bodies plus a minimal interlock pass (sibling references, next-station pointers, plan-file awareness).
 - Dual-reviewed 2026-07-26 by two independent reviewers from different model families; all confirmed findings fixed, reviewed-and-kept verdicts recorded in [docs/rule-ledger.md](docs/rule-ledger.md).
 - **Not yet piloted.** Nothing is marked done until two pilot projects pass. They measure whether parallel writing actually pays off, whether the plan file carries enough for handoff between workers, which steps the lead demonstrably did not need, and what the acceptance field gets filled with outside ordinary code work.
@@ -164,5 +178,5 @@ The shortest version: put intent and record format in the durable layer, never c
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the skill contract, the verification checklist, and the design-record rules. Quick check after any edit:
 
 ```bash
-npx --yes skills add . --list --full-depth   # must report exactly 13
+npx --yes skills add . --list --full-depth   # must report exactly 15
 ```

@@ -87,3 +87,13 @@ The counter-argument on record: workers may need context accumulated across task
 - Pin a revision. A published security survey found a meaningful share of public skills carrying critical issues.
 - Popularity is a weak signal. Inspect substance.
 - A package-install failure is a human checkpoint, not something to retry through.
+
+## Terminology workflow adopted (2026-09-10)
+
+Source: a completed project terminology curation and modularization task, followed by the user's request to package its maintenance and application separately. This is observed workflow provenance and user-selected policy, not a claim that the new skills have passed model trials. Private source texts, project names, and workspace paths are excluded from the public package.
+
+Adopted: established English terminology with contextual explanations; primary-source verification matched to the claim; distinctions between field usage, source-specific definitions, internal names, and editorial choices; local preservation of newly discovered relevant papers with version, hash, extraction status, and linked metadata; a short root reference with topic, anti-pattern, and source records; stable finding IDs; correction of encountered managed documents within existing authority; and explicit project instructions for ongoing use.
+
+Excluded from the reusable method: the original task's model selection, parallel lane count, corpus size, private examples, and a universal ban inferred from a local expression preference. The skills do not install hooks, ship a domain glossary, publish collected material, or start a repository-wide audit merely because a phrase is unfamiliar.
+
+The user's 2026-09-10 revision supersedes the initial activation choice: both terminology skills apply on every task. It also makes representative source selection explicit: widely adopted projects, influential papers and recognized preprints, maintainer and author blogs, active paper discovery/read tools, and rejection of AI-generated derivative prose as a wording authority. The named projects are user-provided cautionary examples, not a fixed exclusion list or independently established authorship findings. Their role is to motivate heightened scrutiny across AI-related project documentation. Expression research now includes verbs, collocations, sentence patterns, and how a system's purpose and components are explained. Kubernetes and Helm documentation provide small linked examples; no domain corpus or model trial was added.
