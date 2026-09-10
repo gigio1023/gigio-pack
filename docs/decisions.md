@@ -190,6 +190,13 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 - **Choice:** supersede the initial opt-in terminology policy. Make both skills default to every task and wire them during project setup. Curate relevant changes in context; preserve explicit read-only restrictions and avoid artificial writes. Prefer established project documentation and maintainer blogs, influential papers including recognized preprints, and their author explanations. Use available paper tools actively. Exclude the user-named projects as wording authorities and record positive verbs, collocations, and project explanation patterns with their conditions.
 - **Revisit:** use real tasks to check missed application, unnecessary research, source quality, and semantic transfer. Static checks cannot prove runtime loading or authorship.
 
+## Confirm local company usage separately (2026-09-10)
+
+- **Plan:** prefer established external sources and distinguish internal labels in terminology records.
+- **Reality:** a small set of company proper names and familiar terms with local meanings is legitimate, and external documents cannot establish what the company intends by them.
+- **Choice:** check existing records, ask the user concise questions about unresolved local cases, and record meaning, scope, audience, and dated confirmation. Preserve confirmed local usage and clarify it for other audiences. Keep intended meaning distinct from implementation claims; source filtering does not erase company conventions.
+- **Revisit:** when a recorded answer conflicts with new information or the audience or product context changes. Do not repeat settled questions on every task.
+
 ## Still open
 
 | Item | Default | Decide when |

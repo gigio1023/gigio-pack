@@ -4,6 +4,8 @@ These are interpretation examples, not a supplied domain glossary or a universal
 
 | Condition | Tempting mistake | Correct application |
 | --- | --- | --- |
+| A company uses a familiar term for a local component | Automatically replace it with the industry meaning | Check the local record, ask the user about unresolved meaning, and keep local and general senses distinct |
+| A proper name looks misspelled | Silently normalize it or infer its product role | Preserve the spelling and confirm the referent when needed |
 | An internal phase has a familiar developer name | Present the phase as a standard research method | Preserve the code name where needed; describe what the phase actually does |
 | A classifier returns a risk label | Say the system prevented the action | Distinguish detection, policy decision, and actual enforcement |
 | A method combines training and parameter adaptation | Treat SFT, LoRA, reward source, and optimizer as interchangeable choices | Name each dimension and the actual update performed |

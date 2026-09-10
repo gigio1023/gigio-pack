@@ -15,7 +15,7 @@ Keep enough information to distinguish the term from its nearest confusing alter
 | Record | Required meaning |
 | --- | --- |
 | Term | Accepted English name; contextual explanation; domain and usage status; assumptions and conditions; confusing neighboring concepts; supporting source with a precise location and version |
-| Internal name | Exact identifier; owning system and revision; what it actually does; reader-facing explanation; limits on mapping it to a general concept |
+| Company or internal name | Exact name and aliases; proper name versus local reuse of an industry term; local meaning or referent; organizational/product scope; internal/external wording; contrast with general usage; dated user confirmation or owning source; implementation status tracked separately |
 | Accepted expression | Source passage and location; actor, verb, object, collocation or sentence pattern; contextual meaning; adapted example; conditions and limits on reuse |
 | Project explanation | Source and scope; problem and intended users; components and responsibilities; interactions and lifecycle; useful explanation pattern without importing unsupported capabilities |
 | Expression correction | Problematic sentence or pattern; accurate replacement or writing principle; why the original misleads; applicable audience and scope; supporting source or editorial decision; exceptions for protected literals |
