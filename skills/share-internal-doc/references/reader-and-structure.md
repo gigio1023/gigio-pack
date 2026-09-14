@@ -1,6 +1,6 @@
 # Reader and Structure
 
-Use this when deciding what a document should explain, how it opens, and how to preserve depth while reducing reading effort.
+Use this when creating or restructuring a substantial document, or serving readers with different expertise. It helps choose the opening, argument, and placement of supporting detail.
 
 ## Choose the reader's job
 

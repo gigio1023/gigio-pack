@@ -1,9 +1,8 @@
 ---
 name: share-internal-doc
 description: >
-  Use only when asked to create, revise, or prepare a document for colleagues
-  who lack the authoring session's context, or when named. Covers shared
-  reports, handbooks, guides, and decision or status memos in any medium.
+  Use only when asked to create or revise a document colleagues will read
+  without the authoring session's context, in any medium, or when named.
   NOT for chat answers, plan files (gigio-write-plan), agent handoffs
   (session-handoff), PR or commit copy, external client deliverables, or prose
   polish alone (slop-aware-writing).
@@ -11,71 +10,44 @@ description: >
 
 # Share Internal Doc
 
-Produce a document a colleague can understand, assess, and use without the conversation that produced it. The document carries the author's selection, explanation, and judgment, with enough support for the reader to check them. Accuracy, useful depth, low reading effort, and visual clarity belong together.
+Produce a document a colleague can understand, assess, and use without the conversation that produced it. Include the author's selection, explanation, and judgment, with enough support for the reader to check them.
 
-Follow the user's current instructions and the project's document conventions before the defaults here. Infer the reader, purpose, distribution, language, medium, and edit scope from the request and existing material. Ask only when a missing answer would materially change the document; continue independent authorized work while it remains open. A request to review calls for findings; a request to rewrite includes completing the rewrite and its relevant checks.
+Follow current user instructions and project conventions before these defaults. Infer the reader, purpose, distribution, language, medium, and edit scope from the request and existing material. Ask only about consequential gaps, continuing work that does not depend on the answer. Review requests call for findings; rewrite requests include the rewrite and relevant checks. Preserve an explicit request to discuss the framing before producing a finished document.
 
-## Start with the reader's question
+## Principles for every medium
 
-Make the subject, purpose, and main message clear near the beginning. Reports and decision memos lead with findings or recommendations. Guides introduce the task or concept the reader needs. Provide the background, definitions, and relationships needed to understand that opening; choose their placement for the actual reader.
+Make the subject and main message clear near the beginning: findings or recommendations for a report, the task or concept for a guide. Supply the background, definitions, and relationships needed to follow it. Links support verification and deeper reading; they must not make the reader reconstruct the argument elsewhere. Let purpose determine structure, reusing a suitable design without imposing one outline on unrelated documents.
 
-A colleague should not need to learn private task codes, inspect a repository, or read another report to reconstruct the main argument. Explain unfamiliar terms at first use and use stable names throughout. Links provide verification and deeper reading; they do not replace the explanation. Self-containment does not require repeating an entire reference library.
+Explain why the selected observations support the conclusion. When asked for a recommendation, provide one with reasons, alternatives that matter, and limitations; do not return unexplained options for the reader to analyze. Distinguish the author's judgment from an approved decision or another person's proposal. Fluent transitions must not invent causality, agreement, priority, or certainty.
 
-Choose the content and order for this document. A field primer teaches the field; a project status report explains the project's state. A comparison supports a choice. Keep the design consistent across related documents while allowing their structures to follow their purposes. Keep headings short and informative; place the explanation in the content they introduce.
+Ground material factual claims in inspected sources. Preserve attribution, numbers, units, denominators, dates, versions, conditions, and exceptions. Preparation, execution, validation, and operational use are different states. Express claim status in ordinary wording or useful table columns, not confirmation badges. A missing record does not prove that work never happened: explain the search boundary once and keep consequential qualifications beside the affected claims. Citations must support the exact claim and be usable by the reader.
 
-## Select, connect, and judge
+Reduce reading effort without thinning the work. Remove repetition, generic framing, and incidental drafting narration before cutting necessary explanation or technical detail. Use prose for reasoning, lists for parallel items, steps for order-dependent actions, and tables for repeated fields. Keep decisive conditions and important variation on the main reading path; supporting volume can remain in accessible detail. Short headings and table cells need not become full sentences when their meaning is clear.
 
-Collecting facts is only part of writing. Explain what the important observations mean, why they support the conclusion, and which alternatives or unresolved issues affect it. Use only relationships supported by the material; a fluent transition must not invent causality, agreement, priority, or certainty.
+Write directly, with clear actors, actions, and conditions, stable names, and established field language. Apply `use-terminology` and `curate-terminology`; internal records establish internal facts and names, not necessarily good wording. Preserve quotations and identifiers. For Korean documents, use Korean explanation with established English technical terms where useful, keeping necessary particles and logical relations. Use `slop-aware-writing` for prose revision and `korean-clarity` for Korean clarity when available; these principles also apply without them.
 
-When asked for a recommendation, make one with its reasons and limitations. Give the reader enough context to exercise their decision authority. Do not hand them unexplained options or ask them to perform the analysis the document was meant to provide. Distinguish the author's recommendation from an approved decision or somebody else's proposal. When the framing is still being discussed, make the argument reviewable before investing in presentation; preserve an explicit request to discuss a draft first.
+Look for relationships, mechanisms, comparisons, or changes a figure would explain better. Preserve useful figures during revision and conversion. Give them readable labels and an explanation of the takeaway and material conditions; use analogies only when their literal mapping remains clear. A short memo may need no figure. Where styling is controlled, default screen documents and figures to dark; respect requested light, print, and destination-controlled themes.
 
-## Keep claims faithful to their support
+Match content and attribution to the recipients. Remove credentials, unnecessary private information, and incidental authoring context without erasing relevant failures, responsibility, chronology, or technical conditions. Preserve actual passage-review requirements and reviews already completed. Keep original records and unrelated work intact, and use the project's established source of truth rather than creating a competing editable copy.
 
-Use original records and inspected artifacts for material factual claims. Attribute source reports, plans, proposals, and inferences so their status is clear in ordinary wording or useful table columns. A prepared environment, an executed experiment, a validated result, and an operational deployment are different states.
+## Read for the decision at hand
 
-Preserve numbers, units, denominators, dates, versions, conditions, exceptions, and attribution. Comparisons need comparable conditions or an explicit explanation of their differences. Keep important variation visible when providing a summary number. A citation must support the exact claim, and its target must be usable by the intended reader.
+The principles above cover routine edits. Read a reference when its condition applies, not the whole package for every document.
 
-State what a search or observation can establish. When missing records drive conclusions, explain the search boundary once where it affects interpretation. Finding no record does not establish that no work occurred. Keep consequential uncertainty beside the claim; avoid repeating a blanket caveat throughout the document.
-
-## Reduce effort without thinning the work
-
-Remove repetition, generic background, empty transitions, and narration of the drafting process. Preserve the facts and connecting explanation needed to understand the result. Keep limitations that change what the reader may conclude or do.
-
-Use connected prose for reasoning, bullets for parallel items, steps for order-dependent actions, and tables for repeated fields or comparisons. Nest only when the hierarchy carries meaning. A table cell should remain easy to scan; move long explanation beside the table or into linked detail.
-
-Put the important conclusions and their support on the main reading path. Move supporting volume into appendices or expandable detail where the medium allows it. Do not hide a decisive condition there. Let the breadth of sources and analysis remain inspectable without making every reader traverse it.
-
-## Write plainly and precisely
-
-Use a measured, direct voice. State actors, actions, objects, and conditions clearly. Avoid inflated judgments, invented terminology, stock contrasts, and conclusions that merely repeat the opening. Keep useful technical detail and established domain terms.
-
-Apply `use-terminology` and `curate-terminology` for accepted terms, expressions, and scoped corrections. Internal records establish internal facts and names; they are not automatically models of good technical writing. Preserve quotations, identifiers, and original records while correcting the explanation around them.
-
-For Korean documents, the default is Korean explanation with established English technical terms where they aid precision and lookup. Keep necessary particles, predicates, and logical relations. Headings, labels, and table cells can remain phrases when their meaning is complete in context. Use `slop-aware-writing` for prose revision and `korean-clarity` for Korean clarity when available; retain these principles when they are not.
-
-## Explain visually where it matters
-
-Actively look for relationships, mechanisms, comparisons, and changes that a figure would make easier to understand. Preserve the question and useful information in existing figures during revision or conversion. A document that depends on a figure is incomplete when that figure disappears.
-
-Each figure needs understandable labels, a clear reading order, and a caption or adjacent explanation of its takeaway and relevant conditions. Explain unfamiliar ideas at an accessible level where needed; use an analogy only when the literal relationship remains clear. Check legibility in the delivered medium. A short memo may need only a paragraph or table.
-
-## Read the relevant supporting guidance
-
-| Situation | Read |
+| When | Read to resolve |
 | --- | --- |
-| Choosing structure, depth, or a reading path | [Reader and structure](references/reader-and-structure.md) |
-| Reporting findings, sources, status, or comparisons | [Claims and sources](references/claims-and-sources.md) |
-| Choosing a medium, rendering, converting, or placing figures | [Medium and figures](references/medium-and-figures.md) |
-| Preparing content for its intended recipients | [Sharing pass](references/sharing-pass.md) |
-| A recurring writing failure needs a concrete repair | [Editorial examples](references/editorial-examples.md) |
-| Maintaining or changing this skill | [Sources and provenance](references/sources.md) |
-
-The [standalone review questions](assets/standalone-spine.template.md) support a cold read; they are not a document outline. Formatting and delivery details belong to the chosen medium. Preserve the established source of truth rather than converting every document to Markdown or HTML.
+| Creating or restructuring a substantial document, or serving readers with different expertise | [Reader and structure](references/reader-and-structure.md): opening, argument, depth, and reusable document forms |
+| Handling incomplete or conflicting records, disputed status, or quantitative comparisons | [Claims and sources](references/claims-and-sources.md): attribution, search limits, metrics, and source access |
+| Choosing or changing the delivery format, rendering, converting, or producing figures | [Medium and figures](references/medium-and-figures.md): source workflow, appearance, production tools, and destination checks |
+| Handling sensitive content, personal attribution, or a changed distribution | [Sharing pass](references/sharing-pass.md): permitted detail, accountability, and required review |
+| A draft repeats a known reader problem | [Editorial examples](references/editorial-examples.md): concrete repairs and what they preserve |
+| A new or substantially restructured document needs a cold read | [Reader review](references/reader-review.md): questions for detecting hidden context, not an outline to fill |
+| Maintaining this skill | [Sources and provenance](references/sources.md): correction history, rule scope, and prompting sources |
 
 ## Verify and finish the requested work
 
-For a new or substantially restructured document, use an isolated reader when delegation is authorized and available. Give that reader the document and intended audience, without the drafting conversation. Check whether they can explain its main point, reasons, important limits, and relevant next action, and identify hidden assumptions or contradictions. Otherwise perform the same read directly and state any material verification limit. A reader test does not prove factual accuracy.
+For a new or substantially restructured document, check comprehension from the document alone. Use an isolated reader when delegation is authorized and available; otherwise perform the read directly. Supply the document and intended audience, not the drafting conversation. A reader test does not prove factual accuracy.
 
-Check changed claims against their sources. After rendering or conversion, inspect the actual output for missing content, figures, captions, links, and unreadable layout. When publication is requested, retrieve the published result and check that the intended content arrived. Fix material failures and complete the required project checks; repeat checks only for a relevant change or unresolved concern.
+Check changed claims against sources and the finished copy for recipient suitability. After rendering or conversion, inspect the actual output for missing content, figures, captions, links, and unreadable layout. For authorized publication, retrieve the result and check the changed content for complete delivery. Fix material failures and run required project checks; repeat only for a relevant change or unresolved concern.
 
-Run the sharing pass for the intended audience. Deliver the finished artifact and its path or URL, with only the limitations that affect its use. Preserve original records and unrelated work. Continue through `commit-and-push` or `draft-pr` when the user's request includes those actions. Preparing a document does not itself authorize sending messages, publishing it, or reinstalling skills.
+Finish with the requested artifact or findings, its path or URL when applicable, and limitations that affect its use. Continue through `commit-and-push` or `draft-pr` when requested. Document preparation alone does not authorize contacting people, sending messages, or publishing; reuse existing grants rather than asking again.

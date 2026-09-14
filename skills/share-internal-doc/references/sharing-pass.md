@@ -1,6 +1,6 @@
 # Sharing Pass
 
-Use this when preparing a document for its intended recipients, and revisit affected content after a material rewrite. Review the actual distribution and information involved. A sharing pass makes the document appropriate for its readers; it does not erase inconvenient facts or create a new approval process by default.
+Use this for sensitive content, personal attribution, or a changed distribution. Revisit affected passages when their content or recipients change. The entry point's recipient check still applies to ordinary documents; this reference supplies the detailed handling without creating a new approval process.
 
 ## Review the content and the attribution
 
@@ -28,4 +28,4 @@ Prefer the project's established transformation when a shared copy is generated 
 
 Check the final copy for leftover local paths, private citation codes, exposed credentials, inappropriate attribution, unsupported certainty, and missing context after removals. Confirm that required sources, figures, and material limitations survived.
 
-When the request includes publication, use the selected service and destination, then retrieve the result and compare the changed content. Verify large replacements fully enough to detect partial application. Report the published URL and any material failure. Otherwise deliver the prepared artifact without sending or publishing it.
+For authorized publication, check that restricted attachments or working notes were not uploaded with the shared copy. Follow the entry point's delivery verification and the destination-specific checks in [medium and figures](medium-and-figures.md).

@@ -1,6 +1,6 @@
 # Claims and Sources
 
-Use this when reporting observations, work status, measurements, comparisons, or conclusions that depend on records.
+Use this for incomplete or conflicting records, disputed status, and quantitative comparisons. It provides the distinctions and source handling those cases need beyond routine factual writing.
 
 ## Match the claim to its support
 

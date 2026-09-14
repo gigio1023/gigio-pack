@@ -1,6 +1,6 @@
 # Standalone Review Questions
 
-Use these questions to review a document from its intended reader's perspective. They are not headings to copy, fields to fill, or a requirement to add a section for every answer.
+Use these questions for a cold read of a new or substantially restructured document. Give an isolated reader only the document and its intended audience; use the same questions directly when delegation is unavailable or unauthorized. They are not headings to copy, fields to fill, or a requirement to add a section for every answer.
 
 - What is the document about, and why would this reader use it?
 - What is its main finding, explanation, recommendation, or task?

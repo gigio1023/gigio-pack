@@ -232,6 +232,13 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 - **Choice:** supersede those initial defaults. Use Pydantic for application-owned records, with concrete-need exceptions for other representations; require explicit declarations and preserve legal binding syntax; prefer uv metadata, lockfiles, and purpose-specific development groups, with pip-style installs reserved for documented exceptional environments. Put needed intent and background in module, class, model, and function docstrings or local comments. Keep policy and information that needs a cross-file view in separate documents, without duplicating implementation. Preserve external skill selection, compatibility boundaries, and existing publication authority.
 - **Revisit:** when actual tasks reveal an interoperability requirement, conflicting supported runtime, misleading annotation, or explanation that cannot be maintained close to code. Package and example checks remain distinct from model behavior.
 
+## Shared-document references follow concrete decisions (2026-09-14)
+
+- **Plan:** keep document principles in the entry point and detailed guidance in conditional references.
+- **Reality:** rereading the reinstalled Astra guide and Skill Builder showed that the draft still repeated reference explanations and used conditions such as preparing content for recipients that apply to almost every document. Reader questions remained in an output-template path even though they were instructions for review.
+- **Choice:** consolidate the routine principles and give each reference a concrete reading condition and purpose. Keep recipient safeguards, publication authority, source preservation, and the dark default in the entry point. Move reader questions into a review reference, and keep specialized handling for substantial structure changes, difficult claims, rendering, and sensitive distribution in their respective references. Preserve the session-supported preferences without imposing a length quota or Astra-specific runtime behavior.
+- **Revisit:** when an ordinary document task exposes a missing essential instruction or a reference condition that loads too much or too little. Package checks can verify structure and links; this change does not claim measured model behavior.
+
 ## Shared-document principles apply across media (2026-09-14)
 
 - **Plan:** preserve accumulated document corrections in one internal-sharing skill, including a fixed review spine, house wording rules, and HTML/Notion production guidance.

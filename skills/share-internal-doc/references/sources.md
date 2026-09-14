@@ -35,7 +35,7 @@ Read on 2026-09-14:
 
 These sources inform how the skill expresses the user's preferences. They do not establish those preferences, justify deleting useful constraints by a size target, or prove that this revision improves model performance. Their optional example prompts are adapted to the document task rather than copied as a universal policy.
 
-The local `gpt6-astra-prompting-guide` and `skill-builder` workflows informed the source review and package changes. The resulting document skill remains usable without loading either during an ordinary writing task.
+The local `gpt6-astra-prompting-guide` and `skill-builder` workflows informed the source review and package changes. After the Astra guide was reinstalled on September 14, its entry point, instruction-design reference, and source notes were read again alongside Skill Builder. This exposed remaining duplication, broad reference conditions, and review instructions still packaged as an output template. The revision consolidates routine principles, makes each reference's condition and purpose explicit, and moves reader questions into a review reference. Recipient safeguards and the dark default remain in the entry point so selective reading cannot hide them. No instruction-reduction quota or model-specific runtime policy was adopted. The document skill remains usable without loading either authoring guide during ordinary writing.
 
 ## Earlier external influences
 

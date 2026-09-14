@@ -18,7 +18,7 @@ Inspect the actual rendered or published result. Check small text, clipped cells
 
 ## Screen appearance defaults
 
-The author's established preference is a dark scheme for screen documents and figures when their styling is under our control. Use light when requested or needed for print; a destination with its own theme retains that behavior. An adaptive page is a separate requested choice.
+Apply the entry point's dark screen default across the page and its figures. An adaptive page that follows the reader's operating-system theme is a separate requested choice; keep destination-controlled themes intact.
 
 Use a dark canvas, light text, restrained neutral colors, and a limited accent palette. Share visual tokens across the page and its figures. Check contrast and legibility at the delivered size. A standalone figure needs an explicit background or a verified transparent treatment so it remains readable where it is embedded.
 
