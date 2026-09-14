@@ -1,130 +1,81 @@
 ---
 name: share-internal-doc
 description: >
-  Use only when the user asks for a document that colleagues will read without
-  this session's context: a shared report, handbook, onboarding page, research
-  write-up, decision or status memo, a Notion page, a shareable HTML file, or a
-  shared copy of an existing document (사내 공유 문서, 리포트, 핸드북, 온보딩
-  문서, 조사 보고서, 결정 메모, 공유본, 노션에 올릴 문서), or names
-  share-internal-doc. Shapes the document around one reader, keeps every claim
-  traceable to a source a colleague can open, states what the records cannot
-  show, runs a sharing pass before anything leaves the machine, and hands
-  prose, Korean, figures, and Notion styling to the skills that own them. NOT
-  for chat answers, plan files (gigio-write-plan), next-session prompts
+  Use only when asked to create, revise, or prepare a document for colleagues
+  who lack the authoring session's context, or when named. Covers shared
+  reports, handbooks, guides, and decision or status memos in any medium.
+  NOT for chat answers, plan files (gigio-write-plan), agent handoffs
   (session-handoff), PR or commit copy, external client deliverables, or prose
-  polish alone (slop-aware-writing). Never activate because a conversation
-  produced findings worth sharing or because an answer ran long.
+  polish alone (slop-aware-writing).
 ---
 
 # Share Internal Doc
 
-Produce a document that leaves this session and works for a colleague who has none of its context. Code leaves a session as a pull request; research, analysis, and decisions leave it as a document, and this skill owns that exit. The author's bar: a document that needs the conversation, another document, or in-house abbreviations to be understood is garbage. Accurate and candid content, low reading effort, and visual finish hold at once; trading one for another is the failure this skill exists to catch.
+Produce a document a colleague can understand, assess, and use without the conversation that produced it. The document carries the author's selection, explanation, and judgment, with enough support for the reader to check them. Accuracy, useful depth, low reading effort, and visual clarity belong together.
 
-## Reader brief
+Follow the user's current instructions and the project's document conventions before the defaults here. Infer the reader, purpose, distribution, language, medium, and edit scope from the request and existing material. Ask only when a missing answer would materially change the document; continue independent authorized work while it remains open. A request to review calls for findings; a request to rewrite includes completing the rewrite and its relevant checks.
 
-Settle these from the request and the material; ask only when an answer would change the document and cannot be inferred.
+## Start with the reader's question
 
-- The primary reader and the one thing they must understand, decide, or do. Secondary readers get an accessible entry point (summary, first figures) while the body keeps engineering depth.
-- Distribution: author only, team, whole company, or outside. Outside is another skill's job. Distribution decides the sharing pass and the link policy.
-- Posture. A reader deciding where to stand gets direction first (company, team, their own work, what they can own). A reader learning a field gets a primer about the field, not this company's task list. A reader asked to approve gets the recommendation, reasons, risks, and the ask, never a verdict they lack the context to render; the document carries the judgment and the measurements.
-- Language: Korean body, English technical term first with a Korean gloss at first use; figures in English when shared, translated against the project glossary rather than literally.
-- Weight matches use: a deep reference and a one-page decision aid are both valid. Not every finding needs a document, and a finished document is left alone.
+Make the subject, purpose, and main message clear near the beginning. Reports and decision memos lead with findings or recommendations. Guides introduce the task or concept the reader needs. Provide the background, definitions, and relationships needed to understand that opening; choose their placement for the actual reader.
 
-## Shape
+A colleague should not need to learn private task codes, inspect a repository, or read another report to reconstruct the main argument. Explain unfamiliar terms at first use and use stable names throughout. Links provide verification and deeper reading; they do not replace the explanation. Self-containment does not require repeating an entire reference library.
 
-Structure follows the document's purpose. The design system (type, color, citation style, figure idiom) stays constant across a set; section names and order do not. One template applied to every document is a recorded failure.
+Choose the content and order for this document. A field primer teaches the field; a project status report explains the project's state. A comparison supports a choice. Keep the design consistent across related documents while allowing their structures to follow their purposes. Keep headings short and informative; place the explanation in the content they introduce.
 
-A cold reader must be able to find seven things. They are questions the document answers, not headings it reproduces: a short memo answers several of them in one line (date, decider, sources) and expands abbreviations inline, while a long report gives each its own section. Name them for the document at hand; two documents in a set should not share a table of contents.
+## Select, connect, and judge
 
-1. What this document is: the question it answers, why it exists, its sources, who wrote it, who it is for, and the reading order. Two sentences in a memo, an opening section in a report, plus an introduction of the organization only when the reader may not know it.
-2. The summary, stating conclusions rather than topics: a bold paragraph after the date and provenance line in a short document, its own first section in a long one. Headings state the finding, not the subject.
-3. Terms: every abbreviation expanded at first mention. A glossary table only when the document leans on more than a handful of names, tiers, status words, or metrics a colleague would not already know.
-4. A reading rule, only when findings rest on records: one paragraph saying that an absent Slack, Notion, GitHub, or Linear record means the reader cannot confirm the work from the record, not that nobody did it, and that the two states call for different actions. Said once, here and inside label definitions, never as a qualifier on each sentence.
-5. The body, shaped by the format rules below. The alternatives a decision weighed stay visible.
-6. Sources and versions: what was consulted, what this supersedes, what remains open, what could not be verified.
-7. About this document: how it was produced, update history, which systems its links need, its limits. A footer line in a memo; a closing section in a report.
+Collecting facts is only part of writing. Explain what the important observations mean, why they support the conclusion, and which alternatives or unresolved issues affect it. Use only relationships supported by the material; a fluent transition must not invent causality, agreement, priority, or certainty.
 
-Patterns for each part, the memo spine for short task documents, and the research-directory header: [references/reader-and-structure.md](references/reader-and-structure.md). [assets/standalone-spine.template.md](assets/standalone-spine.template.md) lists what must be findable; merge, rename, or drop its headings to fit the document rather than filling it as a form.
+When asked for a recommendation, make one with its reasons and limitations. Give the reader enough context to exercise their decision authority. Do not hand them unexplained options or ask them to perform the analysis the document was meant to provide. Distinguish the author's recommendation from an approved decision or somebody else's proposal. When the framing is still being discussed, make the argument reviewable before investing in presentation; preserve an explicit request to discuss a draft first.
 
-## Format
+## Keep claims faithful to their support
 
-The reader knows nothing of the session that produced the document and will not read it linearly. Most readers see the first section, the figures and tables with their captions, and the last section, then stop. Write for that path.
+Use original records and inspected artifacts for material factual claims. Attribute source reports, plans, proposals, and inferences so their status is clear in ordinary wording or useful table columns. A prepared environment, an executed experiment, a validated result, and an operational deployment are different states.
 
-- Structure carries the content. Use nested bullets, tables, callouts, toggles, columns, and whatever else the target medium renders; a paragraph appears where reasoning needs connecting words, not as the default texture. Nested bullets express real hierarchy (a claim, then its condition); a paragraph chopped at sentence boundaries is not structure. Cells stay short; code-level detail collapses.
-- Every sentence earns its place. Delete what the reader loses nothing by losing: scope disclaimers that answer a question nobody asked ("X는 이 리포트의 범위가 아니다", "Y는 여기서 고려하지 않는다"), narration of the author's own steps ("A 디렉터리의 B 파일을 확인했다"), filler modifiers, headings restated as sentences, history that does not change the reading. A stated limit stays only when it changes what the reader may conclude or do. Cutting never removes numbers, sources, conditions, exceptions, or uncertainty.
-- Every skim stop carries the finding. The summary states conclusions; headings and captions state findings, not subjects; the closing section states what to do or what remains. A point that exists only inside a mid-body paragraph is invisible.
-- Flow, not inventory. A list of facts is not an internal document. Each section answers the question the previous one raised, and each paragraph opens with its point and links to the next with the reason. Stacking self-coined phrases and calling the reading the reader's job is the recorded definition of irresponsible writing.
-- Short and easy is the measure, not the author's completeness. Depth shows through architecture (a folded matrix, a sources appendix, a dense figure), never through longer paragraphs.
+Preserve numbers, units, denominators, dates, versions, conditions, exceptions, and attribution. Comparisons need comparable conditions or an explicit explanation of their differences. Keep important variation visible when providing a summary number. A citation must support the exact claim, and its target must be usable by the intended reader.
 
-Devices per medium, the sentences that go, and the flow tests: [references/reader-and-structure.md](references/reader-and-structure.md).
+State what a search or observation can establish. When missing records drive conclusions, explain the search boundary once where it affects interpretation. Finding no record does not establish that no work occurred. Keep consequential uncertainty beside the claim; avoid repeating a blanket caveat throughout the document.
 
-## Claims and their support
+## Reduce effort without thinning the work
 
-- Every material claim links to where a colleague can open the original: Slack permalink, Notion page, GitHub blob pinned to a commit, Linear issue, public source. Inside the company, local files may use the vscode scheme; a shared copy allows only links anyone with normal access can open and names no path on the author's machine.
-- Status is carried by words and table columns, never bracket tags. Work status uses 완료, 진행 중, 중단, 보관, 미확인. A claim without a source is 미확인, not guessed and not silently dropped. Quoted remarks name the speaker or mark the speaker unknown.
-- Confirmed facts, official narrative, plans, proposals, and the author's inferences stay apart in wording and placement. Internal channels rarely record bad news, so the document states the limitations the record leaves implicit, without the word "truth" anywhere in it. Rejected ideas stay marked rejected; other people's proposals are not folded into the author's.
-- Absence of a record is an observation bounded by what was searched; where absence is the finding itself (source code, filings, published papers) it stands as fact.
-- Comparisons name their conditions: base checkpoint and lineage before any capacity claim; dataset, metric, threat model, and version behind any "state of the art"; results per dimension, never one aggregate score; correlations computed before asserted; no derived number whose method cannot be stated. Vendor self-reports are labeled; unreplicated results are read down.
+Remove repetition, generic background, empty transitions, and narration of the drafting process. Preserve the facts and connecting explanation needed to understand the result. Keep limitations that change what the reader may conclude or do.
 
-Vocabularies, the maturity scale for decision-relevant claims, and the link policy by audience: [references/claims-and-sources.md](references/claims-and-sources.md).
+Use connected prose for reasoning, bullets for parallel items, steps for order-dependent actions, and tables for repeated fields or comparisons. Nest only when the hierarchy carries meaning. A table cell should remain easy to scan; move long explanation beside the table or into linked detail.
 
-## Language and tone
+Put the important conclusions and their support on the main reading path. Move supporting volume into appendices or expandable detail where the medium allows it. Do not hide a decisive condition there. Let the breadth of sources and analysis remain inspectable without making every reader traverse it.
 
-The document is dry: no strong words, no "확인 완료" badges, no imperatives to the reader, no bold for emphasis, no emoji, no em dashes, no arrows in prose. Reducing risk means removing evaluative framing while keeping facts and numbers; stacking qualifiers is the wrong repair and is itself a recorded correction.
+## Write plainly and precisely
 
-Korean follows the fluent-Korean floor: complete sentence components, particles and endings kept, sentences ending in a predicate, table cells as complete sentences. Accepted project terms come from the records `use-terminology` applies, and gaps found while writing go to `curate-terminology`; beyond those records, terminology comes from papers and practitioner usage, not from internal tickets or AI-flavored coinages; the author has named this company's own GitHub, Notion, and Linear text as a source of facts but not of wording. Titles and figure labels are noun phrases; "A가 아니라 B" appears only for a genuine redefinition. Prose quality and slop diagnosis belong to `slop-aware-writing` and Korean completeness to `korean-clarity`; load both when the session has them, and hold the floor yourself otherwise.
+Use a measured, direct voice. State actors, actions, objects, and conditions clearly. Avoid inflated judgments, invented terminology, stock contrasts, and conclusions that merely repeat the opening. Keep useful technical detail and established domain terms.
 
-## Figures
+Apply `use-terminology` and `curate-terminology` for accepted terms, expressions, and scoped corrections. Internal records establish internal facts and names; they are not automatically models of good technical writing. Preserve quotations, identifiers, and original records while correcting the explanation around them.
 
-Insightful figures are mandatory, and a conversion that strips them has failed. Each figure answers one question, carries a numbered caption ("그림 N."), and has its takeaway stated beside it. Comparisons always include the reader's own organization. ELI5 lives inside figure blocks (one familiar analogy plus the literal mapping), never as the register of the whole document. Nothing enters a figure because space was left over; the standard is the restrained diagrams on the OpenAI and Anthropic engineering blogs. Replacing a figure keeps its question while re-verifying its data. SVG, never ASCII art; a figure that reads small in a narrow column is fixed in the SVG, not by widening the page. Figures share the document's color scheme, dark unless the user asked for light: a dark canvas of their own, light ink, one accent lightened for the dark surface, so the same file reads the same on a light Notion page, in a repository, and in the dark HTML. Where the session has them, `technical-diagram` or `mermaid-diagrams` draw diagrams, `data-chart` plots measured data, and `drawio-diagram` produces native files on request; their own defaults are light, so the request to them names the scheme and the tokens, and an output that comes back light is recolored before it enters the document. Without them, write the SVG directly with the document's tokens.
+For Korean documents, the default is Korean explanation with established English technical terms where they aid precision and lookup. Keep necessary particles, predicates, and logical relations. Headings, labels, and table cells can remain phrases when their meaning is complete in context. Use `slop-aware-writing` for prose revision and `korean-clarity` for Korean clarity when available; retain these principles when they are not.
 
-## Medium
+## Explain visually where it matters
 
-Markdown is the canon; HTML is a generated reading layer rebuilt by script, never hand-edited.
+Actively look for relationships, mechanisms, comparisons, and changes that a figure would make easier to understand. Preserve the question and useful information in existing figures during revision or conversion. A document that depends on a figure is incomplete when that figure disappears.
 
-| Reader and use | Medium |
+Each figure needs understandable labels, a clear reading order, and a caption or adjacent explanation of its takeaway and relevant conditions. Explain unfamiliar ideas at an accessible level where needed; use an analogy only when the literal relationship remains clear. Check legibility in the delivered medium. A short memo may need only a paragraph or table.
+
+## Read the relevant supporting guidance
+
+| Situation | Read |
 | --- | --- |
-| Handoff material another agent or session consumes | A directory of per-topic Markdown files |
-| Desktop research or analysis report | Single-file HTML, wide layout (about 1180 to 1700 px, sticky table of contents, chart beside text) |
-| Document-shaped page for the company | A Notion page written through the Notion MCP with native blocks, or single-file HTML at reading width (about 720 px) in the dark scheme; the `notion-doc` canon (a light template, template classes only, lint clean) when the user asks for it |
-| Working notes, dashboards, knowledge bases | Markdown in the repository; a knowledge base is a linked graph, not a numbered report |
+| Choosing structure, depth, or a reading path | [Reader and structure](references/reader-and-structure.md) |
+| Reporting findings, sources, status, or comparisons | [Claims and sources](references/claims-and-sources.md) |
+| Choosing a medium, rendering, converting, or placing figures | [Medium and figures](references/medium-and-figures.md) |
+| Preparing content for its intended recipients | [Sharing pass](references/sharing-pass.md) |
+| A recurring writing failure needs a concrete repair | [Editorial examples](references/editorial-examples.md) |
+| Maintaining or changing this skill | [Sources and provenance](references/sources.md) |
 
-Shared HTML opens offline on Windows: fonts embedded, no external scripts or stylesheets, figures inline. Notion pages are edited only through the MCP or plugin, never browser automation, and re-fetched after large replacements because partial writes have happened. Claude Artifacts are a design reference, not the destination.
+The [standalone review questions](assets/standalone-spine.template.md) support a cold read; they are not a document outline. Formatting and delivery details belong to the chosen medium. Preserve the established source of truth rather than converting every document to Markdown or HTML.
 
-The color scheme is dark by default for the page and everything in it: dark canvas, light text, grey plus one accent, figures drawn on the same canvas. Light is a separate render made only when the user asks for it or names print, and the page does not follow the reader's operating-system theme unless the user asked for an adaptive page. Notion sets its own theme, which is why figures placed there carry their own dark canvas. Layout numbers, color tokens, and Notion rules: [references/medium-and-figures.md](references/medium-and-figures.md).
+## Verify and finish the requested work
 
-## Sharing pass
+For a new or substantially restructured document, use an isolated reader when delegation is authorized and available. Give that reader the document and intended audience, without the drafting conversation. Check whether they can explain its main point, reasons, important limits, and relevant next action, and identify hidden assumptions or contradictions. Otherwise perform the same read directly and state any material verification limit. A reader test does not prove factual accuracy.
 
-Before a document leaves the author's machine, and again after any rewrite, run [references/sharing-pass.md](references/sharing-pass.md). It is a required stage because the cost of skipping it lands on the author.
+Check changed claims against their sources. After rendering or conversion, inspect the actual output for missing content, figures, captions, links, and unreadable layout. When publication is requested, retrieve the published result and check that the intended content arrived. Fix material failures and complete the required project checks; repeat checks only for a relevant change or unresolved concern.
 
-1. Two questions, answered separately: would this embarrass the company, and would this embarrass the person posting it.
-2. People: facts keep real names; evaluations of attitude, ability, or workload become structural statements; customer names and ticket numbers stay so the responsible person can act; named colleagues see their passages before wider circulation.
-3. Strip credentials, coordinates of confidential data, anonymous-review submissions, reproducible bypass values, personal HR details, named competitor mockery, offensive payloads, the author's positioning or political calculus, and wording that reads as surveillance.
-4. Depersonalize: second-person and "about my role" framing become role language; timestamps and tool fingerprints are generalized, not deleted with a hole; session narration moves to a methods appendix in reader language.
-5. Removed coordinates go to the security owner separately, never with the document.
-
-Internal-only sharing keeps internal key and system names; the pass then concentrates on claims stated more strongly than the record supports.
-
-## Finish
-
-- Cold read: give the document alone to a fresh-context reader (a subagent with none of this session) with five to ten questions a colleague would ask, plus "what does this assume I already know" and "where does it contradict itself". Fix what fails.
-- A large rebuild starts with a short plan for review. Reused material gets its terminology and structure fixed on the way in; the work neither starts from zero nor imports the old wording.
-- Report the absolute path of every file written or changed and the URL of every page published. Record verdicts and decisions in the repository document, not only in chat.
-- A document in a repository closes with `commit-and-push`; one that needs review, with `draft-pr`.
-
-## Neighbors
-
-| Skill | Owns |
-| --- | --- |
-| `slop-aware-writing`, `korean-clarity` | Prose, slop diagnosis, voice, Korean completeness (outside the pack; named when installed) |
-| `notion-doc` | Notion block vocabulary and the 720 px HTML template (outside the pack) |
-| `technical-diagram`, `mermaid-diagrams`, `data-chart`, `drawio-diagram` | Producing the figures (outside the pack; their defaults are light, so each request names the dark scheme) |
-| `session-handoff`, `small-model-handoff` | A prompt for the next session or a weaker model; this skill hands work to colleagues |
-| `gigio-write-plan` | Plan files under `.plans/` |
-
-## Gotchas
-
-- After the absence-of-record rule, the tempting repair is a qualifier on every sentence. The recorded correction was "just keep it dry": one reading rule up front, conditions inside label definitions, nothing else.
-- Cutting prose has repeatedly been misread as cutting depth. A concise document that hides its research reads as "not much was investigated"; the fix is architecture (collapse, nesting, tables), not more paragraphs.
-- ELI5 over the whole document was rejected three times; a section template imposed on every document was rejected the day after the author dictated it; a Notion conversion that dropped a report's figures read as personal notes.
-- Delegated figures arrive light unless the request names the scheme, and the first documents were rejected as too bright for exactly this reason. Name the scheme and the tokens in every figure request, and check each render on the canvas it will sit on.
+Run the sharing pass for the intended audience. Deliver the finished artifact and its path or URL, with only the limitations that affect its use. Preserve original records and unrelated work. Continue through `commit-and-push` or `draft-pr` when the user's request includes those actions. Preparing a document does not itself authorize sending messages, publishing it, or reinstalling skills.

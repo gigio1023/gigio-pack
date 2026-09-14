@@ -1,142 +1,57 @@
 # Reader and Structure
 
-Load this when deciding how a document opens, how it is sectioned, or how much to cut. Every pattern here came from a correction the author made on a real document; the dates are in [sources.md](sources.md).
+Use this when deciding what a document should explain, how it opens, and how to preserve depth while reducing reading effort.
 
-## Contents
+## Choose the reader's job
 
-- Readers seen so far
-- Summary placement
-- Memo spine for short internal task documents
-- Long report spine
-- Research directory header
-- Structure over prose, without losing depth
-- The reading rule paragraph
-- Format devices by medium
-- Sentences that go
-- The skim path
-- Flow tests
-- Existing material
-
-## Readers seen so far
-
-| Reader | What they need first | Shape that worked |
-| --- | --- | --- |
-| A new engineer deciding where to stand | Direction: where the company is going, what the team must become, what they can own | Part 1 judgment (company, team, individual, ownable work), each point backed by two to four linked sources; Part 2 "근거와 세부" holds the findings |
-| An engineer learning a field the company works in | A primer about the field, its central papers, and how the state of the art shifted (or a statement that it did not) | Chapters by concept with a role-based reading path at the top ("독자의 질문 | 읽을 장"); the company's own tasks appear as examples, not as the spine |
-| A decision maker asked to approve or choose | The recommendation, the reasons, the risks, the ask, and the alternatives that were weighed | Summary paragraph, then reasons of the same kind, then the option table with the chosen option marked and why it was not trivial |
-| A colleague picking up a task or a plan | The one product decision, the representative task, the completion artifact | The memo spine below; proposals labeled as proposals |
-| Anyone at the company opening a shared HTML file from Notion | Enough to understand it with no other document open | The standalone spine in the skill body plus the glossary and reading rule |
-
-The reader never does the author's judging. A document that asks its reader for section-by-section verdicts on work they have not done was rejected with "판정을 내가 왜 맡아, 맥락도 모른다". Hand over measurements and reproducible assets; state the judgment yourself.
-
-## Summary placement
-
-- Under roughly three screens: a bold paragraph directly after the title, date, and provenance line ("2026-09-09 재검토 · 대상: … · 모델 성능은 원문 보고값이며 이번에 추론을 다시 실행하지 않았다."). No "Executive Summary" heading.
-- Longer: a numbered first section ("1. 한 장 요약" or "요약") with the key findings numbered, after the "이 문서와 배경" block.
-- In both, headings and figure titles state the finding. "Q3 매출" is a subject; "Q3 매출 23% 증가" is a finding.
-- Read the headings alone in order. If they do not tell the story, the structure is wrong.
-
-## Memo spine for short internal task documents
-
-Used for work proposals, task selection, and follow-ups. The author names this style after a personal repository whose writing it imitates. Target about 8 KB.
-
-1. Title.
-2. One line with date and decider.
-3. Two or three sentences that open with the question the work answers.
-4. One mermaid diagram that explains the mechanism at ELI5 level.
-5. Background.
-6. Why now.
-7. What will be built, as one product decision, one representative task, and one completion artifact. Three vague proposals blended together were rejected as "셋다 너무 애매하고 모호하다".
-8. The first two weeks, then what follows.
-9. When the work touches another team: the first sentence to say to them, as a polite blockquote.
-10. Grounds, with links.
-11. One line of limits and what was not confirmed.
-
-When the memo proposes work in another team's area, the tone rules are fixed: justification first, tied to the author's actual role and to a company direction document; curiosity, authorship, and GPU appetite are not reasons. State the non-intervention rules (no new access requests, no touching their branch, data, or meetings, deliver once in writing, drop it if there is no response, the decision is theirs). Size the tasks at half a day to two days, at most three, the last one conditional on the other side opening the door. Place it after the first- and second-priority schedule. Phrase the offer as "wrote this, use it if useful", never "I want to own this".
-
-Plans must be executable by the author alone. A step that waits for someone's approval, consultation, or answer is close to disallowed; substitute the closest public option and label the substitution.
-
-## Long report spine
-
-0. 이 문서와 배경: what the document asks, who the organization is, how the investigation was done and its limits, the glossary, and the reading order.
-1. 한 장 요약.
-2. Numbered chapters, each opening with its finding.
-3. 부록: 방법·한계, and where relevant the reconstructed timeline.
-4. 이 문서에 대해: generation method, update history, link conditions, limits.
-
-The names above are one report's; a second report in the same set names and orders its sections for its own question. Chapters that classify findings by the kind of record behind them (for example "티켓 없음" versus "죽은 티켓") make the reading rule concrete instead of abstract.
-
-## Research directory header
-
-Every research directory README opens with seven fields: 목적 (the question), 상태 (완료 / 진행 중 / 중단 / 보관 / 미확인), 기준 시점 (the date or revision the facts were checked at, distinct from the file's modification date), 먼저 읽을 자료, 근거 (where the raw material, collection log, corrections, and counter-reviews live), 판본 관계 (what this supersedes and how it differs from later drafts), 다음 작업 (or the statement that none remains).
-
-## Structure over prose, without losing depth
-
-The complaint was never "there is prose"; it was "almost every section is unbroken prose and that is exhausting". The repairs:
-
-| Cut | Keep |
+| Reader's job | What the document provides |
 | --- | --- |
-| Repetition in a different form (the same fact in prose and again in a table) | Numbers, units, denominators, periods |
-| Sentence-shaped labels ("이 절에서는 … 설명한다") | Conditions, exceptions, requirement levels |
-| Project history that does not change the reading | Sources and their links, even when trimming hard |
-| Narration about how the document was produced ("이전 집계의 오류", "복구했다", "헤드리스") | Uncertainty and what could not be verified |
-| Interactive chrome a document does not need (tabs, buttons, badges, tags, emoji in titles) | The alternatives a decision weighed |
+| Understand a field | The central problem, important concepts and sources, how approaches differ, and what changed. Company work is an example when relevant. |
+| Understand an investigation | The question, observations, interpretation, material uncertainty, and implications. |
+| Choose or approve | A recommendation, reasons, alternatives, trade-offs, and the decision being requested. |
+| Understand current status | What is finished, underway, or unresolved; the supporting result; and the next action when known. |
+| Perform a task | Preconditions, actions in their necessary order, expected result, and supported recovery advice. |
+| Pick up work | The objective, current state, relevant artifacts, ownership that is actually established, and next useful action. |
 
-Bullets are for parallel items. Nesting expresses real hierarchy (parent claim, child condition). A table cell holds one short statement; long content moves to collapsed detail under the row or to a chapter. Code-level knowledge collapses under toggles so that the mechanism and its figure stay in front. Dividers and whitespace separate sections; header colors help scanning in Notion.
+Infer the audience's knowledge from the request and existing documents. Write a usable entry point for less specialized readers while preserving the depth the primary reader needs. Accessibility does not require treating an entire technical report as a children's explanation.
 
-The visible research depth matters. A concise document that reads as "조사 얼마 안했네" fails even when accurate. Depth is shown through architecture: a large comparison matrix folded in as a collapsible chapter, an appendix of sources, figures that carry many data points legibly. It is not shown through longer paragraphs.
+## Make the document stand alone
 
-## The reading rule paragraph
+The reader should be able to identify the subject, why it matters, what is being claimed, how the claim is supported, and what remains uncertain. Include authorship, dates, version relationships, methods, or access conditions when they affect interpretation or use.
 
-Place it after the glossary and before findings, in the document's own words. The shape that was accepted:
+These are content needs, not mandatory headings. A short memo can satisfy several in two sentences. A long report can introduce unfamiliar concepts before developing its findings. Do not add an organization introduction for readers who already know the organization.
 
-> 이 문서에서 "티켓이 없다"는 말은 Slack, Notion, Linear 세 곳 어디에도 그 일을 추적하는 항목이 보이지 않는다는 뜻이지, 아무도 그 일을 하지 않는다는 뜻이 아닙니다. 새로 온 사람이 문서로 확인할 방법이 없다는 문제는 티켓을 만들면 풀리고, 실제로 아무도 안 하고 있다는 문제는 담당자를 정해야 풀립니다.
+A summary should convey conclusions rather than promise topics. Keep it near the top of a report without duplicating it before and after a background section. Use headings that reveal findings in analysis and headings that support lookup or action in guides. Choose wording for navigation and meaning rather than a universal sentence pattern.
 
-Counts that were taken directly from files and commits are facts and need no such rule; the rule applies to judgments about discussion, agreement, ownership, and response.
+Self-containment and traceability serve different purposes. Explain enough in the document to understand the argument; link the original for verification, detail, and reuse. An accessible source appendix cannot repair a missing explanation in the body.
 
-## Format devices by medium
+## Compose the argument
 
-| Medium | Devices to reach for |
+Choose the facts that answer the reader's question, then explain the connection that makes them relevant. A conclusion with a source link but no necessary reasoning can still leave the reader doing the author's work. Keep alternative explanations and contrary results when they could change the recommendation.
+
+A list is useful for independent items. A sequence is useful when order matters. Prose explains why observations support a conclusion or why one option was chosen. Do not turn each sentence into a bullet and call the result structured.
+
+Read section headings and opening sentences together. They should reveal the document's purpose and main argument or navigation path. A section with no role in that path needs a reason to stay. Related documents may share structure when they answer the same kind of question; do not impose sameness or artificial variation.
+
+## Preserve depth through organization
+
+| Usually remove | Preserve when material |
 | --- | --- |
-| Markdown (GitHub, repository) | Nested bullets, tables, blockquote callouts, `<details>` for long detail, horizontal rules only between major parts, fenced code for copyable input |
-| Notion | Toggles, callouts in the five template colors, tables at full text width, two-column layout for a figure beside its reading, dividers, colored headings for scanning |
-| HTML report | Sticky table of contents, collapsible sections, chart beside its interpretation, tables in a scrolling wrapper, inline SVG with a `<title>` per element |
+| The same conclusion restated in a heading, paragraph, table, and ending | The supporting observations and necessary explanation |
+| Generic benefits and background that could fit unrelated topics | Concrete mechanisms, comparisons, and reader-relevant context |
+| Narration of searches, tool use, recovery, or drafting | Method details that affect reliability or reproducibility |
+| Unprompted declarations of what the report does not cover | Conditions, exceptions, and limits on the conclusion |
+| Long prose inside table cells | Numbers, units, dates, denominators, and source links |
+| Empty categories and decorative interface elements | Evidence of research breadth that a reader can inspect |
 
-Prose still appears: to carry an argument across two or three linked claims, to explain why an option lost, to introduce a table whose reading is not obvious. It does not appear as the default texture of a section.
+Use an appendix, linked reference, or expandable section for supporting volume. Keep the recommendation, reasons, decisive uncertainty, and necessary definitions visible without opening every detail. The main document must still work in a medium without toggles.
 
-## Sentences that go
+A scope sentence earns its place when it prevents a plausible misreading. A methods section earns its place when it helps assess the result. A change history belongs in an incident timeline, decision record, release note, or other document whose purpose includes change; ordinary reports should explain the subject rather than narrate their edits.
 
-Delete a sentence when the document loses nothing without it. The recurring kinds:
+## Reuse and revise
 
-- Scope disclaimers that answer a question nobody asked: "X는 이 리포트의 범위가 아니다", "Y는 여기서 고려하고 있지 않다". Keep a limit only when it changes what the reader may conclude or do, and then put it where the reader meets the affected claim.
-- Narration of the author's own steps: "A 디렉터리에 있는 B 파일을 확인했다", "세 소스를 교차 확인했다". Sources belong in links and the sources section, not in the body as activity.
-- Headings restated as sentences: "이 절에서는 평가 결과를 설명한다".
-- Filler modifiers and intensifiers that carry no measurement: 매우, 상당히, 다양한, 여러, 관련된.
-- Meta narration about the document's own production or earlier drafts: "이전 집계의 오류를 정정했다".
-- Conclusion echoes that restate the body under "정리하면".
+Inspect existing material before starting over. Preserve useful information, sources, and figures; recheck stale claims and rewrite terminology or structure that caused the reader's problem. Do not inherit a poor outline just because its facts are useful.
 
-Removing these never removes a number, a source, a condition, an exception, or a statement of uncertainty.
+Keep completed passages that already meet the request. When a substantial rewrite is authorized, complete it with source and output checks. Explain a consequential change of direction; do not add a new approval stage solely because the rewrite is large.
 
-## The skim path
-
-Assume the reader opens the document, reads the first section, looks at every figure and table with its caption, reads the last section, and stops. Each stop must carry the finding on its own:
-
-- First section: the conclusions, in the order of their weight.
-- Figures and tables: an action caption ("그림 2. 정책 수가 늘수록 차단 지연이 선형으로 늘어난다") and one sentence of takeaway beside it, so the figure reads without the body.
-- Last section: what to do, who decides, what remains open.
-
-A point that appears only inside a paragraph in the middle of the body will not be read; either promote it to one of the stops or accept that it is background.
-
-## Flow tests
-
-- Read the headings alone, in order. They should tell the story without the body.
-- For each section, name the question the previous section left open; the section answers it. A section that answers no open question is an inventory item and moves to an appendix or goes.
-- Each paragraph opens with its point. The first sentence of a paragraph, read alone, should be a claim the rest supports.
-- Adjacent claims connect with the reason (because, so, which means, however). A connector that states a relation the sources do not establish is a false claim, not a transition.
-- A run of bullets that a reader could reorder without loss is a list, and belongs in a table or an appendix; findings that depend on each other are prose or a numbered sequence.
-
-## Existing material
-
-Reuse rather than restart: existing research files and reports are valid sources whose terminology, structure, and prose are usually poor. Take the information, not the wording, and record terminology corrections in the project's terminology file instead of rewriting every old document. A finished document that already meets the bar is not polished further; editing intensity follows the document's state, not a uniform pass.
-
-Before any large rebuild, submit a short plan (which documents, which sections, which figures) and wait for the review. Work that ran ahead of that review was halted twice.
+Historical examples of a memo length, a seven-field directory header, or a proposal constrained to another team's invitation are project-specific patterns. Apply them when the current project or request calls for them, rather than treating them as requirements for every shared document.

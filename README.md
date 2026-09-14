@@ -90,7 +90,7 @@ Both terminology skills apply on every task, including tasks that do not mention
 | [commit-and-push](skills/commit-and-push/) | Close-out commits and safe pushes, leaving unrelated worktree changes untouched |
 | [draft-pr](skills/draft-pr/) | Publishes, updates, or explicitly squash-merges a real GitHub or Forgejo PR through authenticated `gh` or `fj`, draft or work-in-progress by default |
 | [session-handoff](skills/session-handoff/) | Packages live work as one executable prompt file for the next session |
-| [share-internal-doc](skills/share-internal-doc/) | Shapes research, analysis, and decisions into a document a colleague can read without the session: one reader, claims traceable to sources a colleague can open, a reading rule for what records cannot show, a dark color scheme unless light is asked for, and a sharing pass before it leaves the machine; prose, Korean, figures, and Notion styling delegated to the skills that own them |
+| [share-internal-doc](skills/share-internal-doc/) | Creates and revises documents colleagues can understand without the session: reader context, supported conclusions, useful depth, clear language, explanatory figures, and appropriate sharing. Applies across media, with conditional rendering and delivery guidance. |
 
 The two handoff skills are a deliberate pair: `session-handoff` hands work to the **next session**, `small-model-handoff` hands bounded work to a **weaker model**. The target is in the name. `share-internal-doc` is the third exit: code leaves a session as a PR, findings leave it as a document.
 
@@ -195,7 +195,7 @@ The shortest version: put intent and record format in the durable layer, never c
 - Terminology curation and application skills added 2026-09-10 from a completed project workflow; package validation is separate from runtime behavior testing.
 - Core-loop skills authored 2026-07-26 to the `skill-builder` contract kept in agent-skills; migrated skills keep their original bodies plus a minimal interlock pass (sibling references, next-station pointers, plan-file awareness).
 - Dual-reviewed 2026-07-26 by two independent reviewers from different model families; all confirmed findings fixed, reviewed-and-kept verdicts recorded in [docs/rule-ledger.md](docs/rule-ledger.md).
-- `share-internal-doc` authored 2026-09-09 as `write-internal-doc` from a harvest of the author's own document corrections across four harnesses and a survey of about thirty public documentation skills; renamed 2026-09-10, the day dark became its default color scheme; not yet piloted.
+- `share-internal-doc` was authored 2026-09-09 as `write-internal-doc` and renamed 2026-09-10. The 2026-09-14 revision revisits original Codex and Claude Code corrections, separates document principles from medium-specific delivery, and applies official Astra prompting guidance. Static checks and historical feedback are recorded; a new behavioral pilot has not been run.
 - **Not yet piloted.** Nothing is marked done until two pilot projects pass. They measure whether parallel writing actually pays off, whether the plan file carries enough for handoff between workers, which steps the lead demonstrably did not need, and what the acceptance field gets filled with outside ordinary code work.
 
 ## Local development
