@@ -24,7 +24,20 @@ Private working records retain the exact quotations, session identifiers, dates,
 | Screen documents and figures were too bright. | Preserve the dark presentation default where styling is controlled, with requested light and print treatment. | The September 10 request addressed the skill's default, not only one report. |
 | A polished report arrived before the author could resolve its framing. | Make the argument reviewable when the user is still discussing it. | An explicit draft-review request remains binding; routine authorized rewriting needs no new approval stage. |
 
-The current request explicitly asks for principles that apply across media, English instruction text informed by Astra guidance, and a draft PR. It supports restructuring the package and its coupled references; it does not imply a global reinstall or publication of private source records.
+The September 14 request asked for principles that apply across media, English instruction text informed by Astra guidance, and a draft PR. It supported restructuring the package and its coupled references, not a global reinstall or publication of private source records.
+
+## Reader-value refinement on 2026-09-15
+
+Further direct feedback rejected accurate but unhelpful explanations of fixed snapshots, missing-record distinctions, chart selection, overlapping marks, and caption/filter behavior. These passages explained the author's precautions or the interface instead of the subject. This refines the earlier instruction to state a reading rule once: even one generic paragraph is unnecessary when precise claim wording, a date, or a local label already supplies what the reader needs.
+
+The revision keeps a qualification when it changes interpretation, a decision, or a safe action. It removes reader-irrelevant definitions and self-appraisal, and treats deletion as a valid endpoint rather than relocating every sentence. Generalized examples retain the editorial decision without private source records or identifying details.
+
+Read on 2026-09-15 through a public text reader:
+
+- [Ten reasons your vibe-coded dashboard looks terrible](https://kucharski.substack.com/p/ten-reasons-your-vibe-coded-dashboard), published September 2, 2026: a worked critique of a dashboard lacking a user question, visual hierarchy, readable measures, consistent styling, and selection of useful information.
+- [GeekNews discussion and summary](https://news.hada.io/topic?id=33651), published September 14, 2026: the supplied route to the original article, not independent corroboration.
+
+Applied here: useful initial views, deliberate visual emphasis, comparable quantities, intelligible local labels, and removal of redundant panels and data dumps. The article's preferences about particular fonts and colors are not universal prohibitions; the user's dark screen default remains. Filtering and caption consistency are local design requirements prompted by the feedback, not a claimed experiment from the article. These sources support editorial choices, not measured performance of this skill. No dashboard implementation or new model trial was performed for this revision.
 
 ## Official prompting sources
 

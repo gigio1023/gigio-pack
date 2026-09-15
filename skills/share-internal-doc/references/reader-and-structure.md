@@ -46,7 +46,22 @@ Read section headings and opening sentences together. They should reveal the doc
 
 Use an appendix, linked reference, or expandable section for supporting volume. Keep the recommendation, reasons, decisive uncertainty, and necessary definitions visible without opening every detail. The main document must still work in a medium without toggles.
 
-A scope sentence earns its place when it prevents a plausible misreading. A methods section earns its place when it helps assess the result. A change history belongs in an incident timeline, decision record, release note, or other document whose purpose includes change; ordinary reports should explain the subject rather than narrate their edits.
+A scope sentence earns its place when omitting it would plausibly change this reader's conclusion or action. Accuracy alone is not enough. A methods section earns its place when it helps assess or reproduce the result. A change history belongs in an incident timeline, decision record, release note, or other document whose purpose includes change; ordinary reports should explain the subject rather than narrate their edits.
+
+## Choose what deserves explanation
+
+Ask what this reader would misunderstand or do differently without the passage. Keep the answer concrete: a changed comparison, an unsafe action, an unfamiliar concept essential to the argument, or a reason for the recommendation. Possible objections to the author's diligence are not a reader need.
+
+| Candidate | Treatment |
+| --- | --- |
+| A definition the intended audience already knows | Delete it. Explain an unfamiliar or nonstandard meaning briefly where it first matters. |
+| A generic statement that records can be incomplete | Delete it. Bound a specific consequential finding instead. |
+| A report's fixed date or refresh behavior | Use a date or freshness label when needed; explain staleness only when it affects use. |
+| Instructions for clicking, hovering, filtering, or reading a symbol | Prefer an intelligible label, legend, or control. Keep essential unfamiliar help local to the interaction, not in the report's argument. |
+| Claims that the report is rigorous, comprehensive, carefully checked, or easy to use | Delete self-appraisal; let the findings, sources, and usable design demonstrate those properties. |
+| A condition that changes a ranking, recommendation, or safe action | Retain it beside the affected conclusion, even when that takes another sentence. |
+
+Deletion is a complete repair for content that serves no reader need. Do not preserve it in a tooltip, methods appendix, or closing caveat solely because it is true. Move material only when another legitimate reader task needs it there. Keep a substantial explanation when the reader needs its reasoning; brevity is not a reason to hide an unresolved conflict or meaningful failure.
 
 ## Reuse and revise
 

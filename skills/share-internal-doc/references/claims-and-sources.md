@@ -31,13 +31,13 @@ A maturity classification is useful only when it changes a decision. If needed, 
 
 State which sources, period, and relevant search limits support a negative finding. A missing item in a specific repository revision can establish absence in that revision. It cannot establish absence throughout an organization or field.
 
-When a report depends on organizational records, explain once that a search cannot establish everything discussed or done outside those records. Put the condition into ambiguous labels and retain local qualifications where claims differ. Repeating a blanket uncertainty phrase after every sentence makes the finding harder to understand.
+Depending on organizational records does not itself require a paragraph about their incompleteness. State the actual bounded finding, such as a missing completion log, rather than classifying the work as stopped. Name the searched period or source where it changes interpretation. If wording, a date, or a status column already carries the distinction, no extra explanation is needed. Keep a local qualification when omitting it would change the recommended action; avoid blanket uncertainty prose even when stated only once.
 
 Keep the observation and its consequence separate: inability to verify ownership may call for clarification; confirmed lack of an owner may call for assignment. Do not invent the second from the first.
 
 ## Report numbers and comparisons
 
-Preserve units, denominators, populations, periods, versions, and the definition of each metric. Distinguish percentage points from relative percentage changes, attempts from unique cases, and prepared cases from executed cases. State exclusions and failed runs when they change interpretation.
+Preserve units, denominators, populations, periods, versions, and the metric meaning needed for comparison. Define nonstandard metrics or measurement boundaries where they affect interpretation, not familiar terms for their own sake. Distinguish percentage points from relative percentage changes, attempts from unique cases, and prepared cases from executed cases. State exclusions and failed runs when they change interpretation.
 
 Compare like conditions or explain the differences before drawing a conclusion. In model reports, include the relevant checkpoint and training lineage, dataset, task, metric, and evaluation settings. A best-performing claim is bounded by those conditions.
 
@@ -51,4 +51,4 @@ Use the source form the reader can access: an original document or attachment, a
 
 Personal filesystem paths and private ledger codes are suitable for an author-only working record. They are not working citations in a document sent to colleagues. When access is restricted, provide an approved summary or clearly describe the access limit without disclosing confidential locations.
 
-Keep the checked-at date distinct from an event date or file modification date. Record version relationships where a reader could otherwise use superseded results. Preserve quotations and archived originals; correct current explanation without silently altering the historical record.
+Keep the checked-at date distinct from an event date or file modification date. Record version relationships where a reader could otherwise use superseded results. A dated report usually needs no warning that it does not refresh automatically. When stale data could change a present action, place the relevant date or warning by that action. Preserve quotations and archived originals; correct current explanation without silently altering the historical record.
