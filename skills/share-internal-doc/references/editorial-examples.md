@@ -38,9 +38,32 @@ Do not replace forced sameness with forced difference. Reuse a structure when th
 
 Weak: “No issue exists, so nobody is responsible.” A later rewrite adds “possibly,” “unconfirmed,” and a confirmation badge to every sentence.
 
-Repair: state the searched sources and what their absence can establish. Describe the actual observation plainly. Keep a specific limitation where it affects the recommended action.
+Repair: describe the actual observation plainly, such as a missing ownership entry in the named tracker. Keep the search boundary or a specific limitation where it affects the recommended action. Do not replace repeated qualifiers with a mandatory paragraph explaining that records can be incomplete.
 
 The report should distinguish a tracking gap from confirmed absence of ownership without making every sentence a disclaimer.
+
+## Accurate explanations that do not help the reader
+
+The following are generalized editorial examples, not source quotations. The question is whether the information belongs, not how to make every sentence sound shorter.
+
+| Weak reader-facing text | Repair |
+| --- | --- |
+| “This report reads a fixed snapshot and does not automatically update later execution status.” | Delete the paragraph in an ordinary dated report. If freshness matters, use a source-date label; keep a stale-data warning only where a current action depends on it. |
+| “Items whose completion could not be confirmed are distinguished from items that actually stopped.” | Make the status values accurate, for example “Completion log unavailable” versus “Stopped.” Explain the difference only if this reader needs it to act. |
+| “Click a point or bar to pin the model and execution settings. Numbered squares list overlapping results.” | Remove the UI tour from the report. Prefer an evident selection panel and a clear overlap label, or simplify the marks; keep necessary unfamiliar help beside the control. |
+| “Captions explain the fixed comparison; after filtering, current row counts appear above each chart.” | Remove the narration. Make filter state and counts visible where relevant, and ensure captions describe the displayed results or a visibly separate fixed view. |
+| “Latency means the time between sending a request and receiving its response.” | Delete it for an audience already using that term. Define a nonstandard timing boundary if it changes the comparison. |
+| “This carefully validated, comprehensive report provides an intuitive overview.” | Delete without replacement. State the actual finding and its support. |
+
+Counterexample: “Timeouts are excluded from the latency median; the failure rate includes them.” Keep this beside the comparison when it changes how a lower median should be interpreted. Removing defensive prose must not hide a denominator change.
+
+## A report disguised as a dashboard
+
+Weak: equal-weight cards repeat a headline count, a large scatter plot occupies the opening because two numeric columns were available, and a sortable full-data table leaves the reader to discover the result.
+
+Repair: identify the question, state the supported finding, and select the comparison that explains it. Put the decisive view first, give related detail less emphasis, and remove panels that add no new relationship. Keep row-level records available when needed for verification or exploration. An exploratory request may need controls, but their initial state should make a useful question visible.
+
+Do not replace a crowded dashboard with an unsupported slogan. The figure, necessary comparison conditions, and reason for the interpretation still do the explanatory work.
 
 ## Status stronger than the result
 
