@@ -1,52 +1,48 @@
 # Sources and Provenance
 
-Where the rules in this skill came from, so a later edit can check whether the reason still holds.
+This reference records why the skill's rules exist and which guidance informed their wording. It is for maintenance, not a prerequisite for writing each document.
 
-## The author's own corrections
+## User feedback revisited on 2026-09-14
 
-The skill was distilled on 2026-09-09 from the author's agent sessions between 2026-09-02 and 2026-09-09 across Claude Code, Codex CLI, Hermes Agent, and the repositories they touched (OpenCode held no sessions). Eight harvest lanes read every user turn in about 1,900 Claude Code transcripts, 133 user-originated Codex rollouts and 64 Codex memory summaries, 41 Hermes sessions, 45 Claude memory files, and the repository-side conventions. The Korean working record with verbatim quotes, file paths, and timestamps lives outside the published pack in `docs/design/internal-doc-skill/` (gitignored). The counts below are corrections of a produced document, not mentions.
+The original skill was assembled on 2026-09-09 from document corrections and local conventions across several agent systems. It was renamed from `write-internal-doc` on 2026-09-10. The earlier collection remains historical input; its corpus totals and repetition counts are not new verification results.
 
-| Rule | First correction | Repeats | Note |
-| --- | --- | --- | --- |
-| Document self-contained, no session or abbreviation dependency | 2026-09-03 | 8 or more, four harnesses | "이해되는 문서는 쓰레기야" |
-| Summary first, structure over prose, depth kept | 2026-09-03 | 6 or more | Over-cutting corrected three times |
-| Absence of record is not absence of work | 2026-09-05 | 3, then reinvented in two later reports | One report's counts were corrected for this reason |
-| Dry tone, no stacked qualifiers, no badges | 2026-09-05 | 2 | Nine minutes after the absence rule |
-| Every claim linked; shared links restricted by audience | 2026-09-03 | 5 or more | 225-link report; local-path ban 2026-09-05 |
-| No bracket status tags | Repository rule, 2026-09 | Standing | Status as words or table columns |
-| Content decides sections; design system constant | 2026-09-04 | 2 | Reversed the author's own template of the previous day |
-| ELI5 only in figures | 2026-09-03 | 3 | |
-| Figures mandatory, restrained, English when shared | 2026-09-04 | 6 or more | Blog diagrams named as the standard |
-| Sharing pass, two axes | 2026-09-05, 2026-09-06 | 2 rounds | Internal key names kept for internal sharing |
-| Notion through MCP only; Markdown canon, HTML generated | 2026-09-04 | 4 | Partial write of 100 of 192 items observed |
-| Terminology from the field, not from internal tickets or AI coinages | 2026-09-04 | 5 or more | Company's own text named as slop wording |
-| Plan before a large rebuild | 2026-09-04 | 3 | Work halted twice |
-| Format: structure over prose, empty sentences deleted, written for the skim path, logical flow over an inventory of facts | 2026-09-03 | 6 or more; restated as a standing rule 2026-09-10 | "사실 열거한다고 사내 문서가 아니다" |
-| Proposals executable alone; other teams asked for nothing | 2026-09-07 | 4 | |
-| Dark color scheme for pages and figures; light only when asked for or for print | 2026-09-10 | Direct instruction, this session | Reversed the harvested "light unless asked" line; the figure skills delegated to default to light, so requests to them carry the scheme |
+The 2026-09-14 revision revisited original Codex and Claude Code user turns and adjacent drafts through four bounded collection lanes. The inspected material spans September 2–14. Discovery used indexes and transcript screening; selected conversations received deeper reading. Fork copies, streamed duplicates, pasted skill instructions, and assistant statements were not counted as independent user preferences. This was not an exhaustive semantic review of every stored session.
 
-## External skills consulted
+Private working records retain the exact quotations, session identifiers, dates, source lines, collection limits, and conflict analysis outside the published skill. The package carries their reusable conclusions without private transcript paths or organization-specific case details.
 
-About thirty public skills were cloned and read on 2026-09-09. Nothing was adopted wholesale; the items below name what was taken. Full verdicts are in the local survey record.
-
-| Source | Taken | Left |
+| Observed correction | Retained instruction | Scope or refinement |
 | --- | --- | --- |
-| millwright-labs/minto-pyramid-skill | The opening question (does the reader accept a judgment or make a decision) and its exceptions; the red flags for a buried point | None |
-| tyroneross/pyramid-principle (source-integrity) | Confidence decides the wording; specific locators; "user input" and "company data" are not sources | The six-skill split |
-| anthropics/skills doc-coauthoring | Fresh-context reader test with predicted reader questions | The interactive brainstorming procedure |
-| lemieux/rfc-skills | Decide then mark for review instead of an open-questions section; define before referencing; tables for reference data, prose for reasons | Line targets and formatting bans |
-| glebis/claude-skills tufte-report | Chart discipline: caption or no chart, three colors, no pie or 3D, computed correlations | Fonts, CDN scripts, layout |
-| sammcj/agentic-coding storytelling-with-data, html-design-examples | Action titles, grey plus one accent, exploratory versus explanatory, HTML for human attention and wide use of the screen | Narrative frameworks |
-| ngmeyer/skills six-pager | Silent-read margin questions as a cheap reader test | The memo format and prose lint |
-| rooftop-Owl notion-ao-writing-conventions | Citation-needed markers never removed silently; limitations mandatory; a reader's pushback is a re-check, not a capitulation | Academic framing |
-| daymade/claude-code-skills deep-research | Record failed searches; first-party records establish internal facts but not external validation | The eight-phase pipeline |
-| heyman333/agent-notion-template-docs (installed) | Named as the neighbor that owns Notion styling | Nothing to take; it is composed with |
-| anthropics/skills internal-comms, eli5 | Router plus per-genre files as a structure; a reader-and-result skill can be ten lines | Formats |
-| Diátaxis skills (keithpatton, pfeff, github/awesome-copilot) | The compass as a classification aid for handbooks | Quadrant purity for internal reports |
+| A document still required the conversation, another report, or unexplained local abbreviations. | Supply the context and relationships needed to understand the main point within the document. | Sources and detailed records may remain separate; the reader must not assemble the argument from them. |
+| Shortening removed useful depth; long reports buried the answer. | Cut repetition while preserving conditions, sources, comparisons, and necessary explanation. | Use structure and accessible detail; neither prose bans nor a length quota captures the preference. |
+| Facts were listed without explaining the problem or recommendation. | Select observations for the reader's question and explain their supported implications. | Do not inflate a routine check into a contribution or silently change the underlying question. |
+| A shared outline was applied mechanically to unrelated documents. | Let purpose determine structure; retain consistent design where helpful. | A review question is not a mandatory heading. Related documents can share a suitable structure. |
+| Missing records became assertions that work or responsibility did not exist. | Bound negative findings by the searched sources and distinguish record coverage from reality. | A subsequent correction rejected repeated hedges and confirmation badges. |
+| Internal or model-generated terminology obscured the explanation. | Use established field language and exact names, with clear Korean explanation where appropriate. | Internal records can establish facts without supplying good wording. |
+| Useful figures disappeared during conversion, or diagrams became unreadable collections of labels. | Preserve explanatory information and inspect the actual delivered figure. | Prefer a visual for a real explanatory task; do not require a figure or analogy in every document. |
+| Metadata and personal working details displaced the report's content. | Retain context that changes interpretation and remove incidental authoring traces. | Preserve event times, versions, ownership, and identifiers when the reader needs them. |
+| Sharing review either missed personal-evaluation risk or removed too much internal context. | Review distribution, attribution, and concrete sensitive content. | Organization and author risks both matter; review requirements and contact authority remain explicit. |
+| Screen documents and figures were too bright. | Preserve the dark presentation default where styling is controlled, with requested light and print treatment. | The September 10 request addressed the skill's default, not only one report. |
+| A polished report arrived before the author could resolve its framing. | Make the argument reviewable when the user is still discussing it. | An explicit draft-review request remains binding; routine authorized rewriting needs no new approval stage. |
 
-## Neighbors and prior versions
+The current request explicitly asks for principles that apply across media, English instruction text informed by Astra guidance, and a draft PR. It supports restructuring the package and its coupled references; it does not imply a global reinstall or publication of private source records.
 
-- `slop-aware-writing` (the author's own) absorbed the earlier `engineering-docs`, `dev-doc-style`, `dev-tech-spec-docs`, and `terminology-review` skills in 2026-07. Its `authoring.md` reader-job table and `source-grounding.md` claim map are the generic layer this skill builds on; this skill adds the house vocabularies, the reading rule, the sharing pass, and the medium routing that are specific to internal sharing.
-- `korean-clarity` was split out of `slop-aware-writing` on 2026-09-04 at the author's request; both are named where the body is written.
-- The pack's `docs/decisions.md` records why a craft skill was admitted into a loop pack.
-- Renamed from `write-internal-doc` to `share-internal-doc` on 2026-09-10. Searching by the verb "write" did not bring the skill to mind; sharing a document with colleagues is its purpose, and the name now says so.
+## Official prompting sources
+
+Read on 2026-09-14:
+
+- [Rethinking skills and prompts for GPT-6 Astra](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra): concise task-specific descriptions, progressive disclosure, contextual reference loading, fewer rigid recipes, appropriate decision boundaries, and explicit completion.
+- [Using GPT-6 Astra: Prompting best practices](https://developers.openai.com/api/docs/guides/latest-model/gpt-6-astra.md#prompting-best-practices): sensitivity to loaded instructions, concrete authority and follow-through, clear writing, purposeful delegation, and proportional verification.
+
+These sources inform how the skill expresses the user's preferences. They do not establish those preferences, justify deleting useful constraints by a size target, or prove that this revision improves model performance. Their optional example prompts are adapted to the document task rather than copied as a universal policy.
+
+The local `gpt6-astra-prompting-guide` and `skill-builder` workflows informed the source review and package changes. After the Astra guide was reinstalled on September 14, its entry point, instruction-design reference, and source notes were read again alongside Skill Builder. This exposed remaining duplication, broad reference conditions, and review instructions still packaged as an output template. The revision consolidates routine principles, makes each reference's condition and purpose explicit, and moves reader questions into a review reference. Recipient safeguards and the dark default remain in the entry point so selective reading cannot hide them. No instruction-reduction quota or model-specific runtime policy was adopted. The document skill remains usable without loading either authoring guide during ordinary writing.
+
+## Earlier external influences
+
+The earlier design consulted documentation and writing skills for reader questions, source fit, explanatory figures, and independent reader review. That survey is historical context rather than a currently verified ranking of external packages. The mechanisms retained here are stated directly and do not require installing the surveyed implementations.
+
+`slop-aware-writing` provides broader prose revision and source-integrity guidance. `korean-clarity` owns Korean semantic completeness. The terminology pair owns project terms and expression records. Figure and document tools own production in their supported media. This skill coordinates the reader-facing result without copying every neighbor's procedure.
+
+## Verification boundary
+
+Static package checks, reference checks, and review of real correction traces support this revision. They do not establish new-model behavior or complete a user pilot. Revisit a rule when a real document exposes a conflict or missing condition; do not add a universal mandate from one output's incidental layout.

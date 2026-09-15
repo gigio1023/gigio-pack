@@ -1,91 +1,54 @@
 # Claims and Sources
 
-Load this when labeling the status of claims, choosing a link policy, or reporting numbers and comparisons. The house vocabularies below are the ones the author's repositories already use; do not invent parallel ones.
+Use this for incomplete or conflicting records, disputed status, and quantitative comparisons. It provides the distinctions and source handling those cases need beyond routine factual writing.
 
-## No bracket tags
+## Match the claim to its support
 
-Status is expressed in the sentence or in a table column, never as an inline tag such as `[FACT]` or `[INFERENCE]`. The author's personal repository rules ban mechanical judgment tags outright. Three accepted forms:
-
-- A framing sentence: "모델 성능은 원문 보고값이며 이번에 추론을 다시 실행하지 않았다."
-- A status column in a table, using one of the vocabularies below.
-- A definition inside the glossary that carries the condition, so the term itself signals the status.
-
-## Work status (five words)
-
-| Word | Use |
+| Kind | Treatment |
 | --- | --- |
-| 완료 | Finished, with the result present in the named location. A finished report can still disagree with current facts |
-| 진행 중 | Work observed to be moving, with a current draft or branch |
-| 중단 | Stopped before completion; say by whom and when if the record shows it |
-| 보관 | Kept for reference, superseded or out of scope |
-| 미확인 | No source supports a status. The default whenever a claim has no source |
+| Direct observation | State what the inspected source or artifact shows, with its relevant date or version. |
+| Source's account | Attribute the claim to its author or owner; distinguish it from independent confirmation. |
+| Derived result | Preserve inputs, method, units, and conditions so the calculation can be checked. |
+| Interpretation | Identify the observation and reasoning it rests on; keep material alternatives visible. |
+| Plan or proposal | Name its status and owner or proposer when known; preserve rejection or supersession. |
+| Unresolved fact | State the bounded unknown when it matters; omit irrelevant speculation. |
 
-## Maturity of decision-relevant claims (four tiers)
+Inspect the original source behind a consequential claim. Repeated summaries of one original do not provide independent confirmation. A polished artifact or a worker's completion statement does not establish that its reported work succeeded.
 
-Each tier carries what a reader may do with it, which is what makes it more useful than a flat fact/inference split.
+Keep preparation, execution, result validation, and operational use distinct. For example, a successful dataset format check does not demonstrate model performance. Observing a configured capability does not establish that an event occurred. Finding code in a repository does not establish that the current system uses it. Use the actual logs, outputs, or records needed for the claim, and distinguish current behavior from historical or proposed behavior.
 
-| Tier | Meaning | License |
-| --- | --- | --- |
-| 확립된 관행 | Repeated across organizations, tools, and standards; failure modes well known | Default design candidate |
-| 의미 있는 전환 | Changes how a problem is solved or evaluated, with observed follow-on adoption | Limited comparative experiment and adoption review |
-| 연구 선두 | Ahead in a specific paper or benchmark, lacking generalization or independent replication | Exploratory experiment; not a default |
-| 합의 없음 | Policies, contexts, or metrics conflict, or the record is thin | Decide requirements and risk tolerance first |
+A proposal can be clearly identified without being classified as a missing fact. Do not fill a document with unverified claims merely to retain every collected item.
 
-## Terminology authority (six tiers)
+## Make status legible
 
-학술 (defined in the cited field's literature), 개발 (used by real systems and official documentation), 규격 (fixed by a standard), 출처 한정 (a method or metric defined by one paper or benchmark), 내부 (a name inside this company's products, datasets, code, or proposals), 서술 (a descriptive phrase that is not a method name). Internal names are never presented as standard terms; a project-root terminology file with an anti-pattern companion is the place to record corrections, and project instructions require it.
+Express status in ordinary wording or a useful table column. The default Korean work vocabulary is 완료, 진행 중, 중단, 보관, and 미확인 when the project has no established vocabulary. Define ambiguous labels where they affect a decision. Avoid bracket badges such as `[FACT]` and `[INFERENCE]` in reader-facing prose.
 
-## Kinds of claim and how each is worded
+Use completion words only for the state actually checked. A report can be finished while the underlying research remains incomplete. Do not turn an owner's intention into an assignment or combine another person's proposal with the author's recommendation.
 
-| Kind | Wording |
-| --- | --- |
-| Confirmed fact | Stated plainly with its source link and, when time-sensitive, "YYYY-MM-DD 기준" |
-| Official narrative | Attributed to the document or announcement that made it; stated as what it claims |
-| Plan | Attributed to its owner and date; not described as done |
-| Proposal | Labeled 제안, with the proposer named; the author's proposals are not merged with other attendees'; rejected proposals stay marked rejected with the stated reason |
-| Author's inference | Introduced as the author's reading, with the observation it rests on |
-| Unknown | 미확인, or "확인하지 못한 것" in a closing list; a speaker who cannot be identified is marked unknown |
+A maturity classification is useful only when it changes a decision. If needed, distinguish established practice, promising but bounded adoption, a research result awaiting broader confirmation, and unresolved disagreement. Explain the basis; do not impose these categories on every claim or infer maturity from publication prestige alone.
 
-The word "진실" does not appear in the document even when the job is to surface what the record leaves implicit.
+## Bound missing records
 
-## Confidence decides the wording
+State which sources, period, and relevant search limits support a negative finding. A missing item in a specific repository revision can establish absence in that revision. It cannot establish absence throughout an organization or field.
 
-Adapted from an external skill (see sources.md) into prose form:
+When a report depends on organizational records, explain once that a search cannot establish everything discussed or done outside those records. Put the condition into ambiguous labels and retain local qualifications where claims differ. Repeating a blanket uncertainty phrase after every sentence makes the finding harder to understand.
 
-| Support for the exact claim | How it is written |
-| --- | --- |
-| Original opened and it says this | Stated directly, no strengthening |
-| A source says it, not independently checked | Attributed to the source, or the limitation stated |
-| Weak or indirect | Not used as central support; at most as a limitation or a lead to verify |
-| None | Excluded as fact; the missing source named when the gap matters |
+Keep the observation and its consequence separate: inability to verify ownership may call for clarification; confirmed lack of an owner may call for assignment. Do not invent the second from the first.
 
-A derived value inherits the confidence of its weakest input. Evaluative words (significant, only, improve, solve, likely) are claims and keep the same rule.
+## Report numbers and comparisons
 
-## Absence of a record
+Preserve units, denominators, populations, periods, versions, and the definition of each metric. Distinguish percentage points from relative percentage changes, attempts from unique cases, and prepared cases from executed cases. State exclusions and failed runs when they change interpretation.
 
-Reports built from Slack, Notion, GitHub, and Linear must not turn "no record" into "did not happen". Verbal discussion, direct messages, and meetings leave no trace in those four systems; an earlier version of one report had to correct several counts for exactly this reason. The fix is structural, not per-sentence: one reading-rule paragraph up front, the condition written into the definition of the label ("티켓 없음" means not found in three systems), and a verification step only where an absence becomes a recommendation to act. Absence remains a fact where the record is the thing itself: repository contents, filings, published papers.
+Compare like conditions or explain the differences before drawing a conclusion. In model reports, include the relevant checkpoint and training lineage, dataset, task, metric, and evaluation settings. A best-performing claim is bounded by those conditions.
 
-## Numbers and comparisons
+Show important results by dimension when an aggregate would conceal a meaningful failure or trade-off. A summary number is useful when its calculation and limitations are clear and the relevant breakdown remains available. Compute a relationship before describing it as a measured correlation; do not invent derived metadata such as reading time.
 
-- Report per dimension (per direction, per stage, per policy); never one aggregate score.
-- Distinguish percentage-point change from relative percent change; compare values only when definitions, populations, units, and periods match.
-- Compute a correlation before asserting one; "r = 0.10" is honest, "strong relationship" is not.
-- Do not attach derived metadata whose method cannot be stated. An estimated reading time was removed for this reason.
-- A model comparison opens with the base checkpoint and the training lineage (base, SFT, GRPO or LoRA, deployment) and the evaluation conditions before any capacity claim. Non-equivalent runs are not combined into one table.
-- "State of the art" is written only with the dataset, metric, threat model, and version it holds for.
-- Vendor figures about the vendor's own product are labeled "제공자 자체 평가". Results without peer review or independent replication are read down to 연구 선두 or 합의 없음.
-- When documenting sources rather than paraphrasing them, quote verbatim and record title, full URL, last-modified date, author, and status. Do not summarize a policy sentence.
+Label vendor self-reports and unreplicated results according to what was checked. Distinguish uncertainty in a result from uncertainty about whether it applies to the reader's setting.
 
-## Link policy by distribution
+## Keep sources usable
 
-| Distribution | Allowed link targets |
-| --- | --- |
-| Author only | Anything, including `vscode://file/<abs>:<line>` for local files (browsers download `.md` rather than render `file://`) |
-| Team or company, internal | Slack permalinks, Notion pages, GitHub blobs pinned to a commit, Linear issues, HF or public pages. No local paths, no `vscode://`, no citation codes from the author's private ledgers |
-| Outside the company | Public sources only, and a different skill |
+Use the source form the reader can access: an original document or attachment, a stable section reference, a Slack permalink, a Notion page, a Linear issue, a public source, or a code link pinned to a revision. Prefer precise locators over a generic homepage. Include the necessary explanation in the document even when the source is linked.
 
-Citation apparatus that has worked: superscript footnotes into a citation register; every code claim linking the exact blob at a pinned commit, never a branch head; Slack permalinks in the workspace's archive format; Notion URLs. Trimming a document never trims this apparatus: "참고한 내용, 레퍼런스는 자세하게 남기는게 맞아".
+Personal filesystem paths and private ledger codes are suitable for an author-only working record. They are not working citations in a document sent to colleagues. When access is restricted, provide an approved summary or clearly describe the access limit without disclosing confidential locations.
 
-## Preserve the record, correct in commentary
-
-Quotations, collected originals, recovered snapshots, and past records are preserved as they were. Corrections live in the commentary and in the current report. Dated freshness ("2026-09-08 기준") accompanies any claim that can go stale, and the checked-at date is distinct from a file's modification date.
+Keep the checked-at date distinct from an event date or file modification date. Record version relationships where a reader could otherwise use superseded results. Preserve quotations and archived originals; correct current explanation without silently altering the historical record.
