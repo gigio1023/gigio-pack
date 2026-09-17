@@ -1,66 +1,25 @@
 # Contributing
 
-A personal pack, but it holds itself to the same conventions as [gigio1023/agent-skills](https://github.com/gigio1023/agent-skills). Rules for agents working in this repository live in `CLAUDE.md`; this file is the human-facing summary of the same contract.
+Gigio Pack owns durable project context and adaptive work. Read README.md, CLAUDE.md, docs/principles.md, and the current docs/rule-ledger.md before changing a load-bearing rule.
 
-## Layout
+## Layout and writing
 
-```
-skills/<skill-name>/            one flat directory per skill (17 total)
-  SKILL.md                      the skill — frontmatter + body
-  references/                   detail the body links to (optional)
-  assets/                       templates the skill fills in (optional)
-docs/                           design record — NOT skill payload
-  principles.md                 constraints every part must satisfy
-  rule-ledger.md                why each load-bearing rule exists
-  decisions.md                  what was tried and what replaced it
-  prior-art.md                  what was surveyed, taken, and left
-```
+The ten packages live in skills/<name>/ with SKILL.md and optional colocated references, scripts, or assets. Public prose is English with natural Markdown paragraphs, not fixed-width source wrapping. Required metadata is name and description; name matches the directory. Keep task selection and neighboring responsibilities clear.
 
-Everything a skill needs stays colocated under its own directory. `docs/` is rationale and history; nothing in `skills/` may depend on it.
+Project records belong in the consuming project, not installed skill directories. Reuse existing results, research indexes, and operational records. Original data and private source maps do not belong in the public package.
 
-## Skill contract
+## Proportional changes
 
-- Keep each natural Markdown prose paragraph on one source line, including paragraphs in list items and Markdown templates. Do not manually wrap at a fixed column count (such as 80 or 100) or at sentence boundaries; use editor soft wrapping for display. Preserve paragraph boundaries, list structure, tables, fenced code, HTML, intentional hard breaks, frontmatter semantics, and literal examples. This applies to Markdown only; code and docstring line-length constraints stay unchanged.
-- Frontmatter is exactly two fields: `name` (must equal the directory name) and `description`.
-- The description carries a `Use when …` trigger, a `NOT for …` boundary, and one line that separates the skill from its nearest sibling (`session-handoff` vs `small-model-handoff` is the reference example).
-- **Procedural work waits for a request; terminology has a standing exception.** The nine procedural skills use `Use only when …` descriptions. `curate-terminology` and `use-terminology` instead say `Use on every task …`: both apply without a separate wording request, with maintenance limited to relevant encountered material and explicit read-only restrictions preserved. `find-unknowns` remains the separate situational discovery exception. See [docs/principles.md](docs/principles.md#what-may-open-on-its-own).
-- Terminology output in a consuming project uses root `terminology.md` for representative definitions and navigation, topic documents under `docs/terminology/`, and a reference-only `docs/terminology/references.md`. Changed entries link to their source records; the installed skill holds no mutable project glossary.
-- Bodies are English. Aim for decision rules over step transcripts, roughly 400–2,500 tokens, with an 80% path up front and detail pushed to `references/`.
-- `share-internal-doc` keeps routine principles, recipient safeguards, and the scoped dark presentation default in its core. Reference links state which decision needs the detail; a routine edit does not require reading the whole package. Reader-review questions are instructions, not an output template. Keep material conditions in the affected claims; do not require generic reading rules, defensive prose, or interface tours. Figures and controls must serve the reader's question. Do not turn an individual report's format into a universal outline.
-- **Contract steps, not cognition steps.** Numbered steps only where order or completeness is part of correctness: prerequisite retrieval, approval boundaries, required artifact stages, validation, auditable pipelines. Otherwise state the outcome, invariants, and stop conditions, and let the model choose the route. If removing a step keeps accuracy, safety, and auditability intact, remove it.
-- Sibling references are unconditional. "If installed" hedging is reserved for harness capabilities, never for pack skills.
-- Names state purpose and outcome (`gigio-write-plan` writes a plan). Renaming anything means: directory + frontmatter + every cross-reference + README + `CLAUDE.md` + a re-install.
-- No evaluation scaffolding, benchmarks, or scoring artifacts inside `skills/`. Migrated skills that carry legacy maintenance fixtures keep them (preserve-original-strengths rule), but do not add new ones.
-- Migrated skills are edited minimally — one to four focused edits per pass. Full rewrites are for broken structure only.
-- Preserve grants already established in the active request. Finishing one station does not require another approval for an explicitly requested next station. Keep read-only, ownership, publication, and cleanup boundaries.
-- `python-coding-standards` applies within requested Python implementation, refactoring, review, or project setup. It owns the Pydantic-first, explicit-typing, uv, and source-local explanation preferences; keep their detailed rules and exceptions in the skill rather than duplicating them here. Its Python rules are locally authored; use the official external `pydantic` skill for library-specific modeling. Keep the upstream revision and fallback in the colocated integration reference, and installation instructions in the README. Do not vendor unrelated Python or modularity skills.
+Change the owner of a rule and its affected references together. Preserve useful domain detail and explicit user decisions. Do not impose minimum edit counts, mandatory outlines, token quotas, or new tracking infrastructure.
 
-## Before finishing any change
+Meaningful progress includes findings and better-supported decisions without code changes. The normal plan details the next decision, not every future stage. Project direction changes need user agreement; fast in-scope checks retain existing authority.
 
-1. `npx --yes skills add . --list --full-depth` reports **exactly 17** skills.
-2. Every relative path referenced from a changed `SKILL.md` exists on disk.
-3. Frontmatter `name` still equals the directory name for anything touched.
-4. Re-read the changed skill and `README.md` together — packaging claims and docs must not drift apart.
-5. A load-bearing rule (dispatch, preflight, ownership, verification) may not be changed before checking its justification type in [docs/rule-ledger.md](docs/rule-ledger.md). Deletions and reviewed-and-kept verdicts are recorded there.
+## Verify
 
-## After merging
+Run package validation, check links and examples, confirm Skills CLI discovery finds ten unique names, and inspect the intended diff including new files. Use commands for properties they can actually establish. Model trials are separate from structural and artifact checks.
 
-When installation is requested, re-run the install command in the README. Installs are **copies**, not symlinks — repository edits are invisible to agents until reinstalled. Publishing a PR alone does not refresh global skills.
+For migrated helpers, validate the destination and update callers and installation-source guidance before publishing removals. Do not leave duplicate SKILL.md packages as compatibility stubs.
 
-## Design record
+## Publish
 
-- Direction changes append an entry to [docs/decisions.md](docs/decisions.md) using the same four fields the pack asks of every deviation: what the plan said → what reality revealed → the conservative choice taken → when to revisit. Keep the reversals; they are the expensive part.
-- A new model generation is an audit event ([docs/rule-ledger.md](docs/rule-ledger.md#generation-audit)): re-verify measured-workaround rules, collect removal candidates.
-- A principle belongs in [docs/principles.md](docs/principles.md) only if some rule in `skills/` actually traces back to it. A rule that traces to nothing is a removal candidate, not a reason to invent a principle.
-
-## Commits and PRs
-
-- Conventional prefixes (`feat:`, `fix:`, `docs:`), one logical change per commit, implementation and its checks together.
-- Every non-trivial commit carries a structured body with four labeled sections, each a short bullet list of concrete facts:
-  - `Context:` — the state that made the change necessary: the incident, measurement, or user decision behind it, not a restatement of the subject.
-  - `Changes:` — what changed, grouped by skill or document, precise enough to navigate the diff.
-  - `Results:` — what is now true that was not before: behavior, guarantees, recorded policy.
-  - `Validation:` — the commands run and what they reported, plus what was deliberately not run and why. `Not run` with a reason beats silence.
-- Small mechanical commits (a typo, a link fix) may drop `Results:`; `Context:` and `Validation:` stay.
-- Bodies state facts, never process narration. If a bullet would survive with "various", "minor", or "improve" as its verb, it is not specific enough.
-- PRs are drafts by default and use concise English. The repository template wins; without one, use `## Context` and `## Changes`. Add `## Validation` only for results CI cannot prove or a material CI caveat, and collapse long supporting details (the `draft-pr` skill in this pack is the reference).
+Use scoped conventional commits. For non-trivial changes include Context, Changes, Results, and Validation in the commit body. Draft PRs use the repository template or concise Context and Changes sections, with Migration or Validation when reviewers need them. Preserve private material and unrelated work. Merge, install, and cleanup need their corresponding requests.

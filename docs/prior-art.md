@@ -4,7 +4,7 @@ What was surveyed before writing this pack, what was taken, and what was left. K
 
 Roughly thirty agent workflow systems, skill packs, and planning harnesses were read at source level across eight research rounds, plus first-party documentation and measured claims. Nothing was adopted wholesale. Every system below contributed either a mechanism or a counter-example.
 
-The filter is always the [six constraints](principles.md#six-constraints) — a rejection here means "does not fit this pack's constraints," not "is a bad system." Several rejected systems are excellent at what they set out to do.
+This historical survey used the earlier six constraints; the current [principles](principles.md) supersede conflicting workflow conclusions below. A rejection here means "does not fit this pack's constraints," not "is a bad system." Several rejected systems are excellent at what they set out to do.
 
 ## What the survey confirmed
 

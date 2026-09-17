@@ -1,6 +1,6 @@
 # Decision Log
 
-Direction changes, in the order they happened. Each entry uses the same four fields the pack asks of every deviation:
+Historical direction changes, in the order they happened. These older entries use four fields; current work does not require this reporting template:
 
 **what the plan said → what reality revealed → the conservative choice taken → when to revisit.**
 
@@ -121,7 +121,7 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 ## Acceptance separated from the check command
 
 - **Plan:** every task carries a `check` command, and a task whose check you cannot state is not plannable yet.
-- **Reality:** the loop had quietly taken the shape of repository work. The four core skills carry about thirty lines of test, build, and commit vocabulary and none for research or open-ended work, while `find-unknowns` already classifies a result as executable or comprehension-checked and had nowhere downstream to send that classification. Two domains invert the rule outright. An experiment's check *is* the measurement, so a negative result is the deliverable rather than a defect to repair, and retrying it with a stronger model is the wrong response to a hypothesis that did not hold. Work judged by feel has an acceptance and no command at all. The [principles](principles.md#plans-are-written-for-a-reader-with-no-memory) page had already required acceptance and verification as separate axes; the plan template had collapsed them into one field.
+- **Reality:** the loop had quietly taken the shape of repository work. The four core skills carry about thirty lines of test, build, and commit vocabulary and none for research or open-ended work, while `find-unknowns` already classifies a result as executable or comprehension-checked and had nowhere downstream to send that classification. Two domains invert the rule outright. An experiment's check *is* the measurement, so a negative result is the deliverable rather than a defect to repair, and retrying it with a stronger model is the wrong response to a hypothesis that did not hold. Work judged by feel has an acceptance and no command at all. The [principles](principles.md#keep-context-usable) page had already required acceptance and verification as separate axes; the plan template had collapsed them into one field.
 - **Choice:** add `acceptance` to the task fields and keep `check` as verification only. Treat a check that ran with its acceptance met as done even when the result is negative. Classify work built as planned whose result still misses the goal as a direction finding rather than one of the review's three lists. No new skill — a fourteenth name costs more than the fit it buys while none of this has been measured.
 - **Revisit:** at the pilots, one of which should be non-engineering so the experiment case is measured rather than argued. Deliberately left untouched: completion still requires changed owned files under git, and file ownership is still the only parallel split. Both are wrong for a configuration sweep, where the unit of work is a run and sibling runs share an output directory — change them from a real run, not from this entry.
 
@@ -267,7 +267,9 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 - **Choice:** require a concrete reader use for an explanation. Keep consequential qualifications beside their claims; delete redundant defenses, familiar definitions, and self-appraisal. Let dates, labels, and controls convey necessary interface state. Select and prioritize figures around the question, and keep captions consistent with displayed results. Update the linked references and rule ledger without changing the dark default, privacy handling, or source-preservation obligations.
 - **Revisit:** when a real document either retains reader-irrelevant scaffolding or loses a condition needed to interpret its conclusion. Static package checks and editorial examples do not establish improved model behavior.
 
-## Still open
+## Historical open items before September 17
+
+The table records the earlier state. The September 17 decision below resolves or supersedes several defaults, including multi-repository context, adaptive experiments, digest updates, and immediate direction discussion.
 
 | Item | Default | Decide when |
 | --- | --- | --- |
@@ -282,4 +284,13 @@ The point of keeping the reversals is that they are the expensive part. Most ent
 | Whether Authority, Environment, and Evidence-rules sections earn a place in the plan file | Not added (2026-09-11). Out of scope carries forbidden side effects in the user's words; Planned against carries named inputs; nothing carries "what a check does not prove" | After the next three plans: keep only what the user read and corrected |
 | Why earlier plans drew no user corrections — length, paraphrase, results that never came back | Top half in the user's words (2026-09-11); ask the user, then count corrections | After the next three plans |
 
-**Not yet piloted.** Nothing in this pack is marked done until two pilot projects pass. Pilots measure four things: whether parallel writing actually pays off, whether the plan file carries enough for handoff between workers, which steps the lead demonstrably did not need — a removal list, not a success list — and what the acceptance field actually gets filled with outside ordinary code work.
+**Historical pilot proposal.** At that point, two pilot projects were proposed before claiming the workflow had been demonstrated. The current instruction changes remain unproven by behavioral pilots; that does not block publishing them for review. Pilots measure four things: whether parallel writing actually pays off, whether the plan file carries enough for handoff between workers, which steps the lead demonstrably did not need — a removal list, not a success list — and what the acceptance field actually gets filled with outside ordinary code work.
+
+## Research-capable project continuity (2026-09-17)
+
+- **Earlier model:** project records and plans emphasized repository changes, fully ordered stages, and implementation checks.
+- **Finding:** research, training, data review, and benchmark work can advance by changing what is understood; their next useful action often depends on results. A Git repository does not define the whole project.
+- **Decision:** maintain user-owned direction separately from current understanding, plan through the next useful decision, and interpret negative or inconclusive evidence without demanding code changes. Quick checks stay autonomous within existing grants. New direction or newly proposed long activity needs the user's decision. Keep research methods in Research Credo and harness/coding helpers in Agent Skills.
+- **Revisit:** when a real continuation loses a decisive finding, repeats an abandoned approach, or cannot locate its sources. Add a targeted correction instead of reinstating a universal stage or reporting template.
+
+The current [principles](principles.md), [rule ledger](rule-ledger.md), and [migration](migration.md) supersede conflicting older entries. These are design decisions and static review results, not measured model improvements.

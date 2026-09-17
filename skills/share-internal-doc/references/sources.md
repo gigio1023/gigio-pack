@@ -1,6 +1,6 @@
 # Sources and Provenance
 
-This reference records why the skill's rules exist and which guidance informed their wording. It is for maintenance, not a prerequisite for writing each document.
+This reference preserves the history of the earlier combined writing-and-sharing skill. As of 2026-09-17, general writing methods belong to technical-report-writing in agent-skills; this package owns the colleague-facing request, audience/access checks, and delivery. [Composition](composition.md) is the current guide. Historical source descriptions below are maintenance context, not instructions to reinstate duplicate editorial methods.
 
 ## User feedback revisited on 2026-09-14
 
@@ -54,7 +54,7 @@ The local `gpt6-astra-prompting-guide` and `skill-builder` workflows informed th
 
 The earlier design consulted documentation and writing skills for reader questions, source fit, explanatory figures, and independent reader review. That survey is historical context rather than a currently verified ranking of external packages. The mechanisms retained here are stated directly and do not require installing the surveyed implementations.
 
-`slop-aware-writing` provides broader prose revision and source-integrity guidance. `korean-clarity` owns Korean semantic completeness. The terminology pair owns project terms and expression records. Figure and document tools own production in their supported media. This skill coordinates the reader-facing result without copying every neighbor's procedure.
+`slop-aware-writing` now provides explicit focused revision, independently usable and never an automatic second pass. General authoring and source-integrity methods live with technical-report-writing. `korean-clarity` owns Korean semantic completeness. The terminology pair owns project terms and expression records. Figure and document tools own production in their supported media. This skill coordinates the reader-facing result without copying every neighbor's procedure.
 
 ## Verification boundary
 

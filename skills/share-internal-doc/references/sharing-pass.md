@@ -28,4 +28,4 @@ Prefer the project's established transformation when a shared copy is generated 
 
 Check the final copy for leftover local paths, private citation codes, exposed credentials, inappropriate attribution, unsupported certainty, and missing context after removals. Confirm that required sources, figures, and material limitations survived.
 
-For authorized publication, check that restricted attachments or working notes were not uploaded with the shared copy. Follow the entry point's delivery verification and the destination-specific checks in [medium and figures](medium-and-figures.md).
+For authorized publication, check that restricted attachments or working notes were not uploaded with the shared copy. Follow the entry point's delivery verification and the destination-specific checks in [composition and migration](composition.md).

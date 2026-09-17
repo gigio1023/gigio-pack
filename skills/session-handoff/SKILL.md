@@ -24,7 +24,7 @@ Create one self-contained prompt file that a successor agent can execute. The de
    - relevant plans, progress notes, results, specifications, and logs;
    - live repository state, changed files, branch and revision, and diffs;
    - test, build, render, or command results that support completion claims;
-   - unresolved questions, blockers, risks, and remaining work.
+   - current understanding, competing explanations, superseded approaches and their reasons, unresolved questions, and the next useful decision;
 3. Reconcile conflicts. Current explicit user direction controls intent and scope. Live files, version-control state, and fresh tool output control implementation status. Treat older notes and conversation claims as context, not proof, when they disagree with inspectable state.
 4. Fill `assets/handoff.template.md`. Replace every placeholder, remove empty optional rows, and keep the result addressed directly to the successor.
 5. Point to exact files, commands, commits, and evidence instead of pasting long source material or a transcript.
@@ -42,14 +42,14 @@ The generated file must contain:
 - intent and background that explain why the work exists;
 - in-scope, out-of-scope, and confirmation-required actions;
 - current status, repository or artifact state, and important decisions;
-- completed work paired with files, commands, tests, or other evidence;
+- completed work and findings paired with the sources or results that support them, including reviews without code changes;
 - an artifact map with paths and why each item matters;
-- remaining work ordered by dependency and impact;
+- the next bounded work and actual prerequisites; later work can remain conditional on findings;
 - blockers, unknowns, risks, and what would resolve them;
 - the first one to three executable actions;
 - verification requirements and final delivery expectations.
 
-When the successor continues work that already has a plan file in `.plans/` or a PROJECT.md, reference them by path instead of restating what they contain. If a plan file exists, name `gigio-execute-plan` on that path as the successor's entry point, and let the handoff carry only what the plan cannot: live state, pending handles, uncommitted changes, and grants given since the plan was written.
+When the successor continues work that already has a plan file in `.plans/` or a PROJECT.md, reference them by path instead of restating what they contain. If a plan exists and continuation includes execution, name `gigio-execute-plan` on that path as the entry point. First recover current understanding and the next decision, rather than blindly resuming an obsolete stage. Carry only missing context: live jobs, pending handles, uncommitted changes, decisive new findings, and later grants. A plan's existence alone does not authorize execution.
 
 Use `verified`, `inferred`, and `unknown` labels only where ambiguity matters. Do not burden obvious facts with labels. A successor should know which claims it can trust and which it must check.
 
@@ -70,7 +70,7 @@ Write the handoff as an instruction to continue, not as a retrospective report. 
 
 - re-ground on the named evidence before editing;
 - preserve verified work and avoid repeating completed investigation;
-- continue in scope without asking for routine reversible actions;
+- continue quick checks within the same question and permitted resources; ask before a direction change or long new activity such as two to three days or more unless already authorized;
 - preserve explicit grants with their target and conditions; ask only when an action lacks the required grant or a material user-only decision remains;
 - validate outcomes before reporting them;
 - update or replace stale handoff information if another transfer is needed.
