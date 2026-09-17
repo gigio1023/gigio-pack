@@ -1,70 +1,45 @@
 ---
 name: gigio-project-setup
 description: >
-  Use only when the user asks to install the gigio-pack system into a project
-  or audit an existing installation, or names gigio-project-setup: writing
-  PROJECT.md (diagnosis, pillars, non-goals, judgment rules, current risk,
-  current position), wiring shared agent instructions into AGENTS.md with a
-  CLAUDE.md bridge, or checking an installed PROJECT.md for staleness. Triggers
-  on adopting this pack in a repo, "set up the project intent file",
-  "PROJECT.md 만들어줘/점검해줘". NOT for writing task plans (gigio-write-plan),
-  executing them (gigio-execute-plan), reviewing finished work
-  (gigio-review-results), or surfacing unknowns before the work itself is
-  chosen (find-unknowns). Never activate because a repository has no
-  PROJECT.md.
+  Use only when asked to establish or audit durable project context, adopt
+  Gigio Pack, or create or update PROJECT.md and its instruction links.
+  Supports research, development, data, evaluation, and other projects across
+  repositories. NOT for task plans or automatically setting up every workspace.
 ---
 
 # Gigio Project Setup
 
-Install or audit the durable intent layer of a project: `PROJECT.md` plus the instruction wiring that makes every later session actually read it.
+Keep the project's purpose, direction, constraints, current understanding, and next important question available to later sessions. A project is an objective, not necessarily a Git repository. Its code, data, experiments, documents, and live jobs may span several locations.
 
-## Step 1 — Inspect before asking
+## Recover the context
 
-Read what exists: PROJECT.md (audit path, Step 4), README, docs, git log, AGENTS.md and CLAUDE.md. Never ask the user for a fact the repository already answers. If an equivalent intent document exists under another name, follow any migration choice already given. Otherwise inspect the difference and ask only before replacing or creating a rival source of intent; an audit can report the existing document without waiting for that choice.
+Inspect the existing intent document, project instructions, relevant decisions, current results, and resource locations. Reuse an equivalent maintained document instead of introducing a competing PROJECT.md. Ask only for missing user judgments that materially change the setup.
 
-## Step 2 — PROJECT.md: six questions, two speeds
+Separate user decisions from observations and agent proposals. Preserve the user's wording for goals and important limits where available; a useful synthesis may connect those statements without upgrading an inference into consent. Do not require a failure anecdote, a fixed number of pillars, or a negated definition for every goal.
 
-Interview for material gaps only, one question at a time. Carry forward explicit user decisions from the session without asking for their confirmation again.
+## Write the smallest useful project record
 
-**Top half — human-owned.** Mark the boundary in the file (for example `<!-- human-owned: renegotiate with the user before editing -->`). Model inference is not a decision until the user confirms it.
+Use PROJECT.md, or the project's existing equivalent, for two kinds of content:
 
-1. **Why this exists** — a diagnosis, not an aspiration: one concrete incident showing why the current state fails.
-2. **Pillars** — 3–5 sentences carrying the intended experience or goal, each paired with "this does not mean X".
-3. **Non-goals** — reasonable options deliberately excluded, with reasons; deferred items carry a re-evaluation condition.
-4. **Judgment rules** — numbered, falsifiable imperatives ("when A conflicts with B, choose A"), each anchored to the real decision or incident that created it.
+- **User-owned direction:** why the work matters, the question or outcome being pursued, priorities, meaningful exclusions, constraints, and the choices the user has settled. Mark this section clearly. A change of direction needs the user's decision; a previously accepted grant does not need repeating.
+- **Maintained understanding:** what the work currently supports, important competing explanations, what has not been established, relevant abandoned approaches and why, the next decision, and links to the results that matter. Update this digest during authorized work without asking the user to approve every observation. Findings may challenge a decision; they do not silently replace it.
 
-**Bottom half — model-updated digest, not an archive.**
+Give each material decision a concise reason and its source. Supersede outdated entries rather than making an old result look current. Record uncertainty where it affects the next action, not as a mandatory label on every sentence.
 
-5. **The most important question right now** — phrased as a risk: what, if wrong, sinks everything, and a reasonable way to attack it.
-6. **Current position** — ordered by confidence (now / next / under review), stated as problems rather than features, plus one line: "what I currently measure success by".
+Map authoritative code, datasets, experiment records, documents, and remote resources only as needed to retrieve them. Reuse existing run registries, research indexes, and notebooks. Keep raw results in their own locations and link them; PROJECT.md is not a second experiment database.
 
-Also in the bottom half:
+State how progress is assessed for this project. This may be a working capability, a defensible finding, an excluded explanation, an evaluated dataset, a useful artifact, or a documented limit on what can be concluded. Test and lint requirements belong here when they apply to the project's implementation.
 
-- **Decisions** — settled calls every executor must read before working. Supersede rather than delete; record whether each came from user confirmation, model inference, or an adopted default. Settled decisions are never silently relitigated.
-- **Project-wide done criteria** — test/lint expectations stated once here, so plans do not repeat them per task.
+## Connect later sessions
 
-Writing rules: complete sentences; only vocabulary practitioners of the domain actually use; explaining a reference never silently turns it into a requirement.
+For an installation request, update the project's existing instruction entry points to locate the project record and consult it for consequential decisions and continuation. Preserve unrelated instructions and terminology pointers. Where the project uses both AGENTS.md and CLAUDE.md, maintain its supported shared-instruction bridge; do not promise that one file is automatically read by every harness.
 
-## Step 3 — Wire the instructions
+Require use-terminology and curate-terminology under their standing policy. Link the canonical terminology index rather than copying definitions. Do not add universal writing defaults or an unrelated glossary survey.
 
-Edit existing files. For an installation request with neither file present, create `AGENTS.md` and a `CLAUDE.md` bridge as the documented default; an audit only reports the missing wiring. Keep the block between marker comments so later updates are idempotent. Preserve existing terminology pointers. The pack uses `curate-terminology` and `use-terminology` on every task: include their standing rule when setting up or updating project instructions, using the instruction example bundled with `curate-terminology`. Use root `terminology.md` for representative definitions and the index, `docs/terminology/` for detailed topic documents, and `docs/terminology/references.md` for source records. Follow `curate-terminology` for safe migration of an existing layout, maintain relevant terms and expressions as encountered, and honor explicit read-only restrictions. An audit reports missing wiring without changing files. Two touch points:
+An explicitly requested setup may create missing instruction files. An audit reports missing or stale wiring without changing it. A multi-repository project can keep its project record at an agreed workspace or research root and link it from participating repositories.
 
-- `AGENTS.md`: a short block stating that PROJECT.md exists and must be consulted for significant judgments and completion claims; top-half edits need user approval; plans live in `.plans/` (gitignored); routing — the user invokes `gigio-write-plan` to get a plan file and `gigio-execute-plan` to run one. Write the routing as where those requests go, never as a standing instruction to start planning or executing on the agent's own judgment; planning and execution skills require their own requests. Also require `curate-terminology` and `use-terminology` on every task, preserving the project's canonical terminology pointer.
-- `CLAUDE.md`: a first-line `@AGENTS.md` import (or symlink). This path is what gets re-injected after compaction and inherited by subagents; content placed elsewhere silently disappears.
+## Audit and finish
 
-## Step 4 — Audit path (existing installation)
+Check whether the next session can locate the record, retrieve decisive sources, and distinguish established direction from current hypotheses. Compare the digest with actual results and live state where relevant. Git is one persistence mechanism; an uncommitted file is not automatically invalid, and a commit alone does not make a record accessible on another machine. Check actual storage, synchronization, access, and retention arrangements.
 
-- Committed-state: `git status` on PROJECT.md and the wired instruction files. The intent layer exists only once committed — uncommitted, it evaporates outside this checkout.
-- Fossil check: compare "current position" against git log and the files.
-- Coverage: any of the six questions unanswered, or answered as aspiration instead of diagnosis.
-- Grade findings three ways: **blocking** (PROJECT.md missing or uncommitted, top half edited without approval) / **degraded** (question coverage missing, fossilized bottom half) / **advisory** (waste — report it, never block on it).
-
-## Step 5 — Report and stop
-
-Say what was created or changed, and what the user should now edit by hand — the top half is theirs. Ask to commit the new layer (or commit if already authorized): until committed it protects nothing. Setup never writes plans. For the first piece of sizable work, continue with `find-unknowns` (territory unclear) or `gigio-write-plan` (work already chosen).
-
-## Gotchas
-
-- An aspirational "why" ("make X great") is a non-answer — re-ask for the incident that shows the current state failing.
-- Do not summarize PROJECT.md into the AGENTS.md block. The block carries paths and rules; inlined content goes stale the moment the file is edited.
-- Do not skip the CLAUDE.md bridge because AGENTS.md "should be enough" — Claude Code does not read AGENTS.md on its own.
+Deliver the updated record or audit findings and the next useful action. Do not require a plan, commit, or another interview merely to finish setup. When planning was also requested, continue through gigio-write-plan using established intent. Sufficient existing context does not need this setup process again.

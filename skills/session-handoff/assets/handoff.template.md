@@ -10,7 +10,7 @@ Proceed within the recorded grants, preserving their targets and conditions. Ask
 
 <State the user-visible outcome in one or two sentences.>
 
-### Definition of Done
+### Next Useful Decision or Result
 
 - <Observable completion condition>
 - <Required validation or evidence>
@@ -42,10 +42,14 @@ Proceed within the recorded grants, preserving their targets and conditions. Ask
 
 - Status: <not started | in progress | blocked | ready for verification | complete>
 - Workspace or project: `<path or identifier>`
-- Repository and branch: `<repository>`, `<branch>`, `<revision if useful>`
+- Relevant repositories, data, documents, and live resources: <locations and identifiers; include branches or revisions only when relevant>
 - Worktree or artifact state: <clean, changed paths, generated outputs, or other state>
 - Last verified at: <timestamp or current-run marker>
 - Pending work: <tool or worker handle, last observed state, and how to inspect it before retrying; omit if none>
+
+## Current Understanding
+
+<What the evidence currently supports; meaningful negative or inconclusive findings; competing explanations; prior assumptions or approaches that are no longer current. Link existing records rather than copying them.>
 
 ## Decisions and Rationale
 
@@ -57,7 +61,7 @@ Proceed within the recorded grants, preserving their targets and conditions. Ask
 
 | Work item | Result | Evidence | Confidence |
 | --- | --- | --- | --- |
-| <Completed item> | <Observable outcome> | `<file, commit, test, or command>` | verified |
+| <Completed item> | <Observable outcome> | `<observation, dataset review, result record, source, artifact, or check>` | verified |
 
 ## Artifact Map
 
@@ -65,11 +69,15 @@ Proceed within the recorded grants, preserving their targets and conditions. Ask
 | --- | --- | --- |
 | `<artifact>` | <Why the successor needs it> | <verified, inferred, or unknown detail> |
 
+## Current Work Boundary
+
+<The next decision and the bounded work that can inform it. Quick checks within the same question and grants can proceed; direction changes or new long activity require the stated confirmation. A negative or inconclusive finding may be the result.>
+
 ## Remaining Work
 
 1. <Highest-priority action, including dependency and expected result.>
 2. <Next action.>
-3. <Later action if required.>
+3. <Conditional follow-up, only if already useful to specify; do not invent the full project sequence.>
 
 ## Blockers, Unknowns, and Risks
 

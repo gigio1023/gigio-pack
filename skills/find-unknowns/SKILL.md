@@ -16,7 +16,7 @@ description: >
 
 # Find Unknowns
 
-Close the gap between what the user asked for and what reality will demand by making unknowns explicit before the expensive work starts. One pass is one technique plus one launch brief. The pass ends at the brief; executing the plan needs separate authorization.
+Close the gap between what the user asked for and what reality will demand by making unknowns explicit before the expensive work starts. One pass is one technique plus one launch brief. The pass ends at the brief unless the user has already authorized the next action. Preserve that grant; a brief does not create new authority.
 
 ## Quick Start
 
@@ -45,7 +45,7 @@ Keep the pass light: one technique, at most 7 questions, at most 3 variants, at 
 
 **Throwaway variants.** Two or three wildly different concrete versions — mockups, strawman documents, sample plans — with no wiring, no persistence, no polish, labeled as throwaway. Build them to be reacted to: all variants side by side in the single allowed artifact, filled with representative fake data, so that reacting costs the user nothing beyond looking. After the user reacts, verbalize what each reaction reveals as one sentence and fold those sentences into the spec. If the user cannot judge which variant is better, stop: they don't know what "good" looks like yet, so switch to a blindspot brief.
 
-**Mini-interview.** At most 7 questions, each with concrete options and a recommended default. Prioritize answers that would change the direction or are costly to reverse. Never ask for a fact you can discover by inspection or search. "I don't know" is an answer: record it as an open item with a decide-later rule, never as consent. If the cap is hit while material user-only questions remain open, do not stretch the pass — say the territory needs a dedicated deep interview and let the user invoke it.
+**Mini-interview.** At most 7 questions, each with concrete options and a recommended default. Prioritize answers that would change the direction or are costly to reverse. Never ask for a fact you can discover by inspection or search. Separate user choices from empirical uncertainty: a cheap authorized check can resolve the latter; an experiment that needs new resources belongs in the next bounded work proposal. "I don't know" is an answer: record it as an open item with a decide-later rule, never as consent. If the cap is hit while material user-only questions remain open, do not stretch the pass — say the territory needs a dedicated deep interview and let the user invoke it.
 
 **Reference request.** Ask for one reference. For code, source beats prose beats screenshots — point at the folder and say what to look for. For other domains, a concrete example (a portfolio, paper, video, contract document, a finished game) beats any description. Extract the transferable ideas, state them back, and confirm before treating them as decisions.
 
@@ -68,7 +68,7 @@ Deviation entries in either notes file use four fields: what the plan said → w
 
 Fill `assets/launch-brief.template.md`. The brief must let a fresh session execute without rereading this conversation: starting point, confirmed decisions with rationale, resolved unknowns with evidence, open items with decide-later rules, the ordered plan, the notes-file instruction, and the acceptance criteria. Return it in chat by default; write a file when the user asks. Preparing for a possible new session alone does not authorize a file.
 
-When the accepted brief is to be planned — code, research, or personal work alike — hand it to `gigio-write-plan` rather than seeding a separate plan document of your own: it turns the brief into a plan file under `.plans/`, with the user's goal and limits in the user's words at the top, and ordered tasks, ownership, and checks live there from then on. Intent the project should keep long-term belongs in PROJECT.md via `gigio-project-setup`.
+When the accepted brief is to be planned — code, research, or personal work alike — hand it to `gigio-write-plan` rather than seeding a separate plan document of your own: it turns the brief into a plan file under `.plans/`, with the user's goal and limits in the user's words at the top, and the current round's actions, relevant dependencies, ownership, and assessment live there from then on. Plan only far enough to reach the next useful decision; unresolved empirical questions can be the work rather than a reason for another interview. Intent the project should keep long-term belongs in PROJECT.md via `gigio-project-setup`.
 
 Name the next station when the brief is accepted: `gigio-project-setup` if the project has no PROJECT.md yet, then `gigio-write-plan` for the work itself.
 
