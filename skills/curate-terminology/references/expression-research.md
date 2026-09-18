@@ -14,7 +14,7 @@ Read this when researching how practitioners describe a concept, operation, or p
 
 Read the concept explanation, operational guide, and relevant maintainer blog together when they answer different parts of the question. Track the relationship between words and the actual system: a command name, a controller's action, and a user's goal may use different verbs. Do not collect synonyms detached from the actor or object.
 
-A concise expression record contains the source passage or a short attributed excerpt, URL and section/version, the actor–verb–object pattern, its contextual meaning, a reusable example or paraphrase, and conditions where reuse would mislead. Keep excerpts short and preserve exact quotations separately from adaptations. Explain in Korean when that is the project's working language; retain the English expression as the primary form.
+A concise expression record contains the source passage or a short attributed excerpt, URL and section/version, the actor–verb–object pattern, its contextual meaning, a reusable example or paraphrase, and conditions where reuse would mislead. Keep excerpts short and preserve exact quotations separately from adaptations. Explain in the project's working language; retain the expression in the field's standard language, usually English, as the primary form.
 
 ## Worked reading examples
 
