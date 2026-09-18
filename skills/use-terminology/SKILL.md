@@ -2,16 +2,16 @@
 name: use-terminology
 description: >
   Use on every task alongside curate-terminology, even when the user does not
-  ask about wording. Read and apply accepted English terms, verbs, collocations,
-  sentence patterns, company names, local meanings, and project explanations
-  throughout responses and artifacts.
+  ask about wording. Read and apply accepted terms in the field's standard
+  language, verbs, collocations, sentence patterns, company names, local
+  meanings, and project explanations throughout responses and artifacts.
   NOT a standalone research workflow: curate-terminology owns source selection,
   new definitions, expression records, and corrections to the shared reference.
 ---
 
 # Use Terminology
 
-Apply this skill on every task alongside `curate-terminology`, without waiting for a wording request. Use the project's accepted terms and expressions while completing the requested task. Give the reader an accurate explanation or a corrected artifact, not an unnecessary glossary report. Established English terms come first; explain their meaning in the reader's language without literal translation that changes the field's meaning.
+Apply this skill on every task alongside `curate-terminology`, without waiting for a wording request. Use the project's accepted terms and expressions while completing the requested task. Give the reader an accurate explanation or a corrected artifact, not an unnecessary glossary report. Terms settled in the field's standard language come first — English for most computing, security, and machine-learning vocabulary — so use such a term directly in reader-facing prose instead of coining a local translation. Explain a term's meaning in the reader's language without literal translation that changes the field's meaning, and keep ordinary words in the reader's language.
 
 ## Read the relevant reference
 
@@ -21,7 +21,7 @@ Apply entries to their documented domain, version, conditions, and level of clai
 
 Preserve confirmed company proper names and local meanings even when industry usage differs. Use local shorthand for internal readers and clarify ambiguous terms for external or mixed readers within the sharing scope. If a small number of local terms remain unclear after checking records, use `curate-terminology` to ask the user and record the answer. While waiting, preserve the observed name without asserting an unconfirmed meaning; do not repeatedly ask about settled conventions. A legitimate local name is not an anti-pattern by itself.
 
-When the user asks about a term, return the accepted English expression, its contextual meaning, the distinction that resolves the question, and a useful source pointer. Do not turn an ordinary phrase into a named method. When drafting, apply the accepted verbs, collocations, and sentence patterns as well as nouns. Explain who acts on what, under which conditions, and with what observable effect. Reuse how established sources explain a project's purpose and component relationships only when the underlying behavior matches; do not import their architecture or guarantees. Retain the qualifiers that determine meaning. Consult [application pitfalls](references/application-pitfalls.md) when a familiar label hides a different operation or a stronger claim.
+When the user asks about a term, return the accepted expression in the field's standard language, its contextual meaning, the distinction that resolves the question, and a useful source pointer. Do not turn an ordinary phrase into a named method. When drafting, apply the accepted verbs, collocations, and sentence patterns as well as nouns. Explain who acts on what, under which conditions, and with what observable effect. Reuse how established sources explain a project's purpose and component relationships only when the underlying behavior matches; do not import their architecture or guarantees. Retain the qualifiers that determine meaning. Consult [application pitfalls](references/application-pitfalls.md) when a familiar label hides a different operation or a stronger claim.
 
 ## Correct what the task authorizes
 

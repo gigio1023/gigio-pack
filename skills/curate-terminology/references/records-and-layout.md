@@ -38,7 +38,7 @@ Cite the reference record directly from each supported entry and retain any clai
 
 For a user-confirmed local meaning or editorial choice, a dated decision record is the source; do not invent a public citation or expose private conversation content. If the source is missing or unread, mark the claim unresolved and the reference status accordingly. Do not manufacture support to fill a mandatory field. Literature binaries and extracted text remain in the project's literature collection; link them from the reference record and existing literature index.
 
-English names should follow actual research and developer usage, including established spelling, capitalization, hyphenation, and abbreviations. Explanations use the project's working language. A Korean explanation is contextual meaning, not a claim to an official translation or a one-to-one mapping across every field. Preserve paper titles, product names, literal quotations, and identifiers.
+Names in the field's standard language should follow actual research and developer usage, including established spelling, capitalization, hyphenation, and abbreviations; English is that language for most technical fields. Explanations use the project's working language. A working-language explanation is contextual meaning, not a claim to an official translation or a one-to-one mapping across every field. Preserve paper titles, product names, literal quotations, and identifiers.
 
 ## What an entry needs
 

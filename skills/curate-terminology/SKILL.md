@@ -12,7 +12,7 @@ description: >
 
 # Curate Terminology
 
-Apply this skill on every task alongside `use-terminology`; no separate terminology request is needed. Maintain the project's terminology and expression decisions as source-grounded, human-editable documents. English terms used by practitioners are the primary names; explanations use the project's language, with Korean explanations when that is the working language. A project glossary is a living reference, not a list of phrases coined by the agent.
+Apply this skill on every task alongside `use-terminology`; no separate terminology request is needed. Maintain the project's terminology and expression decisions as source-grounded, human-editable documents. Terms in the field's standard language — English for most technical fields — are the primary names; explanations use the project's working language. A project glossary is a living reference, not a list of phrases coined by the agent.
 
 ## Start with the existing authority
 
