@@ -27,6 +27,8 @@ Moved seven execution helpers without renaming them. Replaced duplicate sharing 
 
 Kept recipient suitability, source preservation, sensitive attribution, and authorized delivery. Narrowed the sharing workflow to these responsibilities and explicit composition with technical-report-writing. Removed reliance on linked working documents for essential explanation. The writer owns editorial defaults across media; genre changes the needed depth, not whether established preferences apply. No separate style skill, installation, or new approval stage is required.
 
+Recipient review distinguishes useful ownership from decorative author framing and checks that internal names are understandable. Delivery verification preserves row identity and list hierarchy through conversion. The writer owns the detailed corrections and complete synthetic examples; the sharing skill does not maintain a second style guide.
+
 The changed packages receive metadata, resource-link, discovery, and editorial consistency checks. Model behavior comparisons remain a separate requested activity.
 
 ## Generation audit

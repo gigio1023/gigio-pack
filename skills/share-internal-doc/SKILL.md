@@ -28,7 +28,7 @@ Apply the project's terminology and presentation choices. When no theme is speci
 
 ## Recipients and sources
 
-Match detail and attribution to the intended audience. Remove credentials and unnecessary private information. Preserve relevant events and accountability without unsupported personal evaluation. Do not add explanations merely to demonstrate caution.
+Match detail and attribution to the intended audience. Apply the writer's rules for direct findings, intelligible terminology, and necessary attribution. Page ownership or a sharing message usually supplies the author's identity; do not repeat it as an introductory byline or “the author's synthesis” paragraph. Retain an action owner or observation date when it changes meaning. Remove credentials and unnecessary private information. Preserve relevant events and accountability without unsupported personal evaluation. Do not add explanations merely to demonstrate caution.
 
 Use citations readers can access for the claims they need to verify. Inspect the actual destinations: a bare Markdown filename accidentally linked as a website, a localhost address, and a private local path are not usable team citations. Replace them with authorized source links or incorporate the necessary supported explanation. Do not add a folder inventory or a blanket source disclaimer. If access remains essential and unavailable, state the concrete delivery limitation. Do not upload restricted working records alongside the document.
 
@@ -36,7 +36,7 @@ Read [sharing pass](references/sharing-pass.md) for sensitive material, personal
 
 ## Delivery
 
-Inspect the actual destination after rendering, conversion, or publication. Check complete content, readable table cells, figure size, numbering, captions, and usable source links. A clear source file does not establish that the shared copy reads well. For a new or restructured document, check that a colleague can identify the subject, understand the main explanation, and use the result without the authoring conversation. Apply the writer's editorial checks rather than maintaining a second style checklist here.
+Inspect the actual destination after rendering, conversion, or publication. Check complete content, visible row and column labels, readable table cells, preserved list hierarchy, figure size, numbering, captions, and usable source links. A clear source file does not establish that the shared copy reads well. For a new or restructured document, check that a colleague can identify the subject, understand the main explanation and internal names, and use the result without the authoring conversation. Apply the writer's editorial checks rather than maintaining a second style checklist here.
 
 When publication is requested, use the supported destination tool and retrieve the result to verify complete delivery. Document preparation alone does not authorize sending, publishing, committing, or installing skills. Reuse an existing grant instead of asking again.
 
