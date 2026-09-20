@@ -1,39 +1,42 @@
 ---
 name: share-internal-doc
 description: >
-  Use only when asked to create, revise, or review a document for colleagues
-  who do not share the authoring session's context, or when named. Coordinates
-  the finished document, recipient suitability, source access, and authorized
-  delivery. NOT for ordinary chat, task plans, agent handoffs, or PR copy.
+  Use only when asked to prepare, revise, review, or deliver a document for
+  colleagues who lack the authoring context, or when named. Adds recipient
+  suitability, usable source access, and authorized delivery;
+  technical-report-writing owns document craft. NOT for ordinary chat,
+  task plans, agent handoffs, PR copy, or general writing without a sharing context.
 ---
 
 # Share Internal Doc
 
-Deliver the requested document so its colleagues can understand and use it. This remains a complete document-request entry point: establish the audience and purpose, obtain the needed writing and production capability, and check the actual shared copy.
+Prepare the requested document for its colleagues and verify the usable shared copy. technical-report-writing owns content selection, structure, headings, tables, figures, explanation, and production. This skill adds the recipient and delivery requirements; it does not create a second editorial workflow.
 
 Infer the reader, intended use, existing material, medium, language, and distribution from the request. Reuse context already established by another skill. Review requests return findings; writing and revision requests include the artifact. Ask only for consequential missing user choices.
 
-## Compose the document
+## Document preparation
 
-Use technical-report-writing from agent-skills for information selection, explanation, prose, and document production when available. Give it the existing reader brief and sources; do not restart intake or require the user to name a sequence of skills. If it is unavailable, complete the authorized document directly using the same reader purpose and source material rather than blocking on installation.
+For writing, substantive revision, or editorial review, read and apply the available technical-report-writing skill, including its normal-path editorial defaults. Pass the established audience, document purpose, sources, medium, and explicit preferences once. A user naming only this skill still receives the complete document or requested review. Do not restart intake or require the user to orchestrate the skills.
+
+If the writer is unavailable, use the established user preferences and reader brief to complete the authorized task with available tools. Report the missing capability only if it materially limits the result; do not silently install a package. For delivery of an already finished document, inspect its recipient suitability and the actual copy without initiating an unrelated rewrite.
 
 Use insight-dashboard for data views whose comparisons and commentary must remain consistent with selections. Use the appropriate document or figure tool for the requested medium. Do not copy their methods into this package or run an automatic second editorial pass through slop-aware-writing. Explicit focused editing and Korean meaning repair retain their own triggers.
 
-The document needs enough explanation for its reader's task. Context apparent from the passage, code, or an appropriate linked document need not be repeated. Keep a definition or qualification when omitting it would materially mislead this reader. Preserve required records in their owning location; a short shared copy is not permission to erase them.
+A colleague must understand the main explanation from the shared document. Links support verification and further detail; they must not supply missing reasoning or definitions essential to the main point. Carry the document's purpose into production: a factual incident record and a technology explanation need different depths. Preserve required records in their owning location.
 
 Apply the project's terminology and presentation choices. When no theme is specified and screen styling is controlled, retain the pack's dark default for the page and figures; requested light, print, and destination-controlled themes take precedence. Pass the actual preference to the production tool.
 
-## Check recipients and sources
+## Recipients and sources
 
-Match detail and attribution to the intended audience. Remove credentials and unnecessary private information. Preserve relevant events and accountability without unsupported personal evaluation. Do not add explanations merely to demonstrate caution.
+Match detail and attribution to the intended audience. Apply the writer's rules for direct findings, intelligible terminology, and necessary attribution. Page ownership or a sharing message usually supplies the author's identity; do not repeat it as an introductory byline or “the author's synthesis” paragraph. Retain an action owner or observation date when it changes meaning. Remove credentials and unnecessary private information. Preserve relevant events and accountability without unsupported personal evaluation. Do not add explanations merely to demonstrate caution.
 
-Use citations readers can access for the claims they need to verify. A private local path is not a usable team citation. Follow existing access requirements and provide an authorized explanation when a source cannot be shared. Do not upload restricted working records alongside the document.
+Use citations readers can access for the claims they need to verify. Inspect the actual destinations: a bare Markdown filename accidentally linked as a website, a localhost address, and a private local path are not usable team citations. Replace them with authorized source links or incorporate the necessary supported explanation. Do not add a folder inventory or a blanket source disclaimer. If access remains essential and unavailable, state the concrete delivery limitation. Do not upload restricted working records alongside the document.
 
 Read [sharing pass](references/sharing-pass.md) for sensitive material, personal attribution, or changed distribution. Preserve actual review obligations and completed reviews; do not invent a universal approval process or contact people without authorization.
 
-## Deliver the usable copy
+## Delivery
 
-Inspect the requested artifact after rendering or conversion for missing content, figures, captions, links, and material readability problems. For a new or restructured document, assess it from the intended reader's context. A cold read checks comprehension, not factual accuracy.
+Inspect the actual destination after rendering, conversion, or publication. Check complete content, visible row and column labels, readable table cells, preserved list hierarchy, figure size, numbering, captions, and usable source links. A clear source file does not establish that the shared copy reads well. For a new or restructured document, check that a colleague can identify the subject, understand the main explanation and internal names, and use the result without the authoring conversation. Apply the writer's editorial checks rather than maintaining a second style checklist here.
 
 When publication is requested, use the supported destination tool and retrieve the result to verify complete delivery. Document preparation alone does not authorize sending, publishing, committing, or installing skills. Reuse an existing grant instead of asking again.
 

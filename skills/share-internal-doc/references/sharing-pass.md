@@ -10,9 +10,11 @@ Keep relevant failures, unresolved problems, and their supporting records. Descr
 
 Identify owners, authors, speakers, customers, and ticket references when the recipients need them and distribution permits it. Prefer role names when a personal name adds no useful information. Do not treat anonymization as a reason to remove responsibility or confuse distinct actors.
 
+Distinguish useful attribution from repeated author framing. Page properties and the sharing context often establish authorship already; the body can state the finding or proposal directly. Preserve a named action owner, a relevant firsthand attribution, or required publication credit. Introduce unfamiliar internal names by their actual role, using the writer's terminology guidance; sharing a document does not make every recipient familiar with its project aliases.
+
 ## Match handling to the audience
 
-An author-only working record can retain local provenance and candid notes, subject to credential hygiene. A team or company document needs sources its readers can use and context they can understand.
+An author-only working record can retain local provenance and candid notes, subject to credential hygiene. A team or company document needs sources its readers can use and context they can understand. Verify the link destination, not just its label; local filenames and development-server URLs often survive conversion as unusable links. Provide essential context in the shared copy rather than asking recipients to assemble it from working records.
 
 Remove credentials and unnecessary private information. Check sensitive data locations, personal HR details, customer contacts, anonymous-review submissions, and reproducible offensive material when they occur. Keep technical conditions or identifiers that the authorized recipients need to interpret or act on the finding. An internal key name is different from a secret value.
 
@@ -26,6 +28,6 @@ When a restricted detail cannot appear in the shared copy, keep its record in th
 
 Prefer the project's established transformation when a shared copy is generated from a working original. Keep original records intact. Automated checks for known secrets or forbidden paths can support review, but a name match is not a substitute for judging whether that name belongs.
 
-Check the final copy for leftover local paths, private citation codes, exposed credentials, inappropriate attribution, unsupported certainty, and missing context after removals. Confirm that required sources, figures, and material limitations survived.
+Check the final copy for leftover local paths, private citation codes, exposed credentials, inappropriate attribution, unsupported certainty, and missing context after removals. Confirm that required sources, figures, and material limitations survived. Table conversion must retain the row-label header and individual row names; list conversion must preserve parent-child relationships instead of flattening grouped details into long bullets.
 
 For authorized publication, check that restricted attachments or working notes were not uploaded with the shared copy. Follow the entry point's delivery verification and the destination-specific checks in [composition and migration](composition.md).

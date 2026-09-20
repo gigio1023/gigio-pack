@@ -2,6 +2,16 @@
 
 This reference preserves the history of the earlier combined writing-and-sharing skill. As of 2026-09-17, general writing methods belong to technical-report-writing in agent-skills; this package owns the colleague-facing request, audience/access checks, and delivery. [Composition](composition.md) is the current guide. Historical source descriptions below are maintenance context, not instructions to reinstate duplicate editorial methods.
 
+## Editorial defaults clarified on 2026-09-20
+
+Direct user feedback requires structured documents without long prose stretches, noun-phrase headings, deliberately selected and divided tables, short cells, focused visuals, and exclusion of research diaries and blanket disclaimers. These are explicit preferences, not optional suggestions inferred from a public writing example. They belong in the writer's main instructions and remain applicable across media. A current explicit request or governing template can override a default.
+
+Contrasting document examples clarified the transfer boundary: concise factual reporting can use chronology and grouped observations, while explanations and proposals still need mechanisms and reasons. A positive example is not an all-purpose template. The writer's independent synthetic examples teach these decisions; private documents, figures, identifiers, and source paths are not included in the public packages.
+
+Further review on the same date clarified four recurring failures: ornamental author introductions and repeated first-person proposal framing; implicit row dimensions despite named columns; unexplained internal aliases; and long flat bullets containing multiple subjects. The writer now states direct prose, visible row identity, role-first terminology, and meaningful second- or third-level grouping on its normal path. It preserves required attribution, actual proposal status, identifiers, and supported validation claims. The sharing pass checks that recipient context and conversion preserve these meanings.
+
+This sharing skill applies that writer for substantive authoring and checks the recipient-facing result, actual source destinations, and authorized delivery. The earlier historical emphasis on avoiding universal outlines does not weaken explicit editorial preferences.
+
 ## User feedback revisited on 2026-09-14
 
 The original skill was assembled on 2026-09-09 from document corrections and local conventions across several agent systems. It was renamed from `write-internal-doc` on 2026-09-10. The earlier collection remains historical input; its corpus totals and repetition counts are not new verification results.

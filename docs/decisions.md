@@ -294,3 +294,10 @@ The table records the earlier state. The September 17 decision below resolves or
 - **Revisit:** when a real continuation loses a decisive finding, repeats an abandoned approach, or cannot locate its sources. Add a targeted correction instead of reinstating a universal stage or reporting template.
 
 The current [principles](principles.md), [rule ledger](rule-ledger.md), and [migration](migration.md) supersede conflicting older entries. These are design decisions and static review results, not measured model improvements.
+
+## Document craft and shared delivery (2026-09-20)
+
+- **Plan:** use one writer for general documents and a sharing skill for colleague-facing requirements.
+- **Reality:** generic reader-value guidance left explicit editorial preferences weak, and source links could shift essential explanation into inaccessible working records.
+- **Choice:** keep editorial defaults and genre-aware structural examples in technical-report-writing. Apply it once from share-internal-doc for substantive writing, then check recipient context, actual citation destinations, and delivered rendering. Preserve existing publication and source-retention boundaries.
+- **Revisit:** when a real document loses a required explanation, repeats authoring narration, overloads tables or figures, or requires inaccessible sources to understand its main point.
