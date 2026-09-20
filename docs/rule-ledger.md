@@ -13,7 +13,7 @@ Current rules below supersede conflicting rows in the [historical ledger](rule-l
 | Preserve actual attempts and consequential changes | execution and handoff | A successor needs current understanding and reliable source records |
 | Partition shared writes before parallel work | execution | Concurrency correctness; does not require planning every future stage |
 | Independent review when authorized and useful | review | Separate self-inspection from independent evidence; no false independence claim |
-| Recipient suitability and authorized delivery | share-internal-doc | Keep private records separate and make sources usable for the intended reader |
+| Recipient suitability and authorized delivery | share-internal-doc | Apply the document writer once; keep private records separate and verify usable source destinations and the actual shared copy |
 | Standing terminology maintenance and application | terminology pair | Preserve accepted meaning and sources with proportional changes |
 | Distinct repository ownership | all | Tool methods live in agent-skills; research methods in research-credo |
 
@@ -22,6 +22,12 @@ Current rules below supersede conflicting rows in the [historical ledger](rule-l
 Removed universal staged planning, mandatory changed paths plus command output for completion, a blanket worker ban on relevant skills, final-review-only handling of direction problems, and Git commit as the sole persistence test. Preserved authority, source verification, actual job ownership, and the distinction between missing execution and negative findings.
 
 Moved seven execution helpers without renaming them. Replaced duplicate sharing editorial references with writer composition. Updated project instructions and templates together. These are instruction and package changes, not evidence of improved model performance.
+
+## September 20, 2026 document ownership
+
+Kept recipient suitability, source preservation, sensitive attribution, and authorized delivery. Narrowed the sharing workflow to these responsibilities and explicit composition with technical-report-writing. Removed reliance on linked working documents for essential explanation. The writer owns editorial defaults across media; genre changes the needed depth, not whether established preferences apply. No separate style skill, installation, or new approval stage is required.
+
+The changed packages receive metadata, resource-link, discovery, and editorial consistency checks. Model behavior comparisons remain a separate requested activity.
 
 ## Generation audit
 

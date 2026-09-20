@@ -12,7 +12,7 @@ Identify owners, authors, speakers, customers, and ticket references when the re
 
 ## Match handling to the audience
 
-An author-only working record can retain local provenance and candid notes, subject to credential hygiene. A team or company document needs sources its readers can use and context they can understand.
+An author-only working record can retain local provenance and candid notes, subject to credential hygiene. A team or company document needs sources its readers can use and context they can understand. Verify the link destination, not just its label; local filenames and development-server URLs often survive conversion as unusable links. Provide essential context in the shared copy rather than asking recipients to assemble it from working records.
 
 Remove credentials and unnecessary private information. Check sensitive data locations, personal HR details, customer contacts, anonymous-review submissions, and reproducible offensive material when they occur. Keep technical conditions or identifiers that the authorized recipients need to interpret or act on the finding. An internal key name is different from a secret value.
 

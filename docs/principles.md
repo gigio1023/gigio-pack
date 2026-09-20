@@ -34,7 +34,7 @@ Explicit requests start setup, planning, execution, review, interviews, handoffs
 
 Gigio owns project context and continuity. agent-skills owns harness, Git, coding, writing, and production methods. research-credo owns research methods and operations. Compose available specialists without copying their instructions or assuming every companion is installed.
 
-Term definitions and expressions remain project records maintained and applied by the terminology pair. Shared documents use the writer for content and production, while share-internal-doc owns recipients and delivery.
+Term definitions and expressions remain project records maintained and applied by the terminology pair. technical-report-writing owns document craft and its explicit editorial defaults. share-internal-doc adds recipient suitability, usable source access, and delivery, applying the writer for substantive authoring without another intake or editorial workflow.
 
 ## Maintain the rules
 
