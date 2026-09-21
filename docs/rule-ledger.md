@@ -31,6 +31,10 @@ Recipient review distinguishes useful ownership from decorative author framing a
 
 The changed packages receive metadata, resource-link, discovery, and editorial consistency checks. Model behavior comparisons remain a separate requested activity.
 
+## September 21, 2026 shared-copy continuity
+
+Use the current user-edited shared copy as the revision baseline and reconcile it with generated sources before publication. The writer owns the interpretation of editorial deletions and optional-section design. Sharing verification checks that equations and collapsible content survive delivery, distinguishing retrieved content from rendered inspection. This adds no publication grant, approval stage, or duplicate editorial workflow.
+
 ## Generation audit
 
 Revisit measured workarounds against the active harness and actual task failures. Do not impose an instruction-size quota or run unrequested model comparisons. Keep applicable verification and user boundaries even when simplifying a procedure.
