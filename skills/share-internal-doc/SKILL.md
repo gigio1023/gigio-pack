@@ -22,9 +22,11 @@ If the writer is unavailable, use the established user preferences and reader br
 
 Use insight-dashboard for data views whose comparisons and commentary must remain consistent with selections. Use the appropriate document or figure tool for the requested medium. Do not copy their methods into this package or run an automatic second editorial pass through slop-aware-writing. Explicit focused editing and Korean meaning repair retain their own triggers.
 
-A colleague must understand the main explanation from the shared document. Links support verification and further detail; they must not supply missing reasoning or definitions essential to the main point. Carry the document's purpose into production: a factual incident record and a technology explanation need different depths. Preserve required records in their owning location.
+A colleague must be able to follow the document's actual explanation: identify the subject, connect the example to the finding, understand the condition that changes its meaning, and use the result for the intended task. Read a representative passage from that colleague's position. Supply missing subject context where it is needed; an author introduction or reading tour does not supply that context. Links support verification and further detail. Carry the document's purpose into production: a factual incident record and a technology explanation need different depths. Preserve required records in their owning location.
 
 Apply the project's terminology and presentation choices. When no theme is specified and screen styling is controlled, retain the pack's dark default for the page and figures; requested light, print, and destination-controlled themes take precedence. Pass the actual preference to the production tool.
+
+When colleagues or the user have edited the shared copy, retrieve that version before revision or republication and pass it to the writer as the current baseline. Reconcile differences with a local source before rebuilding; preserve intentional deletions and intervening edits. Familiarity with the original draft is not evidence that the shared copy is unchanged.
 
 ## Recipients and sources
 
@@ -36,7 +38,7 @@ Read [sharing pass](references/sharing-pass.md) for sensitive material, personal
 
 ## Delivery
 
-Inspect the actual destination after rendering, conversion, or publication. Check complete content, visible row and column labels, readable table cells, preserved list hierarchy, figure size, numbering, captions, and usable source links. A clear source file does not establish that the shared copy reads well. For a new or restructured document, check that a colleague can identify the subject, understand the main explanation and internal names, and use the result without the authoring conversation. Apply the writer's editorial checks rather than maintaining a second style checklist here.
+Inspect the actual destination after rendering, conversion, or publication. Check complete content, visible row and column labels, readable table cells, preserved list hierarchy, equations, figure size, numbering, captions, and usable source links. For a collapsible document, check the initial view and representative expanded content; a static export must still make necessary content available. Distinguish retrieved-content checks from visual checks, and do not claim a rendered view was inspected when only its source was read. A clear source file does not establish that the shared copy reads well. For a new or restructured document, check that a colleague can identify the subject, understand the main explanation and internal names, and use the result without the authoring conversation. Apply the writer's editorial checks rather than maintaining a second style checklist here.
 
 When publication is requested, use the supported destination tool and retrieve the result to verify complete delivery. Document preparation alone does not authorize sending, publishing, committing, or installing skills. Reuse an existing grant instead of asking again.
 
