@@ -10,7 +10,7 @@ Maintain the project-context and adaptive-work skills described in README.md. Cu
 - Preserve original records, unrelated changes, and private design material. docs/design/ is private historical input, not publication content.
 - Apply use-terminology and curate-terminology under their standing policy. Use an existing project terminology index; do not create an artificial glossary for a maintenance task with no new terminology.
 - Update README, affected references, instructions, and current rule documentation together when responsibilities change.
-- Document craft and explicit editorial defaults belong to technical-report-writing. share-internal-doc applies that writer and adds recipient suitability, source access, and authorized delivery without another editorial workflow.
+- Document craft, explicit editorial defaults, and internal sharing (recipients, source access, sharing pass, delivery) belong to technical-report-writing in agent-skills; the pack's share-internal-doc was retired into it on 2026-09-24.
 - No runtime framework, daemon, mandatory project database, or model-evaluation scaffolding in skill payloads.
 
 ## Work and authority

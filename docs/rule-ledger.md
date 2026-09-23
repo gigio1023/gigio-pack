@@ -13,7 +13,7 @@ Current rules below supersede conflicting rows in the [historical ledger](rule-l
 | Preserve actual attempts and consequential changes | execution and handoff | A successor needs current understanding and reliable source records |
 | Partition shared writes before parallel work | execution | Concurrency correctness; does not require planning every future stage |
 | Independent review when authorized and useful | review | Separate self-inspection from independent evidence; no false independence claim |
-| Recipient suitability and authorized delivery | share-internal-doc | Apply the document writer once; keep private records separate and verify usable source destinations and the actual shared copy |
+| Recipient suitability and authorized delivery | technical-report-writing (agent-skills), `references/sharing-and-delivery.md`; formerly share-internal-doc | Keep private records separate and verify usable source destinations and the actual shared copy |
 | Standing terminology maintenance and application | terminology pair | Preserve accepted meaning and sources with proportional changes |
 | Distinct repository ownership | all | Tool methods live in agent-skills; research methods in research-credo |
 

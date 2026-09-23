@@ -28,4 +28,4 @@ Installations are separate from PR publication. Do not uninstall first, point to
 
 Old plan fields remain readable. No migration script rewrites user goals, results, or active jobs. New rounds use the current understanding and next decision rather than demanding all future stages.
 
-General document methods now live in technical-report-writing. share-internal-doc remains the complete entry for a document intended for colleagues, uses the writer when available, and checks recipients and delivery. Preserve existing project source workflows and useful figures.
+General document methods live in technical-report-writing. share-internal-doc was retired on 2026-09-24; its recipient, source-access, sharing-pass, and delivery rules moved verbatim to that writer's `references/sharing-and-delivery.md` in agent-skills. Remove the installed package with the Skills CLI; a request that names share-internal-doc is served by the writer. Preserve existing project source workflows and useful figures.

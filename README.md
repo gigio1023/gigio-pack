@@ -23,7 +23,6 @@ Use only the skills the request needs. Setup, planning, execution, and review ar
 | [find-unknowns](skills/find-unknowns/) | Resolve consequential gaps before expensive work |
 | [deep-interview](skills/deep-interview/) | Interview when sustained requirements discovery is explicitly wanted |
 | [session-handoff](skills/session-handoff/) | Give the next session the current understanding, sources, and next action |
-| [share-internal-doc](skills/share-internal-doc/) | Apply the document writer, check recipient suitability and source access, and deliver when authorized |
 | [curate-terminology](skills/curate-terminology/) | Maintain project definitions, expressions, and source records |
 | [use-terminology](skills/use-terminology/) | Apply those accepted terms and expressions |
 
