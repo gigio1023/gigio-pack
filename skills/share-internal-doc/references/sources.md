@@ -64,7 +64,7 @@ The local `gpt6-astra-prompting-guide` and `skill-builder` workflows informed th
 
 The earlier design consulted documentation and writing skills for reader questions, source fit, explanatory figures, and independent reader review. That survey is historical context rather than a currently verified ranking of external packages. The mechanisms retained here are stated directly and do not require installing the surveyed implementations.
 
-`slop-aware-writing` now provides explicit focused revision, independently usable and never an automatic second pass. General authoring and source-integrity methods live with technical-report-writing. `korean-clarity` owns Korean semantic completeness. The terminology pair owns project terms and expression records. Figure and document tools own production in their supported media. This skill coordinates the reader-facing result without copying every neighbor's procedure.
+Explicit AI-slop revision and Korean semantic completeness were merged into technical-report-writing on 2026-09-23 (agent-skills #74); the former `slop-aware-writing` and `korean-clarity` skills are no longer installed separately, and the merged skill keeps the MIT attribution. General authoring and source-integrity methods live with technical-report-writing as before. The terminology pair owns project terms and expression records. Figure and document tools own production in their supported media. This skill coordinates the reader-facing result without copying every neighbor's procedure.
 
 ## Verification boundary
 
