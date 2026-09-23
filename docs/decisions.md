@@ -280,7 +280,7 @@ The table records the earlier state. The September 17 decision below resolves or
 | Experiment-shaped work beyond the basics: run manifests, seeds, quota fields, mid-sweep triage | Runs are tasks owning their output directory (adopted 2026-07-26); a run's named model or dataset is a Planned against anchor that blocks when absent (2026-09-11); nothing further | First real experiment loop — one pilot's planned three-model comparator sweep is exactly this shape |
 | Decisions-digest growth in high-reversal domains: one pilot opened with 17 decision rows plus 6 supersessions on day one, and no compression or retirement rule exists | Keep appending, supersede never delete | First time loading the table becomes a burden |
 | Whether batched direction amendments actually hold — or the user keeps intervening mid-run regardless | Policy adopted (see "Direction changes batch at the review station"); count proposals per review | Pilot closeout |
-| Whether `share-internal-doc` stays in the pack or moves to agent-skills | In the pack, explicit request trigger (adopted 2026-09-09) | After five shared documents |
+| Whether `share-internal-doc` stays in the pack or moves to agent-skills | Merged into `technical-report-writing` and removed from the pack (2026-09-24) | Closed |
 | Whether Authority, Environment, and Evidence-rules sections earn a place in the plan file | Not added (2026-09-11). Out of scope carries forbidden side effects in the user's words; Planned against carries named inputs; nothing carries "what a check does not prove" | After the next three plans: keep only what the user read and corrected |
 | Why earlier plans drew no user corrections — length, paraphrase, results that never came back | Top half in the user's words (2026-09-11); ask the user, then count corrections | After the next three plans |
 
@@ -301,3 +301,9 @@ The current [principles](principles.md), [rule ledger](rule-ledger.md), and [mig
 - **Reality:** generic reader-value guidance left explicit editorial preferences weak, and source links could shift essential explanation into inaccessible working records.
 - **Choice:** keep editorial defaults and genre-aware structural examples in technical-report-writing. Apply it once from share-internal-doc for substantive writing, then check recipient context, actual citation destinations, and delivered rendering. Preserve existing publication and source-retention boundaries.
 - **Revisit:** when a real document loses a required explanation, repeats authoring narration, overloads tables or figures, or requires inaccessible sources to understand its main point.
+
+## share-internal-doc retired into the writer (2026-09-24)
+
+- **Context:** the skill was adopted 2026-09-09 with a review point after five shared documents. By 2026-09-23 its editorial content had already moved to `technical-report-writing`, leaving recipients, source access, the latest shared copy, the sharing pass, and delivery. Every one of those is the last stage of a document task; no request delivers without a document, so the two skills were always loaded together, and the writer's own sharing section repeated the same rules.
+- **Choice:** move the remaining rules verbatim into the writer's `references/sharing-and-delivery.md` in agent-skills and remove the package from this pack. The sharing pass keeps its status as user-set policy from the September 5 and 6 review rounds. A request that names `share-internal-doc` is served by the writer. `docs/rule-ledger-history.md` keeps the harvest history.
+- **Consequence:** the pack no longer ships a document exit; code leaves a session as a PR through `draft-pr`, findings leave it through the writer. Installed copies are removed with the Skills CLI.
