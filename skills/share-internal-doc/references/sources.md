@@ -16,7 +16,7 @@ This sharing skill applies that writer for substantive authoring and checks the 
 
 The original skill was assembled on 2026-09-09 from document corrections and local conventions across several agent systems. It was renamed from `write-internal-doc` on 2026-09-10. The earlier collection remains historical input; its corpus totals and repetition counts are not new verification results.
 
-The 2026-09-14 revision revisited original Codex and Claude Code user turns and adjacent drafts through four bounded collection lanes. The inspected material spans September 2–14. Discovery used indexes and transcript screening; selected conversations received deeper reading. Fork copies, streamed duplicates, pasted skill instructions, and assistant statements were not counted as independent user preferences. This was not an exhaustive semantic review of every stored session.
+The 2026-09-14 revision revisited original Codex and Claude Code user turns and adjacent drafts through four bounded collection tasks. The inspected material spans September 2–14. Discovery used indexes and transcript screening; selected conversations received deeper reading. Fork copies, streamed duplicates, pasted skill instructions, and assistant statements were not counted as independent user preferences. This was not an exhaustive semantic review of every stored session.
 
 Private working records retain the exact quotations, session identifiers, dates, source lines, collection limits, and conflict analysis outside the published skill. The package carries their reusable conclusions without private transcript paths or organization-specific case details.
 

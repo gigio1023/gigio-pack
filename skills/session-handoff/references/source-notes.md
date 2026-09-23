@@ -1,6 +1,6 @@
 # Source Notes
 
-Last reviewed: 2026-07-10.
+Last reviewed: 2026-07-10. Links to moved or superseded pages updated on 2026-09-23.
 
 ## Primary Sources
 
@@ -10,8 +10,8 @@ Last reviewed: 2026-07-10.
 - Anthropic, [Context windows](https://platform.claude.com/docs/en/build-with-claude/context-windows)
 - OpenAI Agents SDK, [Handoffs](https://openai.github.io/openai-agents-js/guides/handoffs/)
 - OpenAI Agents SDK, [Handoff prompt](https://openai.github.io/openai-agents-python/ref/extensions/handoff_prompt/)
-- LangGraph, [Multi-agent collaboration](https://langchain-ai.github.io/langgraph/tutorials/multi_agent/multi-agent-collaboration/)
-- Microsoft AutoGen, [Handoffs](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/handoffs.html)
+- LangChain, [Handoffs](https://docs.langchain.com/oss/python/langchain/multi-agent/handoffs)
+- Microsoft Agent Framework, [Handoff orchestration](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/handoff), the successor to AutoGen, which is now in maintenance mode
 
 ## Durable Translation
 

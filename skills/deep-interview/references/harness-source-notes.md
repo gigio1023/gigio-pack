@@ -1,6 +1,6 @@
 # Harness Source Notes
 
-Research refreshed on 2026-07-10 from the local checkouts under `~/git/harness`. Every repository was updated with a fast-forward-only pull before review. The revisions below make the research basis reproducible; they are not runtime dependencies of the skill.
+Research refreshed on 2026-07-10 from temporary local checkouts. Every repository was updated with a fast-forward-only pull before review. The revisions below make the research basis reproducible; they are not runtime dependencies of the skill.
 
 ## Primary Source
 
@@ -21,11 +21,11 @@ The portable skill intentionally drops Ouroboros-specific state files, commands,
 | --- | --- | --- |
 | [NomaDamas/Codexplain](https://github.com/NomaDamas/Codexplain) `0e9a987fb8b9` | `README.md`, explanation UX method | Answer-first, scan-friendly summaries that preserve exact evidence and uncertainty |
 | [obra/Superpowers](https://github.com/obra/Superpowers) `d884ae04edeb` | `skills/brainstorming/SKILL.md` | Inspect context first, one question at a time, alternatives and approval before implementation |
-| [santifer/career-ops](https://github.com/santifer/career-ops) `267dfb707987` | interview practice and debrief modes | Adaptive follow-up, evidence-backed claims, honest gap capture; also defines the job-rehearsal near-miss boundary |
+| [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) `267dfb707987` | interview practice and debrief modes | Adaptive follow-up, evidence-backed claims, honest gap capture; also defines the job-rehearsal near-miss boundary |
 | [Yeachan-Heo/clawhip](https://github.com/Yeachan-Heo/clawhip) `b9fc36d7b765` | native event and question-request contracts | Keep question payloads bounded and public-safe; preserve approval and routing identity |
-| [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) `40927950c49f` | planner and spec-miner agents | Ground requirements in repository evidence, dependencies, risks, edge cases, and verifiable behavior |
+| [affaan-m/ECC](https://github.com/affaan-m/ECC) `40927950c49f` | planner and spec-miner agents | Ground requirements in repository evidence, dependencies, risks, edge cases, and verifiable behavior |
 | [gmickel/flow-next](https://github.com/gmickel/flow-next) `e38604ebd3a7` | interview/prospect skills and question banks | Classify facts before asking, show stakes and option consequences, track skipped decisions and branch depth |
-| [safishamsi/graphify](https://github.com/safishamsi/graphify) `dae602ccd1a3` | graph query and extraction references | Distinguish extracted evidence from inference and make source expansion auditable |
+| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) `dae602ccd1a3` | graph query and extraction references | Distinguish extracted evidence from inference and make source expansion auditable |
 | [garrytan/gstack](https://github.com/garrytan/gstack) `7c9df1c568a9` | `office-hours` and `spec` skills | Smart-skip answered questions, pressure-test polished answers, challenge premises, and force explicit choices |
 | [mattpocock/skills](https://github.com/mattpocock/skills) `d574778f94cf` | grilling, grill-me, and to-spec skills | Walk a decision tree in dependency order, inspect facts, keep interview separate from execution |
 | [Yeachan-Heo/oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode) `95c9d2121fa2` | deep-interview skill and prompt builder | Target the weakest material dimension, cite brownfield evidence, preserve an explicit handoff gate |

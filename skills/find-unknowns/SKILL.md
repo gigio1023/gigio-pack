@@ -10,8 +10,8 @@ description: >
   was learned into a launch brief, and, when the user cannot test the result
   directly, explains consequential decisions and offers a comprehension check.
   NOT for well-specified or small tasks, multi-round
-  Socratic discovery (use deep-interview), final decision synthesis (use
-  fable5-model-routing), or packaging session state (use session-handoff).
+  Socratic discovery (use deep-interview), final decision synthesis (left to
+  the agent's own judgment), or packaging session state (use session-handoff).
 ---
 
 # Find Unknowns
