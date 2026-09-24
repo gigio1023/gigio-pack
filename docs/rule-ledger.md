@@ -13,7 +13,7 @@ Current rules below supersede conflicting rows in the [historical ledger](rule-l
 | Preserve actual attempts and consequential changes | execution and handoff | A successor needs current understanding and reliable source records |
 | Partition shared writes before parallel work | execution | Concurrency correctness; does not require planning every future stage |
 | Independent review when authorized and useful | review | Separate self-inspection from independent evidence; no false independence claim |
-| Recipient suitability and authorized delivery | technical-report-writing (agent-skills), `references/sharing-and-delivery.md`; formerly share-internal-doc | Keep private records separate and verify usable source destinations and the actual shared copy |
+| Recipient suitability and authorized delivery | copydesk (agent-skills), `references/sharing-and-delivery.md`; formerly share-internal-doc | Keep private records separate and verify usable source destinations and the actual shared copy |
 | Standing terminology maintenance and application | terminology pair | Preserve accepted meaning and sources with proportional changes |
 | Distinct repository ownership | all | Tool methods live in agent-skills; research methods in research-credo |
 
@@ -25,7 +25,7 @@ Moved seven execution helpers without renaming them. Replaced duplicate sharing 
 
 ## September 20, 2026 document ownership
 
-Kept recipient suitability, source preservation, sensitive attribution, and authorized delivery. Narrowed the sharing workflow to these responsibilities and explicit composition with technical-report-writing. Removed reliance on linked working documents for essential explanation. The writer owns editorial defaults across media; genre changes the needed depth, not whether established preferences apply. No separate style skill, installation, or new approval stage is required.
+Kept recipient suitability, source preservation, sensitive attribution, and authorized delivery. Narrowed the sharing workflow to these responsibilities and explicit composition with copydesk. Removed reliance on linked working documents for essential explanation. The writer owns editorial defaults across media; genre changes the needed depth, not whether established preferences apply. No separate style skill, installation, or new approval stage is required.
 
 Recipient review distinguishes useful ownership from decorative author framing and checks that internal names are understandable. Delivery verification preserves row identity and list hierarchy through conversion. The writer owns the detailed corrections and complete synthetic examples; the sharing skill does not maintain a second style guide.
 
