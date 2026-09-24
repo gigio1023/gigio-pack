@@ -28,4 +28,6 @@ Installations are separate from PR publication. Do not uninstall first, point to
 
 Old plan fields remain readable. No migration script rewrites user goals, results, or active jobs. New rounds use the current understanding and next decision rather than demanding all future stages.
 
-General document methods live in technical-report-writing. share-internal-doc was retired on 2026-09-24; its recipient, source-access, sharing-pass, and delivery rules moved verbatim to that writer's `references/sharing-and-delivery.md` in agent-skills. Remove the installed package with the Skills CLI; a request that names share-internal-doc is served by the writer. Preserve existing project source workflows and useful figures.
+General document methods live in copydesk. share-internal-doc was retired on 2026-09-24; its recipient, source-access, sharing-pass, and delivery rules moved verbatim to that writer's `references/sharing-and-delivery.md` in agent-skills. Remove the installed package with the Skills CLI; a request that names share-internal-doc is served by the writer. Preserve existing project source workflows and useful figures.
+
+The writer was renamed from `technical-report-writing` to `copydesk` in agent-skills on 2026-09-24; `docs/decisions.md` keeps the name in use at each decision.
