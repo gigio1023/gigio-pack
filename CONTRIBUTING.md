@@ -1,6 +1,6 @@
 # Contributing
 
-Gigio Pack owns durable project context and adaptive work. Read README.md, CLAUDE.md, docs/principles.md, and the current docs/rule-ledger.md before changing a load-bearing rule.
+Gigio Pack owns durable project context and adaptive work. Read README.md, AGENTS.md, docs/principles.md, and the current docs/rule-ledger.md before changing a load-bearing rule.
 
 ## Layout and writing
 
