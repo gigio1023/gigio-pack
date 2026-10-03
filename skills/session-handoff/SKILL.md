@@ -1,93 +1,40 @@
 ---
 name: session-handoff
 description: >
-  Use only when the user asks for a successor-ready handoff prompt,
-  continuation prompt, next-agent prompt, or session transfer file, asks to
-  package current work so another agent can continue without rereading the
-  whole conversation, or names session-handoff. Creates one executable prompt
-  file from intent, decisions, artifacts, live state, evidence, and remaining
-  work. NOT for bounding a weaker executor on an already-approved plan (use
-  small-model-handoff), or for writing or executing plans (gigio-write-plan,
-  gigio-execute-plan). Never activate because a session has grown long or
-  context is running low.
+  Use only when the user asks to write a handoff, continuation prompt, or
+  session transfer file so another agent, model, or harness can continue the
+  current work, or names session-handoff. Writes one short file under
+  `.handoff/` that the successor executes: what was being done, what comes
+  next, and the questions to put to the user. NOT when the user gives the path
+  of an existing handoff file or says to continue from one: that asks you to
+  carry out the file's task, not to write or improve a handoff. NOT for
+  bounding a weaker executor on an approved plan (small-model-handoff),
+  writing or executing plans (gigio-write-plan, gigio-execute-plan), or
+  reading another session's transcript (read-agent-sessions). Never activate
+  because a session has grown long or context is running low.
 ---
 
 # Session Handoff
 
-Create one self-contained prompt file that a successor agent can execute. The default output is `handoff.md` in the active project root. Write the file; do not stop at showing a draft in chat.
+Write one file that a successor given only its path recognizes as its task and starts executing. If you were handed a handoff file instead, you are the successor: do its task and leave the file alone.
 
-## Quick Start
+This request authorizes reading what the handoff needs and writing the file, nothing more. Grants the user gave for the task are recorded for the successor, not used here.
 
-1. Confirm the handoff scope from the current request. Use the user-specified output path, or default to `handoff.md`. For a multi-repo task, place it at the nearest common workspace root and label every repository.
-2. Gather the smallest authoritative evidence set:
-   - current user objective, intent, constraints, and explicit decisions;
-   - relevant plans, progress notes, results, specifications, and logs;
-   - live repository state, changed files, branch and revision, and diffs;
-   - test, build, render, or command results that support completion claims;
-   - current understanding, competing explanations, superseded approaches and their reasons, unresolved questions, and the next useful decision;
-3. Reconcile conflicts. Current explicit user direction controls intent and scope. Live files, version-control state, and fresh tool output control implementation status. Treat older notes and conversation claims as context, not proof, when they disagree with inspectable state.
-4. Fill `assets/handoff.template.md`. Replace every placeholder, remove empty optional rows, and keep the result addressed directly to the successor.
-5. Point to exact files, commands, commits, and evidence instead of pasting long source material or a transcript.
-6. Remove secrets, tokens, credentials, personal data, and irrelevant history. Preserve material caveats and authority boundaries.
-7. Re-read the file cold. Verify that its first actions are executable and that every completed claim has inspectable evidence.
+## Writing the File
 
-Read `references/source-notes.md` only when maintaining the handoff contract or adapting it to a new agent runtime.
+1. Write to `.handoff/<YYYY-MM-DD>-<HHMM>-<task-slug>.md` at the project root, in local time with a short ASCII kebab-case slug. For several repositories, use their common root and label each.
+2. Fill `assets/handoff.template.md`. Keep its bold opening instruction word for word and delete rows with nothing to say.
+3. The user's current explicit words decide intent and scope; live files, version control, and fresh tool output decide status. Quote the user's decisive sentences verbatim with their date. Point to paths, commands, and commits instead of pasting them, and leave out secrets.
+4. Subagents, background jobs, pending tool calls, and in-session grants end with this session. Record what each left on disk, and list as still running only handles the successor can check from outside, with the checking command. Record the origin harness and session id so `read-agent-sessions`, where installed, can recover the transcript.
+5. Ask only about unknowns that would change the work and that only the user can settle, each with its consequence, concrete options with a recommended default, and what to do if unanswered. A fact that inspection or a cheap check can settle goes into Next Actions instead.
+6. If a plan in `.plans/` or a PROJECT.md governs the work, point to it by path, carry only what it lacks, and name `gigio-execute-plan` when continuing means executing it.
 
-## Prompt Contract
+The file is ready when a reader with nothing else can run the first action, sees evidence for each completed claim, and knows what to ask the user.
 
-The generated file must contain:
+## Earlier Handoffs
 
-- a direct successor role and operating contract;
-- the primary objective and observable definition of done;
-- intent and background that explain why the work exists;
-- in-scope, out-of-scope, and confirmation-required actions;
-- current status, repository or artifact state, and important decisions;
-- completed work and findings paired with the sources or results that support them, including reviews without code changes;
-- an artifact map with paths and why each item matters;
-- the next bounded work and actual prerequisites; later work can remain conditional on findings;
-- blockers, unknowns, risks, and what would resolve them;
-- the first one to three executable actions;
-- verification requirements and final delivery expectations.
+The newest `.handoff/` file with the task's slug is current. Keep its still-valid decisions, name it on the new file's Supersedes line, and add only this line at the top of the old file: `Superseded by <new path>. Open that file instead.` A legacy root `handoff.md` is superseded the same way.
 
-When the successor continues work that already has a plan file in `.plans/` or a PROJECT.md, reference them by path instead of restating what they contain. If a plan exists and continuation includes execution, name `gigio-execute-plan` on that path as the entry point. First recover current understanding and the next decision, rather than blindly resuming an obsolete stage. Carry only missing context: live jobs, pending handles, uncommitted changes, decisive new findings, and later grants. A plan's existence alone does not authorize execution.
+## Delivery
 
-Use `verified`, `inferred`, and `unknown` labels only where ambiguity matters. Do not burden obvious facts with labels. A successor should know which claims it can trust and which it must check.
-
-## Evidence and Source Priority
-
-Use this order for conflicts:
-
-1. Current explicit user instruction for goal, scope, and authority.
-2. Current filesystem, repository, external-system state, and fresh tool output.
-3. Accepted specifications and maintained project artifacts.
-4. Plans, progress notes, prior summaries, and conversation memory.
-
-Do not infer intent from a diff when the user stated it directly. Do not claim that work is complete because a plan says so or a file exists. State what was not checked.
-
-## Continuation Behavior
-
-Write the handoff as an instruction to continue, not as a retrospective report. The successor should be told to:
-
-- re-ground on the named evidence before editing;
-- preserve verified work and avoid repeating completed investigation;
-- continue quick checks within the same question and permitted resources; ask before a direction change or long new activity such as two to three days or more unless already authorized;
-- preserve explicit grants with their target and conditions; ask only when an action lacks the required grant or a material user-only decision remains;
-- validate outcomes before reporting them;
-- update or replace stale handoff information if another transfer is needed.
-
-Include pending tool or worker handles and their last observed state when work is still running. Tell the successor what to inspect or wait for before retrying so a transfer does not duplicate an external action or an in-progress edit.
-
-If an existing handoff prompt is present, read it first. Preserve still-valid context and user decisions, but replace stale status and evidence rather than appending another conflicting summary.
-
-## Output Contract
-
-Return the path to the generated prompt, its overall continuation status, and the first action encoded in it. Mention evidence gaps only when they affect the successor's ability to proceed. The file itself is the deliverable.
-
-## Gotchas
-
-- Do not dump the conversation. Preserve decisions and consequences, not turns.
-- Do not include hidden or private reasoning. Record concise rationale and evidence that another agent can inspect.
-- Do not bury the next action after background. Make the start path explicit.
-- Do not copy secrets from environment files, logs, authentication output, or tool results into the prompt.
-- Do not silently combine unrelated repositories or tasks into one handoff.
-- Keep one prompt as the source of truth. Do not create mirrored handoff files unless the user explicitly requests additional output formats.
+Report the path, the recorded status, and the first action. Read `references/source-notes.md` only when maintaining this skill.

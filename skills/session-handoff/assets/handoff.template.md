@@ -1,103 +1,51 @@
-# Successor Agent Prompt
+# Handoff: <task in one line>
 
-## Operating Contract
+**This file is your task. Do not edit, summarize, review, or improve it. Carry out the work below, starting with Next Actions.** Revise this file only if the user explicitly asks you to revise the handoff. Where it disagrees with live files, live state decides status and the user's quoted words decide intent.
 
-You are taking over an in-progress task. Continue from the verified state below without redoing completed work. Inspect the named evidence before changing anything, keep the stated scope and authority boundaries, and verify outcomes before reporting them. Treat labeled inferences and unknowns as items to check, not as facts.
-
-Proceed within the recorded grants, preserving their targets and conditions. Ask only for a missing authorization or material user-only decision; continue independent work while it is pending. If a file causes a pause, name the file, clause, and affected action rather than attributing your interpretation to the user. If you cannot continue, report the exact blocker and smallest next action.
+Written <date, time, zone> in <origin harness and model>, session <id or title>, at `<project path>`. Supersedes: <previous `.handoff/` file, or none>.
 
 ## Objective
 
-<State the user-visible outcome in one or two sentences.>
+<The outcome in one or two sentences.> The user's words: "<decisive sentence>" (<date>).
 
-### Next Useful Decision or Result
+## State
 
-- <Observable completion condition>
-- <Required validation or evidence>
-- <Required delivery or publication state>
+- Status: <in progress | blocked | ready for verification>
+- Workspace: `<repository path>`, branch `<branch>` at `<commit>`; uncommitted: `<paths>`
+- Still running: `<job, process, run, or PR>`; check with `<command>` before retrying. <omit if none>
+- Ended with the origin session: <subagent or background job, and what it left on disk> <omit if none>
+- Done: <claim>. Evidence: `<path, command and its result, or URL>`
 
-## Intent and Background
+## Decisions
 
-<Explain why this work exists, who or what it serves, and the context needed to make good decisions. Omit session history that does not change the work.>
+- <Decision>, because <reason>. Source: <quoted user words with date, or path>
+- Dropped: <approach>, because <what showed it fails>
 
-## Scope and Authority
+## Next Actions
 
-### In Scope
+1. <First action, with exact path or command; usually confirms the State above>
+2. <Action>
+3. <Action>
 
-- <Allowed work>
+Then: <remaining work in order, until the Definition of Done holds>
 
-### Out of Scope
+## Questions for the User
 
-- <Excluded work>
+Ask these in one message before the work they decide, and meanwhile continue the work that does not depend on them. Without an answer, follow the last column; never invent one.
 
-### Existing Grants
-
-- <Authorized action, exact target, conditions, and source of the grant>
-
-### Still Require Confirmation
-
-- <Action whose needed authorization has not been granted>
-
-## Current State
-
-- Status: <not started | in progress | blocked | ready for verification | complete>
-- Workspace or project: `<path or identifier>`
-- Relevant repositories, data, documents, and live resources: <locations and identifiers; include branches or revisions only when relevant>
-- Worktree or artifact state: <clean, changed paths, generated outputs, or other state>
-- Last verified at: <timestamp or current-run marker>
-- Pending work: <tool or worker handle, last observed state, and how to inspect it before retrying; omit if none>
-
-## Current Understanding
-
-<What the evidence currently supports; meaningful negative or inconclusive findings; competing explanations; prior assumptions or approaches that are no longer current. Link existing records rather than copying them.>
-
-## Decisions and Rationale
-
-| Decision | Why it was made | Evidence or source | Revisit when |
+| Question | Why it changes the work | Options, recommended first | If unanswered |
 | --- | --- | --- | --- |
-| <Decision> | <Concise rationale> | `<path, command, source, or user instruction>` | <Condition or never> |
+| <question> | <which step or result differs> | <A (recommended), B> | <default to take, or the step to stop before> |
 
-## Completed Work and Evidence
+<omit the section if none>
 
-| Work item | Result | Evidence | Confidence |
-| --- | --- | --- | --- |
-| <Completed item> | <Observable outcome> | `<observation, dataset review, result record, source, artifact, or check>` | verified |
+## Boundaries
 
-## Artifact Map
+- Granted: <action, exact target, condition, and who granted it when>
+- Ask first: <action not yet granted>
+- Out of scope: <excluded work>
 
-| Path or identifier | Purpose | Current state |
-| --- | --- | --- |
-| `<artifact>` | <Why the successor needs it> | <verified, inferred, or unknown detail> |
+## Definition of Done
 
-## Current Work Boundary
-
-<The next decision and the bounded work that can inform it. Quick checks within the same question and grants can proceed; direction changes or new long activity require the stated confirmation. A negative or inconclusive finding may be the result.>
-
-## Remaining Work
-
-1. <Highest-priority action, including dependency and expected result.>
-2. <Next action.>
-3. <Conditional follow-up, only if already useful to specify; do not invent the full project sequence.>
-
-## Blockers, Unknowns, and Risks
-
-- Blocker: <What prevents progress and what resolves it.>
-- Unknown: <Missing fact and how to verify it.>
-- Risk: <Failure mode, impact, and mitigation.>
-
-## First Actions
-
-1. Read `<specific file or artifact>` and inspect `<specific state>`.
-2. Run `<exact safe command or tool action>` to confirm the starting state.
-3. Continue with `<first implementation or analysis step>`.
-
-## Verification and Completion Bar
-
-- Run: `<targeted check>`
-- Inspect: `<artifact, UI, diff, logs, or external state>`
-- Completion evidence: <What must exist or pass before claiming done>
-- If a check cannot run: <Required disclosure and next-best evidence>
-
-## Final Delivery
-
-Lead with the outcome. Include the evidence needed to trust it, any material caveat, and the next user action if one remains. Do not claim completion from a plan, an unverified file, or a prior agent's statement.
+- <Observable condition, and the check that shows it>
+- Report the outcome first, and point each claim at a result from your own run.
