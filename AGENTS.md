@@ -8,7 +8,7 @@ Maintain the project-context and adaptive-work skills described in README.md. Cu
 - Use established field language. Do not invent framework terminology or require a fixed thinking sequence.
 - Keep skills self-contained with colocated resources. References are loaded for a named decision, not all at once.
 - Preserve original records, unrelated changes, and private design material. docs/design/ is private historical input, not publication content.
-- Apply use-terminology and curate-terminology under their standing policy. Use an existing project terminology index; do not create an artificial glossary for a maintenance task with no new terminology.
+- This repository has no terminology index. Use curate-terminology only when a change introduces, disputes, or bans a term; do not create a glossary for maintenance work with no such term.
 - Update README, affected references, instructions, and current rule documentation together when responsibilities change.
 - Document craft, explicit editorial defaults, and internal sharing (recipients, source access, sharing pass, delivery) belong to copydesk in agent-skills; the pack's share-internal-doc was retired into it on 2026-09-24.
 - No runtime framework, daemon, mandatory project database, or model-evaluation scaffolding in skill payloads.

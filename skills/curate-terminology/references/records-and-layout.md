@@ -1,64 +1,69 @@
 # Records and Layout
 
-Use this reference when creating, updating, or splitting terminology documents. These paths are relative to the consuming project's root, not the installed skill directory.
-
-## Root index, detailed documents, and references
-
-Use this default layout for new collections and requested layout migrations:
+Paths are relative to the consuming project's root.
 
 ```text
-terminology.md
+terminology.md            index: terms, local names, wording decisions, topic links
 docs/terminology/
-  terms.md
-  expressions.md
-  internal-names.md
-  anti-patterns.md
-  references.md
+  <topic>.md              one Terms table per topic once the root grows
+  references.md           source records only
 ```
 
-`terminology.md` is the entry point: common usage rules, a small set of representative or frequently used terms with concise definitions, and an index linking to the detailed documents and references. Keep those representative definitions useful on their own; do not reduce the root to a bare directory listing. Keep long explanations and domain-specific detail under `docs/terminology/`. Split `terms.md` or `expressions.md` into descriptive topic files as the material grows, and create the internal-name and anti-pattern files when needed. The topic filenames are examples; the root entry point, detail directory, and dedicated `references.md` are the default locations.
+## Root index
 
-Maintain one authoritative full entry per concept. A representative definition in the root can link to deeper explanation in a topic document; update the root summary when the underlying meaning changes. Do not maintain competing full definitions or reassemble the detailed collection into a monolith. Use [the layout template](../assets/terminology-layout.md) when starting the root index, a topic document, and the reference list.
+```markdown
+# Terminology
 
-Read the existing root index before any migration. If a project explicitly mandates another layout, follow that instruction and record the mapping. Otherwise, adopt this layout during authorized setup or a requested reorganization, moving active entries with their links and source IDs. Ordinary lookup does not trigger a directory migration, and archived originals retain their locations.
+Terms follow the field's standard usage; meanings are in <reader language>. Sources are in [references](docs/terminology/references.md).
 
-## Always record references
+## Terms
 
-Maintain `docs/terminology/references.md` as the dedicated list of sources. Record every source used to adopt or change a term, expression, anti-pattern, local meaning, or root representative definition in the same task, including the user's confirmation of a company convention. Record sources actually consulted for a terminology decision, including rejected sources when they explain that decision; label their status so listing them does not endorse their wording. A pre-existing record can be reused; do not create duplicates on every application of unchanged wording. This file contains reference records only. Definitions, editorial rules, research notes, and maintenance history belong in their topic documents or existing change records.
+| Term | Meaning | Elsewhere called | Reference |
+| --- | --- | --- | --- |
+| subagent definition | The configured record that fixes a subagent's model, tools, and instructions | Codex: role; Claude Agent SDK: `AgentDefinition` | [R002](docs/terminology/references.md#r002) |
 
-Give each reference a stable ID or anchor and retain it across revisions. Each record contains:
+## Local names
 
-- Title or identifying description, author or owning organization, and source kind.
-- Canonical URL, DOI, repository path plus revision, or a dated local user-decision pointer, as appropriate.
-- Applicable version or edition and the date checked or confirmed.
-- The supporting section, page, function, or other locator and which terminology entries it supports.
-- What was actually inspected and any access or verification limitation; local original/text/metadata links when acquired.
+| Name | Meaning here | Field meaning | Audience | Confirmed |
+| --- | --- | --- | --- | --- |
+| Atlas | The internal evaluation service | none (proper name) | Internal; explain at first use for customers | 2026-10-03, user ([R010](docs/terminology/references.md#r010)) |
 
-Cite the reference record directly from each supported entry and retain any claim-specific passage locator. From the root use a link such as `docs/terminology/references.md#r001`; from a document directly under `docs/terminology/` use `references.md#r001`. Markdown reference-link definitions are scoped to a file, so an unexplained `[R001]` in another file does not link to the central record. The ledger is a source map, not proof that every listed claim is true.
+## Wording decisions
 
-For a user-confirmed local meaning or editorial choice, a dated decision record is the source; do not invent a public citation or expose private conversation content. If the source is missing or unread, mark the claim unresolved and the reference status accordingly. Do not manufacture support to fill a mandatory field. Literature binaries and extracted text remain in the project's literature collection; link them from the reference record and existing literature index.
+| Avoid | Use instead | Scope | Exceptions | Decided |
+| --- | --- | --- | --- | --- |
+| lane | subagent, task, route, or tier, by sense | Reader-facing prose in this repository | Quotations, Mermaid syntax, SIMD lanes | 2026-09-20, user ([R011](docs/terminology/references.md#r011)) |
 
-Names in the field's standard language should follow actual research and developer usage, including established spelling, capitalization, hyphenation, and abbreviations; English is that language for most technical fields. Explanations use the project's working language. A working-language explanation is contextual meaning, not a claim to an official translation or a one-to-one mapping across every field. Preserve paper titles, product names, literal quotations, and identifiers.
+## Topics
 
-## What an entry needs
+- [Agents](docs/terminology/agents.md)
+```
 
-Keep enough information to distinguish the term from its nearest confusing alternative:
+The example rows show the shape; replace them with the project's own entries.
 
-| Record | Required meaning |
-| --- | --- |
-| Term | Accepted English name; contextual explanation; domain and usage status; assumptions and conditions; confusing neighboring concepts; supporting source with a precise location and version |
-| Company or internal name | Exact name and aliases; proper name versus local reuse of an industry term; local meaning or referent; organizational/product scope; internal/external wording; contrast with general usage; dated user confirmation or owning source; implementation status tracked separately |
-| Accepted expression | Source passage and location; actor, verb, object, collocation or sentence pattern; contextual meaning; adapted example; conditions and limits on reuse |
-| Project explanation | Source and scope; problem and intended users; components and responsibilities; interactions and lifecycle; useful explanation pattern without importing unsupported capabilities |
-| Expression correction | Problematic sentence or pattern; accurate replacement or writing principle; why the original misleads; applicable audience and scope; supporting source or editorial decision; exceptions for protected literals |
-| Unresolved candidate | Observed wording and location; what is uncertain; available support; the source or observation needed to settle it |
+## Rules for rows
 
-An entry can carry more than one status: research usage, developer usage, a named standard, source-specific, internal, or ordinary description. Use the project's existing labels when equivalent. Research usage is not certification, a standard's existence does not establish implementation compliance, and an internal label is not an accepted technical name merely because it is English.
+- A concept has one row in one table. When the root Terms table passes about 40 rows, move a topic's rows to `docs/terminology/<topic>.md` with the same columns and link it under Topics. Wording decisions stay in the root because they apply to all prose.
+- An unresolved row starts its Meaning with "Unresolved:" and names what would settle it.
+- A recurring misuse gets one bullet under its table: the term in bold, then one line.
+- A wording decision is the user's editorial choice for its scope. It does not claim the word is wrong in other fields. A later decision supersedes it by a new row that names the old one; the old row is not silently edited.
+- Links from the root use `docs/terminology/references.md#r001`; links from a topic file use `references.md#r001`.
 
-Separate source-backed corrections from user-selected editorial preferences. A preference can prohibit an otherwise legitimate term in reader-facing prose; record the decision's date, scope, reason, and exceptions. Do not convert that preference into a false statement about the field. Avoid a global search-and-replace list: replacing a word cannot repair an incorrect denominator, unsupported causal claim, or unimplemented guarantee.
+## Reference records
 
-## Update without losing provenance
+`docs/terminology/references.md` holds one record per source and nothing else. IDs and anchors stay stable across revisions.
 
-Record material changes outside the reference-only file, where the project already keeps corrections or maintenance history: what changed, why, the supporting source or user decision, the affected files, and unresolved items. Keep existing finding IDs stable. Mark an old decision as superseded with a pointer to the current one instead of silently deleting its history. Do not create a per-run log when the existing record is enough.
+```markdown
+<a id="r002"></a>
+## R002 Claude Agent SDK, "Subagents"
 
-When splitting documents, move definitions together with citations, maintain useful old anchors or redirects, update inbound links and indexes, and verify that every original entry is accounted for. Check the root index, representative definitions, topic links, and all reference IDs and anchors together, including links back to literature or user-decision records. Preserve collected originals and historical snapshots. If an old generator could overwrite the new canonical files, disable that obsolete write behavior while preserving the historical material and documenting the new edit location. Do not impose a new build system on human-editable Markdown.
+- Anthropic, product documentation: https://code.claude.com/docs/en/agent-sdk/subagents
+- Checked 2026-09-20; passage: the `AgentDefinition` type
+- Supports: subagent definition
+```
+
+Every source named under Elsewhere called has a record. A user decision is a record with its date and the decision in one line. A source that was not actually read is not recorded as support.
+
+## Existing collections
+
+An existing collection keeps its layout and IDs until the user asks to change them. When the user asks to prune one, remove rows that fail the inclusion test, including sentence patterns, project explanations, and "do not write" advice; reference records may stay. Keep recorded user decisions and confirmed local names.

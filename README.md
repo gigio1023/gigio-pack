@@ -23,8 +23,8 @@ Use only the skills the request needs. Setup, planning, execution, and review ar
 | [find-unknowns](skills/find-unknowns/) | Resolve consequential gaps before expensive work |
 | [deep-interview](skills/deep-interview/) | Interview when sustained requirements discovery is explicitly wanted |
 | [session-handoff](skills/session-handoff/) | Write one file a successor executes: current state, next actions, and questions for the user |
-| [curate-terminology](skills/curate-terminology/) | Maintain project definitions, expressions, and source records |
-| [use-terminology](skills/use-terminology/) | Apply those accepted terms and expressions |
+| [curate-terminology](skills/curate-terminology/) | Settle contested names from project, paper, and competitor usage and record them with sources |
+| [use-terminology](skills/use-terminology/) | Apply recorded terms, local names, and wording decisions |
 
 ## Related capabilities
 
@@ -52,4 +52,4 @@ Old plans remain readable. Their known dependencies and completed records still 
 
 Skills and project records are readable Markdown. The pack adds no daemon, database, or required runtime. Keep original data and confidential work out of the public skill sources.
 
-Read [principles](docs/principles.md), [rule ledger](docs/rule-ledger.md), [decisions](docs/decisions.md), and [contributing](CONTRIBUTING.md) when changing the pack. Apply the terminology pair under its standing policy without artificial writes or unrelated surveys.
+Read [principles](docs/principles.md), [rule ledger](docs/rule-ledger.md), [decisions](docs/decisions.md), and [contributing](CONTRIBUTING.md) when changing the pack. The terminology pair reaches every task in a project through the instruction snippet in curate-terminology, not through its descriptions.

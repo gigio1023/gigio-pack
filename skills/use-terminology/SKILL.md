@@ -1,36 +1,16 @@
 ---
 name: use-terminology
 description: >
-  Use on every task alongside curate-terminology, even when the user does not
-  ask about wording. Read and apply accepted terms in the field's standard
-  language, verbs, collocations, sentence patterns, company names, local
-  meanings, and project explanations throughout responses and artifacts.
-  NOT a standalone research workflow: curate-terminology owns source selection,
-  new definitions, expression records, and corrections to the shared reference.
+  Look up and apply a project's recorded terms, local names, and wording
+  decisions. Use when working in a project that has a terminology.md index, or
+  when the user asks what a term means or which name to use. NOT for
+  researching, adding, or correcting entries; curate-terminology owns those.
 ---
 
 # Use Terminology
 
-Apply this skill on every task alongside `curate-terminology`, without waiting for a wording request. Use the project's accepted terms and expressions while completing the requested task. Give the reader an accurate explanation or a corrected artifact, not an unnecessary glossary report. Terms settled in the field's standard language come first — English for most computing, security, and machine-learning vocabulary — so use such a term directly in reader-facing prose instead of coining a local translation. Explain a term's meaning in the reader's language without literal translation that changes the field's meaning, and keep ordinary words in the reader's language.
+Read root `terminology.md` and only the topic files the task touches. Use each adopted name with its recorded meaning in answers, documents, and code explanations. Terms stay in the field's language and explanations in the reader's language. Keep confirmed local names for their recorded audience, and honor wording decisions within their scope and exceptions. Quotations, code identifiers, and APIs keep their original form.
 
-## Read the relevant reference
+When the user asks about a term, answer with the adopted name, its meaning here, what other sources call it, and the reference.
 
-Read the project's instructions and root `terminology.md` at the start of every task. Apply its representative definitions and use its index to load only the relevant detailed documents under `docs/terminology/`. Follow each entry's citation to `docs/terminology/references.md` when checking its source, version, or supporting passage. An explicitly configured legacy layout is read through its current index until migrated; lookup alone does not move files. If no reference exists, use `curate-terminology` to establish relevant entries from eligible sources as needed; continue the original task without inventing entries or requiring a glossary first. Resolve those links from the document's location. Search within that material before widening to the project's source index; do not load the entire literature collection or a historical glossary merely because it is longer.
-
-Apply entries to their documented domain, version, conditions, and level of claim. Keep an internal identifier distinct from a reader-facing name, a source-specific metric distinct from a general concept, and an editorial restriction distinct from a claim about all industry usage. Explicit project wording decisions take precedence over a generic preference to retain a familiar term; preserve the protected quotations and identifiers specified by that decision.
-
-Preserve confirmed company proper names and local meanings even when industry usage differs. Use local shorthand for internal readers and clarify ambiguous terms for external or mixed readers within the sharing scope. If a small number of local terms remain unclear after checking records, use `curate-terminology` to ask the user and record the answer. While waiting, preserve the observed name without asserting an unconfirmed meaning; do not repeatedly ask about settled conventions. A legitimate local name is not an anti-pattern by itself.
-
-When the user asks about a term, return the accepted expression in the field's standard language, its contextual meaning, the distinction that resolves the question, and a useful source pointer. Do not turn an ordinary phrase into a named method. When drafting, apply the accepted verbs, collocations, and sentence patterns as well as nouns. Explain who acts on what, under which conditions, and with what observable effect. Reuse how established sources explain a project's purpose and component relationships only when the underlying behavior matches; do not import their architecture or guarantees. Retain the qualifiers that determine meaning. Consult [application pitfalls](references/application-pitfalls.md) when a familiar label hides a different operation or a stronger claim.
-
-## Correct what the task authorizes
-
-The standing policy covers every task: fix confirmed terminology and expression problems in directly managed documents encountered or edited during the work, and use `curate-terminology` for related reference updates without another correction request. Respect an explicit read-only or review-only restriction: return the exact problem and proposed correction without modifying files.
-
-Quotes, collected originals, archived records, APIs, schemas, and identifiers retain their original form; correct the explanation around them. External edits and publication use the existing authorization for that service. If the original cannot be changed, describe the correction and, when local recording is authorized, put it in the project's correction record.
-
-If the accepted reference is wrong, stale, contradictory, or missing the needed concept, do not pretend it settles the answer. Identify the narrow gap and inspect the available primary source needed for the immediate task. Use a qualified plain-language description while uncertainty remains. Use `curate-terminology` for the focused source research and record update needed to resolve it. Do not start a broad survey or parallel glossary to answer one question. With no relevant gap or change, apply the existing reference and continue without artificial edits.
-
-## Return to the work
-
-Check the final answer or edited passages for stable names, preserved qualifiers, source fit, and compliance with project-specific expressions. Verify navigation and reference anchors plus the project's required document checks for files changed. Any new or changed definition or expression must have its source recorded in `docs/terminology/references.md` through `curate-terminology`; unchanged usage reuses the existing record. State material corrections and unresolved meaning briefly, then continue the original task. `curate-terminology` owns reusable definition and expression records; this skill owns applying them.
+Hand off to `curate-terminology` when a needed term is missing or contested, an entry looks wrong or stale, or a local name has no confirmation. Until then, describe the thing plainly and keep an unconfirmed local name as observed without asserting its meaning. This skill does not write the glossary.

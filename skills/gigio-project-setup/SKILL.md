@@ -34,7 +34,7 @@ State how progress is assessed for this project. This may be a working capabilit
 
 For an installation request, update the project's existing instruction entry points to locate the project record and consult it for consequential decisions and continuation. Preserve unrelated instructions and terminology pointers. Where the project uses both AGENTS.md and CLAUDE.md, maintain its supported shared-instruction bridge; do not promise that one file is automatically read by every harness.
 
-Require use-terminology and curate-terminology under their standing policy. Link the canonical terminology index rather than copying definitions. Do not add universal writing defaults or an unrelated glossary survey.
+When the project has or wants a terminology index, add curate-terminology's project instruction snippet to the instruction entry point. Link the canonical terminology index rather than copying definitions. Do not add universal writing defaults or an unrelated glossary survey.
 
 An explicitly requested setup may create missing instruction files. An audit reports missing or stale wiring without changing it. A multi-repository project can keep its project record at an agreed workspace or research root and link it from participating repositories.
 
