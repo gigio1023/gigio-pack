@@ -34,7 +34,7 @@ The repository split separates responsibility without prescribing a fixed sequen
 
 ## Install
 
-Install selected skills, or this pack's ten skills, for the intended agents:
+Install selected skills, or this pack's nine skills, for the intended agents:
 
 ```bash
 npx --yes skills add 'gigio1023/gigio-pack#main' --global --agent claude-code codex cursor --skill '*' --yes

@@ -4,7 +4,7 @@ Gigio Pack owns durable project context and adaptive work. Read README.md, AGENT
 
 ## Layout and writing
 
-The ten packages live in skills/<name>/ with SKILL.md and optional colocated references, scripts, or assets. Public prose is English with natural Markdown paragraphs, not fixed-width source wrapping. Required metadata is name and description; name matches the directory. Keep task selection and neighboring responsibilities clear.
+The nine packages live in skills/<name>/ with SKILL.md and optional colocated references, scripts, or assets. Public prose is English with natural Markdown paragraphs, not fixed-width source wrapping. Required metadata is name and description; name matches the directory. Keep task selection and neighboring responsibilities clear.
 
 Project records belong in the consuming project, not installed skill directories. Reuse existing results, research indexes, and operational records. Original data and private source maps do not belong in the public package.
 
@@ -16,7 +16,7 @@ Meaningful progress includes findings and better-supported decisions without cod
 
 ## Verify
 
-Run package validation, check links and examples, confirm Skills CLI discovery finds ten unique names, and inspect the intended diff including new files. Use commands for properties they can actually establish. Model trials are separate from structural and artifact checks.
+Run package validation, check links and examples, confirm Skills CLI discovery finds nine unique names, and inspect the intended diff including new files. Use commands for properties they can actually establish. Model trials are separate from structural and artifact checks.
 
 For migrated helpers, validate the destination and update callers and installation-source guidance before publishing removals. Do not leave duplicate SKILL.md packages as compatibility stubs.
 

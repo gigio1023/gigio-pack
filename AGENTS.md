@@ -23,7 +23,7 @@ Harness, Git, delegation, and Python helpers are maintained in agent-skills. Res
 
 ## Validation and publication
 
-Discover all ten packages with the Skills CLI, validate their metadata and resource links, and check changed templates and examples. Static review does not demonstrate model behavior. Model comparisons require a corresponding request.
+Discover all nine packages with the Skills CLI, validate their metadata and resource links, and check changed templates and examples. Static review does not demonstrate model behavior. Model comparisons require a corresponding request.
 
 Commit only when requested; a PR request includes scoped commits and push. Use conventional English titles and concise PR bodies. Non-trivial commits explain Context, Changes, Results, and Validation. PRs are draft by default. Publication does not authorize merging, global installation, or cleanup of unrelated worktrees.
 
