@@ -28,13 +28,13 @@ Separate preparation, execution, validation, and interpretation. A command prove
 
 Use human-editable Markdown and the project's existing tools. Add no required daemon, controller, universal registry, or elaborate runtime. Steps are required only where ordering, authority, or verification actually needs them. Skills can be used independently; they are not stations every task must visit.
 
-Explicit requests start setup, planning, execution, review, interviews, handoffs, and shared-document work. Preserve find-unknowns' limited discovery trigger and the terminology pair's standing policy. Do not broaden a task merely because it is large.
+Explicit requests start setup, planning, execution, review, interviews, handoffs, and shared-document work. Preserve find-unknowns' limited discovery trigger. The terminology pair reaches every task through a project instruction snippet, not through broad descriptions. Do not broaden a task merely because it is large.
 
 ## Assign one home per responsibility
 
 Gigio owns project context and continuity. agent-skills owns harness, Git, coding, writing, and production methods. research-credo owns research methods and operations. Compose available specialists without copying their instructions or assuming every companion is installed.
 
-Term definitions and expressions remain project records maintained and applied by the terminology pair. copydesk owns document craft, its explicit editorial defaults, and internal sharing (recipients, source access, the sharing pass, delivery); share-internal-doc was retired into it on 2026-09-24.
+A project's adopted names, local names, and wording decisions remain project records maintained and applied by the terminology pair; claim strength and sentence style are document craft. copydesk owns document craft, its explicit editorial defaults, and internal sharing (recipients, source access, the sharing pass, delivery); share-internal-doc was retired into it on 2026-09-24.
 
 ## Maintain the rules
 

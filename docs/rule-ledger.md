@@ -15,7 +15,7 @@ Current rules below supersede conflicting rows in the [historical ledger](rule-l
 | Partition shared writes before parallel work | execution | Concurrency correctness; does not require planning every future stage |
 | Independent review when authorized and useful | review | Separate self-inspection from independent evidence; no false independence claim |
 | Recipient suitability and authorized delivery | copydesk (agent-skills), `references/sharing-and-delivery.md`; formerly share-internal-doc | Keep private records separate and verify usable source destinations and the actual shared copy |
-| Standing terminology maintenance and application | terminology pair | Preserve accepted meaning and sources with proportional changes |
+| Contested names settled from project, paper, and competitor usage; recorded names applied | curate-terminology, use-terminology | A glossary row only for competing names, local meanings, or user decisions; every-task use comes from the project instruction snippet |
 | Distinct repository ownership | all | Tool methods live in agent-skills; research methods in research-credo |
 
 ## September 17, 2026 supersessions
@@ -35,6 +35,10 @@ The changed packages receive metadata, resource-link, discovery, and editorial c
 ## September 21, 2026 shared-copy continuity
 
 Use the current user-edited shared copy as the revision baseline and reconcile it with generated sources before publication. The writer owns the interpretation of editorial deletions and optional-section design. Sharing verification checks that equations and collapsible content survive delivery, distinguishing retrieved content from rendered inspection. This adds no publication grant, approval stage, or duplicate editorial workflow.
+
+## October 3, 2026 terminology narrowing
+
+The user wanted a short glossary of settled names and got a writing rulebook. Superseded the historical rows that ran both terminology skills on every task by description and recorded expressions, sentence patterns, and project explanations. A row now needs competing names, a differing local meaning, or a user decision; curation surveys established projects, papers, and competitor products; use-terminology only reads. Every-task use comes from the project instruction snippet. Preserved the root and `docs/terminology/` layout, reference-only source records, user-confirmed local names, scoped wording bans, and AI-source scrutiny. Verification was static package validation and link checks.
 
 ## Generation audit
 

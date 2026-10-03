@@ -1,30 +1,15 @@
 # Company Names and Local Meanings
 
-Use this reference when a term may be a company name, product name, internal component, or company-specific use of a familiar industry expression. Keep the list small and tied to encountered work. The task is to learn the user's conventions, not to make every internal label conform to external vocabulary.
+A local name is a company, product, or internal component name, or a familiar field term that the company uses with its own meaning. External sources cannot settle what the company means by it; the user or the owning project does.
 
-## Separate the kinds of usage
+## Confirmation
 
-| Kind | Treatment |
-| --- | --- |
-| Proper name for a company, product, or project | Preserve the confirmed spelling and referent. Do not infer a technical definition or silently repair an unusual spelling |
-| Familiar term used locally for a component, team, mode, or workflow | Record the local meaning separately from the industry meaning and specify the audience where the local shorthand is appropriate |
-| General industry term | Use the relevant external definition and conditions; do not invent a local exception to excuse an unsupported claim |
-| Unconfirmed usage | Keep the observed spelling and context, ask what it refers to, and leave the interpretation pending |
+Check the existing Local names table and the owning code or document first. For what stays unclear, ask the user one short question per name, or a small batch, and show the phrase in context: "In this document, does 'topic model' name an internal component? What does it produce, and should customer-facing text use the name?" Continue other work while waiting. Until the answer arrives, keep the observed name and do not assert a meaning. Ask again only when new information contradicts the record.
 
-The same string may have both a local and a general meaning. For example, `PII` or `topic model` might be used as a company's component label in a particular document; the name alone does not establish what the component does. These are ambiguity examples, not asserted definitions for any company.
+## Record
 
-## Ask only what remains unresolved
+Add a Local names row with the name, its meaning here, the field meaning when it differs, the audience that may see it, and the confirmation date. The dated user decision is its reference record; it carries no private conversation content. A naming decision does not establish what a component does; implementation facts come from its code.
 
-Read the existing internal-name map, prior user answers, and the relevant owning document or code before asking. When the referent, intended meaning, spelling, or audience remains ambiguous, ask the user one concise question or a small related batch. Show the actual phrase and enough context to make the question answerable. Offer plausible interpretations only when supported by the material; allow the user to supply a different meaning. Do not turn a few local exceptions into a lengthy interview.
+## Use
 
-A useful question is: “In this document, does ‘topic model’ name an internal component? What does it take as input and produce, and should that name remain in customer-facing text?” For a proper name, confirm the referent and exact spelling only if those are unclear. Do not ask all of these questions when an existing record already settles them.
-
-This is clarification of meaning, not an approval request. Continue independent work while waiting. Until answered, preserve the name and mark the interpretation as unconfirmed; do not replace it with the industry's definition or silently treat a suggested meaning as accepted. Ask again only when new contradictory information or a materially changed context makes the recorded answer insufficient.
-
-## Record and apply the answer
-
-In the project's internal-name document under `docs/terminology/`, record the exact name and useful aliases, kind of usage, local meaning or referent, organizational or product scope, contrast with the general meaning when relevant, internal/external wording, and the dated user confirmation or owning source. Register the dated user confirmation or owning source in `docs/terminology/references.md` and cite it from the local entry. Keep private details within the existing sharing boundary; no public URL is required for a private decision. Distinguish user-confirmed intended meaning from implementation verified in code. A user's naming decision establishes the convention; it does not prove capability, compliance, accuracy, or deployment.
-
-For internal readers, use the confirmed local name naturally. For external or mixed readers, preserve a public proper name and briefly explain an ambiguous local term at first use; use the confirmed external wording when the company has one. Do not expose a private alias or its explanation outside the existing sharing scope. Correct misleading claims around a legitimate name rather than renaming the name itself.
-
-Source exclusions for general wording do not erase local conventions: an internal document can locate a company label without becoming evidence of industry usage. Treat generated internal prose as a candidate to verify with the user or owning implementation. Keep company records in the project; do not copy real company names or unconfirmed definitions into the reusable public skill.
+Internal readers get the local name as is. External or mixed readers get the public proper name, and an ambiguous local term is explained at first use. A legitimate local name is not an error because industry usage differs. Company names and meanings stay in the project and never enter this public skill.

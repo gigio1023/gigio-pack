@@ -98,6 +98,10 @@ Excluded from the reusable method: the original task's model selection, parallel
 
 The user's 2026-09-10 revision supersedes the initial activation choice: both terminology skills apply on every task. It also makes representative source selection explicit: widely adopted projects, influential papers and recognized preprints, maintainer and author blogs, active paper discovery/read tools, and rejection of AI-generated derivative prose as a wording authority. The named projects are user-provided cautionary examples, not a fixed exclusion list or independently established authorship findings. Their role is to motivate heightened scrutiny across AI-related project documentation. Expression research now includes verbs, collocations, sentence patterns, and how a system's purpose and components are explained. Kubernetes and Helm documentation provide small linked examples; no domain corpus or model trial was added.
 
+## Terminology workflow narrowed (2026-10-03)
+
+Collections built under the 2026-09-10 method turned into writing rulebooks: rows for undisputed field terms, sentence templates, project explanations, and caveats on what not to write. The revision keeps the layout, the two-skill split, local-name confirmation, scoped user bans, and scrutiny of AI-generated sources. It drops expression research, the Kubernetes and Helm examples, literature saving, and the every-task descriptions, and adds competitor product documentation as a source class beside established projects and papers. Paper search and saved copies now point to literature-research in research-credo; claim-strength repair points to copydesk in agent-skills.
+
 ## Documentation skills (2026-09-10)
 
 Surveyed before writing `share-internal-doc` (then named `write-internal-doc`): about thirty public skills in twenty-five repositories, cloned and read at source level, plus the author's own retired documentation skills recovered from agent-skills history. Verdicts per skill are in the local Korean record (`docs/design/internal-doc-skill/`).
