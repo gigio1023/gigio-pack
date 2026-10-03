@@ -11,6 +11,7 @@ Current rules below supersede conflicting rows in the [historical ledger](rule-l
 | Inspect sources relevant to the current action | execution and review | Avoid stale inputs and duplicate jobs without rerunning irrelevant historical checks |
 | Match verification to the claim | execution and review | Findings can be valid without code edits or command outputs |
 | Preserve actual attempts and consequential changes | execution and handoff | A successor needs current understanding and reliable source records |
+| A handoff is one `.handoff/<date>-<time>-<task>.md` file that opens by telling its reader to execute it, records only externally checkable live state, and lists the questions for the user | session-handoff | User-set 2026-09-24 and 2026-10-03: a root `handoff.md` collided across concurrent tasks; successors given only the path improved the file instead of doing the work; harness-internal handles die with the session |
 | Partition shared writes before parallel work | execution | Concurrency correctness; does not require planning every future stage |
 | Independent review when authorized and useful | review | Separate self-inspection from independent evidence; no false independence claim |
 | Recipient suitability and authorized delivery | copydesk (agent-skills), `references/sharing-and-delivery.md`; formerly share-internal-doc | Keep private records separate and verify usable source destinations and the actual shared copy |
