@@ -7,6 +7,7 @@ Current rules below supersede conflicting rows in the [historical ledger](rule-l
 | User-owned direction; maintained current understanding | gigio-project-setup | Preserve intent while updating empirical understanding without a new interview for each finding |
 | Next-decision planning | gigio-write-plan | Later research work depends on results; known dependencies remain useful |
 | Bounded adaptive execution | gigio-execute-plan | Fast follow-up work can proceed within the question and grant |
+| Bounded adaptive discovery | find-unknowns | Short techniques can be combined within the objective and grant; no fixed technique count, output layout, or automatic setup sequence |
 | Ask before changing direction or starting long new work | planning and execution | User controls direction and resource commitments; two to three days is an example, not permission for all shorter work |
 | Inspect sources relevant to the current action | execution and review | Avoid stale inputs and duplicate jobs without rerunning irrelevant historical checks |
 | Match verification to the claim | execution and review | Findings can be valid without code edits or command outputs |
@@ -43,6 +44,12 @@ The user wanted a short glossary of settled names and got a writing rulebook. Su
 ## Generation audit
 
 Revisit measured workarounds against the active harness and actual task failures. Do not impose an instruction-size quota or run unrequested model comparisons. Keep applicable verification and user boundaries even when simplifying a procedure.
+
+## October 6, 2026 discovery adaptation
+
+The authorized audit replaced the single-technique rule and separate approval for a second short technique with bounded adaptation within the same objective and resources. Removed fixed question, option, variant, and artifact counts; made the launch-brief template optional; replaced mandatory notes files with authorized existing records. An accepted brief can continue already-authorized work and does not trigger setup or planning by itself.
+
+Preserved evidence-backed findings, explicit user choices, the limited discovery trigger, and gates for new direction, resource commitments, access, external actions, or long new work. Static package and resource-link checks passed for all nine packages, and Skills CLI discovered nine names. Diff and editorial findings were reviewed; model behavior was not tested.
 
 ## Deletion and compression record
 

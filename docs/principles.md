@@ -30,6 +30,8 @@ Use human-editable Markdown and the project's existing tools. Add no required da
 
 Explicit requests start setup, planning, execution, review, interviews, handoffs, and shared-document work. Preserve find-unknowns' limited discovery trigger. The terminology pair reaches every task through a project instruction snippet, not through broad descriptions. Do not broaden a task merely because it is large.
 
+Within a discovery pass, adapt or combine short techniques when the result can change the next decision. Preserve the objective, resource grant, and user-owned choices. Depth and output form follow the useful evidence; question quotas, fixed templates, new log files, and automatic setup sequences do not define completion.
+
 ## Assign one home per responsibility
 
 Gigio owns project context and continuity. agent-skills owns harness, Git, coding, writing, and production methods. research-credo owns research methods and operations. Compose available specialists without copying their instructions or assuming every companion is installed.

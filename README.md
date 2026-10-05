@@ -12,6 +12,8 @@ Fast follow-up checks within the current question and allowed resources can proc
 
 Use only the skills the request needs. Setup, planning, execution, and review are distinct responsibilities, not a mandatory sequence for every task.
 
+An early discovery pass can combine short techniques within the same objective and authorized resources. `find-unknowns` returns the evidence and choices needed for the next action, without requiring setup, a fixed question count, or a prescribed brief layout.
+
 ## Skills
 
 | Skill | Responsibility |
