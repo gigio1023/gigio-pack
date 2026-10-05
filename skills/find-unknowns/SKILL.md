@@ -1,12 +1,12 @@
 ---
 name: find-unknowns
 description: >
-  Use when the user starts substantial work in territory they don't know well —
+  Use when the user starts substantial work in territory they don't know well:
   a new project, research direction, investment or money-management strategy,
   career or life plan, product or game idea, or an unfamiliar part of a
-  codebase — with no spec, plan, or reference yet; or when they ask for an
+  codebase, with no spec, plan, or reference yet; or when they ask for an
   unknowns pass, blind spot pass, option map, throwaway variants, or a launch
-  brief. Surfaces unknowns with the single cheapest technique, compresses what
+  brief. Uses bounded, adaptive discovery, compresses what
   was learned into a launch brief, and, when the user cannot test the result
   directly, explains consequential decisions and offers a comprehension check.
   NOT for well-specified or small tasks, multi-round
@@ -16,12 +16,12 @@ description: >
 
 # Find Unknowns
 
-Close the gap between what the user asked for and what reality will demand by making unknowns explicit before the expensive work starts. One pass is one technique plus one launch brief. The pass ends at the brief unless the user has already authorized the next action. Preserve that grant; a brief does not create new authority.
+Surface consequential unknowns before expensive work starts. Begin with the cheapest useful technique and adapt to what it reveals within the same objective and authorized resources. Finish with a launch brief, then continue any next action the user has already authorized. A brief does not create new authority.
 
 ## Quick Start
 
-1. Establish the starting point. Inspect whatever is inspectable — files, repository, prior artifacts — before asking anything. If the user's familiarity with the domain is unclear, make the brief self-contained and state that assumption. Ask only when familiarity changes a material decision or the useful discovery technique.
-2. Classify the dominant unknown and pick exactly one technique:
+1. Establish the starting point. Inspect available files, repository context, and prior artifacts before asking for facts. If the user's familiarity with the domain is unclear, make the brief self-contained. Ask only when familiarity changes a material decision or the useful discovery technique.
+2. Choose a technique for the consequential unknown:
 
    | Dominant unknown | Signal | Technique |
    | --- | --- | --- |
@@ -31,31 +31,31 @@ Close the gap between what the user asked for and what reality will demand by ma
    | Known unknowns | Nameable open questions | Mini-interview |
    | Inexpressible want | Can't describe it, but an example exists somewhere | Reference request |
 
-3. Run the technique well (next section). Run a second one only when the first reveals the need and the user agrees.
-4. Work out how the result will be verified (below); that changes the plan order, the notes file, and the final check.
-5. Compress everything learned into a launch brief using `assets/launch-brief.template.md`.
+3. Use the result to decide whether another short technique or check would change the next decision. Switch or combine techniques within the same objective and grant without a new approval. Ask before changing direction, exceeding resources or access, taking a new external action, or starting a long new activity unless already authorized.
+4. Identify evidence that can verify the result and the consequences the user needs to understand. Use that to order the next useful work.
+5. Compress the useful findings and open decisions into a launch brief. Adapt [the template](assets/launch-brief.template.md) when it helps; its headings and tables are optional.
 
-Keep the pass light: one technique, at most 7 questions, at most 3 variants, at most 1 artifact. Go deeper only when the user asks.
+Keep discovery proportional to the decision. Choose enough questions, examples, or artifacts to expose meaningful differences, and stop when another small check would no longer change the next action. If the remaining work needs sustained interviewing or a substantial investigation, describe that need without silently expanding the pass.
 
 ## Running Each Technique Well
 
-**Blindspot brief.** Teach the user enough to prompt well, grounded in their stated starting point — not a generic tutorial. Cover: how the domain actually works, what "good" looks like and how experts judge it, the landmines and common failure points, relevant prior art, the questions an expert would ask about this specific task, and the vocabulary the user was missing. End with a suggested re-prompt written in that new vocabulary.
+**Blindspot brief.** Teach what changes the user's choices for this task: how the domain works, how experts judge results, relevant failure points and prior art, and missing vocabulary. Ground the explanation in the user's starting point. Suggest a revised prompt when it would make the next request more precise.
 
-**Option map.** Explore the territory first — search the codebase, files, or the web; never brainstorm from a blank page. Then lay out 5–10 candidate directions ordered from cheapest to most ambitious, each with one line on what it costs and which unknown it resolves. The user's reactions are the real output: capture each accept or reject as a scope statement in their words.
+**Option map.** Inspect relevant code, files, or sources before proposing directions. Compare materially different options by the tradeoffs that affect the decision, including cost and the unknown each resolves. Keep the set small enough to compare without omitting a consequential alternative. Capture the user's accepted and rejected options as scope decisions in their words.
 
-**Throwaway variants.** Two or three wildly different concrete versions — mockups, strawman documents, sample plans — with no wiring, no persistence, no polish, labeled as throwaway. Build them to be reacted to: all variants side by side in the single allowed artifact, filled with representative fake data, so that reacting costs the user nothing beyond looking. After the user reacts, verbalize what each reaction reveals as one sentence and fold those sentences into the spec. If the user cannot judge which variant is better, stop: they don't know what "good" looks like yet, so switch to a blindspot brief.
+**Throwaway variants.** Make concrete alternatives that expose the uncertain choice, such as mockups, strawman documents, or sample plans. Label them as throwaway and label synthetic data. Choose a comparison format the user can judge easily; polish and production wiring add little to this decision. Save artifacts only within the task's file authority. Capture preferences the user's reactions actually establish. If comparison criteria remain unclear, use a short explanation or reference comparison to establish them.
 
-**Mini-interview.** At most 7 questions, each with concrete options and a recommended default. Prioritize answers that would change the direction or are costly to reverse. Never ask for a fact you can discover by inspection or search. Separate user choices from empirical uncertainty: a cheap authorized check can resolve the latter; an experiment that needs new resources belongs in the next bounded work proposal. "I don't know" is an answer: record it as an open item with a decide-later rule, never as consent. If the cap is hit while material user-only questions remain open, do not stretch the pass — say the territory needs a dedicated deep interview and let the user invoke it.
+**Mini-interview.** Ask only questions whose answers could change the next work or a costly decision. Give concrete options and a recommended default when useful. Never ask for a fact available through inspection or search. Separate user choices from empirical uncertainty: a cheap authorized check can resolve the latter; an experiment needing new resources belongs in the next bounded work proposal. "I don't know" leaves an open item with a decide-later rule, never consent. When user-only choices need sustained conversation, offer `deep-interview` and let the user choose that expansion.
 
-**Reference request.** Ask for one reference. For code, source beats prose beats screenshots — point at the folder and say what to look for. For other domains, a concrete example (a portfolio, paper, video, contract document, a finished game) beats any description. Extract the transferable ideas, state them back, and confirm before treating them as decisions.
+**Reference request.** Reuse an available example before asking for another. Prefer inspectable source for code and a concrete artifact for other domains, such as a portfolio, paper, video, contract, or finished game. Explain the transferable features. Distinguish observed features and proposed choices from decisions the user has made.
 
 ## How The Result Gets Verified
 
-**Executable work** — tests, builds, renders, or measurable outcomes can verify the result. Order the launch brief plan with the decisions most likely to change first: data models, interfaces, user-facing flows; put mechanical work at the bottom. During execution keep `implementation-notes.md`.
+**Directly testable work.** Identify tests, builds, renders, source checks, or measured outcomes that can establish the result. Order work around the uncertainties most likely to change the next decision while respecting real dependencies.
 
-**Comprehension-checked work** — strategies, plans, decisions, or any result the user cannot test directly. The user's own understanding is what accepts the result. Order the plan by how hard each decision is to undo, hardest first. During execution keep `decision-log.md`. Before the irreversible step — committing money, sending the application, adopting the plan, merging — deliver a short explainer of the consequences and unresolved decisions. Offer a scenario-based comprehension check when it would help or the user requests one. Do not require a quiz to honor an already-authorized action; comprehension does not substitute for permission or professional review.
+**Work the user cannot test directly.** Explain the evidence, consequences, and unresolved decisions behind a strategy or recommendation. Put consequential uncertainty before costly commitments. Offer a scenario-based comprehension check when useful or requested. Understanding does not establish factual correctness or replace permission or professional review. An optional comprehension check does not block an already-authorized action.
 
-Deviation entries in either notes file use four fields: what the plan said → what reality revealed → the conservative choice taken → when to revisit.
+Keep consequential findings and changed decisions in the project's existing records when record maintenance is authorized. Record the evidence, what changed, and any condition for revisiting it. A discovery pass does not require a new notes file or a fixed deviation format.
 
 ## When Not To Run This
 
@@ -66,11 +66,11 @@ Deviation entries in either notes file use four fields: what the plan said → w
 
 ## Launch Brief
 
-Fill `assets/launch-brief.template.md`. The brief must let a fresh session execute without rereading this conversation: starting point, confirmed decisions with rationale, resolved unknowns with evidence, open items with decide-later rules, the ordered plan, the notes-file instruction, and the acceptance criteria. Return it in chat by default; write a file when the user asks. Preparing for a possible new session alone does not authorize a file.
+The brief carries what the next action needs: the objective and limits, relevant starting point, confirmed decisions with rationale, findings with evidence, consequential open items, and the next useful action with its acceptance criteria. Use the format that makes those facts clear. Return it in chat by default; write a file when the user asks. Preparing for a possible new session alone does not authorize a file.
 
-When the accepted brief is to be planned — code, research, or personal work alike — hand it to `gigio-write-plan` rather than seeding a separate plan document of your own: it turns the brief into a plan file under `.plans/`, with the user's goal and limits in the user's words at the top, and the current round's actions, relevant dependencies, ownership, and assessment live there from then on. Plan only far enough to reach the next useful decision; unresolved empirical questions can be the work rather than a reason for another interview. Intent the project should keep long-term belongs in PROJECT.md via `gigio-project-setup`.
+Continue the next action when it is already authorized. If the user requests a plan file, use `gigio-write-plan` and the existing brief without another discovery round. If the user requests durable project setup, use `gigio-project-setup`. A missing PROJECT.md does not trigger setup, and accepting a brief does not require either skill.
 
-Name the next station when the brief is accepted: `gigio-project-setup` if the project has no PROJECT.md yet, then `gigio-write-plan` for the work itself.
+Plan only far enough to reach the next useful decision. Unresolved empirical questions can be the work; unresolved user choices block only the work that depends on them.
 
 ## Gotchas
 

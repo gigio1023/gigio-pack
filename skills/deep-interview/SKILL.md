@@ -8,7 +8,7 @@ description: >
   and ends with a user-approved Interview Brief. NOT for job-interview
   rehearsal, surveys, therapy or clinical intake, a single clarification,
   requests to summarize existing material without further questions, or light
-  discovery that one technique plus a launch brief would settle (use
+  discovery that a bounded discovery pass would settle (use
   find-unknowns).
 ---
 

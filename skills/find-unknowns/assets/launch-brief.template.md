@@ -1,6 +1,10 @@
 # Launch Brief: [topic]
 
-Paste this into a fresh session to start execution.
+[Optional structure. Keep the fields that affect the next action; combine or omit sections and tables as appropriate. A brief records existing authority and grants none.]
+
+## Objective and Limits
+
+[User's objective, authorized next work, and relevant resource, access, or external-action limits]
 
 ## Starting Point
 
@@ -11,7 +15,7 @@ Paste this into a fresh session to start execution.
 
 | Decision | Rationale | Source |
 | --- | --- | --- |
-| [decision] | [why it holds] | [user answer / technique result / inspection] |
+| [confirmed choice] | [why it holds] | [user instruction or existing decision] |
 
 ## Resolved Unknowns
 
@@ -25,17 +29,14 @@ Paste this into a fresh session to start execution.
 | --- | --- | --- |
 | [open question] | [decide when / default if unresolved] | [user or agent] |
 
-## Plan
+## Next Useful Work
 
-Ordered with the most likely-to-change or hardest-to-reverse decisions first.
+[Work that reaches the next useful decision, ordered around consequential uncertainty and real dependencies. Include authorization still needed for a dependent action.]
 
-1. [step]
-2. [step]
+## Continuity
 
-## During Execution
-
-Keep [`implementation-notes.md` | `decision-log.md`]. When reality forces a deviation, log: what the plan said → what reality revealed → the conservative choice taken → when to revisit. Then keep going.
+[Existing project record to update if maintenance is authorized and useful. No new notes file is required.]
 
 ## Acceptance Criteria
 
-[Executable work: the tests, builds, or renders that prove the result] [Comprehension-checked work: the consequences and open decisions to explain; optional scenario questions when useful or requested. Record any authorization still needed for <commit money / send / adopt / merge>; a quiz is not approval.]
+[Evidence or checks that establish the result. For work the user cannot test directly, explain the evidence, consequences, and open decisions; include a scenario question only when useful or requested. Understanding does not replace evidence or authorization.]
