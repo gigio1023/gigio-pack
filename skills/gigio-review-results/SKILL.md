@@ -15,7 +15,7 @@ Judge work against the user's purpose and actual findings, not only the original
 
 Read the user's goal, project direction, current plan, accepted changes, and actual results. Inspect underlying sources, data, configurations, run records, or artifacts that support the claims. Distinguish the current result from an older attempt and an approved change from an agent proposal.
 
-Prefer an independent reader when available and delegation is authorized. If this session did the work, do not present its inspection as independent review. Provide the useful review possible now and identify any consequential gap in independence without a blanket refusal.
+Prefer an independent reader when one is available. An explicit user choice about delegation governs; without one, the lead decides whether to start that reader. If this session did the work, do not present its inspection as independent review. Provide the useful review possible now and identify any consequential gap in independence without a blanket refusal.
 
 ## Check what the work establishes
 

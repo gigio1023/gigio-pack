@@ -14,7 +14,8 @@ Current rules below supersede conflicting rows in the [historical ledger](rule-l
 | Preserve actual attempts and consequential changes | execution and handoff | A successor needs current understanding and reliable source records |
 | A handoff is one `.handoff/<date>-<time>-<task>.md` file that opens by telling its reader to execute it, records only externally checkable live state, and lists the questions for the user | session-handoff | User-set 2026-09-24 and 2026-10-03: a root `handoff.md` collided across concurrent tasks; successors given only the path improved the file instead of doing the work; harness-internal handles die with the session |
 | Partition shared writes before parallel work | execution | Concurrency correctness; does not require planning every future stage |
-| Independent review when authorized and useful | review | Separate self-inspection from independent evidence; no false independence claim |
+| Delegation: an explicit user choice governs; otherwise the lead decides and dispatches ready independent work once direction is settled | execution and review, with orchestrate-subagents (agent-skills) | Lead-initiated delegation is expected rather than exceptional; questions that change the work are settled before dispatch; delegation adds no authority |
+| Independent review when useful | review | Separate self-inspection from independent evidence; no false independence claim |
 | Recipient suitability and authorized delivery | copydesk (agent-skills), `references/sharing-and-delivery.md`; formerly share-internal-doc | Keep private records separate and verify usable source destinations and the actual shared copy |
 | Contested names settled from project, paper, and competitor usage; recorded names applied | curate-terminology, use-terminology | A glossary row only for competing names, local meanings, or user decisions; every-task use comes from the project instruction snippet |
 | Distinct repository ownership | all | Tool methods live in agent-skills; research methods in research-credo |
@@ -50,6 +51,12 @@ Revisit measured workarounds against the active harness and actual task failures
 The authorized audit replaced the single-technique rule and separate approval for a second short technique with bounded adaptation within the same objective and resources. Removed fixed question, option, variant, and artifact counts; made the launch-brief template optional; replaced mandatory notes files with authorized existing records. An accepted brief can continue already-authorized work and does not trigger setup or planning by itself.
 
 Preserved evidence-backed findings, explicit user choices, the limited discovery trigger, and gates for new direction, resource commitments, access, external actions, or long new work. Static package and resource-link checks passed for all nine packages, and Skills CLI discovered nine names. Diff and editorial findings were reviewed; model behavior was not tested.
+
+## October 7, 2026 delegation and discovery alignment
+
+agent-skills #88 made an explicit user choice about delegation govern and left the decision to the lead otherwise; #102 and #103 made maximum useful parallelism the default once direction is settled, after the questions that would change the work are answered. gigio-execute-plan, gigio-review-results, the principles, and the repository guidance still required a delegation request or authorization, and execution was described as sequential. They now follow that precedence and point to orchestrate-subagents for dispatch defaults instead of restating them. gigio-write-plan no longer limits find-unknowns to an unresolved human choice: since #34 that skill also covers unnoticed unknowns and option maps, and the plan's questions are asked together before work is detailed.
+
+Preserved shared-write and live-job partitioning, sequential handling of dependent steps, the ban on calling self-review independent, and every gate on direction changes, long new work, resources, and external effects; delegation grants no new authority. README and migration now describe the 2026-09-17 repository migration as complete. The historical ledger keeps its original wording. Verification was static package validation, Skills CLI discovery, and link checks; model behavior was not tested.
 
 ## Deletion and compression record
 

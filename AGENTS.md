@@ -17,7 +17,7 @@ Maintain the project-context and adaptive-work skills described in README.md. Cu
 
 A project can span repositories and non-code work. User-owned direction is separate from maintained findings. Plan only through the next useful decision, adapt bounded work to results, and ask before a direction change or long new activity unless already authorized. Preserve narrower resource and side-effect limits.
 
-The four core skills have separate request triggers. A request covering several steps already grants those steps; do not require repeated confirmation. Relevant specialist skills can be used within the task. Delegation still follows the user's request and the active harness policy.
+The four core skills have separate request triggers. A request covering several steps already grants those steps; do not require repeated confirmation. Relevant specialist skills can be used within the task. An explicit user choice about delegation governs; without one, the lead decides within the active harness policy.
 
 Harness, Git, delegation, and Python helpers are maintained in agent-skills. Research methods are maintained in research-credo. Do not restore local copies to repair a missing installation.
 
