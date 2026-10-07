@@ -13,7 +13,7 @@ Create a plan a later session can use to make the next useful advance. Keep the 
 
 ## Establish the basis
 
-Read PROJECT.md or the existing intent document, current user instructions, and relevant results. Identify the next decision or desired result and why it matters. Recover facts before asking questions. Use find-unknowns or deep-interview only for a consequential unresolved human choice; open empirical questions can be the work itself.
+Read PROJECT.md or the existing intent document, current user instructions, and relevant results. Identify the next decision or desired result and why it matters. Recover facts before asking questions. Settle the questions whose answers would change the plan before detailing work, including consequential unknowns nobody has noticed yet, and ask them together rather than one at a time. Use find-unknowns when a bounded discovery pass or option map fits, and deep-interview only when the user wants sustained interviewing. Open empirical questions can be the work itself.
 
 Preserve accepted goals and limits in recognizable user wording. Label a planner's new proposal only where it could change intent or authority. An unanswered question is not approval, but sufficient existing direction does not need another confirmation.
 

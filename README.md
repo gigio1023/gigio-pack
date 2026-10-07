@@ -42,11 +42,11 @@ Install selected skills, or this pack's nine skills, for the intended agents:
 npx --yes skills add 'gigio1023/gigio-pack#main' --global --agent claude-code codex cursor --skill '*' --yes
 ```
 
-Publication does not refresh installed copies. Use install-skill-pack when an installation or update is requested. During the repository migration, install from a merged revision or the explicitly selected PR branch; main does not include an open draft.
+Publication does not refresh installed copies. Use install-skill-pack when an installation or update is requested.
 
 ## Migration
 
-Seven tool-oriented skills move to agent-skills with their existing names: orchestrate-subagents, small-model-handoff, fable5-model-routing, git-worktree-setup, commit-and-push, draft-pr, and python-coding-standards. See [migration](docs/migration.md) for installation-source changes and coordinated merge order.
+Seven tool-oriented skills moved to agent-skills with their existing names on 2026-09-17: orchestrate-subagents, small-model-handoff, fable5-model-routing, git-worktree-setup, commit-and-push, draft-pr, and python-coding-standards. See [migration](docs/migration.md) for the moved packages and installation-source changes.
 
 Old plans remain readable. Their known dependencies and completed records still matter; future stages can be revised as findings arrive. No bulk conversion of project files is required.
 

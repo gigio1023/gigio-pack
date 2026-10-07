@@ -1,6 +1,6 @@
 # Harness Source Notes
 
-Research refreshed on 2026-07-10 from temporary local checkouts. Every repository was updated with a fast-forward-only pull before review. The revisions below make the research basis reproducible; they are not runtime dependencies of the skill.
+Research refreshed on 2026-07-10 from temporary local checkouts. Every repository was updated with a fast-forward-only pull before review. The revisions below make the research basis reproducible; they are not runtime dependencies of the skill. On 2026-10-07 every cited repository still existed unarchived and every pinned revision still resolved; the material was not re-reviewed.
 
 ## Primary Source
 

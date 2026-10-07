@@ -32,9 +32,9 @@ Bring a proposed change of research question, project goal, success criterion, o
 
 Ask before a long new activity, such as two to three days or more, unless the user already authorized that activity and its bounds. Also respect narrower project limits and material cost, shared-resource, or external-effect constraints. A fast action is not automatically authorized if it changes those boundaries.
 
-## Coordinate only as needed
+## Coordinate workers
 
-Execution works sequentially. If delegation is requested or authorized by applicable instructions and improves the task, use available orchestration support. Give workers the objective, sources, task boundaries, relevant skills, expected result, and existing grants. Name project and plan paths without copying whole records.
+An explicit user choice about delegation governs, including whether to delegate, how many workers, and the budget. Without one, the lead decides. Once the direction is settled and the questions that would change the work are answered, dispatch the ready independent tasks through orchestrate-subagents, which carries the dispatch defaults and their limits. Keep work sequential where each step depends on the previous result. Give workers the objective, sources, task boundaries, relevant skills, expected result, existing grants, and the decisions already made, so they finish without routing routine questions back. Name project and plan paths without copying whole records. Delegation adds no authority beyond the existing grants.
 
 Partition shared writes and live-job ownership before parallel work. Read-only workers can examine the same sources. Do not duplicate a running experiment because its original session lost a handle. The lead integrates findings and owns project digest and plan updates unless another owner is established.
 

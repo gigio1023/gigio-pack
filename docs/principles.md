@@ -22,7 +22,7 @@ The current next action must be visible. Preserve consequential history without 
 
 Inspect the source, experiment output, artifact, or implemented behavior needed for a claim. A read-only finding can complete a task. A negative or inconclusive result can finish a bounded investigation while leaving the larger decision open.
 
-Separate preparation, execution, validation, and interpretation. A command proves only what it checks. Use an independent reviewer when authorized and useful, and never label a self-review independent.
+Separate preparation, execution, validation, and interpretation. A command proves only what it checks. Use an independent reviewer when useful; an explicit user choice about delegation governs, and without one the lead decides. Never label a self-review independent.
 
 ## Keep the system small
 

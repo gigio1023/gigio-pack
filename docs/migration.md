@@ -1,6 +1,6 @@
 # Repository Responsibilities and Migration
 
-This change keeps the three repositories independent. Gigio maintains project context; agent-skills maintains reusable execution and production capabilities; research-credo maintains research methods.
+The migration completed on 2026-09-17 and keeps the three repositories independent. Gigio maintains project context; agent-skills maintains reusable execution and production capabilities; research-credo maintains research methods.
 
 ## Moved packages
 
@@ -16,13 +16,13 @@ This change keeps the three repositories independent. Gigio maintains project co
 
 Names and helper resources are preserved. No duplicate discoverable compatibility packages remain in Gigio. Existing local project records are not migrated or deleted.
 
-## Coordinated publication
+## Publication and installation
 
-Review the destination packages before merging source removals. The companion agent-skills PR also moves evaluation-operations and internal-source-research into research-credo. Merge research-credo first, then the agent-skills changes, then Gigio. Update installations only after the selected revisions are available, or explicitly install the reviewed PR branches.
+The three pull requests merged on 2026-09-17 in dependency order: research-credo #5, agent-skills #57, then Gigio Pack #22. The agent-skills change also moved evaluation-operations and internal-source-research into research-credo.
 
 Use the existing install-skill-pack workflow to add the moved names from the destination repository and verify that the installed source metadata points there. Same-name installs may overwrite the old deployed copy: preserve local customizations first. A source removal alone does not remove an installed skill or update its tracked origin.
 
-Installations are separate from PR publication. Do not uninstall first, point to an unmerged main, or install two competing copies of the same name.
+Installations are separate from PR publication. Do not uninstall first or install two competing copies of the same name.
 
 ## Existing plans and shared documents
 
